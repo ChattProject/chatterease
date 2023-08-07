@@ -1,9 +1,10 @@
 import { useState } from "react";
-import './Chat.css';
+import "./Chat.css";
 import { InputMessage } from "../InputMessage/InputMessage";
 import { ShowMessage } from "../ShowMessage/ShowMessage";
+import { Link } from "react-router-dom";
 
-export const Chat = ({ list, userName, setUserName, addMessageToChat }) => {
+export const Chat = ({ messages, userName, setUserName, addMessageToChat }) => {
   const [message, setMessage] = useState("");
   const [userNameTemporary, setUserNameTemporary] = useState("");
 
@@ -11,8 +12,13 @@ export const Chat = ({ list, userName, setUserName, addMessageToChat }) => {
     <>
       {" "}
       <div className="Chat">
+        <Link to={"/chats"}>
+          <button>
+            Go back
+          </button>
+        </Link>
         <ShowMessage
-          messages={list}
+          messages={messages}
           message={message}
           userName={userName}
           userNameTemporary={userNameTemporary}

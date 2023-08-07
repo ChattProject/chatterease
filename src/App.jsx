@@ -1,19 +1,36 @@
 import "./App.css";
 import "./_reset.css";
-import { useEffect, useState } from "react";
-import { EnterWindow } from "./components/EnterWindow/EnterWindow";
+import { useState } from "react";
 import { ChatList } from "./components/ChatList/ChatList";
 import { useDispatch, useSelector } from "react-redux";
+import { Navigate, Route, Routes } from "react-router-dom";
+import { Home } from "./components/Home/Home";
+import { NewChat } from "./components/NewChat/NewChat";
+import { addChat, addMessage } from "./actions/actions";
+import { Chat } from "./components/Chat/Chat";
 
 function App() {
   const allChats = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  const [enter, setEnter] = useState(false);
   const [userName, setUserName] = useState("none");
+  const [selectedChatIndex, setSelectedChatIndex] = useState(null);
 
   const removeUserName = () => {
     setUserName("");
+  };
+
+  const addNewChat = (title) => {
+    const newChat = {
+      id: Date.now(),
+      title: title,
+      messages: [],
+    };
+    dispatch(addChat(newChat));
+  };
+
+  const addMessageToChat = (message) => {
+    dispatch(addMessage(selectedChatIndex, message));
   };
 
   return (
@@ -22,25 +39,51 @@ function App() {
         <div>
           HI{userName === "none" || userName === "" ? "!" : `, ${userName}!`}
         </div>
-        {(userName !== "none" && userName !== "") && (
+        {userName !== "none" && userName !== "" && (
           <button onClick={removeUserName}>Quit</button>
         )}
       </header>
-      {!enter ? (
-        <EnterWindow
-          setEnter={setEnter}
-          userName={userName}
-          setUserName={setUserName}
+      <Routes>
+        <Route
+          exact
+          path="/"
+          element={
+            <Home
+              userName={userName}
+              setUserName={setUserName}
+              allChats={allChats}
+            />
+          }
         />
-      ) : (
-        <>
-          <ChatList
-            chatsList={allChats}
-            userName={userName}
-            setUserName={setUserName}
-          />
-        </>
-      )}
+        <Route path="/home" element={<Navigate to="" replace />} />
+        <Route
+          exact
+          path="/chats"
+          element={
+            <ChatList
+              chatsList={allChats}
+              setSelectedChatIndex={setSelectedChatIndex}
+            />
+          }
+        />
+        <Route
+          exact
+          path="/newchat"
+          element={<NewChat addNewChat={addNewChat} />}
+        />
+        <Route
+          exact
+          path="/chat/:chatTitle"
+          element={
+            <Chat
+              messages={allChats[selectedChatIndex]?.messages}
+              userName={userName}
+              setUserName={setUserName}
+              addMessageToChat={addMessageToChat}
+            />
+          }
+        />
+      </Routes>
     </div>
   );
 }

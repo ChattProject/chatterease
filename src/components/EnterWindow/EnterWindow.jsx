@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./EnterWindow.css";
+import { Link } from "react-router-dom";
 
 export const EnterWindow = ({ setEnter, userName, setUserName }) => {
   const [inputName, setInputName] = useState("");
@@ -38,10 +39,14 @@ export const EnterWindow = ({ setEnter, userName, setUserName }) => {
           value={inputName}
           onChange={handleInputChange}
         />
-        <button type="submit">Save name</button>
-        <button type="button" onClick={handleDontSetUserName}>
-          Do it later
-        </button>
+        <Link to={"/chats"}>
+          <button type="submit">Save name</button>
+        </Link>
+        <Link to={"/chats"}>
+          <button type="button" onClick={handleDontSetUserName}>
+            Do it later
+          </button>
+        </Link>
       </form>
     </div>
   );
