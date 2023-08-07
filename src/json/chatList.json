@@ -1,0 +1,50 @@
+[
+  {
+    "id": 971246,
+    "title": "Sports",
+    "messages": [
+      {
+        "id": 3920,
+        "posted": "August 3, 2023 12:30:45",
+        "user": "Anna",
+        "text":  "Do every day"
+      },
+      {
+        "id": 3916,
+        "posted": "August 2, 2023 12:33:45",
+        "user": "Eugen",
+        "text":  "It's too much"
+      },
+      {
+        "id": 220,
+        "posted": "August 1, 2023 17:50:45",
+        "user": "Lucas",
+        "text":  "I agree"
+      }
+    ]
+  },
+  {
+    "id": 97124556,
+    "title": "Cooking",
+    "messages": [
+      {
+        "id": 68,
+        "posted": "August 1, 2023 22:30:45",
+        "user": "Mike",
+        "text":  "Pizza"
+      },
+      {
+        "id": 912,
+        "posted": "August 2, 2023 09:30:45",
+        "user": "Tara",
+        "text":  "Sushi"
+      },
+      {
+        "id": 1220,
+        "posted": "August 1, 2023 14:01:45",
+        "user": "Lucas",
+        "text":  "Cake"
+      }
+    ]
+  }
+]
