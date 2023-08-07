@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./ShowMessage.css";
 export const ShowMessage = ({ messages, message, userName, userNameTemporary }) => {
   function getDate(posted) {

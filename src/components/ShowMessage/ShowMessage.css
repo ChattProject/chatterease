@@ -2,7 +2,8 @@
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
-  background-color: #61dafb;
+  padding: 20px;
+  background-color: #b4d1ee;
 }
 .show_message__messages {
   display: -webkit-box;
@@ -15,7 +16,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 }
 
 .message {

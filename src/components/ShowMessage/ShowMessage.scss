@@ -1,12 +1,13 @@
 .show_message {
   height: min-content;
-  background-color: #61dafb;
+  padding: 20px;
+  background-color: #b4d1ee;
 
   &__messages {
   display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
  }
 }
 
