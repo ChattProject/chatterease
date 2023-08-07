@@ -4,13 +4,14 @@ import { InputMessage } from "../InputMessage/InputMessage";
 import { ShowMessage } from "../ShowMessage/ShowMessage";
 import { Link } from "react-router-dom";
 
-export const Chat = ({ messages, userName, setUserName, addMessageToChat }) => {
+export const Chat = ({ chatTitle, messages, userName, setUserName, addMessageToChat }) => {
   const [message, setMessage] = useState("");
   const [userNameTemporary, setUserNameTemporary] = useState("");
 
   return (
     <>
       {" "}
+      <div>{chatTitle}</div>
       <div className="Chat">
         <Link to={"/chats"}>
           <button>

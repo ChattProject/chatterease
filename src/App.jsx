@@ -76,6 +76,7 @@ function App() {
           path="/chat/:chatTitle"
           element={
             <Chat
+              chatTitle={allChats[selectedChatIndex]?.title}
               messages={allChats[selectedChatIndex]?.messages}
               userName={userName}
               setUserName={setUserName}

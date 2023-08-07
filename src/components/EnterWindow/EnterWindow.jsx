@@ -1,29 +1,29 @@
 import React, { useState } from "react";
 import "./EnterWindow.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-export const EnterWindow = ({ setEnter, userName, setUserName }) => {
-  const [inputName, setInputName] = useState("");
+export const EnterWindow = ({ userName, setUserName }) => {
+  const navigate = useNavigate();
+  const [inputValue, setInputValue] = useState("");
 
   const handleSetName = () => {
-    setUserName(inputName);
-    setEnter(true);
+    setUserName(inputValue);
   };
 
-  const handleDontSetUserName = () => {
+  const handleDontsetUserName = () => {
     setUserName("");
-    setEnter(true);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (inputName.trim() !== "") {
+    if (inputValue.trim() !== "") {
       handleSetName();
+      navigate("/chats");
     }
   };
 
   const handleInputChange = (event) => {
-    setInputName(event.target.value);
+    setInputValue(event.target.value);
   };
 
   return (
@@ -36,14 +36,12 @@ export const EnterWindow = ({ setEnter, userName, setUserName }) => {
         <input
           type="text"
           id="form__user_name"
-          value={inputName}
+          value={inputValue}
           onChange={handleInputChange}
         />
+        <button type="submit">Save name</button>
         <Link to={"/chats"}>
-          <button type="submit">Save name</button>
-        </Link>
-        <Link to={"/chats"}>
-          <button type="button" onClick={handleDontSetUserName}>
+          <button type="button" onClick={handleDontsetUserName}>
             Do it later
           </button>
         </Link>
