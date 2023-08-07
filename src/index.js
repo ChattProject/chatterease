@@ -5,14 +5,14 @@ import store from "./store";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import App from "./App";
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
-    <Router>
+    <HashRouter>
       <App />
-    </Router>
+    </HashRouter>
   </Provider>
 );
 
