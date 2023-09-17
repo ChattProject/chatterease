@@ -1,14 +1,13 @@
 import "./App.css";
-import "./_reset.css";
 import { useState } from "react";
-import { ChatList } from "./components/ChatList/ChatList";
+import { ChatList } from "./pages/ChatList/ChatList";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { Home } from "./components/Home/Home";
 import { NewChat } from "./components/NewChat/NewChat";
 import { addChat, addMessage } from "./actions/actions";
-import { Chat } from "./components/Chat/Chat";
+import { Chat } from "./pages/Chat/Chat";
 import { Header } from "./components/Header/Header";
+import { Home } from "./pages/Home/Home";
 
 function App() {
   const allChats = useSelector((state) => state);

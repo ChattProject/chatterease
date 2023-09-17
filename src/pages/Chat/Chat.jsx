@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Chat.css";
-import { InputMessage } from "../InputMessage/InputMessage";
-import { ShowMessage } from "../ShowMessage/ShowMessage";
+import { InputMessage } from "../../components/InputMessage/InputMessage";
+import { ShowMessage } from "../../components/ShowMessage/ShowMessage";
 import { Link } from "react-router-dom";
 
 export const Chat = ({ chatTitle, messages, userName, setUserName, addMessageToChat }) => {

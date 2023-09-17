@@ -1,10 +1,7 @@
 import "./ChatList.css";
 import { Link } from "react-router-dom";
 
-export const ChatList = ({
-  chatsList,
-  setSelectedChatIndex,
-}) => {
+export const ChatList = ({ chatsList, setSelectedChatIndex }) => {
   const handleGoButtonClick = (index) => {
     setSelectedChatIndex(index);
   };
@@ -13,24 +10,23 @@ export const ChatList = ({
     <>
       <div className="ChatList">
         <div>
-          <div>You can choose any chat</div>
+          <div>Обери тему і розпочни спілкування прямо зараз</div>
+          <input type="text" name="search" id="search" />
           <ul>
             {chatsList.map((chat, index) => (
               <li key={chat.id}>
-                <div>{chat.title}</div>
                 <Link to={`/chat/${chat.title.toLowerCase()}`}>
-                  <button onClick={() => handleGoButtonClick(index)}>
-                    Go!
-                  </button>
+                  <div onClick={() => handleGoButtonClick(index)}>
+                    {chat.title}
+                  </div>
                 </Link>
               </li>
             ))}
           </ul>
           <div>
-            <div>Or create your own chat</div>
-            <Link to={"/newchat"}>
-              <button>Add chat</button>
-            </Link>
+            <div>
+              <Link to={"/newchat"}>Створити власний чат</Link>
+            </div>
           </div>
         </div>
       </div>
