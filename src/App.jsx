@@ -8,6 +8,7 @@ import { Home } from "./components/Home/Home";
 import { NewChat } from "./components/NewChat/NewChat";
 import { addChat, addMessage } from "./actions/actions";
 import { Chat } from "./components/Chat/Chat";
+import { Header } from "./components/Header/Header";
 
 function App() {
   const allChats = useSelector((state) => state);
@@ -35,27 +36,10 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        <div>
-          HI{userName === "none" || userName === "" ? "!" : `, ${userName}!`}
-        </div>
-        {userName !== "none" && userName !== "" && (
-          <button onClick={removeUserName}>Quit</button>
-        )}
-      </header>
+      <Header />
       <Routes>
-        <Route
-          exact
-          path="/"
-          element={
-            <Home
-              userName={userName}
-              setUserName={setUserName}
-              allChats={allChats}
-            />
-          }
-        />
-        <Route path="/home" element={<Navigate to="" replace />} />
+        <Route exact path="/" element={<Home />} />
+        <Route path="/home" element={<Navigate to="/" replace />} />
         <Route
           exact
           path="/chats"
