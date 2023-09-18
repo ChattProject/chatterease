@@ -2,8 +2,6 @@
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
-  padding: 20px;
-  background-color: #b4d1ee;
 }
 .show_message__messages {
   display: -webkit-box;
@@ -21,5 +19,12 @@
 
 .message {
   width: 50%;
-  border: black solid 1px;
-}/*# sourceMappingURL=ShowMessage.css.map */
+  text-align: left;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+.message_right {
+  text-align: right;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}/*# sourceMappingURL=ShowMessages.css.map */

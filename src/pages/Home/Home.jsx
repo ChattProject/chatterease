@@ -1,3 +1,4 @@
+// import './Home.scss';
 import { useState, React } from "react";
 import { Welcome } from "../../components/Home/Welcome/Welcome";
 import { Greeting } from "../../components/Home/Greeting/Greeting";

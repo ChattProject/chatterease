@@ -1,3 +1,13 @@
 .greeting {
   padding: 50px 0;
+}
+.greeting__numbers {
+  margin-top: 3.2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 0.8em;
 }/*# sourceMappingURL=Greeting.css.map */

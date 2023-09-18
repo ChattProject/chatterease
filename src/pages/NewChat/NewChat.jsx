@@ -15,12 +15,12 @@ export const NewChat = ({ addNewChat }) => {
     if (newChatTitle.trim() !== "") {
       addNewChat(newChatTitle);
       setNewChatTitle("");
-      navigate("/chats"); // Navigate to the '/chats' page after creating the chat
+      navigate("/chats");
     }
   };
 
   return (
-    <div className="NewChat">
+    <div className="newchat">
       <div className="newchat__header">
         Створіть власний чат для спілкування
       </div>

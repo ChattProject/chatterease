@@ -1,6 +1,61 @@
 .chatlist {
+  position: relative;
+  min-height: 968px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // height: 100%;
   padding: 20px;
-  background-color: #b4eed1;
+  background: url("../../images/chatList/background.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &__container {
+    // margin: auto 106px;
+  }
+
+  &__header {
+    margin: 0 auto 30px;
+    width: 60%;
+    color: $black;
+    font-family: $montserrat-alternates;
+    font-size: 3.2em;
+    // line-height: 4em;
+    font-weight: 600;
+  }
+
+  &__search {
+    position: relative;
+    margin: 0 auto 32px;
+    width: 60%;
+    height: 44px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      // margin: 10px 0 10px 8px;
+      top: 10px;
+      left: 8px;
+      background-image: url("../../images/chatList/search.svg");
+      z-index: 1;
+    }
+  }
+
+  &__input {
+    position: relative;
+    border: 0;
+    width: 100%;
+    height: 100%;
+    padding-left: 40px;
+    color: $grey-default;
+    background: $white;
+    border-radius: 3px;
+    border: $grey-default 1px solid;
+    // box-shadow: 0px 8px 15px rgba($black, 0.1);
+    transition: all 0.4s ease;
+  }
 
   &__list {
     display: flex;
@@ -8,13 +63,55 @@
     justify-content: center;
     gap: 16px;
   }
+
   &__item {
+    padding: 2px;
+    max-height: 44px;
+    display: flex;
+    align-items: center;
     border: solid $black 1px;
     border-radius: 3px;
     background-color: $white;
-    color: $black;
+
+    &:has(.chatlist__link:focus) {
+      background-color: inherit;
+    }
+
+    &:hover {
+      background-color: inherit;
+
+      & > .chatlist__link {
+        background-color: $green-dark;
+        color: $white;
+      }
+    }
   }
   &__link {
-    padding: 15px;
+    padding: 11px;
+    background-color: $white;
+
+    &:focus {
+      background-color: $green;
+      color: $white;
+    }
+  }
+
+  &__more {
+    &:has(.chatlist__more_link:focus) {
+      // padding: 0;
+      background-color: $white;
+      border: $green solid 4px;
+    }
+
+    &_link {
+      font-weight: 500;
+      // border-radius: 3px;
+
+      &:focus {
+        padding: 10px;
+        background-color: inherit;
+        color: $black;
+      }
+    }
   }
 }

@@ -14,6 +14,14 @@ export const Login = ({ setUserName, userName }) => {
     }
   }, [setUserName]);
 
+  useEffect(() => {
+    if (inputValue.length > 3 && inputValue.length < 10) {
+      setError(false);
+    } else {
+      setError(true);
+    }
+  }, [inputValue]);
+
   const handleSetName = () => {
     setUserName(inputValue);
     sessionStorage.setItem("userName", inputValue);
@@ -39,14 +47,14 @@ export const Login = ({ setUserName, userName }) => {
         <div className="login__window">
           <div className="login__title">Розпочни спілкування прямо зараз</div>
           <form action="submit" className="login__form" onSubmit={handleSubmit}>
-            <label htmlFor="login" className="login__text">
+            <label htmlFor="login" className="login__text paragraph">
               Вигадай свій унікальний логін
             </label>
             <input
               type="text"
               placeholder="Логін"
               id="login"
-              className="login__name"
+              className={`login__name paragraph ${error ? 'login__name_error' : ""}`}
               value={inputValue}
               onChange={handleInputChange}
             />
@@ -55,7 +63,9 @@ export const Login = ({ setUserName, userName }) => {
             )}
             <button
               className={`login__button ${
-                inputValue !== "" ? "button-green" : ".button-green_disabled"
+                inputValue !== ""
+                  ? "button-green"
+                  : "button-green button-green_disabled"
               }`}
             >
               Почати спілкування

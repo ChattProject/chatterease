@@ -1,10 +1,9 @@
 .show_message {
   height: min-content;
-  padding: 20px;
-  background-color: #b4d1ee;
 
   &__messages {
-  display: flex;
+    padding: 24px 8px;
+    display: flex;
     align-items: center;
     flex-direction: column;
     gap: 20px;
@@ -13,7 +12,44 @@
 
 .message {
   width: 50%;
-  border: black solid 1px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+  align-self: flex-start;
+
+  &_right {
+    text-align: right;
+    align-self: flex-end;
+    align-items: end;
+  }
+
+  &__name {
+    font-size: 1.4em;
+    line-height: 1.4em;
+    font-weight: 500;
+    color: $white;
+  }
+
+  &__text {
+    padding: 8px;
+    max-width: 50%;
+    width: fit-content;
+    border-radius: 3px;
+    border: 1px solid $yellow;
+    background-color: $white;
+    font-size: 1.2em;
+    line-height: 1.3em;
+    font-weight: 400;
+  }
+
+  &__date {
+    font-size: 1.2em;
+    line-height: 1.3em;
+    font-weight: 400;
+    color: $white;
+  }
+
 }
 
 

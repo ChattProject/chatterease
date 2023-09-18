@@ -1,3 +1,5 @@
+// import './Welcome.scss';
+
 export const Welcome = () => {
   return (
     <>
