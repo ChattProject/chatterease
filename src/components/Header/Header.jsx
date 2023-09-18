@@ -3,7 +3,8 @@ export const Header = () => {
     <>
       <div className="header">
         <div className="header__title">
-          <img src="icon" alt="chat" className="header__logo" />
+          {/* <img src="icon" alt="chat" className="header__logo" /> */}
+          <div className="header__logo">CHATTER EASE</div>
           <div className="header__name">chatter ease</div>
         </div>
         <div className="header__additional">
