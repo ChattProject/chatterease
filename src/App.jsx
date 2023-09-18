@@ -6,8 +6,10 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { NewChat } from "./components/NewChat/NewChat";
 import { addChat, addMessage } from "./actions/actions";
 import { Chat } from "./pages/Chat/Chat";
-import { Header } from "./components/Header/Header";
+// import { Header } from "./components/Header/Header";
+
 import { Home } from "./pages/Home/Home";
+import { Header } from "./components/Header/Header";
 
 function App() {
   const allChats = useSelector((state) => state);
