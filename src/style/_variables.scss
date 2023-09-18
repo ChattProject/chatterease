@@ -15,7 +15,7 @@ $montserrat-alternates: "Montserrat Alternates", "Montserrat", "Roboto", "Open S
 .paragraph {
   font-family: $montserrat;
   font-size: 1.6em;
-  line-height: 1.25em;
+  // line-height: 1.25em;
   font-weight: 400;
   color: $black;
 }
@@ -23,7 +23,7 @@ $montserrat-alternates: "Montserrat Alternates", "Montserrat", "Roboto", "Open S
 @mixin button {
   font-family: $montserrat;
   font-size: 1.6em;
-  line-height: 1.25em;
+  // line-height: 1.25em;
   border: none;
   border-radius: 3px;
   color: $black;

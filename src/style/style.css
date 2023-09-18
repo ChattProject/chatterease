@@ -63,7 +63,6 @@ a {
 .paragraph {
   font-family: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
   font-size: 1.6em;
-  line-height: 1.25em;
   font-weight: 400;
   color: #292929;
 }
@@ -71,7 +70,6 @@ a {
 .button-default {
   font-family: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
   font-size: 1.6em;
-  line-height: 1.25em;
   border: none;
   border-radius: 3px;
   color: #292929;
@@ -84,7 +82,6 @@ a {
 .button-green {
   font-family: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
   font-size: 1.6em;
-  line-height: 1.25em;
   border: none;
   border-radius: 3px;
   color: #292929;
@@ -107,7 +104,6 @@ a {
 .button-yellow {
   font-family: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
   font-size: 1.6em;
-  line-height: 1.25em;
   border: none;
   border-radius: 3px;
   color: #292929;
@@ -336,6 +332,9 @@ body {
   text-align: right;
   -ms-flex-item-align: end;
       align-self: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
 }
 .message__name {
   font-size: 1.4em;
@@ -366,7 +365,7 @@ body {
 .input-message {
   position: fixed;
   bottom: 20px;
-  left: 0;
+  left: 7vw;
   width: 86vw;
 }
 .input-message__form {
@@ -385,8 +384,19 @@ body {
 }
 .input-message__input {
   position: relative;
+  width: 100%;
   padding: 30px 0 30px 44px;
   border: 1px solid #ADADAD;
+}
+.input-message__button {
+  position: absolute;
+  background-color: inherit;
+  right: 26px;
+  top: 26px;
+}
+.input-message__icon {
+  width: 24px;
+  height: 24px;
 }
 
 .chatpage {
