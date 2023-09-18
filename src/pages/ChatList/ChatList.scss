@@ -1,4 +1,20 @@
-.ChatList {
+.chatlist {
   padding: 20px;
   background-color: #b4eed1;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+  &__item {
+    border: solid $black 1px;
+    border-radius: 3px;
+    background-color: $white;
+    color: $black;
+  }
+  &__link {
+    padding: 15px;
+  }
 }

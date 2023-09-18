@@ -1,16 +1,19 @@
 // @import '~bootstrap/scss/bootstrap';
 @import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500;600&family=Montserrat:ital,wght@0,400;0,500;0,600;1,300&display=swap");
 @import "./_reset.scss";
+@import "./_variables.scss";
 
 @font-face {
-  font-family: 'PhosphateInline';
-  src: local('PhosphateInline'), url(../fonts/Phosphate_Inline/PhosphateInline.ttf) format('truetype');
+  font-family: "PhosphateInline";
+  src:
+    local("PhosphateInline"),
+    url(../fonts/Phosphate_Inline/PhosphateInline.ttf) format("truetype");
 }
 
-@import '../components/Header/Header.scss';
+@import "../components/Header/Header.scss";
 @import "../pages/Home/Home.scss";
-
+@import "../pages/ChatList/ChatList.scss";
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }

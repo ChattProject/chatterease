@@ -8,25 +8,32 @@ export const ChatList = ({ chatsList, setSelectedChatIndex }) => {
 
   return (
     <>
-      <div className="ChatList">
+      <div className="chatlist">
+        <div className="chatlist__header">
+          Обери тему і розпочни спілкування прямо зараз
+        </div>
+        <input
+          type="text"
+          name="search"
+          id="search"
+          className="chatlist__search"
+        />
+        <ul className="chatlist__list">
+          {chatsList.map((chat, index) => (
+            <li key={chat.id} className="chatlist__item">
+              <Link
+                to={`/chat/${chat.title.toLowerCase()}`}
+                onClick={() => handleGoButtonClick(index)}
+                className="chatlist__link"
+              >
+                {chat.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
         <div>
-          <div>Обери тему і розпочни спілкування прямо зараз</div>
-          <input type="text" name="search" id="search" />
-          <ul>
-            {chatsList.map((chat, index) => (
-              <li key={chat.id}>
-                <Link to={`/chat/${chat.title.toLowerCase()}`}>
-                  <div onClick={() => handleGoButtonClick(index)}>
-                    {chat.title}
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
           <div>
-            <div>
-              <Link to={"/newchat"}>Створити власний чат</Link>
-            </div>
+            <Link to={"/newchat"}>Створити власний чат</Link>
           </div>
         </div>
       </div>
