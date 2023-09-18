@@ -1,3 +1,5 @@
+import './GreetingPage.scss'
+
 export const GreetingPage = ({
   choosedPageIndex,
   page,

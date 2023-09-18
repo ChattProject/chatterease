@@ -1,5 +1,29 @@
+@import '../../style/variables.scss';
+
 .header {
-  &__logo {
-    font-family: 'PhosphateInline', sans-serif;
+  width: 100%;
+  background-color: $white-dark;
+
+  &__container {
+    max-width: 1248px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 16px 0;
+  }
+
+  &__additional{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+  }
+
+  &__info{
+    font: $montserrat;
+    font-size: 1.6em;
+    font-style: normal;
+    font-weight: 40em;
+    line-height: 2em;
   }
 }

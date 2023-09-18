@@ -2,6 +2,8 @@ import { useState } from "react";
 import greetingPages from "../../../json/greeting.json";
 import { GreetingPage } from "../GreetingPage/GreetingPage";
 
+import './Greeting.scss'
+
 export const Greeting = ({ setWelcome, setGreeting }) => {
   const [choosedPage, setChoosedPage] = useState(0);
   return (
