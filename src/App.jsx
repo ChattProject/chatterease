@@ -5,8 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { addChat, addMessage } from "./actions/actions";
 import { Chat } from "./pages/Chat/Chat";
-import { Header } from "./components/Header/Header";
+// import { Header } from "./components/Header/Header";
+
 import { Home } from "./pages/Home/Home";
+import { Header } from "./components/Header/Header";
 import { NewChat } from "./pages/NewChat/NewChat";
 import { Login } from "./pages/Login/Login";
 import { EndPage } from "./pages/EndPage/EndPage";
