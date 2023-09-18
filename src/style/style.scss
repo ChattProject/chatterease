@@ -15,5 +15,6 @@
 @import "../pages/ChatList/ChatList.scss";
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: $montserrat;
+  font-size: 10px;
 }

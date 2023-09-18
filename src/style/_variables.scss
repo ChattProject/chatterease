@@ -7,11 +7,12 @@ $grey: #dfe0df;
 $grey-dark: #555454;
 $yellow-dark: #feb706;
 $yellow: #fbca5c;
+$montserrat: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
 
 @mixin button {
-  font-family: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
-  font-size: 16px;
-  line-height: 20px;
+  font-family: $montserrat;
+  font-size: 1.6em;
+  line-height: 2em;
   border: none;
   border-radius: 3px;
   color: $black;
