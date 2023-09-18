@@ -1,19 +1,21 @@
+import { Link } from "react-router-dom";
+
 export const Header = () => {
   return (
     <>
       <div className="header">
-        <div className="header__title">
+        <Link to={"/home"} className="header__title">
           {/* <img src="icon" alt="chat" className="header__logo" /> */}
           <div className="header__logo">CHATTER EASE</div>
           <div className="header__name">chatter ease</div>
-        </div>
+        </Link>
         <div className="header__additional">
-          <div className="header__info header__rules">
+          <Link to={"/rules"} className="header__info header__rules">
             Правила користування
-          </div>
-          <div className="header__info header__help">
+          </Link>
+          <Link to={"/support"} className="header__info header__help">
             Технічна підтримка
-          </div>
+          </Link>
         </div>
       </div>
     </>

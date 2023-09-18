@@ -1,24 +1,29 @@
 import React, { useState } from "react";
 import "./EnterWindow.css";
 import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export const EnterWindow = ({ userName, setUserName }) => {
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState("");
 
+  useEffect(() => {
+    const storedUserName = sessionStorage.getItem("userName");
+    if (storedUserName) {
+      setUserName(storedUserName);
+    }
+  }, [setUserName]);
+
   const handleSetName = () => {
     setUserName(inputValue);
-  };
-
-  const handleDontsetUserName = () => {
-    setUserName("");
+    sessionStorage.setItem("userName", inputValue);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (inputValue.trim() !== "") {
       handleSetName();
-      navigate("/chats");
+      navigate(-1);
     }
   };
 
@@ -41,9 +46,9 @@ export const EnterWindow = ({ userName, setUserName }) => {
         />
         <button type="submit">Save name</button>
         <Link to={"/chats"}>
-          <button type="button" onClick={handleDontsetUserName}>
+          {/* <button type="button" onClick={handleDontsetUserName}>
             Do it later
-          </button>
+          </button> */}
         </Link>
       </form>
     </div>

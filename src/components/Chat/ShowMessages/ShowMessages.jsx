@@ -1,5 +1,4 @@
-import "./ShowMessage.css";
-export const ShowMessage = ({ messages, message, userName, userNameTemporary }) => {
+export const ShowMessages = ({ messages, message, userName }) => {
   function getDate(posted) {
     const date = new Date(posted);
 
@@ -43,17 +42,20 @@ export const ShowMessage = ({ messages, message, userName, userNameTemporary }) 
         <div className={"show_message__messages"}>
           {messages.map((card) => {
             return (
-              <div className={"show_message__message message"} key={card.id}>
-                <div className={"message__name"}>From: {card.user}</div>
-                <div className={"message__text"}>Message: {card.text}</div>
-                <div className={"message__date"}>{`Posted: ${getDate(
-                  card.posted
-                )}`}</div>
+              <div
+                className={`show_message__message message ${
+                  userName === card.user && "message_left"
+                }`}
+                key={card.id}
+              >
+                <div className={"message__name"}>{card.user}</div>
+                <div className={"message__text"}>{card.text}</div>
+                <div className={"message__date"}>{getDate(card.posted)}</div>
               </div>
             );
           })}
         </div>
-        {message && <div>{userName || userNameTemporary} is typing...</div>}
+        {message && <div>{userName} is typing...</div>}
       </div>
     </>
   );
