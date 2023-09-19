@@ -1,0 +1,20 @@
+@import '../../../style/variables.scss';
+
+.welcome{
+    width: 100%;
+    background: url("../../../images/welcome/bgAll.jpg");
+    background-size: cover;
+   
+    &__bg{
+        width: 100%;
+    }
+
+    &__text{
+        font-family: Montserrat Alternates;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 40px;
+// margin-top: 664px;
+    }
+}

@@ -1,11 +1,11 @@
 @import '../../style/variables.scss';
 
 .header {
-  width: 100%;
+  width: 100vw;
   background-color: $white-dark;
 
   &__container {
-    max-width: 1248px;
+    max-width: 87vw;
     display: flex;
     justify-content: space-between;
     margin: 0 auto;

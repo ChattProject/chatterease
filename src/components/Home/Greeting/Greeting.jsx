@@ -19,7 +19,7 @@ export const Greeting = ({ setWelcome, setGreeting }) => {
         <ul className="greeting__numbers">
           {[0, 1, 2].map((item) => (
             <li key={item}>
-              <button onClick={() => setChoosedPage(item)}>{item + 1}</button>
+              <button className="greeting__btn" onClick={() => setChoosedPage(item)}>{item + 1}</button>
             </li>
           ))}
           {/* <li>
