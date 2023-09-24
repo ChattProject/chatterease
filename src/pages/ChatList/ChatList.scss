@@ -1,6 +1,6 @@
 .chatlist {
   position: relative;
-  min-height: 968px;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,7 +11,7 @@
   background-position: center;
 
   &__container {
-    // margin: auto 106px;
+    width: 90%;
   }
 
   &__header {
@@ -58,6 +58,7 @@
   }
 
   &__list {
+    margin-bottom: 35px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -113,5 +114,26 @@
         color: $black;
       }
     }
+  }
+
+  &__newchat {
+    margin: auto;
+    width: fit-content;
+    background-color: $white;
+    border: 2px solid $green-dark;
+    border-radius: 3px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    // justify-content: center;
+
+    &:hover {
+      background-color: $green-dark;
+      color: $white;
+    }
+  }
+
+  &__addchat {
+    display: inline;
   }
 }

@@ -14,13 +14,13 @@ export const Login = ({ setUserName, userName }) => {
     }
   }, [setUserName]);
 
-  useEffect(() => {
-    if (inputValue.length > 3 && inputValue.length < 10) {
-      setError(false);
-    } else {
-      setError(true);
-    }
-  }, [inputValue]);
+  // useEffect(() => {
+  //   if (inputValue.length > 3 && inputValue.length < 10) {
+  //     setError(false);
+  //   } else {
+  //     setError(true);
+  //   }
+  // }, [inputValue]);
 
   const handleSetName = () => {
     setUserName(inputValue);
@@ -29,7 +29,7 @@ export const Login = ({ setUserName, userName }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (inputValue.length > 3 && inputValue.length < 10) {
+    if (inputValue.length > 2 && inputValue.length < 11) {
       handleSetName();
       setError(false);
       navigate(-1);
@@ -37,14 +37,21 @@ export const Login = ({ setUserName, userName }) => {
       setError(true);
     }
   };
+
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
+
+    if (inputValue.length > 2 && inputValue.length < 11) {
+      setError(false);
+    } else {
+      setError(true);
+    }
   };
 
   return (
     <>
       <div className="login">
-        <div className="login__window">
+        <div className="login__window window">
           <div className="login__title">Розпочни спілкування прямо зараз</div>
           <form action="submit" className="login__form" onSubmit={handleSubmit}>
             <label htmlFor="login" className="login__text paragraph">
@@ -54,7 +61,7 @@ export const Login = ({ setUserName, userName }) => {
               type="text"
               placeholder="Логін"
               id="login"
-              className={`login__name paragraph ${error ? 'login__name_error' : ""}`}
+              className={`login__name input paragraph ${error ? 'login__name_error' : ""}`}
               value={inputValue}
               onChange={handleInputChange}
             />

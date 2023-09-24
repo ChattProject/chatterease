@@ -2,9 +2,11 @@
 @import '../../components/Chat/InputMessage/InputMessage.scss';
 
 .chatpage {
-  height: 93%;
+  height: 100%;
+  position: relative;
+
   &__links {
-    margin-bottom: 25px;
+    padding: 26px 0;
     display: flex;
     gap: 24px;
     justify-content: space-between;
@@ -51,31 +53,45 @@
 }
 
 .chat {
-  height: 93%;
+  height: 100%;
   width: 86vw;
   background: url(../../images/chat/background_chat.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
   &__header {
     display: flex;
+    // flex-direction: column;
   }
 
   &__title {
-    padding-left: 24px;
+    padding: 0 24px;
     width: 83%;
     text-align: left;
+    display: flex;
+    // flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $yellow;
+  }
+  &__info {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 8px;
-    background-color: $yellow;
   }
 
   &__name {
     font-size: 2.4em;
     // line-height: 3.2em;
     font-weight: 600;
+  }
+
+  &__close {
+    width: 24px;
+    height: 24px;
+    padding: 0;
   }
 
   &__back {

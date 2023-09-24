@@ -8,7 +8,19 @@ body {
   font-size: 10px;
   color: $black;
   // background: url("../images/chatList/background.svg");
+}
 
+.app__chat {
+  position: fixed;
+  width: 86vw;
+  height: 92%;
+  margin: 0 7vw;
+  bottom: 0;
+  background-color: $white-dark;
+
+  & > * {
+    height: 100%;
+  }
 }
 
 @font-face {
@@ -18,9 +30,10 @@ body {
     url(../fonts/Phosphate_Inline/PhosphateInline.ttf) format("truetype");
 }
 
-
 @import "../components/Header/Header.scss";
 @import "../pages/Home/Home.scss";
 @import "../pages/ChatList/ChatList.scss";
-@import '../pages/Chat/Chat.scss';
-@import '../pages/Login/Login.scss';
+@import "../pages/Chat/Chat.scss";
+@import "../pages/Login/Login.scss";
+@import "../pages/NewChat/NewChat.scss";
+@import "../components/CloseSession/CloseSession.scss";

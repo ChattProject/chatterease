@@ -5,14 +5,20 @@ import { InputMessage } from "../../components/Chat/InputMessage/InputMessage";
 import { ShowMessages } from "../../components/Chat/ShowMessages/ShowMessages";
 import { CloseSession } from "../../components/CloseSession/CloseSession";
 
-export const Chat = ({ chatTitle, messages, userName, addMessageToChat }) => {
+export const Chat = ({
+  chat,
+  // chatTitle,
+  // messages,
+  userName,
+  addMessageToChat,
+}) => {
   const [message, setMessage] = useState("");
   const [isClosingChat, setIsClosingChat] = useState(false);
 
-  const handleChatClose = () => {
-    // Perform any necessary cleanup or actions before closing the chat
-    setIsClosingChat(true);
-  };
+  // const handleChatClose = () => {
+  //   // Perform any necessary cleanup or actions before closing the chat
+  //   setIsClosingChat(true);
+  // };
 
   return (
     <>
@@ -31,17 +37,28 @@ export const Chat = ({ chatTitle, messages, userName, addMessageToChat }) => {
         <div className="chatpage__chat chat">
           <div className="chat__header">
             <div className="chat__title">
-              <div className="chat__name">{chatTitle}</div>
-              <div className="chat__count paragraph">
-                23 учасників (повідомлень)
+              <div className="chat__info">
+                <div className="chat__name">{chat.title}</div>
+                <div className="chat__count paragraph">
+                  {chat.messages.length === 0
+                    ? "немає повідомлень"
+                    : `${chat.messages.length} повідомлень`}
+                </div>
               </div>
+              <button
+                type="button"
+                className="btn-close chat__close"
+                aria-label="Close"
+                onClick={() => setIsClosingChat(true)}
+              ></button>
             </div>
+
             <Link to={"/chats"} className="chat__back paragraph">
               Обрати інший чат
             </Link>
           </div>
           <ShowMessages
-            messages={messages}
+            messages={chat.messages}
             message={message}
             userName={userName}
           />

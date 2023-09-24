@@ -1,8 +1,37 @@
 .newchat {
-  
+  background: url("../../images/newChat/background.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  &__window {
+    position: relative;
+  }
+
+  &__close {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 24px;
+    height: 24px;
+  }
+
   &__header {
-    font-size: 2.4em;
-    line-height: 1.33em;
-    font-weight: 400;
+    margin-bottom: 10%;
+  }
+
+  &__form {
+    margin: auto;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    margin-bottom: 15px;
+  }
+
+  &__input {
+    width: 100%;
+    margin-bottom: 34px;
   }
 }

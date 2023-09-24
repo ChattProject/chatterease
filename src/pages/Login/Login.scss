@@ -6,13 +6,7 @@
   background-repeat: no-repeat;
 
   &__window {
-    position: relative;
-    top: 25%;
-    left: 25%;
-    padding: 100px 80px;
-    width: 50%;
-    background-color: #FFFFF3;
-    box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.25);
+
   }
 
   &__title {
@@ -30,10 +24,7 @@
   }
 
   &__name {
-    padding: 10px 8px;
-    color: $grey-default;
-    border-radius: 3px;
-    border: 1px $grey-default solid;
+
 
     &_error {
       color: #BD0B00;

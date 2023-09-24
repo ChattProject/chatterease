@@ -1,13 +1,27 @@
 .show_message {
-  height: min-content;
+  // height: min-content;
+  position: relative;
+  max-height: 72%;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  &__up {
+    position: fixed;
+    bottom: 12%;
+    right: 8vw;
+    background-color: inherit;
+  }
 
   &__messages {
+    height: min-content;
     padding: 24px 8px;
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 20px;
- }
+    overflow-y: auto;
+  }
 }
 
 .message {
@@ -49,7 +63,4 @@
     font-weight: 400;
     color: $white;
   }
-
 }
-
-

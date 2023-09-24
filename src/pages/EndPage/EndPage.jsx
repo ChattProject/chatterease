@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export const EndPage = ({  }) => {
+export const EndPage = () => {
   return (
     <>
       <div className="endpage">

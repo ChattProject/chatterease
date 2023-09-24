@@ -1,0 +1,61 @@
+.close {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Enable scroll if needed */
+  background-color: rgba(173, 173, 173, 0.4);
+  /* Black w/ opacity */
+
+  &__content {
+    position: relative;
+    margin: 35vh auto;
+    width: 40vw;
+    padding: 24px 35px 24px 60px;
+    background-color: $yellow-dark;
+    border: 1px solid #888;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 26px;
+    left: 16px;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+    text-align: left;
+  }
+
+  &__question {
+    margin-bottom: 16px;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 24px;
+  }
+
+  &__button {
+    &:hover {
+      background-color: $green;
+      color: $white;
+    }
+    &_yes {
+      background-color: $grey;
+    }
+
+    &_no {
+      background-color: $white-dark;
+    }
+  }
+}

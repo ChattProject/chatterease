@@ -1,8 +1,10 @@
 /* @import './style/style.css'; */
 .App {
-  width: 86vw;
+  position: relative;
+  /* width: 86vw; */
   height: 100vh;
-  margin: 0 auto;
   text-align: center;
-  
+  overflow: hidden;
 }
+
+
