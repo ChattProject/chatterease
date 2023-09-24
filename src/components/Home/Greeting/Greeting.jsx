@@ -13,7 +13,7 @@ export const Greeting = ({ setWelcome, setGreeting }) => {
   return (
     <>
       <div className="greeting">
-        <div className="greeting__container">
+        {/* <div className="greeting__container"> */}
           <GreetingPage
             choosedPageIndex={choosedPage}
             page={greetingPages[choosedPage]}
@@ -35,7 +35,7 @@ export const Greeting = ({ setWelcome, setGreeting }) => {
               </li>
             ))}
           </ul>
-        </div>
+        {/* </div> */}
       </div>
     </>
   );

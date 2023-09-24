@@ -1,12 +1,12 @@
 /* @import './style/style.css'; */
 .App {
   position: relative;
+  overflow: scroll;
   /* width: 86vw; */
   height: 100vh;
   text-align: center;
   /* overflow: hidden; */
   /* padding: 20px; */
-  position: relative;
   /* background-color: #f6f6d9; */
 }
 
