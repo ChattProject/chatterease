@@ -33,9 +33,20 @@
         height: auto;
         width: 56%;
     }
-    &__button-green {
-        &:hover {
-            background-color: $green-dark;
+
+    &__buttons_two {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+    }
+    &__button {
+        width: 268px;
+        &-green {
+            &:hover {
+                background-color: $green-dark;
+            }
         }
     }
 

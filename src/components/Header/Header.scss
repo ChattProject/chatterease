@@ -6,12 +6,12 @@
   left: 0;
   width: 100%;
   min-height: 72px;
-  height: 8%;
+  height: 8vh;
   // margin-bottom: 25px;
   background-color: $white-dark;
   display: flex;
   align-items: center;
-  // z-index: 1;
+  z-index: 1;
 
   &__container {
     width: 87vw;
