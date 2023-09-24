@@ -1,15 +1,30 @@
 {
   "files": {
-    "main.css": "/project-chat/static/css/main.dd7a8590.css",
-    "main.js": "/project-chat/static/js/main.28e76232.js",
-    "static/js/787.d60e029d.chunk.js": "/project-chat/static/js/787.d60e029d.chunk.js",
-    "index.html": "/project-chat/index.html",
-    "main.dd7a8590.css.map": "/project-chat/static/css/main.dd7a8590.css.map",
-    "main.28e76232.js.map": "/project-chat/static/js/main.28e76232.js.map",
-    "787.d60e029d.chunk.js.map": "/project-chat/static/js/787.d60e029d.chunk.js.map"
+    "main.css": "/chatterease/static/css/main.ddd00b35.css",
+    "main.js": "/chatterease/static/js/main.8c14c98d.js",
+    "static/js/787.8defb542.chunk.js": "/chatterease/static/js/787.8defb542.chunk.js",
+    "static/media/bgAll.jpg": "/chatterease/static/media/bgAll.52ce6ed23e85ed2dea3c.jpg",
+    "static/media/bgSupport.jpg": "/chatterease/static/media/bgSupport.6c2096f19cd6dbdb8698.jpg",
+    "static/media/background_chat.svg": "/chatterease/static/media/background_chat.69d7a011296f4f02d718.svg",
+    "static/media/background.svg": "/chatterease/static/media/background.1f97872e67bb7b62e790.svg",
+    "static/media/PhosphateInline.ttf": "/chatterease/static/media/PhosphateInline.acf114b8fb5f121b3312.ttf",
+    "static/media/Logo.svg": "/chatterease/static/media/Logo.b6d82cafe2e10bd2b7da64c5ccec863a.svg",
+    "static/media/standing_page2.svg": "/chatterease/static/media/standing_page2.15fb8f5d894523c2b03b.svg",
+    "static/media/sitting_page1.svg": "/chatterease/static/media/sitting_page1.e325e7e63d46471ce80f.svg",
+    "static/media/standing_page3.svg": "/chatterease/static/media/standing_page3.39b267904581ba1a255b.svg",
+    "static/media/emoji.svg": "/chatterease/static/media/emoji.4fccd2dc264f9f0f7be0.svg",
+    "static/media/create.svg": "/chatterease/static/media/create.338e1c5a817eafa3ee40ed8e549c7e75.svg",
+    "static/media/warning.svg": "/chatterease/static/media/warning.e89907aedc656345bace7b94d9771b22.svg",
+    "index.html": "/chatterease/index.html",
+    "static/media/up.svg": "/chatterease/static/media/up.bf68feec85893668d7828228d0df74a4.svg",
+    "static/media/send.svg": "/chatterease/static/media/send.62c3376d7f5a2b537c2b36430a9659a3.svg",
+    "static/media/search.svg": "/chatterease/static/media/search.e23a57ad6c7f5f7ba16a.svg",
+    "main.ddd00b35.css.map": "/chatterease/static/css/main.ddd00b35.css.map",
+    "main.8c14c98d.js.map": "/chatterease/static/js/main.8c14c98d.js.map",
+    "787.8defb542.chunk.js.map": "/chatterease/static/js/787.8defb542.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dd7a8590.css",
-    "static/js/main.28e76232.js"
+    "static/css/main.ddd00b35.css",
+    "static/js/main.8c14c98d.js"
   ]
 }
