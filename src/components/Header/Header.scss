@@ -8,14 +8,17 @@
   height: 8%;
   // margin-bottom: 25px;
   background-color: $white-dark;
+  display: flex;
+  align-items: center;
   // z-index: 1;
 
   &__container {
-    max-width: 87vw;
+    width: 87vw;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin: 0 auto;
-    padding: 16px 0;
+    
   }
 
   &__additional{

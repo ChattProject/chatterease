@@ -2,11 +2,16 @@
 // @import '../../../style/variables.scss';
 
 .greeting {
-  padding: 119px 0 50px 0;
-  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+  &__container {
+    position: relative;
 
-  &__numbers{
+  }
+  &__numbers {
     margin-top: 3.2em;
     display: flex;
     justify-content: center;
