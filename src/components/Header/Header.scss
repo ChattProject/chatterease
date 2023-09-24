@@ -3,6 +3,10 @@
 .header {
   width: 100vw;
   background-color: $white-dark;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 1;
 
   &__container {
     max-width: 87vw;

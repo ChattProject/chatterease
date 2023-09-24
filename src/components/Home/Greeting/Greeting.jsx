@@ -6,6 +6,11 @@ import './Greeting.scss'
 
 export const Greeting = ({ setWelcome, setGreeting }) => {
   const [choosedPage, setChoosedPage] = useState(0);
+
+  const handlePageClick = (pageIndex) => {
+    setChoosedPage(pageIndex);
+  };
+
   return (
     <>
       <div className="greeting">
@@ -19,18 +24,14 @@ export const Greeting = ({ setWelcome, setGreeting }) => {
         <ul className="greeting__numbers">
           {[0, 1, 2].map((item) => (
             <li key={item}>
-              <button className="greeting__btn" onClick={() => setChoosedPage(item)}>{item + 1}</button>
+              <button
+                className={`greeting__btn ${item === choosedPage ? 'active' : ''}`}
+                onClick={() => handlePageClick(item)}
+              >
+                {item + 1}
+              </button>
             </li>
           ))}
-          {/* <li>
-            <button onClick={setChoosedPage(0)}>1</button>
-          </li>
-          <li>
-            <button onClick={setChoosedPage(1)}>2</button>
-          </li>
-          <li>
-            <button onClick={setChoosedPage(2)}>3</button>
-          </li> */}
         </ul>
       </div>
     </>

@@ -1,0 +1,43 @@
+@import '../../style/variables.scss';
+
+.rules{
+
+    &__title{
+        font-family: Montserrat Alternates;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 40px; 
+        margin: 8vw auto 3vw;
+    }
+
+    &__list{
+        margin-left: 6.5vw;
+        max-width: 80vw;
+    }
+
+    &__item{
+        display: flex;
+        align-items: center;
+        font: $montserrat;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        text-align: justify;
+        margin-bottom: 32px;
+
+        &:before{
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: $green;
+            content: ""; 
+            margin-right: 10px;
+            text-align: center;
+            margin-right: 16px;
+        }
+     }
+    
+    
+}

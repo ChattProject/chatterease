@@ -1,29 +1,27 @@
 @import '../../../style/_variables.scss';
 
-.greetings-border{
+.greetings-border {
     border-radius: 3px;
     border: 1px dashed $yellow-dark;
     width: 712px;
     margin: 0 auto;
     padding: 24px;
 }
-.greetings{
-    max-width: 71.2em;
+
+.greetings {
+    max-width: 712px;
     background-color: $yellow;
     margin: 0 auto;
-    // margin-top: 7.1em;
     padding: 4em 10em;
 
-
-    &__title{
+    &__title {
         font-size: 2.4em;
         font-weight: 600;
         line-height: 3.2em;
         text-align: center;
-    
     }
 
-    &__description{
+    &__description {
         font: $montserrat;
         font-size: 1.6em;
         font-style: normal;
@@ -32,8 +30,23 @@
         margin-bottom: 2.5em;
     }
 
-    &__button_start{
+    &__button-green {
+        &:hover {
+            background-color: $green-dark;
+        }
+    }
+
+    &__button_start {
         margin-bottom: 54px;
     }
+}
+
+.button-green:hover,
+.button-default:hover {
+    background-color: $green-dark;
+}
+
+.button-default:hover{
+    color: $white;
 }
 

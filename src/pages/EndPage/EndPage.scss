@@ -1,0 +1,35 @@
+@import '../../style/variables.scss';
+
+ .endpage {
+    // max-width: 1440px;
+    max-width: 1440px;
+    height: 1024px;
+    // flex-shrink: 0;
+    margin: 0 auto;
+    background: url("../../images/welcome/bgAll.jpg");
+    background-size: cover;
+    position: relative;
+    text-align: center;
+    padding-top: 728px;
+    // height: 100%;
+    /* Выравниваем дочерние элементы по центру */
+
+    .welcome__bg {
+        width: 100%;
+    }
+
+    &__title {
+        font-family: Montserrat Alternates;
+        font-size: 3.2em;
+        font-style: normal;
+        font-weight: 600;
+        margin-bottom: 24px;
+        // position: absolute;
+        // top: 47vw;
+        /* Оставляем отступ сверху, равный 47vw */
+    }
+    &__button {
+        margin-top: 26px;
+    }
+}
+
