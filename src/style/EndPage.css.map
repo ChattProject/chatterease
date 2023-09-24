@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"EndPage.css"}
+{"version":3,"sources":["EndPage.css","../pages/EndPage/EndPage.scss"],"names":[],"mappings":"AAAA,gBAAgB;ACEf;EAEG,iBAAA;EACA,cAAA;EAEA,cAAA;EACA,iDAAA;EACA,sBAAA;EACA,2BAAA;EACA,kBAAA;EACA,kBAAA;EACA,kBAAA;EAEA,4CAAA;ADHJ;ACKI;EACI,WAAA;ADHR;ACMI;EACI,kCAAA;EACA,gBAAA;EACA,kBAAA;EACA,gBAAA;EACA,mBAAA;EAGA,yCAAA;ADNR;ACQI;EACI,gBAAA;ADNR","file":"EndPage.css"}

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { InputMessage } from "../../components/Chat/InputMessage/InputMessage";
 import { ShowMessages } from "../../components/Chat/ShowMessages/ShowMessages";
-import { CloseSession } from "../../components/CloseSession/CloseSession";
+import { CloseSession } from "../../components/Chat/CloseSession/CloseSession";
 
 export const Chat = ({
   chat,

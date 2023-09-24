@@ -83,7 +83,7 @@ export const ShowMessages = ({ messages, message, userName }) => {
             );
           })}
         </div>
-        {message && <div>{userName} is typing...</div>}
+        {/* {message && <div>{userName} is typing...</div>} */}
       </div>
     </>
   );

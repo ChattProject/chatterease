@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import warning from "../../images/closeSession/warning.svg";
+import warning from "../../../images/closeSession/warning.svg";
 
 export const CloseSession = ({ setIsClosingChat }) => {
   return (

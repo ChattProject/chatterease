@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500;600&family=Montserrat:ital,wght@0,400;0,500;0,600;1,300&display=swap");
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -127,6 +128,7 @@ a {
   padding: 100px 80px;
   width: 52%;
   background-color: #fffff3;
+  border-radius: 3px;
   -webkit-box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.25);
           box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.25);
 }
@@ -165,11 +167,12 @@ body {
   top: 0;
   left: 0;
   width: 100%;
+  height: 8%;
   background-color: #fffff3;
   z-index: 1;
 }
 .header__container {
-  max-width: 1248px;
+  max-width: 87vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -196,7 +199,8 @@ body {
 }
 
 .greeting {
-  padding: 50px 0;
+  padding: 119px 0 50px 0;
+  position: relative;
 }
 .greeting__numbers {
   margin-top: 3.2em;
@@ -207,20 +211,89 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   gap: 0.8em;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.greeting__btn {
+  border: none;
+  background-color: transparent;
+  font: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
 }
 
-.greeting__page {
-  max-width: 71.2em;
+.greeting__btn.active {
+  background-color: #fbca5c;
+  color: #fff;
+}
+
+.greetings-border {
+  border-radius: 3px;
+  border: 1px dashed #feb706;
+  width: 712px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.greetings {
+  max-width: 712px;
   background-color: #fbca5c;
   margin: 0 auto;
-  margin-top: 7.1em;
   padding: 4em 10em;
 }
-
-.greeting__title {
+.greetings__title {
   font-size: 2.4em;
   font-weight: 600;
   line-height: 3.2em;
+  text-align: center;
+}
+.greetings__description {
+  font: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
+  font-size: 1.6em;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25em;
+  margin-bottom: 2.5em;
+}
+.greetings__button-green:hover {
+  background-color: #387e74;
+}
+.greetings__button_start {
+  margin-bottom: 54px;
+}
+
+.button-green:hover,
+.button-default:hover {
+  background-color: #387e74;
+}
+
+.button-default:hover {
+  color: #fff;
+}
+
+.welcome {
+  max-width: 1440px;
+  margin: 0 auto;
+  background: url("../../../images/welcome/bgAll.jpg");
+  background-size: cover;
+  position: relative;
+}
+.welcome__bg {
+  width: 100%;
+}
+.welcome__text {
+  position: absolute;
+  left: 50%;
+  top: 73vh;
+  font-family: Montserrat Alternates;
+  font-size: 3.2em;
+  font-style: normal;
+  font-weight: 600;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   text-align: center;
 }
 
@@ -240,6 +313,9 @@ body {
   background: url("../../images/chatList/background.svg");
   background-repeat: no-repeat;
   background-position: center;
+}
+.chatlist__container {
+  width: 90%;
 }
 .chatlist__header {
   margin: 0 auto 30px;
@@ -361,6 +437,8 @@ body {
   position: relative;
   max-height: 72%;
   overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 .show_message__up {
   position: fixed;
@@ -438,7 +516,6 @@ body {
 .input-message {
   position: fixed;
   bottom: 20px;
-  left: 7vw;
   width: 86vw;
 }
 .input-message__form {
@@ -477,7 +554,7 @@ body {
   position: relative;
 }
 .chatpage__links {
-  margin-bottom: 25px;
+  padding: 26px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -636,6 +713,16 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
+.newchat__window {
+  position: relative;
+}
+.newchat__close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 24px;
+  height: 24px;
+}
 .newchat__header {
   margin-bottom: 10%;
 }
@@ -661,60 +748,104 @@ body {
   margin-bottom: 34px;
 }
 
-.close {
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden; /* Enable scroll if needed */
-  background-color: rgba(173, 173, 173, 0.4);
-  /* Black w/ opacity */
-}
-.close__content {
+.endpage {
+  max-width: 1440px;
+  height: 1024px;
+  margin: 0 auto;
+  background: url("../../images/welcome/bgAll.jpg");
+  background-size: cover;
+  background-position: center;
   position: relative;
-  margin: 35vh auto;
-  width: 40vw;
-  padding: 24px 35px 24px 60px;
-  background-color: #feb706;
-  border: 1px solid #888;
+  text-align: center;
+  padding-top: 728px;
+  /* Выравниваем дочерние элементы по центру */
 }
-.close__icon {
-  position: absolute;
-  top: 26px;
-  left: 16px;
+.endpage .welcome__bg {
+  width: 100%;
 }
-.close__header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-.close__title {
-  margin-bottom: 24px;
-  text-align: left;
-}
-.close__question {
-  margin-bottom: 16px;
-  text-align: left;
+.endpage__title {
+  font-family: Montserrat Alternates;
+  font-size: 3.2em;
+  font-style: normal;
   font-weight: 600;
+  margin-bottom: 24px;
+  /* Оставляем отступ сверху, равный 47vw */
 }
-.close__buttons {
+.endpage__button {
+  margin-top: 26px;
+}
+
+.rules {
+  background-color: #fff;
+}
+.rules__title {
+  padding: 40px 0;
+  font-family: Montserrat Alternates;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40px;
+  text-align: center;
+}
+.rules__list {
+  max-width: 80vw;
+}
+.rules__item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 24px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: justify;
+  margin-bottom: 32px;
 }
-.close__button:hover {
+.rules__item:before {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
   background-color: #449f93;
-  color: #fff;
+  content: "";
+  margin-right: 10px;
+  text-align: center;
+  margin-right: 16px;
 }
-.close__button_yes {
-  background-color: #dfe0df;
+
+.support {
+  height: 100vh;
+  margin: 0 auto;
+  background: url("../../images/bgSupport.jpg");
+  background-size: cover;
 }
-.close__button_no {
-  background-color: #fffff3;
+.support__bg {
+  width: 100%;
+  display: block;
+}
+.support__content {
+  max-width: 46.5em;
+  margin: 0 auto;
+}
+.support__title {
+  font: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
+  font-size: 2.4em;
+  font-weight: 600;
+  line-height: 3.2em;
+}
+.support__text {
+  font: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
+  font-size: 1.6em;
+  font-weight: 400;
+  line-height: 2em;
+  margin-bottom: 1em;
+}
+.support__email {
+  font: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
 }/*# sourceMappingURL=style.css.map */

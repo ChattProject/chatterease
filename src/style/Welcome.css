@@ -1,1 +1,22 @@
-/*# sourceMappingURL=Welcome.css.map */
+.welcome {
+  max-width: 1440px;
+  margin: 0 auto;
+  background: url("../../../images/welcome/bgAll.jpg");
+  background-size: cover;
+  position: relative;
+}
+.welcome__bg {
+  width: 100%;
+}
+.welcome__text {
+  position: absolute;
+  left: 50%;
+  top: 73vh;
+  font-family: Montserrat Alternates;
+  font-size: 3.2em;
+  font-style: normal;
+  font-weight: 600;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  text-align: center;
+}/*# sourceMappingURL=Welcome.css.map */

@@ -11,6 +11,7 @@ $yellow: #fbca5c;
 
 $montserrat: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
 $montserrat-alternates: "Montserrat Alternates", "Montserrat", "Roboto", "Open Sans", "Lato", sans-serif;
+$montserratAlternates: "Montserrat Alternates", "Montserrat", "Roboto", "Open Sans", "Lato", sans-serif;
 
 .paragraph {
   font-family: $montserrat;
@@ -78,7 +79,8 @@ $montserrat-alternates: "Montserrat Alternates", "Montserrat", "Roboto", "Open S
   left: 25%;
   padding: 100px 80px;
   width: 52%;
-  background-color: #fffff3;
+  background-color: $white-dark;
+  border-radius: 3px;
   box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.25);
 }
 
