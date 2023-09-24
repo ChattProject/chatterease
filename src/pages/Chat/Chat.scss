@@ -3,8 +3,9 @@
 @import "../../components/Chat/CloseSession/CloseSession.scss";
 
 .chatpage {
-  height: 100%;
+  height: 92%;
   position: relative;
+  background-color: $white-dark;
 
   &__links {
     padding: 26px 0;

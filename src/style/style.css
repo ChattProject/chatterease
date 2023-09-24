@@ -147,10 +147,11 @@ body {
 }
 
 .app__chat {
+  position: fixed;
+  top: 8%;
   width: 86vw;
   height: 92%;
   margin: 0 7vw;
-  background-color: #fffff3;
 }
 .app__chat > * {
   height: 100%;
@@ -165,6 +166,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
+  min-height: 72px;
   height: 8%;
   background-color: #fffff3;
   display: -webkit-box;
@@ -307,9 +309,6 @@ body {
   text-align: center;
 }
 
-.home {
-  background-color: #fff;
-}
 .home__greeting {
   height: 100%;
 }
@@ -626,6 +625,7 @@ body {
 .chatpage {
   height: 100%;
   position: relative;
+  background-color: #fffff3;
 }
 .chatpage__links {
   padding: 26px 0;
@@ -850,9 +850,6 @@ body {
   margin-top: 26px;
 }
 
-.rules {
-  background-color: #fff;
-}
 .rules__title {
   padding: 40px 0;
   font-family: Montserrat Alternates;
