@@ -21,14 +21,14 @@
   }
 
   &__name {
-
+    max-width: 255px;
 
     &_error {
-      color: #BD0B00;
-      border-color: #BD0B00;
+      color: #bd0b00;
+      border-color: #bd0b00;
 
       &:focus {
-        border-color: #BD0B00;
+        border-color: #bd0b00;
       }
     }
   }
