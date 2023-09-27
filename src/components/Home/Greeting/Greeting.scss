@@ -3,7 +3,8 @@
 
 .greeting {
   padding: 119px 0 50px 0;
-  position: relative;
+  display: flex;
+  flex-direction: column;
 
 
   &__numbers{
@@ -11,9 +12,6 @@
     display: flex;
     justify-content: center;
     gap: 0.8em;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
   }
 
   &__btn{
