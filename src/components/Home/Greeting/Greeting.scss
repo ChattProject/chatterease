@@ -4,19 +4,14 @@
 .greeting {
   padding: 8vh 0;
 
-  &__container {
-    position: relative;
-    // height: fill-available;
+    display: flex;
+  flex-direction: column;
 
-  }
   &__numbers {
     margin-top: 3.2em;
     display: flex;
     justify-content: center;
     gap: 0.8em;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
   }
 
   &__btn{
