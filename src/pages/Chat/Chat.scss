@@ -118,9 +118,19 @@
     background-color: $white;
 
     &_text {
+      padding: 0 7%;
       margin-bottom: 24px;
     }
   }
+}
 
-
+@media (max-width: 479px) {
+  .chat {
+    &__back {
+      width: 40%;
+    }
+    &__button_input {
+      width: 70%;
+    }
+  }
 }

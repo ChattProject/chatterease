@@ -12,6 +12,7 @@
   font-weight: 400;
 }
 .login__form {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

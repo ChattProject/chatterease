@@ -94,7 +94,7 @@ a {
   text-align: center;
   padding: 16px;
   width: 268px;
-  height: 52px;
+  min-height: 52px;
   background-color: #449f93;
   color: #fff;
   font-weight: 600;
@@ -134,12 +134,24 @@ a {
 }
 
 .input {
+  width: 100%;
   padding: 10px 8px;
   color: #292929;
   border-radius: 3px;
   border: 1px #adadad solid;
 }
 
+@media (max-width: 999px) {
+  .window {
+    left: 15%;
+    width: 70%;
+  }
+}
+@media (max-width: 767px) {
+  .window {
+    padding: 50px 40px;
+  }
+}
 body {
   font-family: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
   font-size: 10px;
@@ -173,6 +185,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 1;
 }
 .header__container {
   width: 87vw;
@@ -204,7 +217,7 @@ body {
 }
 
 .greeting {
-  padding: 10vh 0;
+  padding: 8vh 0;
 }
 .greeting__container {
   position: relative;
@@ -401,7 +414,6 @@ body {
 }
 .chatlist__item {
   padding: 2px;
-  max-height: 44px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -466,6 +478,18 @@ body {
   display: inline;
 }
 
+@media (max-width: 479px) {
+  .chatlist__header {
+    margin: 0 0 30px 0;
+    width: 100%;
+    text-align: center;
+  }
+  .chatlist__input {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
 .show_message {
   position: relative;
   max-height: 80%;
@@ -546,6 +570,11 @@ body {
   color: #fff;
 }
 
+@media (max-width: 479px) {
+  .message {
+    width: 90%;
+  }
+}
 .input-message {
   position: fixed;
   bottom: 20px;
@@ -639,6 +668,37 @@ body {
   background-color: #fffff3;
 }
 
+@media (max-width: 999px) {
+  .close__content {
+    width: 60vw;
+  }
+}
+@media (max-width: 767px) {
+  .close__buttons {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+@media (max-width: 479px) {
+  .close__content {
+    width: 70vw;
+    padding: 15px 20px 15px 40px;
+  }
+  .close__title {
+    margin-bottom: 20px;
+  }
+  .close__buttons {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .close__icon {
+    left: 10px;
+  }
+}
 .chatpage {
   height: 91%;
   position: relative;
@@ -754,9 +814,18 @@ body {
   background-color: #fff;
 }
 .chat__login_text {
+  padding: 0 7%;
   margin-bottom: 24px;
 }
 
+@media (max-width: 479px) {
+  .chat__back {
+    width: 40%;
+  }
+  .chat__button_input {
+    width: 70%;
+  }
+}
 .login {
   position: relative;
   height: 90%;
@@ -771,6 +840,7 @@ body {
   font-weight: 400;
 }
 .login__form {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -937,4 +1007,10 @@ body {
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
+}
+
+@media (max-width: 479px) {
+  .app__chat {
+    font-size: 8px;
+  }
 }/*# sourceMappingURL=style.css.map */

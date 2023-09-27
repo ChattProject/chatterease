@@ -49,7 +49,7 @@ $montserratAlternates: "Montserrat Alternates", "Montserrat", "Roboto", "Open Sa
   @include button;
   padding: 16px;
   width: 268px;
-  height: 52px;
+  min-height: 52px;
   background-color: $green;
   color: $white;
   font-weight: 600;
@@ -85,8 +85,24 @@ $montserratAlternates: "Montserrat Alternates", "Montserrat", "Roboto", "Open Sa
 }
 
 .input {
+  width: 100%;
   padding: 10px 8px;
   color: $black;
   border-radius: 3px;
   border: 1px $grey-default solid;
 }
+
+
+@media (max-width: 999px) {
+  .window {
+    left: 15%;
+    width: 70%;
+  }
+}
+
+@media (max-width: 767px) {
+  .window {
+    padding: 50px 40px;
+  }
+}
+

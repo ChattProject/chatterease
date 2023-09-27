@@ -64,3 +64,10 @@
     color: $white;
   }
 }
+
+
+@media (max-width: 479px) {
+  .message {
+    width: 90%;
+  }
+}
