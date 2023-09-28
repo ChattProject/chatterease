@@ -1,4 +1,4 @@
-import './GreetingPage.scss'
+// import './GreetingPage.scss'
 
 export const GreetingPage = ({
   choosedPageIndex,

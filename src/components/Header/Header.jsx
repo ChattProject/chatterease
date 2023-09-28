@@ -1,4 +1,4 @@
-import './Header.scss'
+// import './Header.scss'
 import { Link } from "react-router-dom";
 
 import Logo from '../../images/Logo.svg'
@@ -15,10 +15,10 @@ export const Header = () => {
             <div className="header__name">chatter ease</div> */}
             </Link>
             <div className="header__additional">
-            <Link to={"/rules"} className="header__info header__rules">
+            <Link to={"/rules"} className="header__info header__rules paragraph">
               Правила користування
             </Link>    
-            <Link to={"/support"} className="header__info header__help">
+            <Link to={"/support"} className="header__info header__help paragraph">
               Технічна підтримка
             </Link>
         </div>

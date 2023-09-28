@@ -3,6 +3,14 @@
 @import "./_reset.scss";
 @import "./_variables.scss";
 
+body {
+  font-family: $montserrat;
+  font-size: 10px;
+  color: $black;
+  // background: url("../images/chatList/background.svg");
+
+}
+
 @font-face {
   font-family: "PhosphateInline";
   src:
@@ -10,11 +18,9 @@
     url(../fonts/Phosphate_Inline/PhosphateInline.ttf) format("truetype");
 }
 
+
 @import "../components/Header/Header.scss";
 @import "../pages/Home/Home.scss";
 @import "../pages/ChatList/ChatList.scss";
-
-body {
-  font-family: $montserrat;
-  font-size: 10px;
-}
+@import '../pages/Chat/Chat.scss';
+@import '../pages/Login/Login.scss';

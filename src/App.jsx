@@ -1,4 +1,5 @@
 import "./App.css";
+import './style/style.scss';
 import { useState } from "react";
 import { ChatList } from "./pages/ChatList/ChatList";
 import { useDispatch, useSelector } from "react-redux";
@@ -53,6 +54,7 @@ function App() {
             <ChatList
               chatsList={allChats}
               setSelectedChatIndex={setSelectedChatIndex}
+              userName={userName}
             />
           }
         />

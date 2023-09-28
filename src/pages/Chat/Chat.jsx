@@ -18,8 +18,10 @@ export const Chat = ({ chatTitle, messages, userName, addMessageToChat }) => {
     <>
       <div className="chatpage">
         <div className="chatpage__links">
-          <div className="chatpage__chats">Чати</div>
-          <div className="chatpage__personal">
+          <div className="chatpage__chats chatpage__subtitle chatpage__subtitle_selected paragraph">
+            <Link className="chatpage__link">Чати</Link>
+          </div>
+          <div className="chatpage__personal chatpage__subtitle paragraph">
             <Link to={"/direct"} className="chatpage__link">
               Особисті повідомлення
             </Link>
@@ -28,8 +30,13 @@ export const Chat = ({ chatTitle, messages, userName, addMessageToChat }) => {
 
         <div className="chatpage__chat chat">
           <div className="chat__header">
-            <div className="chat__title">{chatTitle}</div>
-            <Link to={"/chats"} className="chat__back">
+            <div className="chat__title">
+              <div className="chat__name">{chatTitle}</div>
+              <div className="chat__count paragraph">
+                23 учасників (повідомлень)
+              </div>
+            </div>
+            <Link to={"/chats"} className="chat__back paragraph">
               Обрати інший чат
             </Link>
           </div>
@@ -42,7 +49,7 @@ export const Chat = ({ chatTitle, messages, userName, addMessageToChat }) => {
           <div className="chat__input">
             {userName === "" ? (
               <div className="chat__login">
-                <div className="chat__login_text">
+                <div className="chat__login_text paragraph">
                   Щоб писати повідомлення - введи свій унікальний логін
                 </div>
                 <button className="chat__button_input button-green">

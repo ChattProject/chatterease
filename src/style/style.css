@@ -15,13 +15,15 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+button {
   margin: 0;
   padding: 0;
-  border: 0;
+  border: none;
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -58,10 +60,16 @@ a {
   color: inherit;
 }
 
+.paragraph {
+  font-family: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
+  font-size: 1.6em;
+  font-weight: 400;
+  color: #292929;
+}
+
 .button-default {
   font-family: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
   font-size: 1.6em;
-  line-height: 2em;
   border: none;
   border-radius: 3px;
   color: #292929;
@@ -74,7 +82,6 @@ a {
 .button-green {
   font-family: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
   font-size: 1.6em;
-  line-height: 2em;
   border: none;
   border-radius: 3px;
   color: #292929;
@@ -88,7 +95,7 @@ a {
 }
 .button-green_disabled {
   background-color: #dfe0df;
-  color: #555454;
+  color: #ADADAD;
 }
 .button-green :hover {
   background-color: #387e74;
@@ -97,7 +104,6 @@ a {
 .button-yellow {
   font-family: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
   font-size: 1.6em;
-  line-height: 2em;
   border: none;
   border-radius: 3px;
   color: #292929;
@@ -109,21 +115,129 @@ a {
   font-weight: 500;
 }
 
+body {
+  font-family: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
+  font-size: 10px;
+  color: #292929;
+}
+
 @font-face {
   font-family: "PhosphateInline";
   src: local("PhosphateInline"), url(../fonts/Phosphate_Inline/PhosphateInline.ttf) format("truetype");
 }
-.header__logo {
-  font-family: "PhosphateInline", sans-serif;
+.header {
+  width: 100%;
+  background-color: #fffff3;
+}
+.header__container {
+  max-width: 1248px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 auto;
+  padding: 16px 0;
+}
+.header__additional {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 40px;
+}
+.header__info {
+  font-style: normal;
 }
 
 .greeting {
   padding: 50px 0;
 }
+.greeting__numbers {
+  margin-top: 3.2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 0.8em;
+}
+
+.greeting__page {
+  max-width: 71.2em;
+  background-color: #fbca5c;
+  margin: 0 auto;
+  margin-top: 7.1em;
+  padding: 4em 10em;
+}
+
+.greeting__title {
+  font-size: 2.4em;
+  font-weight: 600;
+  line-height: 3.2em;
+  text-align: center;
+}
 
 .chatlist {
+  position: relative;
+  min-height: 968px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: 20px;
-  background-color: #b4eed1;
+  background: url("../../images/chatList/background.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.chatlist__header {
+  margin: 0 auto 30px;
+  width: 60%;
+  color: #292929;
+  font-family: "Montserrat Alternates", "Montserrat", "Roboto", "Open Sans", "Lato", sans-serif;
+  font-size: 3.2em;
+  font-weight: 600;
+}
+.chatlist__search {
+  position: relative;
+  margin: 0 auto 32px;
+  width: 60%;
+  height: 44px;
+}
+.chatlist__search::before {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 10px;
+  left: 8px;
+  background-image: url("../../images/chatList/search.svg");
+  z-index: 1;
+}
+.chatlist__input {
+  position: relative;
+  border: 0;
+  width: 100%;
+  height: 100%;
+  padding-left: 40px;
+  color: #ADADAD;
+  background: #fff;
+  border-radius: 3px;
+  border: #ADADAD 1px solid;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
 }
 .chatlist__list {
   display: -webkit-box;
@@ -137,16 +251,308 @@ a {
   gap: 16px;
 }
 .chatlist__item {
+  padding: 2px;
+  max-height: 44px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border: solid #292929 1px;
   border-radius: 3px;
   background-color: #fff;
-  color: #292929;
+}
+.chatlist__item:has(.chatlist__link:focus) {
+  background-color: inherit;
+}
+.chatlist__item:hover {
+  background-color: inherit;
+}
+.chatlist__item:hover > .chatlist__link {
+  background-color: #387e74;
+  color: #fff;
 }
 .chatlist__link {
-  padding: 15px;
+  padding: 11px;
+  background-color: #fff;
+}
+.chatlist__link:focus {
+  background-color: #449f93;
+  color: #fff;
+}
+.chatlist__more:has(.chatlist__more_link:focus) {
+  background-color: #fff;
+  border: #449f93 solid 4px;
+}
+.chatlist__more_link {
+  font-weight: 500;
+}
+.chatlist__more_link:focus {
+  padding: 10px;
+  background-color: inherit;
+  color: #292929;
 }
 
-body {
-  font-family: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
-  font-size: 10px;
+.show_message {
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+}
+.show_message__messages {
+  padding: 24px 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+}
+
+.message {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 8px;
+  text-align: left;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+.message_right {
+  text-align: right;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+}
+.message__name {
+  font-size: 1.4em;
+  line-height: 1.4em;
+  font-weight: 500;
+  color: #fff;
+}
+.message__text {
+  padding: 8px;
+  max-width: 50%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 3px;
+  border: 1px solid #fbca5c;
+  background-color: #fff;
+  font-size: 1.2em;
+  line-height: 1.3em;
+  font-weight: 400;
+}
+.message__date {
+  font-size: 1.2em;
+  line-height: 1.3em;
+  font-weight: 400;
+  color: #fff;
+}
+
+.input-message {
+  position: fixed;
+  bottom: 20px;
+  left: 7vw;
+  width: 86vw;
+}
+.input-message__form {
+  position: relative;
+  background-color: #fff;
+}
+.input-message__form::before {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 26px;
+  left: 8px;
+  background-image: url("../../../images/chat/emoji.svg");
+  z-index: 1;
+}
+.input-message__input {
+  position: relative;
+  width: 100%;
+  padding: 30px 0 30px 44px;
+  border: 1px solid #ADADAD;
+}
+.input-message__button {
+  position: absolute;
+  background-color: inherit;
+  right: 26px;
+  top: 26px;
+}
+.input-message__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.chatpage {
+  height: 93%;
+}
+.chatpage__links {
+  margin-bottom: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 24px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.chatpage__subtitle {
+  width: 50%;
+  padding: 2px;
+  font-weight: 500;
+  border-radius: 3px;
+  border: #feb706 2px solid;
+  background-color: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.chatpage__subtitle:hover > .chatpage__link {
+  background-color: #feb706;
+}
+.chatpage__subtitle_selected > .chatpage__link {
+  background-color: #fbca5c;
+}
+.chatpage__subtitle_disabled {
+  border: #ADADAD 2px solid;
+  color: #ADADAD;
+  background-color: #dfe0df;
+}
+.chatpage__link {
+  background-color: inherit;
+  width: 100%;
+  padding: 10px;
+}
+.chat {
+  height: 93%;
+  width: 86vw;
+  background: url(../../images/chat/background_chat.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.chat__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.chat__title {
+  padding-left: 24px;
+  width: 83%;
+  text-align: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 8px;
+  background-color: #fbca5c;
+}
+.chat__name {
+  font-size: 2.4em;
+  font-weight: 600;
+}
+.chat__back {
+  padding: 36px 0;
+  width: 17%;
+  text-align: center;
+  background-color: #449f93;
+  color: #fff;
+}
+.chat__input {
+  position: relative;
+}
+.chat__login {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px 0;
+  background-color: #fff;
+}
+.chat__login_text {
+  margin-bottom: 24px;
+}
+
+.login {
+  position: relative;
+  height: 90%;
+  background: url(../../images/login/background.svg);
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+.login__window {
+  position: relative;
+  top: 25%;
+  left: 25%;
+  padding: 100px 80px;
+  width: 50%;
+  background-color: #FFFFF3;
+  -webkit-box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.25);
+          box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.25);
+}
+.login__title {
+  margin-bottom: 40px;
+  font-size: 2.4em;
+  line-height: 1.33em;
+  font-weight: 400;
+}
+.login__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 16px;
+}
+.login__name {
+  padding: 10px 8px;
+  color: #ADADAD;
+  border-radius: 3px;
+  border: 1px #ADADAD solid;
+}
+.login__name_error {
+  color: #BD0B00;
+  border-color: #BD0B00;
+}
+.login__name_error:focus {
+  border-color: #BD0B00;
+}
+.login__button {
+  margin-top: 40px;
+  width: 100%;
+}
+.login__error {
+  font-size: 1.4em;
+  line-height: 1.29em;
+  font-weight: 400;
 }/*# sourceMappingURL=style.css.map */

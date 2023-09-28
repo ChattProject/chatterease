@@ -1,4 +1,8 @@
-.NewChat {
-  padding: 20px;
-  background-color: #eeeeb4;
+.newchat {
+  
+  &__header {
+    font-size: 2.4em;
+    line-height: 1.33em;
+    font-weight: 400;
+  }
 }

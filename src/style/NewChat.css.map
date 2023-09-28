@@ -1,1 +1,1 @@
-{"version":3,"sources":["../components/NewChat/NewChat.scss","NewChat.css"],"names":[],"mappings":"AAAA;EACE,aAAA;EACA,yBAAA;ACCF","file":"NewChat.css"}
+{"version":3,"sources":["../pages/NewChat/NewChat.scss","NewChat.css"],"names":[],"mappings":"AAEE;EACE,gBAAA;EACA,mBAAA;EACA,gBAAA;ACDJ","file":"NewChat.css"}

@@ -4,17 +4,26 @@ $black: #292929;
 $green-dark: #387e74;
 $green: #449f93;
 $grey: #dfe0df;
+$grey-default: #ADADAD;
 $grey-dark: #555454;
 $yellow-dark: #feb706;
 $yellow: #fbca5c;
 
 $montserrat: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
-$montserratAlternates: "Montserrat Alternates", "Montserrat", "Roboto", "Open Sans", "Lato", sans-serif;
+$montserrat-alternates: "Montserrat Alternates", "Montserrat", "Roboto", "Open Sans", "Lato", sans-serif;
+
+.paragraph {
+  font-family: $montserrat;
+  font-size: 1.6em;
+  // line-height: 1.25em;
+  font-weight: 400;
+  color: $black;
+}
 
 @mixin button {
   font-family: $montserrat;
   font-size: 1.6em;
-  line-height: 2em;
+  // line-height: 1.25em;
   border: none;
   border-radius: 3px;
   color: $black;
@@ -39,7 +48,7 @@ $montserratAlternates: "Montserrat Alternates", "Montserrat", "Roboto", "Open Sa
 
   &_disabled {
     background-color: $grey;
-    color: $grey-dark;
+    color: $grey-default;
   }
 
   :hover {
@@ -55,3 +64,5 @@ $montserratAlternates: "Montserrat Alternates", "Montserrat", "Roboto", "Open Sa
   background-color: $yellow-dark;
   font-weight: 500;
 }
+
+

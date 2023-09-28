@@ -43,14 +43,14 @@ export const ShowMessages = ({ messages, message, userName }) => {
           {messages.map((card) => {
             return (
               <div
-                className={`show_message__message message ${
-                  userName === card.user && "message_left"
+                className={`show_message__message  message ${
+                  userName === card.user && "message_right"
                 }`}
                 key={card.id}
               >
-                <div className={"message__name"}>{card.user}</div>
-                <div className={"message__text"}>{card.text}</div>
-                <div className={"message__date"}>{getDate(card.posted)}</div>
+                <div className="message__name">{card.user}</div>
+                <div className="message__text">{card.text}</div>
+                <div className="message__date">{getDate(card.posted)}</div>
               </div>
             );
           })}

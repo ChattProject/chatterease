@@ -1,8 +1,10 @@
-@import './style/style.css';
+/* @import './style/style.css'; */
 .App {
+  width: 86vw;
+  height: 100vh;
+  margin: 0 auto;
   text-align: center;
   padding: 20px;
-  position: relative;
   /* background-color: #f6f6d9; */
 }
 

@@ -1,4 +1,5 @@
 import React from "react";
+import send from '../../../images/chat/send.svg';
 import "./InputMessage.css";
 
 export const InputMessage = ({
@@ -7,7 +8,6 @@ export const InputMessage = ({
   setMessage,
   message,
 }) => {
-
   const handleSetMessage = (event) => {
     setMessage(event.target.value);
   };
@@ -29,23 +29,19 @@ export const InputMessage = ({
   };
 
   return (
-    <div className={"InputMessage container"}>
-      <form className={"InputMessage__form-message form-message"} onSubmit={handleSubmit}>
-        <div className={"form-message__name name-message"}>
-        </div>
-        <div className={"form-message__message text-message"}>
+    <div className={"input-message"}>
+      <form className={"input-message__form"} onSubmit={handleSubmit}>
           <input
             type={"text"}
-            className={"text-message__input"}
+            className={"input-message__input paragraph"}
             id={"text-message"}
             onChange={handleSetMessage}
             value={message}
-            placeholder={"Type your message..."}
+            placeholder={"Повідомлення..."}
             required
           />
-        </div>
-        <button type="submit" className={"name-message__button"}>
-          Add message
+        <button type="submit" className={"input-message__button"}>
+          <img src={send} alt="send" className="input-message__icon" />
         </button>
       </form>
     </div>

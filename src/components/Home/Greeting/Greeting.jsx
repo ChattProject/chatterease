@@ -1,3 +1,4 @@
+// import './Greeting.scss';
 import { useState } from "react";
 import greetingPages from "../../../json/greeting.json";
 import { GreetingPage } from "../GreetingPage/GreetingPage";
