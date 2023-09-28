@@ -9,22 +9,16 @@
     background: url("../../images/bgSupport.jpg");
     background-size: cover;
 
-    &__bg{
-        width: 100%;
-        display: block;
-        // position: relative;
-    }
+    // &__bg{
+    //     width: 100%;
+    //     display: block;
+    // }
 
     &__window{
         max-width: 62.5em;
-        // position: absolute;
         background-color: $white-dark;
         border-radius: 3px;
         box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.25);
-        // margin-top: 23em;
-        // left: 31.2em;
-        // width: 100%;
-        // padding: 2.0em;
         margin: 0 auto;
     }
 
@@ -35,10 +29,10 @@
     }
 
     &__title{
-    font: $montserrat;
-    font-size: 2.4em;
-    font-weight: 600;
-    line-height: 3.2em;
+        font: $montserrat;
+        font-size: 2.4em;
+        font-weight: 600;
+        line-height: 3.2em;
     }
 
 &__text{
