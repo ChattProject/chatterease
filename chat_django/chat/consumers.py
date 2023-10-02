@@ -18,6 +18,9 @@ class JoinAndLeave(WebsocketConsumer):
 	def receive(self, text_data):
 		text_data_json = json.loads(text_data)
 		message = text_data_json['message']
+		print(message)
+		createtime = text_data_json['timecreate']
+		print(createtime)
 		user_id = self.scope['user'].user_id
 
 		user = Members.objects.get(user_id=user_id)
@@ -27,7 +30,7 @@ class JoinAndLeave(WebsocketConsumer):
 		db_insert.save()
 
 		async_to_sync(self.channel_layer.group_send)(
-		    self.room_group_name, {'type': 'chat_message', 'message': f'{user.username}: {message}'}
+		    self.room_group_name, {'type': 'chat_message', 'message': f'{user.username}: {message}: {createtime}'}
 		)
 
 	def disconnect(self, close_code):

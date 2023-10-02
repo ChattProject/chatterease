@@ -12,7 +12,8 @@
 
 {% if messages %}
   {% for message in messages %}
-  <p>{{ message.author }}: {{ message.content }}</p>
+  <p> {{ message.author }}: {{ message.content }} --- {{ message.timestamp }}</p>
+  <h3>----------------------------------------------</h3>
   {% endfor %}
 {% endif %}
 
@@ -39,8 +40,12 @@ chatSocket.onmessage = function(event){
 document.querySelector('#chat-message-submit').onclick = function(e) {
     const messageInputDom = document.querySelector('#chat-message-input');
         const message = messageInputDom.value;
+        const timecreate = new Date().toLocaleString();
+        // const timecreate= new Date().toISOString();
+
         chatSocket.send(JSON.stringify({
-        'message': message
+        'message': message,
+        'timecreate': timecreate
         }));
     messageInputDom.value = '';
     };

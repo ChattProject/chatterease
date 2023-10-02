@@ -6,12 +6,27 @@
     {% if user.is_authenticated %}
       <h2>Hi {{ user }}!</h2>
       <a href="{% url 'logout' %}" class="btn btn-secondary">Log out</a>
-      <a href="{% url 'new_group' %}" class="btn btn-secondary">New group</a>
+      <div class="container wrapper d-flex justify-content-center">
+        <div class="p-4">
+        <form action="{% url 'new_group' %}" method="post">
+          {% csrf_token %}
+        <p>Create new chat</p>
+        <div class="form-group">
+          <input class="form-control" name="chatname" placeholder="Enter chat name" maxlength="10" required>
+        </div>
+        <div class="form-group">
+          <!-- <a href="{% url 'new_group' %}" class="btn btn-secondary">New group</a> -->
+          <button  type="submit" class="btn btn-success btn-lg btn-block">New group</button>
+        </div>
+        </form>
+        </div>
+      </div>
+      
 
     <ul>
       {% for group in groups %}
-      <div id="{{ group.uuid }}">
-        <li><a>{{ group.uuid }}</a></li>
+      <div id="{{ group.chatname }}">
+        <li><a>{{ group.chatname }}</a></li>
           {% if request.user in group.members.all %}
             <a href="{% url 'open_chat' uuid=group.uuid %}">Open</a>
             <a href="{% url 'leave_group' uuid=group.uuid %}">Leave</a>
