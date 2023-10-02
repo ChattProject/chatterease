@@ -14,13 +14,10 @@ def home(request):
 def new_group(request):
 	chatname = request.POST['chatname']		
 	u = request.user
-	print(chatname)
-	print(u)
 	if request.method == 'POST':
 		new = Group.objects.create(chatname=chatname)
 		new.members.add(u)
 		new.save()
-
 		return redirect('home')
 	else:
 		messages.error(request, 'Here is error.')
