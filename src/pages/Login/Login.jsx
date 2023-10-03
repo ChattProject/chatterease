@@ -4,8 +4,13 @@ import { Link, useNavigate } from "react-router-dom";
 
 export const Login = ({ setUserName, userName }) => {
   const [inputValue, setInputValue] = useState("");
-  const [error, setError] = useState(false);
+  const [errorLenght, setErrorLenght] = useState(false);
+  const [errorSymbols, setErrorSymbols] = useState(false);
+
   const navigate = useNavigate();
+  const forbiddenSymbols = /[,<>/?"':-=+!@#$%^&*()]/;
+
+
 
   useEffect(() => {
     const storedUserName = sessionStorage.getItem("userName");
@@ -15,10 +20,16 @@ export const Login = ({ setUserName, userName }) => {
   }, [setUserName]);
 
   useEffect(() => {
-    if (inputValue.length > 3 && inputValue.length < 10) {
-      setError(false);
+    if (inputValue.length > 2 && inputValue.length < 11 || inputValue.length === 0) {
+      setErrorLenght(false);
     } else {
-      setError(true);
+      setErrorLenght(true);
+    }
+
+    if (forbiddenSymbols.test(inputValue)) {
+      setErrorSymbols(true);
+    } else {
+      setErrorSymbols(false);
     }
   }, [inputValue]);
 
@@ -29,14 +40,21 @@ export const Login = ({ setUserName, userName }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (inputValue.length > 3 && inputValue.length < 10) {
-      handleSetName();
-      setError(false);
-      navigate(-1);
+    if (inputValue.length > 2 && inputValue.length < 11) {
+      setErrorLenght(false);
+
+      if (forbiddenSymbols.test(inputValue)) {
+        setErrorSymbols(true);
+      } else {
+        handleSetName();
+        navigate(-1);
+        setErrorSymbols(false);
+      }
     } else {
-      setError(true);
+      setErrorLenght(true);
     }
   };
+
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
@@ -54,12 +72,17 @@ export const Login = ({ setUserName, userName }) => {
               type="text"
               placeholder="Логін"
               id="login"
-              className={`login__name paragraph ${error ? 'login__name_error' : ""}`}
+              className={`login__name paragraph ${
+                errorLenght || errorSymbols ? "login__name_error" : ""
+              }`}
               value={inputValue}
               onChange={handleInputChange}
             />
-            {error && (
+            {errorLenght && (
               <div className="login__error">Введіть від 3 до 10 символів</div>
+            )}
+            {errorSymbols && (
+              <div className="login__error">{`Заборонені спеціальні символи: ,.<>/?':"-=+!@#$%^&*()`}</div>
             )}
             <button
               className={`login__button ${

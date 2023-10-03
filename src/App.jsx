@@ -24,10 +24,6 @@ function App() {
   const [userName, setUserName] = useState("");
   const [selectedChatIndex, setSelectedChatIndex] = useState(null);
 
-  const removeUserName = () => {
-    setUserName("");
-  };
-
   const addNewChat = (title) => {
     const newChat = {
       id: Date.now(),
