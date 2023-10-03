@@ -3,16 +3,16 @@
 .greetings-border {
     border-radius: 3px;
     border: 1px dashed $yellow-dark;
-    width: 712px;
+    width: 54vw;
     margin: 0 auto;
     padding: 24px;
 }
 
 .greetings {
-    max-width: 712px;
+    // max-width: 712px;
     background-color: $yellow;
     margin: 0 auto;
-    padding: 4em 10em;
+    padding: 4vh 7vw;
 
     &__title {
         font-size: 2.4em;
@@ -29,10 +29,24 @@
         line-height: 1.25em;
         margin-bottom: 2.5em;
     }
+    &__image {
+        height: auto;
+        width: 56%;
+    }
 
-    &__button-green {
-        &:hover {
-            background-color: $green-dark;
+    &__buttons_two {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+    }
+    &__button {
+        width: 268px;
+        &-green {
+            &:hover {
+                background-color: $green-dark;
+            }
         }
     }
 
@@ -46,7 +60,6 @@
     background-color: $green-dark;
 }
 
-.button-default:hover{
+.button-default:hover {
     color: $white;
 }
-

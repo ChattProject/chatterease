@@ -4,13 +4,14 @@ $black: #292929;
 $green-dark: #387e74;
 $green: #449f93;
 $grey: #dfe0df;
-$grey-default: #ADADAD;
+$grey-default: #adadad;
 $grey-dark: #555454;
 $yellow-dark: #feb706;
 $yellow: #fbca5c;
 
 $montserrat: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
 $montserrat-alternates: "Montserrat Alternates", "Montserrat", "Roboto", "Open Sans", "Lato", sans-serif;
+$montserratAlternates: "Montserrat Alternates", "Montserrat", "Roboto", "Open Sans", "Lato", sans-serif;
 
 .paragraph {
   font-family: $montserrat;
@@ -18,6 +19,12 @@ $montserrat-alternates: "Montserrat Alternates", "Montserrat", "Roboto", "Open S
   // line-height: 1.25em;
   font-weight: 400;
   color: $black;
+}
+
+.title-usual {
+  font-size: 2.4em;
+  line-height: 1.25em;
+  font-weight: 400;
 }
 
 @mixin button {
@@ -32,16 +39,17 @@ $montserrat-alternates: "Montserrat Alternates", "Montserrat", "Roboto", "Open S
 
 .button-default {
   @include button;
-  width: 268px;
-  height: 52px;
+  padding: 16px 24px;
+  // width: 268px;
+  // height: 52px;
   background-color: inherit;
 }
 
 .button-green {
   @include button;
   padding: 16px;
-  width: 268px;
-  height: 52px;
+  // width: 100%;
+  min-height: 52px;
   background-color: $green;
   color: $white;
   font-weight: 600;
@@ -51,7 +59,7 @@ $montserrat-alternates: "Montserrat Alternates", "Montserrat", "Roboto", "Open S
     color: $grey-default;
   }
 
-  :hover {
+  &:hover {
     background-color: $green-dark;
   }
 }
@@ -65,4 +73,36 @@ $montserrat-alternates: "Montserrat Alternates", "Montserrat", "Roboto", "Open S
   font-weight: 500;
 }
 
+.window {
+  position: relative;
+  top: 25%;
+  left: 25%;
+  padding: 100px 80px;
+  width: 52%;
+  background-color: $white-dark;
+  border-radius: 3px;
+  box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.25);
+}
+
+.input {
+  width: 100%;
+  padding: 10px 8px;
+  color: $black;
+  border-radius: 3px;
+  border: 1px $grey-default solid;
+}
+
+
+@media (max-width: 999px) {
+  .window {
+    left: 15%;
+    width: 70%;
+  }
+}
+
+@media (max-width: 767px) {
+  .window {
+    padding: 50px 40px;
+  }
+}
 

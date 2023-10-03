@@ -1,17 +1,25 @@
 // import "./ChatList.css";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
+import create from "../../images/chatList/create.svg";
 
-export const ChatList = ({ chatsList, setSelectedChatIndex, userName }) => {
+export const ChatList = ({
+  chatsList,
+  setSelectedChatIndex,
+  userName,
+}) => {
   const [searchChat, setSearchChat] = useState("");
 
   const handleGoButtonClick = (index) => {
     setSelectedChatIndex(index);
   };
 
-  const filteredChats = chatsList.filter((chat) =>
-    chat.title.toLowerCase().includes(searchChat.toLowerCase())
-  );
+  const filteredChats = chatsList.filter((chat) => {
+    if (typeof chat.title === "string") {
+      return chat.title.toLowerCase().includes(searchChat.toLowerCase());
+    }
+    return false;
+  });
 
   const handleSearchInputChange = (e) => {
     setSearchChat(e.target.value);
@@ -50,7 +58,7 @@ export const ChatList = ({ chatsList, setSelectedChatIndex, userName }) => {
                 {filteredChats.map((chat, index) => (
                   <li key={chat.id} className="chatlist__item">
                     <Link
-                      to={`/chat/${chat.title.toLowerCase()}`}
+                      to={`/chat/${chat.id}`}
                       onClick={() => handleGoButtonClick(index)}
                       className="chatlist__link paragraph"
                     >
@@ -59,16 +67,19 @@ export const ChatList = ({ chatsList, setSelectedChatIndex, userName }) => {
                   </li>
                 ))}
                 <button className="chatlist__item chatlist__more">
-                  <Link className="chatlist__link chatlist__more_link paragraph">+ більше тем для спілкування</Link>
+                  <Link className="chatlist__link chatlist__more_link paragraph">
+                    + більше тем для спілкування
+                  </Link>
                 </button>
               </>
             ) : (
-              <div className="chatlist__nochats">Немає чатів</div>
+              <div className="chatlist__nochats paragraph">Немає чатів</div>
             )}
           </ul>
           {userName !== "" && (
-            <Link to={"/newchat"} className="chatlist__new button-default">
-              Створити власний чат
+            <Link to={"/newchat"} className="chatlist__newchat button-default">
+              <img src={create} alt="add new chat" className="chatlist__add" />
+              <p className="chatlist__addchat">Створити власний чат</p>
             </Link>
           )}
         </div>

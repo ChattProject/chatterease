@@ -1,0 +1,95 @@
+.close {
+  position: fixed; 
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; 
+  background-color: rgba(173, 173, 173, 0.4);
+
+  &__content {
+    position: relative;
+    margin: 35vh auto;
+    width: 40vw;
+    padding: 24px 35px 24px 60px;
+    background-color: $yellow-dark;
+    border: 1px solid #888;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 26px;
+    left: 16px;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+    text-align: left;
+  }
+
+  &__question {
+    margin-bottom: 16px;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 24px;
+  }
+
+  &__button {
+    &:hover {
+      background-color: $green;
+      color: $white;
+    }
+    &_yes {
+      background-color: $grey;
+    }
+
+    &_no {
+      background-color: $white-dark;
+    }
+  }
+}
+
+
+@media (max-width: 999px) {
+  .close {
+    &__content {
+      width: 60vw;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .close {
+    &__buttons {
+      flex-direction: column;
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .close {
+    &__content {
+      width: 70vw;
+      padding: 15px 20px 15px 40px;
+    }
+    &__title {
+      margin-bottom: 20px;
+    }
+    &__buttons {
+      flex-direction: column;
+    }
+    &__icon {
+      left: 10px;
+    }
+  }
+}

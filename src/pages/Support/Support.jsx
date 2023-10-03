@@ -1,4 +1,4 @@
-import './Support.scss';
+// import './Support.scss';
 import BgSupport from '../../images/bgSupport.jpg';
 
 export const Support = ({ }) => {
@@ -6,7 +6,7 @@ export const Support = ({ }) => {
     <>
       <div className="support">
         {/* <img className='support__bg' src={BgSupport} alt='Support'/> */}
-        <div className="support__window">
+        <div className="support__window window">
           <div className="support__content">
             <div className="support__title">Ми на зв’язку</div>
             <div className="support__text">

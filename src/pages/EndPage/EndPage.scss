@@ -1,4 +1,4 @@
-@import '../../style/variables.scss';
+// @import '../../style/variables.scss';
 
  .endpage {
     max-width: 1440px;
@@ -6,6 +6,7 @@
     margin: 0 auto;
     background: url("../../images/welcome/bgAll.jpg");
     background-size: cover;
+    background-position: center;
     position: relative;
     text-align: center;
     padding-top: 728px;

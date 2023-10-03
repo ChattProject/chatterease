@@ -4,13 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 
 export const Login = ({ setUserName, userName }) => {
   const [inputValue, setInputValue] = useState("");
-  const [errorLenght, setErrorLenght] = useState(false);
+  const [errorLength, setErrorLength] = useState(false);
   const [errorSymbols, setErrorSymbols] = useState(false);
-
   const navigate = useNavigate();
-  const forbiddenSymbols = /[,<>/?"':-=+!@#$%^&*()]/;
-
-
 
   useEffect(() => {
     const storedUserName = sessionStorage.getItem("userName");
@@ -20,18 +16,12 @@ export const Login = ({ setUserName, userName }) => {
   }, [setUserName]);
 
   useEffect(() => {
-    if (inputValue.length > 2 && inputValue.length < 11 || inputValue.length === 0) {
-      setErrorLenght(false);
-    } else {
-      setErrorLenght(true);
-    }
-
-    if (forbiddenSymbols.test(inputValue)) {
-      setErrorSymbols(true);
+    if (inputValue.length > 3 && inputValue.length < 10) {
+      setError(false);
     } else {
       setErrorSymbols(false);
     }
-  }, [inputValue]);
+  }, [inputValue, forbiddenSymbols]);
 
   const handleSetName = () => {
     setUserName(inputValue);
@@ -40,18 +30,12 @@ export const Login = ({ setUserName, userName }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (inputValue.length > 2 && inputValue.length < 11) {
-      setErrorLenght(false);
-
-      if (forbiddenSymbols.test(inputValue)) {
-        setErrorSymbols(true);
-      } else {
-        handleSetName();
-        navigate(-1);
-        setErrorSymbols(false);
-      }
+    if (inputValue.length > 3 && inputValue.length < 10) {
+      handleSetName();
+      setError(false);
+      navigate(-1);
     } else {
-      setErrorLenght(true);
+      setError(true);
     }
   };
 
@@ -62,7 +46,7 @@ export const Login = ({ setUserName, userName }) => {
   return (
     <>
       <div className="login">
-        <div className="login__window">
+        <div className="login__window window">
           <div className="login__title">Розпочни спілкування прямо зараз</div>
           <form action="submit" className="login__form" onSubmit={handleSubmit}>
             <label htmlFor="login" className="login__text paragraph">
@@ -72,13 +56,11 @@ export const Login = ({ setUserName, userName }) => {
               type="text"
               placeholder="Логін"
               id="login"
-              className={`login__name paragraph ${
-                errorLenght || errorSymbols ? "login__name_error" : ""
-              }`}
+              className={`login__name paragraph ${error ? 'login__name_error' : ""}`}
               value={inputValue}
               onChange={handleInputChange}
             />
-            {errorLenght && (
+            {error && (
               <div className="login__error">Введіть від 3 до 10 символів</div>
             )}
             {errorSymbols && (

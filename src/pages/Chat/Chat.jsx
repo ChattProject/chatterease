@@ -3,45 +3,54 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { InputMessage } from "../../components/Chat/InputMessage/InputMessage";
 import { ShowMessages } from "../../components/Chat/ShowMessages/ShowMessages";
-import { CloseSession } from "../../components/CloseSession/CloseSession";
+import { CloseSession } from "../../components/Chat/CloseSession/CloseSession";
+import { ChatLinks } from "../../components/ChatLinks/ChatLinks";
 
-export const Chat = ({ chatTitle, messages, userName, addMessageToChat }) => {
+export const Chat = ({
+  chat,
+  // chatTitle,
+  // messages,
+  userName,
+  addMessageToChat,
+}) => {
   const [message, setMessage] = useState("");
   const [isClosingChat, setIsClosingChat] = useState(false);
 
-  const handleChatClose = () => {
-    // Perform any necessary cleanup or actions before closing the chat
-    setIsClosingChat(true);
-  };
+  // const handleChatClose = () => {
+  //   // Perform any necessary cleanup or actions before closing the chat
+  //   setIsClosingChat(true);
+  // };
 
   return (
     <>
       <div className="chatpage">
-        <div className="chatpage__links">
-          <div className="chatpage__chats chatpage__subtitle chatpage__subtitle_selected paragraph">
-            <Link className="chatpage__link">Чати</Link>
-          </div>
-          <div className="chatpage__personal chatpage__subtitle paragraph">
-            <Link to={"/direct"} className="chatpage__link">
-              Особисті повідомлення
-            </Link>
-          </div>
-        </div>
+        <ChatLinks />
 
         <div className="chatpage__chat chat">
           <div className="chat__header">
             <div className="chat__title">
-              <div className="chat__name">{chatTitle}</div>
-              <div className="chat__count paragraph">
-                23 учасників (повідомлень)
+              <div className="chat__info">
+                <div className="chat__name">{chat.title}</div>
+                <div className="chat__count paragraph">
+                  {chat.messages.length === 0
+                    ? "немає повідомлень"
+                    : `${chat.messages.length} повідомлень`}
+                </div>
               </div>
+              <button
+                type="button"
+                className="btn-close chat__close"
+                aria-label="Close"
+                onClick={() => setIsClosingChat(true)}
+              ></button>
             </div>
+
             <Link to={"/chats"} className="chat__back paragraph">
               Обрати інший чат
             </Link>
           </div>
           <ShowMessages
-            messages={messages}
+            messages={chat.messages}
             message={message}
             userName={userName}
           />

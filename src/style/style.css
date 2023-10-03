@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500;600&family=Montserrat:ital,wght@0,400;0,500;0,600;1,300&display=swap");
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -67,6 +68,12 @@ a {
   color: #292929;
 }
 
+.title-usual {
+  font-size: 2.4em;
+  line-height: 1.25em;
+  font-weight: 400;
+}
+
 .button-default {
   font-family: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
   font-size: 1.6em;
@@ -74,8 +81,7 @@ a {
   border-radius: 3px;
   color: #292929;
   text-align: center;
-  width: 268px;
-  height: 52px;
+  padding: 16px 24px;
   background-color: inherit;
 }
 
@@ -88,16 +94,16 @@ a {
   text-align: center;
   padding: 16px;
   width: 268px;
-  height: 52px;
+  min-height: 52px;
   background-color: #449f93;
   color: #fff;
   font-weight: 600;
 }
 .button-green_disabled {
   background-color: #dfe0df;
-  color: #ADADAD;
+  color: #adadad;
 }
-.button-green :hover {
+.button-green:hover {
   background-color: #387e74;
 }
 
@@ -115,10 +121,50 @@ a {
   font-weight: 500;
 }
 
+.window {
+  position: relative;
+  top: 25%;
+  left: 25%;
+  padding: 100px 80px;
+  width: 52%;
+  background-color: #fffff3;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.25);
+          box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.25);
+}
+
+.input {
+  width: 100%;
+  padding: 10px 8px;
+  color: #292929;
+  border-radius: 3px;
+  border: 1px #adadad solid;
+}
+
+@media (max-width: 999px) {
+  .window {
+    left: 15%;
+    width: 70%;
+  }
+}
+@media (max-width: 767px) {
+  .window {
+    padding: 50px 40px;
+  }
+}
 body {
   font-family: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
   font-size: 10px;
   color: #292929;
+}
+
+.app__chat {
+  width: 86vw;
+  height: 90.5vh;
+  margin: 0 7vw;
+}
+.app__chat > * {
+  height: 100%;
 }
 
 @font-face {
@@ -126,19 +172,33 @@ body {
   src: local("PhosphateInline"), url(../fonts/Phosphate_Inline/PhosphateInline.ttf) format("truetype");
 }
 .header {
+  position: sticky;
+  top: 0;
+  left: 0;
   width: 100%;
+  min-height: 72px;
+  height: 8vh;
   background-color: #fffff3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1;
 }
 .header__container {
-  max-width: 1248px;
+  width: 87vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 0 auto;
-  padding: 16px 0;
 }
 .header__additional {
   display: -webkit-box;
@@ -157,7 +217,10 @@ body {
 }
 
 .greeting {
-  padding: 50px 0;
+  padding: 8vh 0;
+}
+.greeting__container {
+  position: relative;
 }
 .greeting__numbers {
   margin-top: 3.2em;
@@ -168,26 +231,121 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   gap: 0.8em;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.greeting__btn {
+  border: none;
+  background-color: transparent;
+  font: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
 }
 
-.greeting__page {
-  max-width: 71.2em;
+.greeting__btn.active {
+  background-color: #fbca5c;
+  color: #fff;
+}
+
+.greetings-border {
+  border-radius: 3px;
+  border: 1px dashed #feb706;
+  width: 54vw;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.greetings {
   background-color: #fbca5c;
   margin: 0 auto;
-  margin-top: 7.1em;
-  padding: 4em 10em;
+  padding: 4vh 7vw;
 }
-
-.greeting__title {
+.greetings__title {
   font-size: 2.4em;
   font-weight: 600;
   line-height: 3.2em;
   text-align: center;
 }
+.greetings__description {
+  font: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
+  font-size: 1.6em;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25em;
+  margin-bottom: 2.5em;
+}
+.greetings__image {
+  height: auto;
+  width: 56%;
+}
+.greetings__buttons_two {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 24px;
+}
+.greetings__button {
+  width: 268px;
+}
+.greetings__button-green:hover {
+  background-color: #387e74;
+}
+.greetings__button_start {
+  margin-bottom: 54px;
+}
+
+.button-green:hover,
+.button-default:hover {
+  background-color: #387e74;
+}
+
+.button-default:hover {
+  color: #fff;
+}
+
+.welcome {
+  max-width: 1440px;
+  margin: 0 auto;
+  background: url("../../../images/welcome/bgAll.jpg");
+  background-size: cover;
+  position: relative;
+}
+.welcome__bg {
+  width: 100%;
+}
+.welcome__text {
+  position: absolute;
+  left: 50%;
+  top: 73vh;
+  font-family: Montserrat Alternates;
+  font-size: 3.2em;
+  font-style: normal;
+  font-weight: 600;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  text-align: center;
+}
+
+.home__greeting {
+  height: 100%;
+}
 
 .chatlist {
   position: relative;
-  min-height: 968px;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -201,6 +359,9 @@ body {
   background: url("../../images/chatList/background.svg");
   background-repeat: no-repeat;
   background-position: center;
+}
+.chatlist__container {
+  width: 90%;
 }
 .chatlist__header {
   margin: 0 auto 30px;
@@ -232,14 +393,15 @@ body {
   width: 100%;
   height: 100%;
   padding-left: 40px;
-  color: #ADADAD;
+  color: #adadad;
   background: #fff;
   border-radius: 3px;
-  border: #ADADAD 1px solid;
+  border: #adadad 1px solid;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
 .chatlist__list {
+  margin-bottom: 35px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -252,7 +414,6 @@ body {
 }
 .chatlist__item {
   padding: 2px;
-  max-height: 44px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -293,13 +454,59 @@ body {
   background-color: inherit;
   color: #292929;
 }
+.chatlist__newchat {
+  margin: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #fff;
+  border: 2px solid #387e74;
+  border-radius: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 8px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.chatlist__newchat:hover {
+  background-color: #387e74;
+  color: #fff;
+}
+.chatlist__addchat {
+  display: inline;
+}
 
+@media (max-width: 479px) {
+  .chatlist__header {
+    margin: 0 0 30px 0;
+    width: 100%;
+    text-align: center;
+  }
+  .chatlist__input {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
 .show_message {
+  position: relative;
+  max-height: 80%;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.show_message__up {
+  position: fixed;
+  bottom: 12%;
+  right: 8vw;
+  background-color: inherit;
+}
+.show_message__messages {
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
-}
-.show_message__messages {
   padding: 24px 8px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -312,6 +519,7 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 20px;
+  overflow-y: auto;
 }
 
 .message {
@@ -362,10 +570,14 @@ body {
   color: #fff;
 }
 
+@media (max-width: 479px) {
+  .message {
+    width: 90%;
+  }
+}
 .input-message {
   position: fixed;
   bottom: 20px;
-  left: 7vw;
   width: 86vw;
 }
 .input-message__form {
@@ -386,7 +598,7 @@ body {
   position: relative;
   width: 100%;
   padding: 30px 0 30px 44px;
-  border: 1px solid #ADADAD;
+  border: 1px solid #adadad;
 }
 .input-message__button {
   position: absolute;
@@ -399,11 +611,101 @@ body {
   height: 24px;
 }
 
+.close {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgba(173, 173, 173, 0.4);
+}
+.close__content {
+  position: relative;
+  margin: 35vh auto;
+  width: 40vw;
+  padding: 24px 35px 24px 60px;
+  background-color: #feb706;
+  border: 1px solid #888;
+}
+.close__icon {
+  position: absolute;
+  top: 26px;
+  left: 16px;
+}
+.close__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.close__title {
+  margin-bottom: 24px;
+  text-align: left;
+}
+.close__question {
+  margin-bottom: 16px;
+  text-align: left;
+  font-weight: 600;
+}
+.close__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 24px;
+}
+.close__button:hover {
+  background-color: #449f93;
+  color: #fff;
+}
+.close__button_yes {
+  background-color: #dfe0df;
+}
+.close__button_no {
+  background-color: #fffff3;
+}
+
+@media (max-width: 999px) {
+  .close__content {
+    width: 60vw;
+  }
+}
+@media (max-width: 767px) {
+  .close__buttons {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+@media (max-width: 479px) {
+  .close__content {
+    width: 70vw;
+    padding: 15px 20px 15px 40px;
+  }
+  .close__title {
+    margin-bottom: 20px;
+  }
+  .close__buttons {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .close__icon {
+    left: 10px;
+  }
+}
 .chatpage {
-  height: 93%;
+  height: 91%;
+  position: relative;
+  background-color: #fffff3;
 }
 .chatpage__links {
-  margin-bottom: 25px;
+  padding: 26px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -433,8 +735,8 @@ body {
   background-color: #fbca5c;
 }
 .chatpage__subtitle_disabled {
-  border: #ADADAD 2px solid;
-  color: #ADADAD;
+  border: #adadad 2px solid;
+  color: #adadad;
   background-color: #dfe0df;
 }
 .chatpage__link {
@@ -443,7 +745,8 @@ body {
   padding: 10px;
 }
 .chat {
-  height: 93%;
+  position: relative;
+  height: 100%;
   width: 86vw;
   background: url(../../images/chat/background_chat.svg);
   background-position: center;
@@ -456,9 +759,21 @@ body {
   display: flex;
 }
 .chat__title {
-  padding-left: 24px;
+  padding: 0 24px;
   width: 83%;
   text-align: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #fbca5c;
+}
+.chat__info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -470,11 +785,15 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   gap: 8px;
-  background-color: #fbca5c;
 }
 .chat__name {
   font-size: 2.4em;
   font-weight: 600;
+}
+.chat__close {
+  width: 24px;
+  height: 24px;
+  padding: 0;
 }
 .chat__back {
   padding: 36px 0;
@@ -495,25 +814,24 @@ body {
   background-color: #fff;
 }
 .chat__login_text {
+  padding: 0 7%;
   margin-bottom: 24px;
 }
 
+@media (max-width: 479px) {
+  .chat__back {
+    width: 40%;
+  }
+  .chat__button_input {
+    width: 70%;
+  }
+}
 .login {
   position: relative;
   height: 90%;
   background: url(../../images/login/background.svg);
   background-position: top center;
   background-repeat: no-repeat;
-}
-.login__window {
-  position: relative;
-  top: 25%;
-  left: 25%;
-  padding: 100px 80px;
-  width: 50%;
-  background-color: #FFFFF3;
-  -webkit-box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.25);
-          box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.25);
 }
 .login__title {
   margin-bottom: 40px;
@@ -522,6 +840,7 @@ body {
   font-weight: 400;
 }
 .login__form {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -533,12 +852,6 @@ body {
       -ms-flex-align: center;
           align-items: center;
   gap: 16px;
-}
-.login__name {
-  padding: 10px 8px;
-  color: #ADADAD;
-  border-radius: 3px;
-  border: 1px #ADADAD solid;
 }
 .login__name_error {
   color: #BD0B00;
@@ -555,4 +868,149 @@ body {
   font-size: 1.4em;
   line-height: 1.29em;
   font-weight: 400;
+}
+
+.newchat {
+  background: url("../../images/newChat/background.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.newchat__window {
+  position: relative;
+}
+.newchat__close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 24px;
+  height: 24px;
+}
+.newchat__header {
+  margin-bottom: 10%;
+}
+.newchat__form {
+  margin: auto;
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.newchat__title {
+  margin-bottom: 15px;
+}
+.newchat__input {
+  width: 100%;
+  margin-bottom: 34px;
+}
+
+.endpage {
+  max-width: 1440px;
+  height: 1024px;
+  margin: 0 auto;
+  background: url("../../images/welcome/bgAll.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  text-align: center;
+  padding-top: 728px;
+  /* Выравниваем дочерние элементы по центру */
+}
+.endpage .welcome__bg {
+  width: 100%;
+}
+.endpage__title {
+  font-family: Montserrat Alternates;
+  font-size: 3.2em;
+  font-style: normal;
+  font-weight: 600;
+  margin-bottom: 24px;
+  /* Оставляем отступ сверху, равный 47vw */
+}
+.endpage__button {
+  margin-top: 26px;
+}
+
+.rules__title {
+  padding: 40px 0;
+  font-family: Montserrat Alternates;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40px;
+  text-align: center;
+}
+.rules__list {
+  max-width: 80vw;
+}
+.rules__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: justify;
+  margin-bottom: 32px;
+}
+.rules__item:before {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #449f93;
+  content: "";
+  margin-right: 10px;
+  text-align: center;
+  margin-right: 16px;
+}
+
+.support {
+  height: 100vh;
+  margin: 0 auto;
+  background: url("../../images/bgSupport.jpg");
+  background-size: cover;
+}
+.support__bg {
+  width: 100%;
+  display: block;
+}
+.support__content {
+  max-width: 46.5em;
+  margin: 0 auto;
+}
+.support__title {
+  font: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
+  font-size: 2.4em;
+  font-weight: 600;
+  line-height: 3.2em;
+}
+.support__text {
+  font: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
+  font-size: 1.6em;
+  font-weight: 400;
+  line-height: 2em;
+  margin-bottom: 1em;
+}
+.support__email {
+  font: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+@media (max-width: 479px) {
+  .app__chat {
+    font-size: 8px;
+  }
 }/*# sourceMappingURL=style.css.map */

@@ -1,6 +1,6 @@
 import rules from '../../json/rules.json';
 
-import './Rules.scss';
+// import './Rules.scss';
 
 export const Rules = ({}) => {
 

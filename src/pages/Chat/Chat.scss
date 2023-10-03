@@ -1,75 +1,87 @@
-@import '../../components/Chat/ShowMessages/ShowMessages.scss';
-@import '../../components/Chat/InputMessage/InputMessage.scss';
+@import "../../components/Chat/ShowMessages/ShowMessages.scss";
+@import "../../components/Chat/InputMessage/InputMessage.scss";
+@import "../../components/Chat/CloseSession/CloseSession.scss";
 
 .chatpage {
-  height: 93%;
-  &__links {
-    margin-bottom: 25px;
-    display: flex;
-    gap: 24px;
-    justify-content: space-between;
-  }
-  &__subtitle {
-    width: 50%;
-    padding: 2px;
-    font-weight: 500;
-    border-radius: 3px;
-    border: $yellow-dark 2px solid;
-    background-color: inherit;
-    display: flex;
-    justify-content: center;
+  height: 91%;
+  position: relative;
+  background-color: $white-dark;
 
-    &:hover {
-      & > .chatpage__link {
-        background-color: $yellow-dark;
-      }
-    }
+  // &__links {
+  //   padding: 26px 0;
+  //   display: flex;
+  //   gap: 24px;
+  //   justify-content: space-between;
+  // }
+  // &__subtitle {
+  //   width: 50%;
+  //   padding: 2px;
+  //   font-weight: 500;
+  //   border-radius: 3px;
+  //   border: $yellow-dark 2px solid;
+  //   background-color: inherit;
+  //   display: flex;
+  //   justify-content: center;
 
-    &_selected {
-      & > .chatpage__link {
-        background-color: $yellow;
-      }
-    }
+  //   &:hover {
+  //     & > .chatpage__link {
+  //       background-color: $yellow-dark;
+  //     }
+  //   }
 
-    &_disabled {
-    border: $grey-default 2px solid;
-    color: $grey-default;
-    background-color: $grey;
+  //   &_selected {
+  //     & > .chatpage__link {
+  //       background-color: $yellow;
+  //     }
+  //   }
 
-    }
-  }
+  //   &_disabled {
+  //   border: $grey-default 2px solid;
+  //   color: $grey-default;
+  //   background-color: $grey;
 
-  &__link {
-    background-color: inherit;
-    width: 100%;
-    padding: 10px;
-  }
+  //   }
+  // }
+
+  // &__link {
+  //   background-color: inherit;
+  //   width: 100%;
+  //   padding: 10px;
+  // }
 
   &__chat {
-
   }
 }
 
 .chat {
-  height: 93%;
+  position: relative;
+  height: 100%;
   width: 86vw;
   background: url(../../images/chat/background_chat.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
   &__header {
     display: flex;
+    // flex-direction: column;
   }
 
   &__title {
-    padding-left: 24px;
+    padding: 0 24px;
     width: 83%;
     text-align: left;
+    display: flex;
+    // flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $yellow;
+  }
+  &__info {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 8px;
-    background-color: $yellow;
   }
 
   &__name {
@@ -78,14 +90,23 @@
     font-weight: 600;
   }
 
+  &__close {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+  }
+
   &__back {
     padding: 36px 0;
     width: 17%;
     text-align: center;
     background-color: $green;
     color: $white;
-  }
 
+    &:hover {
+      background-color: $green-dark;
+    }
+  }
 
   &__input {
     position: relative;
@@ -99,9 +120,22 @@
     background-color: $white;
 
     &_text {
+      padding: 0 7%;
       margin-bottom: 24px;
     }
   }
+  &__button_input {
+    width: 268px;
+  }
+}
 
-
+@media (max-width: 479px) {
+  .chat {
+    &__back {
+      width: 40%;
+    }
+    &__button_input {
+      width: 70%;
+    }
+  }
 }
