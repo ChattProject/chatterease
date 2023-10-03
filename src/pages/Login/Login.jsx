@@ -7,6 +7,7 @@ export const Login = ({ setUserName, userName }) => {
   const [errorLength, setErrorLength] = useState(false);
   const [errorSymbols, setErrorSymbols] = useState(false);
   const navigate = useNavigate();
+  const forbiddenSymbols = /[,<>/?"':-=+!@#$%^&*()]/;
 
   useEffect(() => {
     const storedUserName = sessionStorage.getItem("userName");
@@ -16,8 +17,14 @@ export const Login = ({ setUserName, userName }) => {
   }, [setUserName]);
 
   useEffect(() => {
-    if (inputValue.length > 3 && inputValue.length < 10) {
-      setError(false);
+    if (inputValue.length > 2 && inputValue.length < 11 || inputValue.length === 0) {
+      setErrorLength(false);
+    } else {
+      setErrorLength(true);
+    }
+
+    if (forbiddenSymbols.test(inputValue)) {
+      setErrorSymbols(true);
     } else {
       setErrorSymbols(false);
     }
@@ -30,12 +37,18 @@ export const Login = ({ setUserName, userName }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (inputValue.length > 3 && inputValue.length < 10) {
-      handleSetName();
-      setError(false);
-      navigate(-1);
+    if (inputValue.length > 2 && inputValue.length < 11) {
+      setErrorLength(false);
+
+      if (forbiddenSymbols.test(inputValue)) {
+        setErrorSymbols(true);
+      } else {
+        handleSetName();
+        navigate(-1);
+        setErrorSymbols(false);
+      }
     } else {
-      setError(true);
+      setErrorLength(true);
     }
   };
 
@@ -56,11 +69,13 @@ export const Login = ({ setUserName, userName }) => {
               type="text"
               placeholder="Логін"
               id="login"
-              className={`login__name paragraph ${error ? 'login__name_error' : ""}`}
+              className={`login__name input paragraph ${
+                errorLength || errorSymbols ? "login__name_error" : ""
+              }`}
               value={inputValue}
               onChange={handleInputChange}
             />
-            {error && (
+            {errorLength && (
               <div className="login__error">Введіть від 3 до 10 символів</div>
             )}
             {errorSymbols && (
