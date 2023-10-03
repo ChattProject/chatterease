@@ -53,13 +53,13 @@ export const ShowMessages = ({ messages, message, userName }) => {
     }
 
     const day = fullNumber(date.getDate());
-    const month = fullNumber(date.getMonth());
+    const month = fullNumber(date.getMonth() + 1);
 
     const hours = fullNumber(date.getHours());
     const minutes = fullNumber(date.getMinutes());
     const seconds = fullNumber(date.getSeconds());
 
-    return `${hours}:${minutes}:${seconds} ${day}/${month}/${year}`;
+    return `${hours}:${minutes}:${seconds} ${day}/${`${month}`}/${year}`;
   }
   return (
     <>

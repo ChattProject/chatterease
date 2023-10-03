@@ -9,11 +9,10 @@
     background: url("../../images/bgSupport.jpg");
     background-size: cover;
 
-    &__bg{
-        width: 100%;
-        display: block;
-        // position: relative;
-    }
+    // &__bg{
+    //     width: 100%;
+    //     display: block;
+    // }
 
     &__window{
         // max-width: 62.5em;
@@ -35,10 +34,10 @@
     }
 
     &__title{
-    font: $montserrat;
-    font-size: 2.4em;
-    font-weight: 600;
-    line-height: 3.2em;
+        font: $montserrat;
+        font-size: 2.4em;
+        font-weight: 600;
+        line-height: 3.2em;
     }
 
 &__text{

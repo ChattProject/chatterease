@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { InputMessage } from "../../components/Chat/InputMessage/InputMessage";
 import { ShowMessages } from "../../components/Chat/ShowMessages/ShowMessages";
 import { CloseSession } from "../../components/Chat/CloseSession/CloseSession";
+import { ChatLinks } from "../../components/ChatLinks/ChatLinks";
 
 export const Chat = ({
   chat,
@@ -23,16 +24,7 @@ export const Chat = ({
   return (
     <>
       <div className="chatpage">
-        <div className="chatpage__links">
-          <div className="chatpage__chats chatpage__subtitle chatpage__subtitle_selected paragraph">
-            <Link className="chatpage__link">Чати</Link>
-          </div>
-          <div className="chatpage__personal chatpage__subtitle paragraph">
-            <Link to={"/direct"} className="chatpage__link">
-              Особисті повідомлення
-            </Link>
-          </div>
-        </div>
+        <ChatLinks />
 
         <div className="chatpage__chat chat">
           <div className="chat__header">
