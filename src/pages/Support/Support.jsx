@@ -1,5 +1,8 @@
 import './Support.scss';
-import BgSupport from '../../images/bgSupport.jpg';
+import { Link } from "react-router-dom";
+
+import Close from '../../images/iconClose.png';
+// import BgSupport from '../../images/bgSupport.jpg';
 
 export const Support = ({ }) => {
   return (
@@ -7,6 +10,9 @@ export const Support = ({ }) => {
       <div className="support">
         {/* <img className='support__bg' src={BgSupport} alt='Support'/> */}
         <div className="support__window">
+          <Link to={"/chats"} >
+            <img className="support__close" src={Close} alt="Close" />
+          </Link>
           <div className="support__content">
             <div className="support__title">Ми на зв’язку</div>
             <div className="support__text">

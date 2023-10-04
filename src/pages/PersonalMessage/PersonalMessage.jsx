@@ -6,7 +6,7 @@ export const PersonalMessage = ({ }) => {
     <>
       <div className="chatpage__links">
           <div className="chatpage__chats chatpage__subtitle chatpage__subtitle_selected paragraph">
-            <Link className="chatpage__link">Чати</Link>
+            <Link to={"/chats"} className="chatpage__link">Чати</Link>
           </div>
           <div className="chatpage__personal chatpage__subtitle paragraph">
             <Link to={"/direct"} className="chatpage__link">

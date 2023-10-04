@@ -32,15 +32,18 @@ $montserrat-alternates: "Montserrat Alternates", "Montserrat", "Roboto", "Open S
 
 .button-default {
   @include button;
-  width: 268px;
-  height: 52px;
+  // width: 268px;
+  // height: 52px;
+  width: 18.6vw;
+  height: 6.2vh;
   background-color: inherit;
 }
 
 .button-green {
   @include button;
   padding: 16px;
-  width: 268px;
+  // width: 268px;
+  width: 18.6vw;
   height: 52px;
   background-color: $green;
   color: $white;
