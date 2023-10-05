@@ -3,7 +3,7 @@
 @import "../../components/Chat/CloseSession/CloseSession.scss";
 
 .chatpage {
-  height: 91%;
+  height: 100%;
   position: relative;
   background-color: $white-dark;
 
@@ -55,7 +55,7 @@
 
 .chat {
   position: relative;
-  height: 100%;
+  height: calc(100% - 95px);
   width: 86vw;
   background: url(../../images/chat/background_chat.svg);
   background-position: center;
@@ -109,7 +109,9 @@
   }
 
   &__input {
-    position: relative;
+    position: absolute;
+    width: 100%;
+    bottom: 20px;
   }
   &__login {
     position: fixed;

@@ -34,6 +34,10 @@
   margin-bottom: 15px;
 }
 .newchat__input {
-  width: 100%;
+  max-width: 368px;
   margin-bottom: 34px;
+}
+.newchat__button {
+  max-width: 368px;
+  width: 100%;
 }/*# sourceMappingURL=NewChat.css.map */

@@ -1,1 +1,30 @@
-/*# sourceMappingURL=PersonalMessage.css.map */
+.chatpage__links {
+  margin-top: 72px;
+}
+
+.personal {
+  padding-top: calc(32vh - 72px);
+  width: 100%;
+}
+.personal__window {
+  max-width: 62.5em;
+  background-color: #fffff3;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.25);
+  margin: 0 auto;
+  padding: 100px 0;
+}
+.personal__title {
+  font-size: 2.4em;
+  font-weight: 600;
+  line-height: 3.2em;
+}
+.personal__text {
+  max-width: 465px;
+  margin: 0 auto;
+  font-size: 1.6em;
+  font-weight: 400;
+  line-height: 2em;
+  margin-bottom: 1em;
+}/*# sourceMappingURL=PersonalMessage.css.map */

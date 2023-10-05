@@ -25,12 +25,15 @@
           align-items: center;
   gap: 16px;
 }
+.login__name {
+  max-width: 255px;
+}
 .login__name_error {
-  color: #BD0B00;
-  border-color: #BD0B00;
+  color: #bd0b00;
+  border-color: #bd0b00;
 }
 .login__name_error:focus {
-  border-color: #BD0B00;
+  border-color: #bd0b00;
 }
 .login__button {
   margin-top: 40px;

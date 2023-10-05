@@ -1,8 +1,8 @@
 .input-message {
-  position: fixed;
-  bottom: 20px;
-  // left: 6.5vw;
-  width: 86vw; // ???
+  // position: fixed;
+  // bottom: 20px;
+  // // left: 6.5vw;
+  // width: 86vw; // ???
 
 
   &__form {
@@ -25,6 +25,18 @@
     width: 100%;
     padding: 30px 0 30px 44px;
     border: 1px solid $grey-default;
+    border-left: none;
+    border-right: none;
+
+    &:focus-visible {
+      outline: none;
+
+      & ~ .input-message__button {
+        &  path {
+          fill: $green-dark;
+        }
+      }
+    }
 
     // &::before {
     //   content: "";

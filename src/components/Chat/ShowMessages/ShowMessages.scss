@@ -1,7 +1,7 @@
 .show_message {
   // height: min-content;
   position: relative;
-  max-height: 80%;
+  height: calc(100% - 90px - 140px);
   overflow: scroll;
   overflow-x: hidden;
   overflow-y: auto;

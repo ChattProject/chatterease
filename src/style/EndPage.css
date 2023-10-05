@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .endpage {
   max-width: 1440px;
   height: 1024px;
@@ -9,7 +8,6 @@
   position: relative;
   text-align: center;
   padding-top: 728px;
-  /* Выравниваем дочерние элементы по центру */
 }
 .endpage .welcome__bg {
   width: 100%;
@@ -20,7 +18,6 @@
   font-style: normal;
   font-weight: 600;
   margin-bottom: 24px;
-  /* Оставляем отступ сверху, равный 47vw */
 }
 .endpage__button {
   margin-top: 26px;
