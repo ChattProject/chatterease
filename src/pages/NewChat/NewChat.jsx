@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import "./NewChat.css";
+import "./NewChat.scss";
 import { useState } from "react";
 
 export const NewChat = ({ addNewChat }) => {

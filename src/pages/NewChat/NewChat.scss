@@ -1,6 +1,9 @@
+@import '../../style/variables';
+
 .newchat {
-  
+  margin-top: 72px;
   &__header {
+    
     font-size: 2.4em;
     line-height: 1.33em;
     font-weight: 400;
