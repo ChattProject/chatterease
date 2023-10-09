@@ -11,10 +11,10 @@ body {
 }
 
 .app__chat {
-  // position: fixed;
-  // top: 8%;
+  position: absolute;
+  top: 72px;
   width: 86vw;
-  height: 92vh;
+  height: calc(100vh - 72px);
   // overflow: auto;
   margin: 0 7vw;
   // background-color: $white-dark;

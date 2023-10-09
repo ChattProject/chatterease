@@ -4,22 +4,49 @@
   // // left: 6.5vw;
   // width: 86vw; // ???
 
-
   &__form {
     position: relative;
     background-color: $white;
-    &::before {
-      content: "";
-      position: absolute;
-      width: 24px;
-      height: 24px;
+  }
+  &__emoji {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 26px;
+    left: 8px;
+    // background-image: url("../../../images/chat/emoji.svg");
+    z-index: 1;
+
+    &:hover {
+      cursor: pointer;
+      & > path {
+        fill: $green-dark;
+      }
+      & .input-message__emoji_text {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    &_text {
       top: 26px;
       left: 8px;
-      background-image: url("../../../images/chat/emoji.svg");
+      visibility: hidden;
+      width: 160px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px;
+      position: absolute;
       z-index: 1;
+      // bottom: 125%;
+      // left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
     }
   }
-
   &__input {
     position: relative;
     width: 100%;
@@ -27,12 +54,13 @@
     border: 1px solid $grey-default;
     border-left: none;
     border-right: none;
+    // color: $black;
 
     &:focus-visible {
       outline: none;
 
       & ~ .input-message__button {
-        &  path {
+        & path {
           fill: $green-dark;
         }
       }

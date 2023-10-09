@@ -6,11 +6,32 @@
   overflow-x: hidden;
   overflow-y: auto;
 
-  &__up {
+  &_input {
+    height: calc(100% - 90px - 100px);
+  }
+
+  &__button {
     position: fixed;
-    bottom: 12%;
-    right: 8vw;
+    bottom: 145px;
+    right: calc(7vw + 20px);
     background-color: inherit;
+
+    &_input {
+      bottom: 105px;
+    }
+
+    &_down {
+      & > * {
+        transform: rotate(180deg);
+      }
+    }
+    &_up {
+      transform: none;
+    }
+
+    // &_disabled {
+    //   display: none;
+    // }
   }
 
   &__messages {
@@ -64,7 +85,6 @@
     color: $white;
   }
 }
-
 
 @media (max-width: 479px) {
   .message {

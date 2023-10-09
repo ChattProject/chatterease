@@ -1,12 +1,12 @@
 // @import '../../style/variables.scss';
 
 .header {
-  position: sticky;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 72px;
-  height: 8vh;
+  // min-height: 72px;
+  height: 72px;
   // margin-bottom: 25px;
   background-color: $white-dark;
   display: flex;
