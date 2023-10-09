@@ -96,13 +96,11 @@
       width: 80vw;
     }
     &__button {
-      width: 50vw;
+      width: 40vw;
     }
   }
 
 }
-
-
 @media (max-height: 799px) {
   .greetings-border {
     width: 60vw;
