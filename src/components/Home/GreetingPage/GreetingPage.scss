@@ -91,9 +91,15 @@
 }
 
 @media (max-width: 767px) {
-  .greetings-border {
-    width: 80vw;
+  .greetings {
+    &-border {
+      width: 80vw;
+    }
+    &__button {
+      width: 50vw;
+    }
   }
+
 }
 
 

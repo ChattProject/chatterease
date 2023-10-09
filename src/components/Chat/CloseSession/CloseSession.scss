@@ -72,6 +72,9 @@
   .close {
     &__buttons {
       flex-direction: column;
+      & > * {
+        width: 100%;
+      }
     }
   }
 }

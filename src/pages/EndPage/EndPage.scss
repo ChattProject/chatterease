@@ -2,14 +2,14 @@
 
  .endpage {
     max-width: 1440px;
-    height: 1024px;
+    height: 100%;
     margin: 0 auto;
+    padding-top: 65vh;
     background: url("../../images/welcome/bgAll.jpg");
     background-size: cover;
     background-position: center;
     position: relative;
     text-align: center;
-    padding-top: 728px;
 
     .welcome__bg {
         width: 100%;
@@ -20,11 +20,12 @@
         font-size: 3.2em;
         font-style: normal;
         font-weight: 600;
-        margin-bottom: 24px;
+        margin-bottom: 2vh;
         
     }
     &__button {
-        margin-top: 26px;
+        margin-top: 2vh;
+        width: 40vw;
     }
 }
 

@@ -12,7 +12,7 @@
 
   &__button {
     position: fixed;
-    bottom: 145px;
+    bottom: 150px;
     right: calc(7vw + 20px);
     background-color: inherit;
 
@@ -86,8 +86,22 @@
   }
 }
 
+@media (max-width: 559px) {
+  .show_message {
+    &__button {
+      bottom: 160px;
+
+      &_input {
+        bottom: 90px;
+      }
+    }
+  }
+}
+
 @media (max-width: 479px) {
   .message {
     width: 90%;
   }
 }
+
+

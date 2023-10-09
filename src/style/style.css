@@ -352,6 +352,9 @@ body {
   .greetings-border {
     width: 80vw;
   }
+  .greetings_button {
+    width: 60vw;
+  }
 }
 @media (max-height: 799px) {
   .greetings-border {
@@ -519,9 +522,9 @@ body {
 }
 .chatlist__newchat {
   margin: auto;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
   background-color: #fff;
   border: 2px solid #387e74;
   border-radius: 3px;
@@ -1012,6 +1015,9 @@ body {
   margin-top: 26px;
 }
 
+.rules {
+  overflow: scroll;
+}
 .rules__title {
   padding: 40px 0;
   font-family: Montserrat Alternates;

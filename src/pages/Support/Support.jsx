@@ -9,7 +9,7 @@ export const Support = ({ }) => {
     <>
       <div className="support">
         {/* <img className='support__bg' src={BgSupport} alt='Support'/> */}
-        <div className="support__window">
+        <div className="support__window window">
           <Link to={"/chats"} >
             <img className="support__close" src={Close} alt="Close" />
           </Link>
