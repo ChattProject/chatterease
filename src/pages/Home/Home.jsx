@@ -11,19 +11,19 @@ export const Home = () => {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (welcome) {
-      const timer = setTimeout(() => {
-        navigate("/chats");
-        setWelcome(false);
-        setGreeting(true);
-      }, 3000);
+  // useEffect(() => {
+  //   if (welcome) {
+  //     const timer = setTimeout(() => {
+  //       navigate("/chats");
+  //       setWelcome(false);
+  //       setGreeting(true);
+  //     }, 3000);
 
-      return () => {
-        clearTimeout(timer);
-      };
-    }
-  }, [welcome, navigate]);
+  //     return () => {
+  //       clearTimeout(timer);
+  //     };
+  //   }
+  // }, [welcome, navigate]);
 
   return (
     <>
