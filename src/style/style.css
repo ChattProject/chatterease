@@ -74,28 +74,30 @@ a {
 }
 
 .button-default {
+  padding: 16px 24px;
+  min-height: 52px;
+  width: 18.6vw;
+  max-width: 268px;
   font-family: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
   font-size: 1.6em;
   border: none;
   border-radius: 3px;
   color: #292929;
   text-align: center;
-  padding: 16px 24px;
-  width: 18.6vw;
-  height: 6.2vh;
   background-color: inherit;
 }
 
 .button-green {
+  padding: 16px 24px;
+  min-height: 52px;
+  width: 18.6vw;
+  max-width: 268px;
   font-family: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
   font-size: 1.6em;
   border: none;
   border-radius: 3px;
   color: #292929;
   text-align: center;
-  padding: 16px;
-  width: 268px;
-  height: 52px;
   background-color: #449f93;
   color: #fff;
   font-weight: 600;
@@ -109,6 +111,10 @@ a {
 }
 
 .button-yellow {
+  padding: 16px 24px;
+  min-height: 52px;
+  width: 18.6vw;
+  max-width: 268px;
   font-family: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
   font-size: 1.6em;
   border: none;
@@ -163,7 +169,7 @@ body {
   position: absolute;
   top: 72px;
   width: 86vw;
-  height: calc(100vh - 72px);
+  height: calc(100vh - 74px);
   margin: 0 7vw;
 }
 .app__chat > * {
@@ -219,17 +225,18 @@ body {
 }
 
 .greeting {
-  padding: 8vh 0;
+  height: 100%;
+  padding: 4vh 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  gap: 5vh;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
 }
 .greeting__numbers {
-  margin-top: 3.2em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -258,23 +265,39 @@ body {
   border-radius: 3px;
   border: 1px dashed #feb706;
   width: 50vw;
+  height: 75vh;
   margin: 0 auto;
   padding: 24px;
 }
 
 .greetings {
-  max-width: 50vw;
+  width: 100%;
+  height: 100%;
   background-color: #fbca5c;
   margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 2.8vw 7vw;
 }
-.greetings__image {
-  max-width: 29.4vw;
+.greetings__text {
+  margin: 3vh 0;
 }
 .greetings__title {
+  margin-bottom: 2vh;
   font-size: 2.4em;
   font-weight: 600;
-  line-height: 3.2em;
+  line-height: 1.33em;
   text-align: center;
 }
 .greetings__description {
@@ -283,11 +306,10 @@ body {
   font-style: normal;
   font-weight: 400;
   line-height: 1.25em;
-  margin-bottom: 2.5em;
 }
 .greetings__image {
-  height: auto;
-  width: 56%;
+  height: 45%;
+  width: inherit;
 }
 .greetings__buttons_two {
   display: -webkit-box;
@@ -303,21 +325,13 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 24px;
-}
-.greetings__button {
-  width: 268px;
+  gap: 2vh;
 }
 .greetings__button-green:hover {
   background-color: #387e74;
 }
 .greetings__button_start {
   margin-bottom: 54px;
-}
-
-.button-green {
-  width: 18.6vw;
-  height: 3.6vw;
 }
 
 .button-green:hover,
@@ -329,20 +343,53 @@ body {
   color: #fff;
 }
 
+@media (max-width: 999px) {
+  .greetings-border {
+    width: 60vw;
+  }
+}
+@media (max-width: 767px) {
+  .greetings-border {
+    width: 80vw;
+  }
+}
+@media (max-height: 799px) {
+  .greetings-border {
+    width: 60vw;
+  }
+}
+@media (max-height: 699px) {
+  .greetings-border {
+    width: 70vw;
+  }
+}
+@media (max-height: 599px) {
+  .greetings-border {
+    width: 70vw;
+  }
+  .greetings__buttons_two {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
 .welcome {
-  max-width: 1440px;
+  height: 100%;
+  width: auto;
   margin: 0 auto;
-  background: url("../../../images/welcome/bgAll.jpg");
-  background-size: cover;
   position: relative;
 }
 .welcome__bg {
-  width: 100%;
+  height: 100%;
+  width: auto;
+  text-align: center;
+  max-width: 100%;
 }
 .welcome__text {
   position: absolute;
   left: 50%;
-  top: 71.9%;
+  top: 72%;
   font-family: Montserrat Alternates;
   font-size: 3.2em;
   font-style: normal;
@@ -353,6 +400,9 @@ body {
 }
 
 .home__greeting {
+  height: 100%;
+}
+.home__welcome {
   height: 100%;
 }
 
@@ -406,7 +456,7 @@ body {
   width: 100%;
   height: 100%;
   padding-left: 40px;
-  color: #adadad;
+  color: #292929;
   background: #fff;
   border-radius: 3px;
   border: #adadad 1px solid;
@@ -505,16 +555,22 @@ body {
 }
 .show_message {
   position: relative;
-  height: calc(100% - 90px - 100px);
+  height: calc(100% - 90px - 140px);
   overflow: scroll;
   overflow-x: hidden;
   overflow-y: auto;
 }
+.show_message_input {
+  height: calc(100% - 90px - 100px);
+}
 .show_message__button {
   position: fixed;
   bottom: 145px;
-  right: 8vw;
+  right: calc(7vw + 20px);
   background-color: inherit;
+}
+.show_message__button_input {
+  bottom: 105px;
 }
 .show_message__button_down > * {
   -webkit-transform: rotate(180deg);
@@ -600,15 +656,37 @@ body {
   position: relative;
   background-color: #fff;
 }
-.input-message__form::before {
-  content: "";
+.input-message__emoji {
   position: absolute;
   width: 24px;
   height: 24px;
   top: 26px;
   left: 8px;
-  background-image: url("../../../images/chat/emoji.svg");
   z-index: 1;
+}
+.input-message__emoji:hover {
+  cursor: pointer;
+}
+.input-message__emoji:hover > path {
+  fill: #387e74;
+}
+.input-message__emoji:hover ~ .input-message__emoji_text {
+  visibility: visible;
+  opacity: 1;
+}
+.input-message__emoji_text {
+  position: absolute;
+  bottom: 58px;
+  left: 8px;
+  visibility: hidden;
+  color: #292929;
+  text-align: center;
+  text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3), 0px -4px 10px rgba(255, 255, 255, 0.3);
+  padding: 5px;
+  z-index: 1;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
 }
 .input-message__input {
   position: relative;
@@ -975,6 +1053,7 @@ body {
 .support {
   height: 100vh;
   margin: 0 auto;
+  padding-top: 24vh;
   background: url("../../images/bgSupport.jpg");
   background-size: cover;
 }
@@ -989,10 +1068,13 @@ body {
 }
 .support__close {
   position: absolute;
+  top: 24px;
+  right: 24px;
 }
 .support__content {
   max-width: 46.5em;
   margin: 0 auto;
+  padding: 100px 0;
 }
 .support__title {
   font-family: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;

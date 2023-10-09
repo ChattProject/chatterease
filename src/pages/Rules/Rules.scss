@@ -1,6 +1,8 @@
 // @import '../../style/variables.scss';
 
 .rules {
+  overflow: scroll;
+
   // background-color: $white;
   &__title {
     padding: 40px 0;

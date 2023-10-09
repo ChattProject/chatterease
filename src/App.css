@@ -1,7 +1,7 @@
 /* @import './style/style.css'; */
 .App {
   position: relative;
-  overflow: scroll;
+  /* overflow: scroll; */
   /* width: 86vw; */
   height: 100vh;
   text-align: center;

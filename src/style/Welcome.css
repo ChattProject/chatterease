@@ -1,17 +1,19 @@
 .welcome {
-  max-width: 1440px;
+  height: 100%;
+  width: auto;
   margin: 0 auto;
-  background: url("../../../images/welcome/bgAll.jpg");
-  background-size: cover;
   position: relative;
 }
 .welcome__bg {
-  width: 100%;
+  height: 100%;
+  width: auto;
+  text-align: center;
+  max-width: 100%;
 }
 .welcome__text {
   position: absolute;
   left: 50%;
-  top: 71.9%;
+  top: 72%;
   font-family: Montserrat Alternates;
   font-size: 3.2em;
   font-style: normal;

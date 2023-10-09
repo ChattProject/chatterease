@@ -1,75 +1,121 @@
 // @import '../../../style/_variables.scss';
 
 .greetings-border {
-    border-radius: 3px;
-    border: 1px dashed $yellow-dark;
-    width: 50vw;
-    margin: 0 auto;
-    padding: 24px;
+  border-radius: 3px;
+  border: 1px dashed $yellow-dark;
+  width: 50vw;
+  height: 75vh;
+  margin: 0 auto;
+  padding: 24px;
 }
 
 .greetings {
-    max-width: 50vw;
-    background-color: $yellow;
-    margin: 0 auto;
-    padding: 2.8vw 7vw;
+  width: 100%;
+  height: 100%;
+  background-color: $yellow;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2.8vw 7vw;
 
-    // &__image{
-    //     max-width: 29.4vw;
-    // }
+  // &__image{
+  //     max-width: 29.4vw;
+  // }
+&__text {
+  margin: 3vh 0;
+}
+  &__title {
+    margin-bottom: 2vh;
+    font-size: 2.4em;
+    font-weight: 600;
+    line-height: 1.33em;
+    text-align: center;
+  }
 
-    &__title {
-        font-size: 2.4em;
-        font-weight: 600;
-        line-height: 3.2em;
-        text-align: center;
-    }
+  &__description {
+    font: $montserrat;
+    font-size: 1.6em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.25em;
+    // margin-bottom: 2.5em;
+  }
+  &__image {
+    // height: 16vh;
+    height: 45%;
+    // width: 13vh;
+    width: inherit;
+  }
 
-    &__description {
-        font: $montserrat;
-        font-size: 1.6em;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 1.25em;
-        margin-bottom: 2.5em;
+  &__buttons_two {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+  }
+  &__button {
+    // width: 268px;
+    &-green {
+      &:hover {
+        background-color: $green-dark;
+      }
     }
-    &__image {
-        // height: 16vh;
-        // height: auto;
-        width: 13vh;
-    }
+  }
 
-    &__buttons_two {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        // gap: 24px;
-    }
-    &__button {
-        // width: 268px;
-        &-green {
-            &:hover {
-                background-color: $green-dark;
-            }
-        }
-    }
-
-    &__button_start {
-        margin-bottom: 54px;
-    }
+  &__button_start {
+    margin-bottom: 54px;
+  }
 }
 
-  .button-green{
-      width: 18.6vw;
-      height: 3.6vw;
-  }
+//   .button-green{
+//       width: 18.6vw;
+//       height: 3.6vw;
+//   }
 
 .button-green:hover,
 .button-default:hover {
-    background-color: $green-dark;
+  background-color: $green-dark;
 }
 
 .button-default:hover {
-    color: $white;
+  color: $white;
+}
+
+@media (max-width: 999px) {
+  .greetings-border {
+    width: 60vw;
+  }
+}
+
+@media (max-width: 767px) {
+  .greetings-border {
+    width: 80vw;
+  }
+}
+
+
+@media (max-height: 799px) {
+  .greetings-border {
+    width: 60vw;
+  }
+}
+
+@media (max-height: 699px) {
+  .greetings-border {
+    width: 70vw;
+  }
+}
+
+@media (max-height: 599px) {
+  .greetings-border {
+    width: 70vw;
+  }
+  .greetings {
+    &__buttons_two {
+      flex-direction: row;
+    }
+  }
 }

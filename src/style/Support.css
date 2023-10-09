@@ -1,6 +1,7 @@
 .support {
   height: 100vh;
   margin: 0 auto;
+  padding-top: 24vh;
   background: url("../../images/bgSupport.jpg");
   background-size: cover;
 }
@@ -15,10 +16,13 @@
 }
 .support__close {
   position: absolute;
+  top: 24px;
+  right: 24px;
 }
 .support__content {
   max-width: 46.5em;
   margin: 0 auto;
+  padding: 100px 0;
 }
 .support__title {
   font-family: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
