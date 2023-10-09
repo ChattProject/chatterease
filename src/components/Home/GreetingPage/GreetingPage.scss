@@ -14,9 +14,9 @@
     margin: 0 auto;
     padding: 2.8vw 7vw;
 
-    &__image{
-        max-width: 29.4vw;
-    }
+    // &__image{
+    //     max-width: 29.4vw;
+    // }
 
     &__title {
         font-size: 2.4em;
@@ -34,8 +34,9 @@
         margin-bottom: 2.5em;
     }
     &__image {
-        height: auto;
-        width: 56%;
+        // height: 16vh;
+        // height: auto;
+        width: 13vh;
     }
 
     &__buttons_two {
@@ -43,10 +44,10 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 24px;
+        // gap: 24px;
     }
     &__button {
-        width: 268px;
+        // width: 268px;
         &-green {
             &:hover {
                 background-color: $green-dark;
