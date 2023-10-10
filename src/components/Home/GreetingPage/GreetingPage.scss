@@ -18,14 +18,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2.8vw 7vw;
+  padding: 3vh 7vw;
 
   // &__image{
   //     max-width: 29.4vw;
   // }
-&__text {
-  margin: 3vh 0;
-}
+  &__text {
+    margin: 3vh 0;
+  }
   &__title {
     margin-bottom: 2vh;
     font-size: 2.4em;
@@ -94,30 +94,35 @@
   .greetings {
     &-border {
       width: 80vw;
+      padding: 12px;
     }
     &__button {
       width: 40vw;
     }
   }
-
 }
+
 @media (max-height: 799px) {
   .greetings-border {
     width: 60vw;
+    height: 73vh;
   }
 }
-
 @media (max-height: 699px) {
-  .greetings-border {
-    width: 70vw;
+  .greetings {
+    padding: 3vh 7vw;
+    &-border {
+      width: 70vw;
+      height: 72vh;
+      padding: 12px;
+    }
   }
 }
-
 @media (max-height: 599px) {
-  .greetings-border {
-    width: 70vw;
-  }
   .greetings {
+    &-border {
+      width: 70vw;
+    }
     &__buttons_two {
       flex-direction: row;
     }

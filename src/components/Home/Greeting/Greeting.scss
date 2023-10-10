@@ -6,8 +6,9 @@
   padding: 4vh 0;
   // padding-top: 7vh;
   display: flex;
-  gap: 5vh;
+  gap: 3vh;
   flex-direction: column;
+  justify-content: space-around;
 
   &__numbers {
     // margin-top: 3.2em;
