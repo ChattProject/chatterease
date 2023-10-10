@@ -1,5 +1,5 @@
 import '../Welcome/Welcome.scss';
-import BgWelcome from '../../../images/welcome/bgAll.jpg'
+import BgWelcome from '../../../images/welcome/people.svg'
 
 export const Welcome = () => {
   return (

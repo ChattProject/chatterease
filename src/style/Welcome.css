@@ -1,19 +1,26 @@
 .welcome {
-  height: 100%;
-  width: auto;
-  margin: 0 auto;
   position: relative;
+  height: 100%;
+  width: 100vw;
+  margin-left: -7vw;
+  background: url("../../../images/welcome/background_plot.svg"), url("../../../images/welcome/background.svg");
+  background-position: center;
+  background-size: auto cover;
+  background-repeat: no-repeat;
 }
 .welcome__bg {
-  height: 100%;
-  width: auto;
+  height: 60%;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
+  margin: 7vh 20vw 0 27vw;
   text-align: center;
   max-width: 100%;
 }
 .welcome__text {
   position: absolute;
   left: 50%;
-  top: 72%;
+  top: 65vh;
   font-family: Montserrat Alternates;
   font-size: 3.2em;
   font-style: normal;

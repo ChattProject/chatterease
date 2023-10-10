@@ -63,7 +63,9 @@ export const InputMessage = ({
             height="24"
             viewBox="0 0 24 24"
             fill="none"
-            className="input-message__icon"
+            className={`"input-message__icon" ${
+              message.length !== 0 && "input-message__icon_send"
+            }`}
           >
             <path
               d="M6.97816 19.477C6.97816 20.848 8.62316 21.519 9.55516 20.527L21.5582 7.723C22.5182 6.695 21.8032 5 20.4092 5H3.49616C2.17816 5 1.50516 6.607 2.41816 7.572L6.97816 12.4V19.477ZM8.97116 18.212V11.585L3.85616 6.169C4.15916 6.491 3.93416 7.026 3.49616 7.026H19.4592L8.97116 18.212Z"

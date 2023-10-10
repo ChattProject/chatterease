@@ -352,8 +352,8 @@ body {
   .greetings-border {
     width: 80vw;
   }
-  .greetings_button {
-    width: 60vw;
+  .greetings__button {
+    width: 40vw;
   }
 }
 @media (max-height: 799px) {
@@ -568,7 +568,7 @@ body {
 }
 .show_message__button {
   position: fixed;
-  bottom: 145px;
+  bottom: 150px;
   right: calc(7vw + 20px);
   background-color: inherit;
 }
@@ -650,6 +650,14 @@ body {
   color: #fff;
 }
 
+@media (max-width: 559px) {
+  .show_message__button {
+    bottom: 160px;
+  }
+  .show_message__button_input {
+    bottom: 105px;
+  }
+}
 @media (max-width: 479px) {
   .message {
     width: 90%;
@@ -784,6 +792,9 @@ body {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+  .close__buttons > * {
+    width: 100%;
   }
 }
 @media (max-width: 479px) {
@@ -992,14 +1003,14 @@ body {
 
 .endpage {
   max-width: 1440px;
-  height: 1024px;
+  height: 100%;
   margin: 0 auto;
+  padding-top: 65vh;
   background: url("../../images/welcome/bgAll.jpg");
   background-size: cover;
   background-position: center;
   position: relative;
   text-align: center;
-  padding-top: 728px;
 }
 .endpage .welcome__bg {
   width: 100%;
@@ -1009,10 +1020,11 @@ body {
   font-size: 3.2em;
   font-style: normal;
   font-weight: 600;
-  margin-bottom: 24px;
+  margin-bottom: 2vh;
 }
 .endpage__button {
-  margin-top: 26px;
+  margin-top: 2vh;
+  width: 40vw;
 }
 
 .rules {
@@ -1057,19 +1069,15 @@ body {
 }
 
 .support {
-  height: 100vh;
-  margin: 0 auto;
-  padding-top: 24vh;
+  height: 100%;
   background: url("../../images/bgSupport.jpg");
   background-size: cover;
 }
 .support__window {
-  max-width: 62.5em;
   background-color: #fffff3;
   border-radius: 3px;
   -webkit-box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.25);
-  margin: 0 auto;
   position: relative;
 }
 .support__close {
@@ -1080,7 +1088,6 @@ body {
 .support__content {
   max-width: 46.5em;
   margin: 0 auto;
-  padding: 100px 0;
 }
 .support__title {
   font-family: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
