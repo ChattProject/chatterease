@@ -9,7 +9,7 @@ export const PersonalMessage = ({}) => {
         <ChatLinks />
 
         <div className="personal chat">
-          <div className="personal__window">
+          <div className="personal__window window">
             <div className="personal__title">Ця сторінка скоро з’явиться</div>
             <div className="personal__text">
               Наші розробники уже на фінішній прямій і скоро ми додамо
