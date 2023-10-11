@@ -76,7 +76,6 @@ a {
 .button-default {
   padding: 16px 24px;
   min-height: 52px;
-  min-width: 268px;
   font-family: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
   font-size: 1.6em;
   border: none;
@@ -89,7 +88,6 @@ a {
 .button-green {
   padding: 16px 24px;
   min-height: 52px;
-  min-width: 268px;
   font-family: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
   font-size: 1.6em;
   border: none;
@@ -111,7 +109,6 @@ a {
 .button-yellow {
   padding: 16px 24px;
   min-height: 52px;
-  min-width: 268px;
   font-family: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
   font-size: 1.6em;
   border: none;
@@ -265,6 +262,13 @@ body {
   color: #fff;
 }
 
+@media (max-width: 835px) {
+  .greeting {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+  }
+}
 .greetings-border {
   border-radius: 3px;
   border: 1px dashed #feb706;
@@ -352,6 +356,11 @@ body {
     width: 75vw;
   }
 }
+@media (max-width: 835px) {
+  .greetings-border {
+    padding: 24px 16px;
+  }
+}
 @media (max-width: 767px) {
   .greetings-border {
     width: 80vw;
@@ -393,7 +402,7 @@ body {
   height: 100%;
   background: url("../../../images/welcome/background_plot.svg"), url("../../../images/welcome/background.svg");
   background-position: center;
-  background-size: auto cover;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 .welcome__bg {
@@ -418,6 +427,11 @@ body {
   text-align: center;
 }
 
+@media (max-width: 835px) {
+  .welcome__text {
+    top: 55vh;
+  }
+}
 .home__greeting {
   height: 100%;
 }
@@ -539,9 +553,9 @@ body {
 }
 .chatlist__newchat {
   margin: auto;
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   background-color: #fff;
   border: 2px solid #387e74;
   border-radius: 3px;
@@ -763,7 +777,7 @@ body {
 .close__content {
   position: relative;
   margin: 35vh auto;
-  width: 40vw;
+  width: 575px;
   padding: 24px 35px 24px 60px;
   background-color: #feb706;
   border: 1px solid #888;
@@ -796,6 +810,11 @@ body {
   display: flex;
   gap: 24px;
 }
+.close__button {
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
 .close__button:hover {
   background-color: #449f93;
   color: #fff;
@@ -809,7 +828,7 @@ body {
 
 @media (max-width: 999px) {
   .close__content {
-    width: 60vw;
+    width: 70vw;
   }
 }
 @media (max-width: 767px) {
@@ -1073,7 +1092,6 @@ body {
 }
 .endpage__button {
   margin-top: 2vh;
-  width: 40vw;
 }
 
 .rules {

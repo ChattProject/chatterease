@@ -57,7 +57,7 @@
     gap: 2vh;
   }
   &__button {
-    // width: 268px;
+    width: 268px;
     &-green {
       &:hover {
         background-color: $green-dark;
@@ -67,6 +67,7 @@
 
   &__button_start {
     margin-bottom: 54px;
+    width: 268px;
   }
 }
 
@@ -105,7 +106,7 @@
       width: 80vw;
       padding: 12px;
     }
-    &__button {
+    &__button, &__button_start {
       width: 40vw;
     }
   }
