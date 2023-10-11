@@ -11,7 +11,8 @@
   &__content {
     position: relative;
     margin: 35vh auto;
-    width: 40vw;
+    width: 575px;
+    // width: fit-content;
     padding: 24px 35px 24px 60px;
     background-color: $yellow-dark;
     border: 1px solid #888;
@@ -45,6 +46,8 @@
   }
 
   &__button {
+    min-width: fit-content;
+
     &:hover {
       background-color: $green;
       color: $white;
@@ -63,7 +66,7 @@
 @media (max-width: 999px) {
   .close {
     &__content {
-      width: 60vw;
+      width: 70vw;
     }
   }
 }
