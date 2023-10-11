@@ -33,3 +33,10 @@
         background-color: $yellow;
         color: $white;
     }
+
+
+    @media (max-width: 835px) {
+      .greeting {
+        justify-content: start;
+      }
+    }

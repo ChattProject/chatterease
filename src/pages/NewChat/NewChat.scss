@@ -2,6 +2,7 @@
   background: url("../../images/newChat/background.svg");
   background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
   &__window {
     position: relative;
   }
@@ -34,9 +35,14 @@
     max-width: 368px;
     margin-bottom: 34px;
   }
-
+  &__buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
   &__button {
-    max-width: 368px;
+    // max-width: 368px;
     width: 100%;
   }
 }

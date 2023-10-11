@@ -57,14 +57,22 @@ export const NewChat = ({
             onChange={handleSetNewChatTitle}
             required
           />
-          <button
-            type="submit"
-            className={`newchat__button button-default ${
-              newChatTitle === "" ? "button-green_disabled" : "button-green"
-            }`}
-          >
-            Почати спілкування
-          </button>
+          <div className="newchat__buttons">
+            <button
+              type="submit"
+              className={`newchat__button newchat__submit button-default ${
+                newChatTitle === "" ? "button-green_disabled" : "button-green"
+              }`}
+            >
+              Почати спілкування
+            </button>
+            <button
+              className="newchat__button newchat__return button-default"
+              onClick={() => navigate(`/chats`)}
+            >
+              Повернутися до списку чатів
+            </button>
+          </div>
         </form>
       </div>
     </div>

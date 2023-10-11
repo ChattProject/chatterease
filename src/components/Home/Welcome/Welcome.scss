@@ -4,11 +4,11 @@
     position: relative;
     // max-width: 1440px;
     height: 100%;
-    width: 100vw;
-    margin-left: -7vw;
+    // width: 100vw;
+    // margin-left: -7vw;
     background: url("../../../images/welcome/background_plot.svg"), url("../../../images/welcome/background.svg");
     background-position: center;
-    background-size: auto cover;
+    background-size: cover;
     background-repeat: no-repeat;
 
     &__bg {
@@ -36,3 +36,11 @@
         text-align: center;
     }
 }
+
+@media (max-width: 835px) {
+    .welcome {
+      &__text {
+        top: 55vh;
+      }
+    }
+  }

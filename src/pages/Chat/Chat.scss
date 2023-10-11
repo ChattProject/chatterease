@@ -131,6 +131,22 @@
   }
 }
 
+@media (max-width: 835px) {
+  .chat {
+    width: 100vw;
+    // margin-left: -7vw;
+
+    &__title {
+      width: 70%;
+      padding-left: 5vw;
+    }
+    &__back {
+      width: 30%;
+    }
+  }
+}
+
+
 @media (max-width: 479px) {
   .chat {
     &__back {

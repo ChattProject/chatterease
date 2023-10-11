@@ -43,6 +43,12 @@ body {
 @import "../components/ChatLinks/ChatLinks.scss";
 // @import "../components/CloseSession/CloseSession.scss";
 
+@media (max-width: 835px) {
+  .app__chat {
+    width: 100vw;
+    margin: 0;
+  }
+}
 
 @media (max-width: 479px) {
   .app__chat {

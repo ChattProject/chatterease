@@ -1,6 +1,7 @@
 .show_message {
   // height: min-content;
   position: relative;
+  padding: 0 1vw;
   height: calc(100% - 90px - 140px);
   overflow: scroll;
   overflow-x: hidden;
@@ -17,7 +18,7 @@
     background-color: inherit;
 
     &_input {
-      bottom: 105px;
+      bottom: 110px;
     }
 
     &_down {
@@ -83,6 +84,16 @@
     line-height: 1.3em;
     font-weight: 400;
     color: $white;
+  }
+}
+
+@media (max-width: 835px) {
+  .show_message {
+    padding: 0 5vw;
+
+    &__button {
+      right: 5vw;
+    }
   }
 }
 

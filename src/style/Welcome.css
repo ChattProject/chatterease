@@ -1,11 +1,9 @@
 .welcome {
   position: relative;
   height: 100%;
-  width: 100vw;
-  margin-left: -7vw;
   background: url("../../../images/welcome/background_plot.svg"), url("../../../images/welcome/background.svg");
   background-position: center;
-  background-size: auto cover;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 .welcome__bg {
@@ -28,4 +26,10 @@
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   text-align: center;
+}
+
+@media (max-width: 835px) {
+  .welcome__text {
+    top: 55vh;
+  }
 }/*# sourceMappingURL=Welcome.css.map */

@@ -106,7 +106,7 @@ export const ShowMessages = ({ messages, message, userName }) => {
   }
   return (
     <>
-      <div className={`show_message container ${userName && 'show_message_input'}`}>
+      <div className={`show_message ${userName && 'show_message_input'}`}>
         <div className={'show_message__messages'} ref={containerRef}>
           <button
             className={`show_message__button ${

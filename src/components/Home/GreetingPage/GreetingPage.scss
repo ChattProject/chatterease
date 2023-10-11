@@ -86,7 +86,16 @@
 
 @media (max-width: 999px) {
   .greetings-border {
-    width: 60vw;
+    width: 75vw;
+  }
+}
+
+@media (max-width: 835px) {
+  .greetings {
+    &-border {
+      // width: 70vw;
+      padding: 24px 16px;
+    }
   }
 }
 

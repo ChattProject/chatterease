@@ -30,8 +30,8 @@ $montserratAlternates: "Montserrat Alternates", "Montserrat", "Roboto", "Open Sa
 @mixin button {
   padding: 16px 24px;
   min-height: 52px;
-  width: 18.6vw;
-  max-width: 268px;
+  // width: fill-available;
+  min-width: 268px;
   font-family: $montserrat;
   font-size: 1.6em;
   // line-height: 1.25em;
@@ -76,7 +76,7 @@ $montserratAlternates: "Montserrat Alternates", "Montserrat", "Roboto", "Open Sa
 
 .window {
   position: relative;
-  top: 25%;
+  top: 24%;
   left: 25%;
   padding: 9vh 5vw;
   width: 52%;
@@ -98,6 +98,13 @@ $montserratAlternates: "Montserrat Alternates", "Montserrat", "Roboto", "Open Sa
   .window {
     left: 15%;
     width: 70%;
+  }
+}
+
+@media (max-width: 835px) {
+  .window {
+    // width: ;
+    padding: 5vh 7vw;
   }
 }
 
