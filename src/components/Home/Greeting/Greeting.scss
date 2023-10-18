@@ -31,3 +31,19 @@
         background-color: $yellow;
         color: $white;
     }
+
+@media (max-width: 999px){
+
+}
+
+@media (max-width: 399px) {
+  .greeting{
+    padding-top: 0;
+      &__numbers{
+        display: none;
+      
+    }
+  }
+}
+
+

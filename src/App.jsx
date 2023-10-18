@@ -13,7 +13,8 @@ import { Header } from "./components/Header/Header";
 import { NewChat } from "./pages/NewChat/NewChat";
 import { Login } from "./pages/Login/Login";
 import { EndPage } from "./pages/EndPage/EndPage";
-import { Support } from "./pages/Support/Support";
+// import { Support } from "./pages/Support/Support";
+import { SupportForm } from "./pages/Support/SupportForm";
 import { Rules } from "./pages/Rules/Rules";
 import { PersonalMessage } from "./pages/PersonalMessage/PersonalMessage";
 
@@ -78,7 +79,8 @@ function App() {
           />
           <Route exact path="/endchats" element={<EndPage />} />
           <Route exact path="/rules" element={<Rules />} />
-          <Route exact path="/support" element={<Support />} />
+          {/* <Route exact path="/support" element={<SupportForm />} /> */}
+          <Route exact path="/support" element={<SupportForm />} />
           <Route exact path="/direct" element={<PersonalMessage />} />
           <Route
             exact

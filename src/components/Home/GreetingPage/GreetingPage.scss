@@ -14,10 +14,6 @@
     margin: 0 auto;
     padding: 2.8vw 7vw;
 
-    // &__image{
-    //     max-width: 29.4vw;
-    // }
-
     &__title {
         font-size: 2.4em;
         font-weight: 600;
@@ -62,7 +58,7 @@
 
   .button-green{
       width: 18.6vw;
-      height: 3.6vw;
+    //   height: 3.6vw;
   }
 
 .button-green:hover,
@@ -72,4 +68,36 @@
 
 .button-default:hover {
     color: $white;
+}
+
+@media (max-width: 852px){
+    .greetings{
+        &__title {
+        font-size: 2.4em;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 3.2em;
+     }    
+    }
+            
+}
+
+@media (max-width: 399px){
+    .greetings-border {
+        width: 100%;
+        border: none;
+        padding: 0;
+
+    }
+
+    .greetings{
+        max-width: none;
+        padding: 40px 47px 16px;
+
+        &__image{
+            width: 23vh;
+        }
+    }
+
+
 }
