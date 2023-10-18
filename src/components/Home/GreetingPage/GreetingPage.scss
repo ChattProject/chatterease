@@ -71,10 +71,10 @@
   }
 }
 
-//   .button-green{
-//       width: 18.6vw;
-//       height: 3.6vw;
-//   }
+  .button-green{
+      width: 18.6vw;
+      height: 3.6vw;
+  }
 
 .button-green:hover,
 .button-default:hover {
@@ -137,4 +137,90 @@
       flex-direction: row;
     }
   }
+}
+
+@media (max-width: 999px) {
+  .greetings-border {
+    width: 75vw;
+  }
+}
+
+@media (max-width: 835px) {
+  .greetings {
+    &-border {
+      // width: 70vw;
+      padding: 24px 16px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .greetings {
+    &-border {
+      width: 80vw;
+      padding: 12px;
+    }
+    &__button, &__button_start {
+      width: 40vw;
+    }
+  }
+}
+
+@media (max-height: 799px) {
+  .greetings-border {
+    width: 60vw;
+    height: 73vh;
+  }
+}
+@media (max-height: 699px) {
+  .greetings {
+    padding: 3vh 7vw;
+    &-border {
+      width: 70vw;
+      height: 72vh;
+      padding: 12px;
+    }
+  }
+}
+@media (max-height: 599px) {
+  .greetings {
+    &-border {
+      width: 70vw;
+    }
+    &__buttons_two {
+      flex-direction: row;
+    }
+  }
+}
+
+@media (max-width: 852px){
+    .greetings{
+        &__title {
+        font-size: 2.4em;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 3.2em;
+     }    
+    }
+            
+}
+
+@media (max-width: 399px){
+    .greetings-border {
+        width: 100%;
+        border: none;
+        padding: 0;
+
+    }
+
+    .greetings{
+        max-width: none;
+        padding: 40px 47px 16px;
+
+        &__image{
+            width: 23vh;
+        }
+    }
+
+
 }
