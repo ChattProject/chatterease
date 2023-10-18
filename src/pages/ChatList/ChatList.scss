@@ -146,10 +146,27 @@
       width: 100%;
       text-align: center;
     }
+&__search {
+  width: 80%;
+}
     &__input {
+      // width: 100%;
       text-overflow: ellipsis;
-      overflow: hidden; 
+      overflow: hidden;
       white-space: nowrap;
+    }
+  }
+}
+
+@media (max-width: 343px) {
+  .chatlist {
+    padding: 24px 16px;
+    overflow-y: scroll;
+    &__container {
+      width: 100%;
+    }
+    &__search {
+      width: 100%;
     }
   }
 }

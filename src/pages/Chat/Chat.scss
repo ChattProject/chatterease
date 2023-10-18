@@ -63,13 +63,18 @@
   background-size: cover;
 
   &__header {
+    min-height: 60px;
+    height: fit-content;
     display: flex;
+    align-items: center;
+
     // flex-direction: column;
   }
 
   &__title {
-    padding: 0 24px;
-    width: 83%;
+    padding: 16px 24px;
+    width: 80%;
+    min-height: 60px;
     text-align: left;
     display: flex;
     // flex-direction: column;
@@ -97,8 +102,9 @@
   }
 
   &__back {
-    padding: 36px 0;
-    width: 17%;
+    padding: 32px 0;
+    width: 21%;
+    min-height: 60px;
     text-align: center;
     background-color: $green;
     color: $white;
@@ -129,6 +135,39 @@
   &__button_input {
     width: 268px;
   }
+
+  &__flexiblemenu {
+    display: none;
+  }
+}
+
+.flexiblemenu {
+  position: relative;
+  display: none;
+  &__dots {
+    display: none;
+  }
+  &__links {
+    position: absolute;
+    top: 8px;
+    right: 0;
+    padding: 8px 5vw;
+    display: none;
+    gap: 8px;
+    width: 50vw;
+    background-color: $white;
+    flex-direction: column;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.4em;
+    background-color: inherit;
+  }
+  &__icon {
+    // margin: 5px;
+  }
 }
 
 @media (max-width: 835px) {
@@ -137,23 +176,57 @@
     // margin-left: -7vw;
 
     &__title {
-      width: 70%;
+      width: 65%;
       padding-left: 5vw;
     }
     &__back {
-      width: 30%;
+      width: 35%;
     }
   }
 }
 
-
 @media (max-width: 479px) {
   .chat {
     &__back {
-      width: 40%;
+      padding: 23px 5vw;
+      word-wrap: break-word;
     }
     &__button_input {
       width: 70%;
+    }
+  }
+}
+
+@media (max-width: 343px) {
+  .chat {
+  height: calc(100% - 72px);
+
+    &__header {
+      padding: 8px 5vw;
+      background-color: $yellow;
+    }
+    &__title {
+      padding: 0;
+      width: 88vw;
+    }
+    &__close {
+      display: none;
+    }
+    &__back {
+      display: none;
+    }
+  }
+  .flexiblemenu {
+    display: block;
+    &__dots {
+      display: block;
+
+      &:hover,
+      &:focus {
+        & ~ .flexiblemenu__links {
+          display: flex;
+        }
+      }
     }
   }
 }

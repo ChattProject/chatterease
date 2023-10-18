@@ -17,7 +17,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    // gap: 16px;
+  }
+  &__text {
+    margin-bottom: 16px;
   }
 
   &__name {
@@ -34,21 +37,28 @@
   }
 
   &__button {
-    margin-top: 40px;
+    margin-top: 10px;
     width: 100%;
   }
 
   &__error {
+    visibility: hidden;
+    margin-top: 6px;
     font-size: 1.4em;
     line-height: 1.29em;
     font-weight: 400;
+
+    &_display {
+      visibility: visible;
+    }
   }
 }
 
-@media (max-width: 835px) {
+@media (max-width: 343px) {
   .login {
-    &__button {
-      
+    &__name {
+      max-width: 236px;
+    
     }
   }
 }

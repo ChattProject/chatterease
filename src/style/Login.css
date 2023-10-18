@@ -23,7 +23,9 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 16px;
+}
+.login__text {
+  margin-bottom: 16px;
 }
 .login__name {
   max-width: 255px;
@@ -36,11 +38,22 @@
   border-color: #bd0b00;
 }
 .login__button {
-  margin-top: 40px;
+  margin-top: 10px;
   width: 100%;
 }
 .login__error {
+  visibility: hidden;
+  margin-top: 6px;
   font-size: 1.4em;
   line-height: 1.29em;
   font-weight: 400;
+}
+.login__error_display {
+  visibility: visible;
+}
+
+@media (max-width: 343px) {
+  .login__name {
+    max-width: 236px;
+  }
 }/*# sourceMappingURL=Login.css.map */

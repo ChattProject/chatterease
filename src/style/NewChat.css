@@ -51,4 +51,10 @@
 }
 .newchat__button {
   width: 100%;
+}
+
+@media (max-width: 343px) {
+  .newchat__form {
+    width: 100%;
+  }
 }/*# sourceMappingURL=NewChat.css.map */

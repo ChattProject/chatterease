@@ -75,12 +75,12 @@ export const Login = ({ setUserName, userName }) => {
               value={inputValue}
               onChange={handleInputChange}
             />
-            {errorLength && (
-              <div className="login__error">Введіть від 3 до 10 символів</div>
-            )}
-            {errorSymbols && (
-              <div className="login__error">{`Заборонені спеціальні символи: ,.<>/?':"-=+!@#$%^&*()`}</div>
-            )}
+            {/* {errorLength && ( */}
+              <div className={`login__error ${errorLength && 'login__error_display'}`}>Введіть від 3 до 10 символів</div>
+            {/* )} */}
+            {/* {errorSymbols && ( */}
+              <div className={`login__error ${errorSymbols && 'login__error_display'}`}>{`Заборонені спеціальні символи: ,.<>/?':"-=+!@#$%^&*()`}</div>
+            {/* )} */}
             <button
               className={`login__button ${
                 inputValue !== ""

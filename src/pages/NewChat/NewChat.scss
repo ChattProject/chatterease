@@ -46,3 +46,11 @@
     width: 100%;
   }
 }
+
+@media (max-width: 343px) {
+ .newchat {
+  &__form {
+    width: 100%;
+  }
+ }
+}

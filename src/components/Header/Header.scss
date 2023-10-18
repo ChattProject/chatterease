@@ -1,7 +1,7 @@
 // @import '../../style/variables.scss';
 
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -14,22 +14,137 @@
   z-index: 1;
 
   &__container {
-    width: 87vw;
+    width: 86vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    
   }
 
-  &__additional{
+  &__additional {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 40px;
   }
 
-  &__info{
+  &__info {
     font-style: normal;
+  }
+  &__icon {
+    display: none;
+  }
+
+  &__burger {
+    display: none;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 30px;
+    cursor: pointer;
+
+    span {
+      display: none;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #000;
+      transition: all 0.3s ease;
+      opacity: 1;
+
+      &:nth-of-type(1) {
+        top: 6px;
+      }
+      &:nth-of-type(2) {
+        top: 12px;
+      }
+      &:nth-of-type(3) {
+        top: 18px;
+      }
+    }
+
+    &:hover {
+      span {
+        &:nth-of-type(1),
+        &:nth-of-type(3) {
+          top: 12px;
+          // background-color: red;
+        }
+        &:nth-of-type(1) {
+          transform: rotate(45deg);
+        }
+        &:nth-of-type(2) {
+          opacity: 0;
+        }
+        &:nth-of-type(3) {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+
+    &:focus {
+      // outline: 0;
+      // box-shadow: 0 0 20px 0 #1275dc;
+      // background-color: rgb(18 117 220 / 37%);
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .header {
+    &__container {
+      width: 100vw;
+      padding: 16px 5vw;
+    }
+
+    &__additional {
+      display: none;
+      position: absolute;
+      width: 60vw;
+      padding: 8px 4vw;
+      top: 24px;
+      right: 16px;
+      flex-direction: column;
+      gap: 8px;
+      border-radius: 3px;
+      background-color: $white;
+    }
+    &__info {
+      display: flex;
+      // padding: 10px;
+      align-items: center;
+      gap: 4px;
+    }
+    &__icon {
+      display: block;
+      flex-shrink: 0;
+      margin: 10px;
+      & path {
+        width: 24px;
+        height: 24px;
+      }
+    }
+    &__link {
+      word-wrap: break-word;
+      text-align: left;
+      font-size: 1.4em;
+    }
+    &__burger {
+      display: inline-block;
+      &:hover,
+      &:focus {
+        & ~ .header__additional {
+          display: flex;
+        }
+      }
+      span {
+        display: block;
+      }
+    }
   }
 }

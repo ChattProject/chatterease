@@ -99,3 +99,39 @@
     }
   }
 }
+
+@media (max-width: 343px) {
+  .close {
+    &__content {
+      left: 5vw;
+      width: 90vw;
+      margin: 35vh 0;
+      padding: 15px 9vw;
+      align-items: center;
+      & > * {
+        text-align: center;
+      }
+    }
+    &__icon {
+      top: 15px;
+    }
+    &__header {
+      font-weight: 600;
+      justify-content: center;
+    }
+
+    &__buttons {
+      gap: 16px;
+    }
+
+    &__button {
+      &_no {
+        order: 1;
+      }
+      &_yes {
+        order: 2;
+      }
+    }
+
+  }
+}

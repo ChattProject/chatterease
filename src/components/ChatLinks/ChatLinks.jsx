@@ -8,7 +8,8 @@ export const ChatLinks = () => {
     </div>
     <div className="chatlinks__personal chatlinks__subtitle paragraph">
       <Link to={"/direct"} className="chatlinks__link">
-        Особисті повідомлення
+        <span className="chatlinks__personal_all">Особисті повідомлення</span>
+        <span className="chatlinks__personal_hidden">Особисті</span>
       </Link>
     </div>
   </div>
