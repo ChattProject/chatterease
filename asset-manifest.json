@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/chatterease/static/css/main.7ea86ba9.css",
-    "main.js": "/chatterease/static/js/main.a6f6ab36.js",
+    "main.css": "/chatterease/static/css/main.bc3aa2b0.css",
+    "main.js": "/chatterease/static/js/main.29a03e68.js",
     "static/js/787.8defb542.chunk.js": "/chatterease/static/js/787.8defb542.chunk.js",
     "static/media/bgAll.jpg": "/chatterease/static/media/bgAll.52ce6ed23e85ed2dea3c.jpg",
     "static/media/bgSupport.jpg": "/chatterease/static/media/bgSupport.6c2096f19cd6dbdb8698.jpg",
     "static/media/background_chat.svg": "/chatterease/static/media/background_chat.69d7a011296f4f02d718.svg",
-    "static/media/background.svg": "/chatterease/static/media/background.1f97872e67bb7b62e790.svg",
+    "static/media/background.svg": "/chatterease/static/media/background.efba83911637c6044557.svg",
     "static/media/PhosphateInline.ttf": "/chatterease/static/media/PhosphateInline.acf114b8fb5f121b3312.ttf",
-    "static/media/people.svg": "/chatterease/static/media/people.666d92d66231f20391c91fd93c2f115c.svg",
+    "static/media/people.svg": "/chatterease/static/media/people.005b59214ead156253a4.svg",
     "static/media/Logo.svg": "/chatterease/static/media/Logo.b6d82cafe2e10bd2b7da64c5ccec863a.svg",
     "static/media/standing_page2.svg": "/chatterease/static/media/standing_page2.15fb8f5d894523c2b03b.svg",
     "static/media/sitting_page1.svg": "/chatterease/static/media/sitting_page1.e325e7e63d46471ce80f.svg",
@@ -21,12 +21,13 @@
     "static/media/send.svg": "/chatterease/static/media/send.62c3376d7f5a2b537c2b36430a9659a3.svg",
     "static/media/background_plot.svg": "/chatterease/static/media/background_plot.7a1dcc860726ad476ca5.svg",
     "static/media/search.svg": "/chatterease/static/media/search.e23a57ad6c7f5f7ba16a.svg",
-    "main.7ea86ba9.css.map": "/chatterease/static/css/main.7ea86ba9.css.map",
-    "main.a6f6ab36.js.map": "/chatterease/static/js/main.a6f6ab36.js.map",
+    "static/media/background_yellow.svg": "/chatterease/static/media/background_yellow.546d537633d210812352.svg",
+    "main.bc3aa2b0.css.map": "/chatterease/static/css/main.bc3aa2b0.css.map",
+    "main.29a03e68.js.map": "/chatterease/static/js/main.29a03e68.js.map",
     "787.8defb542.chunk.js.map": "/chatterease/static/js/787.8defb542.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7ea86ba9.css",
-    "static/js/main.a6f6ab36.js"
+    "static/css/main.bc3aa2b0.css",
+    "static/js/main.29a03e68.js"
   ]
 }
