@@ -31,12 +31,14 @@
   &__info {
     font-style: normal;
   }
-  &__icon {
+
+  &__mobile {
     display: none;
   }
+}
 
+.mobile {
   &__burger {
-    display: none;
     border: 0;
     padding: 0;
     background-color: transparent;
@@ -46,9 +48,15 @@
     height: 25px;
     border-radius: 30px;
     cursor: pointer;
+    // display: inline-block;
+    &:hover,
+    &:focus {
+      & ~ .header__additional {
+        display: flex;
+      }
+    }
 
     span {
-      display: none;
       position: absolute;
       left: 0;
       width: 100%;
@@ -69,6 +77,9 @@
     }
 
     &:hover {
+      // & ~ .mobile__additional {
+      //   display: block;
+      // }
       span {
         &:nth-of-type(1),
         &:nth-of-type(3) {
@@ -93,58 +104,53 @@
       // background-color: rgb(18 117 220 / 37%);
     }
   }
+
+  &__additional {
+    display: flex;
+    position: absolute;
+    width: 60vw;
+    padding: 8px 4vw;
+    top: 24px;
+    right: 16px;
+    flex-direction: column;
+    gap: 8px;
+    border-radius: 3px;
+    background-color: $white;
+    z-index: 5;
+  }
+  &__info {
+    display: flex;
+    // padding: 10px;
+    align-items: center;
+    gap: 4px;
+  }
+  &__icon {
+    // display: block;
+    flex-shrink: 0;
+    margin: 10px;
+    & path {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  &__link {
+    word-wrap: break-word;
+    text-align: left;
+    font-size: 1.4em;
+  }
 }
 
-@media (max-width: 479px) {
+@media (max-width: 480px) {
   .header {
     &__container {
       width: 100vw;
       padding: 16px 5vw;
     }
-
+    &__mobile {
+      display: block;
+    }
     &__additional {
       display: none;
-      position: absolute;
-      width: 60vw;
-      padding: 8px 4vw;
-      top: 24px;
-      right: 16px;
-      flex-direction: column;
-      gap: 8px;
-      border-radius: 3px;
-      background-color: $white;
-    }
-    &__info {
-      display: flex;
-      // padding: 10px;
-      align-items: center;
-      gap: 4px;
-    }
-    &__icon {
-      display: block;
-      flex-shrink: 0;
-      margin: 10px;
-      & path {
-        width: 24px;
-        height: 24px;
-      }
-    }
-    &__link {
-      word-wrap: break-word;
-      text-align: left;
-      font-size: 1.4em;
-    }
-    &__burger {
-      display: inline-block;
-      &:hover,
-      &:focus {
-        & ~ .header__additional {
-          display: flex;
-        }
-      }
-      span {
-        display: block;
-      }
     }
   }
 }

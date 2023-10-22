@@ -145,18 +145,20 @@
   position: relative;
   display: none;
   &__dots {
-    display: none;
+    background-color: inherit;
+    // display: none;
   }
   &__links {
     position: absolute;
     top: 8px;
     right: 0;
     padding: 8px 5vw;
-    display: none;
+    display: flex;
     gap: 8px;
     width: 50vw;
     background-color: $white;
     flex-direction: column;
+    z-index: 5;
   }
   &__item {
     display: flex;
@@ -185,7 +187,7 @@
   }
 }
 
-@media (max-width: 479px) {
+@media (max-width: 480px) {
   .chat {
     &__back {
       padding: 23px 5vw;
@@ -197,7 +199,7 @@
   }
 }
 
-@media (max-width: 343px) {
+@media (max-width: 376px) {
   .chat {
   height: calc(100% - 72px);
 
@@ -215,18 +217,22 @@
     &__back {
       display: none;
     }
+
+    &__login {
+      bottom: 25px;
+    }
   }
   .flexiblemenu {
     display: block;
     &__dots {
-      display: block;
+      // display: block;
 
-      &:hover,
-      &:focus {
-        & ~ .flexiblemenu__links {
-          display: flex;
-        }
-      }
+      // &:hover,
+      // &:focus {
+      //   & ~ .flexiblemenu__links {
+      //     display: flex;
+      //   }
+      // }
     }
   }
 }

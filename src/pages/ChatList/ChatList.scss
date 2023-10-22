@@ -13,11 +13,24 @@
 
   &__container {
     width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: fill-available;
+    max-height: 100%;
+
+    position: relative;
+  }
+
+  &__caption {
+    width: 100%;
+    position: relative;
+    top: 0;
   }
 
   &__header {
     margin: 0 auto 30px;
-    width: 60%;
+    width: 70%;
     color: $black;
     font-family: $montserrat-alternates;
     font-size: 3.2em;
@@ -27,7 +40,7 @@
 
   &__search {
     position: relative;
-    margin: 0 auto 32px;
+    margin: 0 auto 20px;
     width: 60%;
     height: 44px;
 
@@ -59,11 +72,18 @@
   }
 
   &__list {
-    margin-bottom: 35px;
+    position: relative;
+    top: 0;
+    width: 100%;
+    margin-bottom: 25px;
+    padding: 5px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 16px;
+
+
+    overflow-y: scroll;
   }
 
   &__item {
@@ -118,16 +138,19 @@
   }
 
   &__newchat {
-    margin: auto;
-    width: fit-content;
-    background-color: $white;
-    border: 2px solid $green-dark;
-    border-radius: 3px;
+    // margin: auto;
+    width: 100%;
     display: flex;
-    gap: 8px;
-    align-items: center;
-    // justify-content: center;
-
+    justify-content: center;
+    &_button {
+      width: fit-content;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      background-color: $white;
+      border: 2px solid $green-dark;
+      border-radius: 3px;
+    }
     &:hover {
       background-color: $green-dark;
       color: $white;
@@ -139,16 +162,16 @@
   }
 }
 
-@media (max-width: 479px) {
+@media (max-width: 480px) {
   .chatlist {
     &__header {
       margin: 0 0 30px 0;
       width: 100%;
       text-align: center;
     }
-&__search {
-  width: 80%;
-}
+    &__search {
+      width: 80%;
+    }
     &__input {
       // width: 100%;
       text-overflow: ellipsis;
@@ -158,7 +181,7 @@
   }
 }
 
-@media (max-width: 343px) {
+@media (max-width: 376px) {
   .chatlist {
     padding: 24px 16px;
     overflow-y: scroll;
@@ -167,6 +190,9 @@
     }
     &__search {
       width: 100%;
+    }
+    &__header {
+      font-size: 2.4em;
     }
   }
 }

@@ -25,6 +25,8 @@ function App() {
   const [userName, setUserName] = useState("");
   const [selectedChatIndex, setSelectedChatIndex] = useState(-1);
   const [selectedChatId, setSelectedChatId] = useState(-1);
+  const [headerMenu, setHeaderMenu] = useState(false);
+  const [chatMenu, setChatMenu] = useState(false);
 
   useEffect(() => {
     allChats.forEach((chat, index) => {
@@ -43,10 +45,16 @@ function App() {
     dispatch(addMessage(selectedChatIndex, message));
   };
 
+  const removeBurgerMenu = (event) => {
+    event.stopPropagation();
+    setHeaderMenu(false);
+    setChatMenu(false);
+  }
+
   return (
-    <div className="App">
-      <Header />
-      <div className="app__chat">
+    <div className="App" onClick={(event) => {removeBurgerMenu(event)}}>
+      <Header setHeaderMenu={setHeaderMenu} headerMenu={headerMenu} />
+      <div className="app__chat" >
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/home" element={<Navigate to="/" replace />} />
@@ -92,6 +100,8 @@ function App() {
                 // messages={allChats[selectedChatIndex].messages}
                 userName={userName}
                 addMessageToChat={addMessageToChat}
+                setChatMenu={setChatMenu}
+                chatMenu={chatMenu}
               />
             }
           />

@@ -3,11 +3,7 @@ import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import create from "../../images/chatList/create.svg";
 
-export const ChatList = ({
-  chatsList,
-  setSelectedChatIndex,
-  userName,
-}) => {
+export const ChatList = ({ chatsList, setSelectedChatIndex, userName }) => {
   const [searchChat, setSearchChat] = useState("");
 
   const handleGoButtonClick = (index) => {
@@ -29,19 +25,21 @@ export const ChatList = ({
     <>
       <div className="chatlist">
         <div className="chatlist__container">
-          <div className="chatlist__header">
-            Обери тему і розпочни спілкування прямо зараз
-          </div>
+          <div className="chatlist__caption">
+            <div className="chatlist__header">
+              Обери тему і розпочни спілкування прямо зараз
+            </div>
 
-          <fieldset className="chatlist__search">
-            <input
-              type="text"
-              value={searchChat}
-              onChange={handleSearchInputChange}
-              placeholder="Пошук чатів"
-              className="chatlist__input paragraph"
-            />
-          </fieldset>
+            <fieldset className="chatlist__search">
+              <input
+                type="text"
+                value={searchChat}
+                onChange={handleSearchInputChange}
+                placeholder="Пошук чатів"
+                className="chatlist__input paragraph"
+              />
+            </fieldset>
+          </div>
 
           {/* <input
             type="text"
@@ -77,10 +75,13 @@ export const ChatList = ({
             )}
           </ul>
           {userName !== "" && (
-            <Link to={"/newchat"} className="chatlist__newchat button-default">
+            <div className="chatlist__newchat">
+            <Link to={"/newchat"} className="chatlist__newchat_button button-default">
               <img src={create} alt="add new chat" className="chatlist__add" />
               <p className="chatlist__addchat">Створити власний чат</p>
             </Link>
+            </div>
+
           )}
         </div>
       </div>

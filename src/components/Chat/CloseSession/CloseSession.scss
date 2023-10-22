@@ -63,7 +63,7 @@
 }
 
 
-@media (max-width: 999px) {
+@media (max-width: 1000px) {
   .close {
     &__content {
       width: 70vw;
@@ -82,7 +82,7 @@
   }
 }
 
-@media (max-width: 479px) {
+@media (max-width: 480px) {
   .close {
     &__content {
       width: 70vw;
@@ -100,17 +100,20 @@
   }
 }
 
-@media (max-width: 343px) {
+@media (max-width: 376px) {
   .close {
     &__content {
       left: 5vw;
       width: 90vw;
       margin: 35vh 0;
-      padding: 15px 9vw;
+      padding: 15px 5vw;
       align-items: center;
-      & > * {
-        text-align: center;
-      }
+      // & > * {
+      //   text-align: center;
+      // }
+    }
+    &__question {
+      font-weight: 400;
     }
     &__icon {
       top: 15px;
