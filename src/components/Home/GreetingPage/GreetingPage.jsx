@@ -1,4 +1,5 @@
 // import './GreetingPage.scss'
+import  Dots  from "../../Dots/Dots.jsx";
 
 export const GreetingPage = ({
   choosedPageIndex,
@@ -20,6 +21,11 @@ export const GreetingPage = ({
             <div className="greetings__title">{page.header}</div>
             <div className="greetings__description">{page.text}</div>
           </div>
+
+          <Dots
+            choosedPage={choosedPageIndex} 
+            // handlePageClick={handlePageClick}
+          />
           
           <div className="greetings__buttons">
             {choosedPageIndex !== 2 ? (

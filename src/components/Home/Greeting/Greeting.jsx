@@ -3,6 +3,7 @@ import { useState } from "react";
 import greetingPages from "../../../json/greeting.json";
 import { GreetingPage } from "../GreetingPage/GreetingPage";
 
+
 export const Greeting = ({ setWelcome, setGreeting }) => {
   const [choosedPage, setChoosedPage] = useState(0);
 
@@ -22,7 +23,7 @@ export const Greeting = ({ setWelcome, setGreeting }) => {
             setGreeting={setGreeting}
           />
 
-           <ul className="greeting__dots">
+           {/* <ul className="greeting__dots">
             {[0, 1, 2].map((item) => (
               <li key={item}>
                 <button
@@ -31,7 +32,7 @@ export const Greeting = ({ setWelcome, setGreeting }) => {
                 ></button>
               </li>
             ))}
-          </ul>
+          </ul> */}
         
           <ul className="greeting__numbers">
             {[0, 1, 2].map((item) => (
