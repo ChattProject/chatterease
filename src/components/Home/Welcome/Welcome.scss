@@ -3,12 +3,14 @@
 .welcome{
     // max-width: 1440px;
     margin: 0 auto;
-    background: url("../../../images/welcome/bgAll.jpg");
-    background-size: cover;
+    // background: url("../../../images/welcome/bgAll.jpg");
+    // background-size: cover;
     position: relative;
    
     &__bg{
         width: 100%;
+        object-fit: cover;
+        height: 100vh;
     }
 
     &__text{
@@ -24,3 +26,12 @@
         text-align: center;
     }
 }
+
+
+// @media (max-width: 399px){
+//     .welcome{
+//         &__bg{
+//             height: 100vh;
+//         }
+//     }
+// }

@@ -20,6 +20,7 @@ export const GreetingPage = ({
             <div className="greetings__title">{page.header}</div>
             <div className="greetings__description">{page.text}</div>
           </div>
+          
           <div className="greetings__buttons">
             {choosedPageIndex !== 2 ? (
               <div className="greetings__buttons_two">
