@@ -25,10 +25,10 @@
     display: flex;
     align-items: center;
     font: $montserrat;
-    font-size: 16px;
+    font-size: 1.6em;
     font-style: normal;
     font-weight: 400;
-    line-height: 20px;
+    line-height: 2em;
     text-align: justify;
     margin-bottom: 3vh;
 
@@ -38,9 +38,10 @@
       border-radius: 50%;
       background-color: $green;
       content: "";
-      margin-right: 10px;
+      // margin-right: 10px;
       text-align: center;
-      margin-right: 16px;
+      margin-right: 1.6em;
+      display: inline-block;
     }
   }
 

@@ -3,24 +3,15 @@
 .welcome {
     position: relative;
     // max-width: 1440px;
-    height: 100%;
-    // width: 100vw;
-    // margin-left: -7vw;
-    background: url("../../../images/welcome/background_plot.svg"), url("../../../images/welcome/background.svg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-
-    &__bg {
-        // position: absolute;
-        // top: 7vh;
-        // left: 25%;
-        height: 60%;
-        width: fill-available;
-        margin: 7vh 20vw 0 27vw;
-        text-align: center;
-        // overflow: hidden;
-        max-width: 100%;
+    margin: 0 auto;
+    // background: url("../../../images/welcome/bgAll.jpg");
+    // background-size: cover;
+    position: relative;
+   
+    &__bg{
+        width: 100%;
+        object-fit: cover;
+        height: 100vh;
     }
 
     &__text {
@@ -37,10 +28,11 @@
     }
 }
 
-@media (max-width: 835px) {
-    .welcome {
-      &__text {
-        top: 55vh;
-      }
-    }
-  }
+
+// @media (max-width: 399px){
+//     .welcome{
+//         &__bg{
+//             height: 100vh;
+//         }
+//     }
+// }
