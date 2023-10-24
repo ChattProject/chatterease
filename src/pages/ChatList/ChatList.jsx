@@ -1,14 +1,24 @@
 // import "./ChatList.css";
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import create from "../../images/chatList/create.svg";
 
-export const ChatList = ({ chatsList, setSelectedChatIndex, userName }) => {
+export const ChatList = ({
+  chatsList,
+  setSelectedChatIndex,
+  userName,
+  selectedChatId = -1,
+  setSelectedChatId,
+}) => {
   const [searchChat, setSearchChat] = useState("");
 
   const handleGoButtonClick = (index) => {
     setSelectedChatIndex(index);
   };
+
+  useEffect(() => {
+    setSelectedChatId(-1);
+  }, []);
 
   const filteredChats = chatsList.filter((chat) => {
     if (typeof chat.title === "string") {
@@ -76,12 +86,18 @@ export const ChatList = ({ chatsList, setSelectedChatIndex, userName }) => {
           </ul>
           {userName !== "" && (
             <div className="chatlist__newchat">
-            <Link to={"/newchat"} className="chatlist__newchat_button button-default">
-              <img src={create} alt="add new chat" className="chatlist__add" />
-              <p className="chatlist__addchat">Створити власний чат</p>
-            </Link>
+              <Link
+                to={"/newchat"}
+                className="chatlist__newchat_button button-default"
+              >
+                <img
+                  src={create}
+                  alt="add new chat"
+                  className="chatlist__add"
+                />
+                <p className="chatlist__addchat">Створити власний чат</p>
+              </Link>
             </div>
-
           )}
         </div>
       </div>

@@ -35,57 +35,11 @@ export const ShowMessages = ({ messages, message, userName }) => {
       setShowButtonUp(true);
     }
   }, [messages, autoScroll]);
-
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     if (containerRef.current) {
-  //       const scrollTop = containerRef.current.scrollTop;
-  //       const scrollHeight = containerRef.current.scrollHeight;
-  //       const clientHeight = containerRef.current.clientHeight;
-        
-  //       // Розрахунок 5% від відстані від верху контейнера до верху прокрученого вмісту
-  //       const fivePercent = (scrollHeight - clientHeight) * 0.05;
-  
-  //       setShowButtonUp(scrollTop > fivePercent);
-        
-  //       if (scrollTop + clientHeight >= scrollHeight - fivePercent) {
-  //         setAutoScroll(true); // Автоматична прокрутка, коли користувач на дні
-  //       } else {
-  //         setAutoScroll(false); // Вимкнути автоматичну прокрутку, коли користувач прокручує вгору
-  //       }
-  //     }
-  //   };
-  
-  //   if (containerRef.current) {
-  //     containerRef.current.addEventListener("scroll", handleScroll);
-  //   }
-  
-  //   return () => {
-  //     if (containerRef.current) {
-  //       containerRef.current.removeEventListener("scroll", handleScroll);
-  //     }
-  //   };
-  // }, []);
   
   function getDate(posted) {
     const date = new Date(posted);
 
     const year = date.getFullYear();
-
-    // const months = [
-    //   "January",
-    //   "February",
-    //   "March",
-    //   "April",
-    //   "May",
-    //   "June",
-    //   "July",
-    //   "August",
-    //   "September",
-    //   "October",
-    //   "November",
-    //   "December",
-    // ];
 
     function fullNumber(number) {
       if (number.toString().length === 1) {

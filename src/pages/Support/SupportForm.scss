@@ -57,3 +57,15 @@ textarea{
 .window{
     margin-bottom: 20px;
 }
+
+@media (max-width: 400px){
+    .supportForm {
+        &__window {
+            height: auto;
+            // width: 90%;
+            // left: 5%;
+            padding: 40px 3vw;
+        }
+    }
+    }
+

@@ -19,11 +19,9 @@ export const Chat = ({
   const [isClosingChat, setIsClosingChat] = useState(false);
 
   const handleChatClose = () => {
-    // Perform any necessary cleanup or actions before closing the chat
     setIsClosingChat(true);
     setChatMenu(false)
   };
-  console.log(isClosingChat, "close");
 
   return (
     <>

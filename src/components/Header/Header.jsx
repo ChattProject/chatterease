@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 
 import Logo from "../../images/Logo.svg";
 
-export const Header = ({ setHeaderMenu, headerMenu }) => {
+export const Header = ({ setHeaderMenu, headerMenu, userName }) => {
   return (
     <>
       <div className="header">
         <div className="header__container">
           <Link
-            to={"/home"}
+            to={userName ? "/chats" : "/home"}
             className="header__title"
             onClick={() => setHeaderMenu(false)}
           >

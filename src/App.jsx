@@ -53,7 +53,7 @@ function App() {
 
   return (
     <div className="App" onClick={(event) => {removeBurgerMenu(event)}}>
-      <Header setHeaderMenu={setHeaderMenu} headerMenu={headerMenu} />
+      <Header setHeaderMenu={setHeaderMenu} headerMenu={headerMenu} userName={userName}/>
       <div className="app__chat" >
         <Routes>
           <Route exact path="/" element={<Home />} />
@@ -66,6 +66,8 @@ function App() {
                 chatsList={allChats}
                 setSelectedChatIndex={setSelectedChatIndex}
                 userName={userName}
+                selectedChatId={selectedChatId}
+                setSelectedChatId={setSelectedChatId}
               />
             }
           />

@@ -20,9 +20,10 @@ export const Greeting = ({ setWelcome, setGreeting }) => {
             setChoosedPage={setChoosedPage}
             setWelcome={setWelcome}
             setGreeting={setGreeting}
+            handlePageClick={handlePageClick}
           />
 
-           <ul className="greeting__dots">
+           {/* <ul className="greeting__dots">
             {[0, 1, 2].map((item) => (
               <li key={item}>
                 <button
@@ -31,7 +32,7 @@ export const Greeting = ({ setWelcome, setGreeting }) => {
                 ></button>
               </li>
             ))}
-          </ul>
+          </ul> */}
         
           <ul className="greeting__numbers">
             {[0, 1, 2].map((item) => (
