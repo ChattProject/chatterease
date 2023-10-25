@@ -1,12 +1,12 @@
 .supportForm {
   position: relative;
-  height: 110%;
+  height: 100%;
   background: url(../../images/bgSupportForm.svg);
   background-position: top center;
   background-repeat: no-repeat;
 }
 .supportForm__window {
-  top: 10%;
+  top: 15%;
   padding: 5vw 6vw;
 }
 .supportForm__title {

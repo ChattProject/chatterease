@@ -1,6 +1,7 @@
 .login {
   position: relative;
   height: 90%;
+  overflow: hidden;
 }
 .login__background {
   position: absolute;
@@ -83,7 +84,7 @@
     width: 15vw;
   }
 }
-@media (max-width: 835px) {
+@media (max-width: 836px) {
   .login__background {
     background-size: 70% 50%, auto;
   }
@@ -100,7 +101,7 @@
     background-size: 68% 75%, auto;
   }
 }
-@media (max-width: 376px) {
+@media (max-width: 400px) {
   .login__background {
     height: 24%;
     background-position: center 175%, top center;

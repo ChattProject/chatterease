@@ -57,6 +57,7 @@
   position: relative;
   height: calc(100% - 95px);
   width: 86vw;
+  margin: 0 auto;
   background: url(../../images/chat/background_chat.svg);
   background-position: center;
   background-repeat: no-repeat;
@@ -103,7 +104,7 @@
 
   &__back {
     padding: 32px 0;
-    width: 21%;
+    width: 22%;
     min-height: 60px;
     text-align: center;
     background-color: $green;
@@ -172,9 +173,12 @@
   }
 }
 
-@media (max-width: 835px) {
+@media (max-width: 836px) {
   .chat {
+  // height: calc(100% - 95px);
+
     width: 100vw;
+    
     // margin-left: -7vw;
 
     &__title {
@@ -199,7 +203,7 @@
   }
 }
 
-@media (max-width: 376px) {
+@media (max-width: 400px) {
   .chat {
   height: calc(100% - 72px);
 

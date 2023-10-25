@@ -3,6 +3,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: hidden;
 }
 .newchat__window {
   position: relative;
@@ -53,7 +54,7 @@
   width: 100%;
 }
 
-@media (max-width: 376px) {
+@media (max-width: 400px) {
   .newchat__form {
     width: 100%;
   }
