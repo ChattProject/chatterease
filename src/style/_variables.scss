@@ -78,6 +78,7 @@ $montserratAlternates: "Montserrat Alternates", "Montserrat", "Roboto", "Open Sa
   position: relative;
   top: 24%;
   left: 25%;
+  padding: 9vh 5vw;
   padding: calc(var(--vh, 1vh) * 9) 5vw;
   width: 52%;
   background-color: $white-dark;
@@ -103,7 +104,7 @@ $montserratAlternates: "Montserrat Alternates", "Montserrat", "Roboto", "Open Sa
 
 @media (max-width: 836px) {
   .window {
-    // width: ;
+    padding: 5vh 7vw;
     padding: calc(var(--vh, 1vh) * 5) 7vw;
   }
 }

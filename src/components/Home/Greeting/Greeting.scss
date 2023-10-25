@@ -3,9 +3,11 @@
 
 .greeting {
   height: 100%;
+  padding: 4vh 0;
   padding: calc(var(--vh, 1vh) * 4) 0;
   // padding-top: 7vh;
   display: flex;
+  gap: 3vh;
   gap: calc(var(--vh, 1vh) * 3);
   flex-direction: column;
   justify-content: space-around;

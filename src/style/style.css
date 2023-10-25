@@ -126,6 +126,7 @@ a {
   position: relative;
   top: 24%;
   left: 25%;
+  padding: 9vh 5vw;
   padding: calc(var(--vh, 1vh) * 9) 5vw;
   width: 52%;
   background-color: #fffff3;
@@ -150,6 +151,7 @@ a {
 }
 @media (max-width: 836px) {
   .window {
+    padding: 5vh 7vw;
     padding: calc(var(--vh, 1vh) * 5) 7vw;
   }
 }
@@ -176,6 +178,7 @@ body {
   position: absolute;
   top: 72px;
   width: 86vw;
+  height: calc(100vh - 74px);
   height: calc(var(--vh, 1vh) * 100 - 74px);
   margin: 0 7vw;
 }
@@ -342,10 +345,12 @@ body {
 }
 .greeting {
   height: 100%;
+  padding: 4vh 0;
   padding: calc(var(--vh, 1vh) * 4) 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  gap: 3vh;
   gap: calc(var(--vh, 1vh) * 3);
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -423,6 +428,7 @@ body {
   border-radius: 3px;
   border: 1px dashed #feb706;
   width: 50vw;
+  height: 75vh;
   height: calc(var(--vh, 1vh) * 75);
   margin: 0 auto;
   padding: 24px;
@@ -446,12 +452,15 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 3vh 7vw;
   padding: calc(var(--vh, 1vh) * 3) 7vw;
 }
 .greetings__text {
+  margin: 3vh 0;
   margin: calc(var(--vh, 1vh) * 3) 0;
 }
 .greetings__title {
+  margin-bottom: 2vh;
   margin-bottom: calc(var(--vh, 1vh) * 2);
   font-size: 2.4em;
   font-weight: 600;
@@ -509,15 +518,18 @@ body {
 @media (max-height: 799px) {
   .greetings-border {
     width: 60vw;
+    height: 73vh;
     height: calc(var(--vh, 1vh) * 73);
   }
 }
 @media (max-height: 699px) {
   .greetings {
+    padding: 3vh 7vw;
     padding: calc(var(--vh, 1vh) * 3) 7vw;
   }
   .greetings-border {
     width: 70vw;
+    height: 72vh;
     height: calc(var(--vh, 1vh) * 72);
     padding: 12px;
   }
@@ -632,6 +644,7 @@ body {
   width: -webkit-fill-available;
   width: -moz-available;
   width: fill-available;
+  margin: 7vh 20vw 0 27vw;
   margin: calc(var(--vh, 1vh) * 7) 20vw 0 27vw;
   text-align: center;
   max-width: 100%;
@@ -639,6 +652,7 @@ body {
 .welcome__text {
   position: absolute;
   left: 50%;
+  top: 65vh;
   top: calc(var(--vh, 1vh) * 65);
   font-family: Montserrat Alternates;
   font-size: 3.2em;
@@ -651,17 +665,21 @@ body {
 
 @media (max-width: 852px) {
   .welcome__bg {
+    margin: 7vh 15vw 0 21vw;
     margin: calc(var(--vh, 1vh) * 7) 15vw 0 21vw;
   }
   .welcome__text {
+    top: 55vh;
     top: calc(var(--vh, 1vh) * 55);
   }
 }
 @media (max-width: 400px) {
   .welcome__bg {
+    margin: 5vh 10vw 0 13vw;
     margin: calc(var(--vh, 1vh) * 5) 10vw 0 13vw;
   }
   .welcome__text {
+    top: 50vh;
     top: calc(var(--vh, 1vh) * 50);
   }
 }
@@ -1060,12 +1078,14 @@ body {
   left: 0;
   top: 0;
   width: 100vw;
+  height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
   overflow: hidden;
   background-color: rgba(173, 173, 173, 0.4);
 }
 .close__content {
   position: relative;
+  margin: 35vh auto;
   margin: calc(var(--vh, 1vh) * 35) auto;
   width: 575px;
   padding: 24px 35px 24px 60px;
@@ -1154,6 +1174,7 @@ body {
   .close__content {
     left: 5vw;
     width: 90vw;
+    margin: 35vh 0;
     margin: calc(var(--vh, 1vh) * 35) 0;
     padding: 15px 5vw;
     -webkit-box-align: center;
@@ -1370,6 +1391,7 @@ body {
 .login {
   position: relative;
   height: 90%;
+  overflow: hidden;
 }
 .login__background {
   position: absolute;
@@ -1490,6 +1512,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: hidden;
 }
 .newchat__window {
   position: relative;
@@ -1553,6 +1576,7 @@ body {
   max-width: 1440px;
   height: 100%;
   margin: 0 auto;
+  padding-top: 65vh;
   padding-top: calc(var(--vh, 1vh) * 65);
   background: url("../../images/welcome/bgAll.jpg");
   background-size: cover;
@@ -1568,9 +1592,11 @@ body {
   font-size: 3.2em;
   font-style: normal;
   font-weight: 600;
+  margin-bottom: 2vh;
   margin-bottom: calc(var(--vh, 1vh) * 2);
 }
 .endpage__button {
+  margin-top: 2vh;
   margin-top: calc(var(--vh, 1vh) * 2);
 }
 
@@ -1588,6 +1614,7 @@ body {
 }
 .rules__list {
   width: 100%;
+  margin-bottom: 1vh;
   margin-bottom: calc(var(--vh, 1vh) * 1);
   padding: 0 5vw;
 }
@@ -1604,6 +1631,7 @@ body {
   font-weight: 400;
   line-height: 1.2em;
   text-align: justify;
+  margin-bottom: 3vh;
   margin-bottom: calc(var(--vh, 1vh) * 3);
 }
 .rules__item:before {
@@ -1617,6 +1645,7 @@ body {
   display: inline-block;
 }
 .rules__button {
+  margin-bottom: 1vh;
   margin-bottom: calc(var(--vh, 1vh) * 1);
   width: 268px;
 }
@@ -1653,6 +1682,7 @@ body {
   line-height: 20px;
 }
 .support__button {
+  margin-top: 3vh;
   margin-top: calc(var(--vh, 1vh) * 3);
   width: 50%;
 }
@@ -1734,6 +1764,7 @@ body {
 }
 @media (max-width: 400px) {
   .app__chat {
+    height: calc(100vh - 75px);
     height: calc(var(--vh, 1vh) * 100 - 75px);
   }
 }/*# sourceMappingURL=style.css.map */

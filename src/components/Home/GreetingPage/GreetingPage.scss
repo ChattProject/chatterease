@@ -4,6 +4,7 @@
   border-radius: 3px;
   border: 1px dashed $yellow-dark;
   width: 50vw;
+  height: 75vh;
   height: calc(var(--vh, 1vh) * 75);
   margin: 0 auto;
   padding: 24px;
@@ -18,15 +19,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 3vh 7vw;
   padding: calc(var(--vh, 1vh) * 3) 7vw;
 
   // &__image{
   //     max-width: 29.4vw;
   // }
   &__text {
+    margin: 3vh 0;
     margin: calc(var(--vh, 1vh) * 3) 0;
   }
   &__title {
+    margin-bottom: 2vh;
     margin-bottom: calc(var(--vh, 1vh) * 2);
     font-size: 2.4em;
     font-weight: 600;
@@ -89,14 +93,17 @@
 @media (max-height: 799px) {
   .greetings-border {
     width: 60vw;
+    height: 73vh;
     height: calc(var(--vh, 1vh) * 73);
   }
 }
 @media (max-height: 699px) {
   .greetings {
+    padding: 3vh 7vw;
     padding: calc(var(--vh, 1vh) * 3) 7vw;
     &-border {
       width: 70vw;
+      height: 72vh;
       height: calc(var(--vh, 1vh) * 72);
       padding: 12px;
     }

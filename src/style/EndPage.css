@@ -2,6 +2,7 @@
   max-width: 1440px;
   height: 100%;
   margin: 0 auto;
+  padding-top: 65vh;
   padding-top: calc(var(--vh, 1vh) * 65);
   background: url("../../images/welcome/bgAll.jpg");
   background-size: cover;
@@ -17,8 +18,10 @@
   font-size: 3.2em;
   font-style: normal;
   font-weight: 600;
+  margin-bottom: 2vh;
   margin-bottom: calc(var(--vh, 1vh) * 2);
 }
 .endpage__button {
+  margin-top: 2vh;
   margin-top: calc(var(--vh, 1vh) * 2);
 }/*# sourceMappingURL=EndPage.css.map */

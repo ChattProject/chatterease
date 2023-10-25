@@ -14,6 +14,7 @@ body {
   position: absolute;
   top: 72px;
   width: 86vw;
+  height: calc(100vh - 74px);
   height: calc((calc(var(--vh, 1vh) * 100)) - 74px);
   // overflow: auto;
   margin: 0 7vw;
@@ -52,8 +53,8 @@ body {
 
 @media (max-width: 400px) {
   .app__chat {
+    height: calc(100vh - 75px);
     height: calc((calc(var(--vh, 1vh) * 100)) - 75px);
-
   }
 }
 // @media (max-width: 480px) {
@@ -61,5 +62,3 @@ body {
 //     font-size: 8px;
 //   }
 // }
-
-

@@ -30,6 +30,7 @@
   line-height: 20px;
 }
 .support__button {
+  margin-top: 3vh;
   margin-top: calc(var(--vh, 1vh) * 3);
   width: 50%;
 }/*# sourceMappingURL=Support.css.map */

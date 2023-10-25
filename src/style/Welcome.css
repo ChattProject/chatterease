@@ -11,6 +11,7 @@
   width: -webkit-fill-available;
   width: -moz-available;
   width: fill-available;
+  margin: 7vh 20vw 0 27vw;
   margin: calc(var(--vh, 1vh) * 7) 20vw 0 27vw;
   text-align: center;
   max-width: 100%;
@@ -18,6 +19,7 @@
 .welcome__text {
   position: absolute;
   left: 50%;
+  top: 65vh;
   top: calc(var(--vh, 1vh) * 65);
   font-family: Montserrat Alternates;
   font-size: 3.2em;
@@ -30,17 +32,21 @@
 
 @media (max-width: 852px) {
   .welcome__bg {
+    margin: 7vh 15vw 0 21vw;
     margin: calc(var(--vh, 1vh) * 7) 15vw 0 21vw;
   }
   .welcome__text {
+    top: 55vh;
     top: calc(var(--vh, 1vh) * 55);
   }
 }
 @media (max-width: 400px) {
   .welcome__bg {
+    margin: 5vh 10vw 0 13vw;
     margin: calc(var(--vh, 1vh) * 5) 10vw 0 13vw;
   }
   .welcome__text {
+    top: 50vh;
     top: calc(var(--vh, 1vh) * 50);
   }
 }/*# sourceMappingURL=Welcome.css.map */
