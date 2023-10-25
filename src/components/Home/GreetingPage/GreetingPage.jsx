@@ -1,16 +1,18 @@
 // import './GreetingPage.scss'
 
+import { GreetingDots } from "../GreetingDots/GreetingDots";
+
 export const GreetingPage = ({
   choosedPageIndex,
   page,
   setChoosedPage,
   setWelcome,
   setGreeting,
-  handlePageClick
+  handlePageClick,
 }) => {
   return (
     <>
-      <div className='greetings-border'>
+      <div className="greetings-border">
         <div className="greetings">
           <img
             src={require("../../../images/greeting/" + page.image)}
@@ -22,7 +24,7 @@ export const GreetingPage = ({
             <div className="greetings__description">{page.text}</div>
           </div>
 
-          <ul className="greeting__dots">
+          {/* <ul className="greeting__dots">
             {[0, 1, 2].map((item) => (
               <li key={item}>
                 <button
@@ -31,8 +33,13 @@ export const GreetingPage = ({
                 ></button>
               </li>
             ))}
-          </ul>
-          
+          </ul> */}
+
+          <GreetingDots
+            choosedPage={choosedPageIndex}
+            handlePageClick={handlePageClick}
+          />
+
           <div className="greetings__buttons">
             {choosedPageIndex !== 2 ? (
               <div className="greetings__buttons_two">
