@@ -18,6 +18,9 @@ import { SupportForm } from "./pages/Support/SupportForm";
 import { Rules } from "./pages/Rules/Rules";
 import { PersonalMessage } from "./pages/PersonalMessage/PersonalMessage";
 
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
 function App() {
   const allChats = useSelector((state) => state);
   const dispatch = useDispatch();
