@@ -54,10 +54,10 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        // gap: 24px;
+        gap: 20px;
     }
     &__button {
-        // width: 268px;
+        width: 20vw;
         &-green {
             &:hover {
                 background-color: $green-dark;
@@ -68,7 +68,7 @@
   &__button_start {
         width: 100%;
     margin-bottom: 54px;
-    width: 268px;
+    width: 20vw;
   }
 }
 
