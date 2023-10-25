@@ -28,8 +28,19 @@
   text-align: center;
 }
 
-@media (max-width: 835px) {
+@media (max-width: 852px) {
+  .welcome__bg {
+    margin: 7vh 15vw 0 21vw;
+  }
   .welcome__text {
     top: 55vh;
+  }
+}
+@media (max-width: 400px) {
+  .welcome__bg {
+    margin: 5vh 10vw 0 13vw;
+  }
+  .welcome__text {
+    top: 50vh;
   }
 }/*# sourceMappingURL=Welcome.css.map */

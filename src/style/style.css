@@ -351,6 +351,9 @@ body {
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
+.greeting__dots {
+  display: none;
+}
 .greeting__numbers {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -386,9 +389,31 @@ body {
 @media (max-width: 400px) {
   .greeting {
     padding-top: 0;
+    padding-bottom: 0;
   }
   .greeting__numbers {
     display: none;
+  }
+  .greeting__dots {
+    margin-bottom: 5vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .greeting__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 5px;
+    background-color: #e3e35f;
+    -webkit-transition: background-color 0.3s;
+    transition: background-color 0.3s;
+  }
+  .greeting__dot.active {
+    background-color: #555454;
   }
 }
 .greetings-border {
@@ -455,21 +480,14 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 2vh;
-}
-.greetings__button {
-  width: 268px;
 }
 .greetings__button-green:hover {
   background-color: #387e74;
 }
 .greetings__button_start {
+  width: 100%;
   margin-bottom: 54px;
   width: 268px;
-}
-
-.button-green {
-  width: 18.6vw;
 }
 
 .button-green:hover,
@@ -574,25 +592,70 @@ body {
   }
 }
 @media (max-width: 852px) {
+  .greetings {
+    padding: 5.2vw 5.2vw;
+  }
   .greetings__title {
     font-size: 2.4em;
     font-style: normal;
     font-weight: 600;
-    line-height: 3.2em;
+    line-height: 1.5em;
+    margin: 1em auto;
+  }
+  .greetings__button {
+    width: 100%;
   }
 }
 @media (max-width: 400px) {
   .greetings-border {
     width: 100%;
+    height: 100%;
     border: none;
     padding: 0;
   }
   .greetings {
     max-width: none;
-    padding: 40px 47px 16px;
   }
   .greetings__image {
     width: 23vh;
+    margin: 10vw auto;
+  }
+  .greetings__button, .greetings__buttons, .greetings__buttons_two, .greetings__button_start {
+    width: 100%;
+  }
+  .greetings__description {
+    font-size: 1.7em;
+    line-height: 1.4em;
+  }
+}
+.dots {
+  display: none;
+}
+.dots__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 40px;
+}
+.dots__item {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0 5px;
+  background-color: #555454;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+.dots__item.active {
+  background-color: #FFFFF3;
+}
+
+@media (max-width: 399px) {
+  .dots {
+    display: block;
   }
 }
 .welcome {
@@ -625,9 +688,20 @@ body {
   text-align: center;
 }
 
-@media (max-width: 835px) {
+@media (max-width: 852px) {
+  .welcome__bg {
+    margin: 7vh 15vw 0 21vw;
+  }
   .welcome__text {
     top: 55vh;
+  }
+}
+@media (max-width: 400px) {
+  .welcome__bg {
+    margin: 5vh 10vw 0 13vw;
+  }
+  .welcome__text {
+    top: 50vh;
   }
 }
 .home__greeting {
@@ -688,7 +762,7 @@ body {
 }
 .chatlist__search {
   position: relative;
-  margin: 0 auto 32px;
+  margin: 0 auto 20px;
   width: 60%;
   height: 44px;
 }
@@ -720,6 +794,7 @@ body {
   top: 0;
   width: 100%;
   margin-bottom: 25px;
+  padding: 5px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -867,7 +942,7 @@ body {
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
-  padding: 24px 8px;
+  padding: 24px 8px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -937,7 +1012,7 @@ body {
     right: 5vw;
   }
 }
-@media (max-width: 559px) {
+@media (max-width: 560px) {
   .show_message__button {
     bottom: 160px;
   }
@@ -948,6 +1023,14 @@ body {
 @media (max-width: 480px) {
   .message {
     width: 90%;
+  }
+}
+@media (max-width: 376px) {
+  .show_message__button {
+    bottom: 185px;
+  }
+  .show_message__button_input {
+    bottom: 106px;
   }
 }
 .input-message__form {
@@ -1555,10 +1638,10 @@ body {
       -ms-flex-align: center;
           align-items: center;
   font: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
-  font-size: 16px;
+  font-size: 1.6em;
   font-style: normal;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 1.2em;
   text-align: justify;
   margin-bottom: 3vh;
 }
@@ -1568,9 +1651,9 @@ body {
   border-radius: 50%;
   background-color: #449f93;
   content: "";
-  margin-right: 10px;
   text-align: center;
-  margin-right: 16px;
+  margin-right: 1.6em;
+  display: inline-block;
 }
 .rules__button {
   margin-bottom: 1vh;
