@@ -4,13 +4,13 @@
   left: 0;
   top: 0;
   width: 100vw;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   overflow: hidden; 
   background-color: rgba(173, 173, 173, 0.4);
 
   &__content {
     position: relative;
-    margin: 35vh auto;
+    margin: calc(var(--vh, 1vh) * 35) auto;
     width: 575px;
     // width: fit-content;
     padding: 24px 35px 24px 60px;
@@ -105,7 +105,7 @@
     &__content {
       left: 5vw;
       width: 90vw;
-      margin: 35vh 0;
+      margin: calc(var(--vh, 1vh) * 35) 0;
       padding: 15px 5vw;
       align-items: center;
       // & > * {

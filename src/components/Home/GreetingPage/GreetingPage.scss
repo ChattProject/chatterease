@@ -4,7 +4,7 @@
   border-radius: 3px;
   border: 1px dashed $yellow-dark;
   width: 50vw;
-  height: 75vh;
+  height: calc(var(--vh, 1vh) * 75);
   margin: 0 auto;
   padding: 24px;
 }
@@ -18,16 +18,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 3vh 7vw;
+  padding: calc(var(--vh, 1vh) * 3) 7vw;
 
   // &__image{
   //     max-width: 29.4vw;
   // }
   &__text {
-    margin: 3vh 0;
+    margin: calc(var(--vh, 1vh) * 3) 0;
   }
   &__title {
-    margin-bottom: 2vh;
+    margin-bottom: calc(var(--vh, 1vh) * 2);
     font-size: 2.4em;
     font-weight: 600;
     line-height: 1.33em;
@@ -49,24 +49,24 @@
     width: inherit;
   }
 
-    &__buttons_two {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
+  &__buttons_two {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  &__button {
+    width: 20vw;
+    &-green {
+      &:hover {
+        background-color: $green-dark;
+      }
     }
-    &__button {
-        width: 20vw;
-        &-green {
-            &:hover {
-                background-color: $green-dark;
-            }
-        }
-    }
+  }
 
   &__button_start {
-        width: 100%;
+    width: 100%;
     margin-bottom: 54px;
     width: 20vw;
   }
@@ -101,30 +101,79 @@
   }
 }
 
+@media (max-width: 852px) {
+  .greetings {
+    padding: 5.2vw 5.2vw;
+
+    &__title {
+      font-size: 2.4em;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 1.5em;
+      margin: 1em auto;
+    }
+
+    &__button {
+      width: 100%;
+    }
+  }
+}
+
 @media (max-width: 767px) {
   .greetings {
     &-border {
       width: 80vw;
       padding: 12px;
     }
-    &__button, &__button_start {
+    &__button,
+    &__button_start {
       width: 40vw;
     }
   }
 }
 
+@media (max-width: 400px) {
+  .greetings-border {
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding: 0;
+  }
+
+  .greetings {
+    max-width: none;
+
+    &__image {
+      width: calc(var(--vh, 1vh) * 23);
+      margin: 10vw auto;
+    }
+
+    &__button,
+    &__buttons,
+    &__buttons_two,
+    &__button_start {
+      width: 100%;
+    }
+
+    &__description {
+      font-size: 1.7em;
+      line-height: 1.4em;
+      // margin-bottom: 2.5em;
+    }
+  }
+}
 @media (max-height: 799px) {
   .greetings-border {
     width: 60vw;
-    height: 73vh;
+    height: calc(var(--vh, 1vh) * 73);
   }
 }
 @media (max-height: 699px) {
   .greetings {
-    padding: 3vh 7vw;
+    padding: calc(var(--vh, 1vh) * 3) 7vw;
     &-border {
       width: 70vw;
-      height: 72vh;
+      height: calc(var(--vh, 1vh) * 72);
       padding: 12px;
     }
   }
@@ -138,111 +187,4 @@
       flex-direction: row;
     }
   }
-}
-
-@media (max-width: 1000px) {
-  .greetings-border {
-    width: 75vw;
-  }
-}
-
-@media (max-width: 835px) {
-  .greetings {
-    &-border {
-      // width: 70vw;
-      padding: 24px 16px;
-    }
-  }
-}
-
-@media (max-width: 767px) {
-  .greetings {
-    &-border {
-      width: 80vw;
-      padding: 12px;
-    }
-    &__button, &__button_start {
-      width: 40vw;
-    }
-  }
-}
-
-@media (max-height: 799px) {
-  .greetings-border {
-    width: 60vw;
-    height: 73vh;
-  }
-}
-@media (max-height: 699px) {
-  .greetings {
-    padding: 3vh 7vw;
-    &-border {
-      width: 70vw;
-      height: 72vh;
-      padding: 12px;
-    }
-  }
-}
-@media (max-height: 599px) {
-  .greetings {
-    &-border {
-      width: 70vw;
-    }
-    &__buttons_two {
-      flex-direction: row;
-    }
-  }
-}
-
-@media (max-width: 852px){
-    .greetings{
-        padding: 5.2vw 5.2vw;
-
-        &__title {
-            font-size: 2.4em;
-            font-style: normal;
-            font-weight: 600;
-            line-height: 1.5em;
-            margin: 1em auto;
-        }
-        
-        &__button{
-            width: 100%;
-        }
-
-    }
-            
-}
-
-@media (max-width: 400px){
-    .greetings-border {
-        width: 100%;
-        height: 100%;
-        border: none;
-        padding: 0;
-
-    }
-
-    .greetings{
-        max-width: none;
-
-        &__image{
-            width: 23vh;
-            margin: 10vw auto;
-        }
-
-        &__button, &__buttons, &__buttons_two, &__button_start {
-            width: 100%;
-        }
-
-
-        &__description{
-            font-size: 1.7em;
-            line-height: 1.4em;
-            // margin-bottom: 2.5em;
-            }
-        
-    }
-
-
 }

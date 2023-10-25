@@ -14,7 +14,7 @@ body {
   position: absolute;
   top: 72px;
   width: 86vw;
-  height: calc(100vh - 74px);
+  height: calc(calc(var(--vh, 1vh) * 100) - 74px);
   // overflow: auto;
   margin: 0 7vw;
   // background-color: $white-dark;
