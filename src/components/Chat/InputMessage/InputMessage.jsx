@@ -53,7 +53,7 @@ export const InputMessage = ({
           id={"text-message"}
           onChange={handleSetMessage}
           value={message}
-          // placeholder={"Повідомлення..."}
+          placeholder={"Повідомлення..."}
           required
           rows={1} // Важливо встановити один рядок за замовчуванням
           onInput={(e) => {
