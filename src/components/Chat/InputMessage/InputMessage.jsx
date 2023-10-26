@@ -47,15 +47,24 @@ export const InputMessage = ({
           />
         </svg>
         <span className="input-message__emoji_text">Maybe later :)</span>
-        <input
-          type={"text"}
+        <textarea
+          // type={"text"}
           className={"input-message__input paragraph"}
           id={"text-message"}
           onChange={handleSetMessage}
           value={message}
-          placeholder={"Повідомлення..."}
+          // placeholder={"Повідомлення..."}
           required
-        />
+          rows={1} // Важливо встановити один рядок за замовчуванням
+          onInput={(e) => {
+            e.target.rows = 1;
+            const lineHeight = parseInt(getComputedStyle(e.target).lineHeight);
+            const rows = Math.floor(e.target.scrollHeight / lineHeight);
+            e.target.rows = rows;
+          }}
+        >
+          Повідомлення...
+        </textarea>
         <button type="submit" className={"input-message__button"}>
           <svg
             xmlns="http://www.w3.org/2000/svg"

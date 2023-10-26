@@ -7,6 +7,12 @@
   &__form {
     position: relative;
     background-color: $white;
+    min-height: 70px;
+    // padding: 5px 0;
+    display: flex;
+    align-items: center;
+    // border-left: none;
+    // border-right: none;
   }
   &__emoji {
     position: absolute;
@@ -48,11 +54,14 @@
   }
   &__input {
     position: relative;
+    resize: vertical;
     width: 100%;
-    padding: 30px 0 30px 44px;
+    max-width: 100%;
+    height: calc(100% - 10px);
+    padding: 15px 75px 0 44px;
     border: 1px solid $grey-default;
-    border-left: none;
-    border-right: none;
+    border: none;
+    word-wrap: break-word;
     // color: $black;
 
     &:focus-visible {
