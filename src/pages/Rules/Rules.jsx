@@ -13,7 +13,8 @@ export const Rules = ({}) => {
         <ul className="rules__list">
           {rules.map((rule) => (
             <li className="rules__item" key={rule.id}>
-              {rule.rule}
+              <div className="rules__dot"></div>
+              <div className="rules__rule">{rule.rule}</div>
             </li>
           ))}
         </ul>
