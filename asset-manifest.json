@@ -1,9 +1,8 @@
 {
   "files": {
-    "main.css": "/chatterease/static/css/main.b5c0657b.css",
-    "main.js": "/chatterease/static/js/main.2d08a8bf.js",
+    "main.css": "/chatterease/static/css/main.97f2efb3.css",
+    "main.js": "/chatterease/static/js/main.3b1a1422.js",
     "static/js/787.8defb542.chunk.js": "/chatterease/static/js/787.8defb542.chunk.js",
-    "static/media/bgAll.jpg": "/chatterease/static/media/bgAll.52ce6ed23e85ed2dea3c.jpg",
     "static/media/bgSupport.jpg": "/chatterease/static/media/bgSupport.6c2096f19cd6dbdb8698.jpg",
     "static/media/background_chat.svg": "/chatterease/static/media/background_chat.69d7a011296f4f02d718.svg",
     "static/media/background.svg": "/chatterease/static/media/background.efba83911637c6044557.svg",
@@ -22,12 +21,12 @@
     "static/media/background_plot.svg": "/chatterease/static/media/background_plot.7a1dcc860726ad476ca5.svg",
     "static/media/search.svg": "/chatterease/static/media/search.e23a57ad6c7f5f7ba16a.svg",
     "static/media/background_yellow.svg": "/chatterease/static/media/background_yellow.546d537633d210812352.svg",
-    "main.b5c0657b.css.map": "/chatterease/static/css/main.b5c0657b.css.map",
-    "main.2d08a8bf.js.map": "/chatterease/static/js/main.2d08a8bf.js.map",
+    "main.97f2efb3.css.map": "/chatterease/static/css/main.97f2efb3.css.map",
+    "main.3b1a1422.js.map": "/chatterease/static/js/main.3b1a1422.js.map",
     "787.8defb542.chunk.js.map": "/chatterease/static/js/787.8defb542.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b5c0657b.css",
-    "static/js/main.2d08a8bf.js"
+    "static/css/main.97f2efb3.css",
+    "static/js/main.3b1a1422.js"
   ]
 }
