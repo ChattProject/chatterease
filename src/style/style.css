@@ -403,6 +403,7 @@ body {
     display: none;
   }
   .greeting__dots {
+    margin-bottom: 5vh;
     margin-bottom: calc(var(--vh, 1vh) * 5);
     display: -webkit-box;
     display: -ms-flexbox;
@@ -429,7 +430,6 @@ body {
   border: 1px dashed #feb706;
   width: 50vw;
   height: 75vh;
-  height: calc(var(--vh, 1vh) * 75);
   margin: 0 auto;
   padding: 24px;
 }
@@ -519,7 +519,6 @@ body {
   .greetings-border {
     width: 60vw;
     height: 73vh;
-    height: calc(var(--vh, 1vh) * 73);
   }
 }
 @media (max-height: 699px) {
@@ -530,7 +529,6 @@ body {
   .greetings-border {
     width: 70vw;
     height: 72vh;
-    height: calc(var(--vh, 1vh) * 72);
     padding: 12px;
   }
 }
@@ -653,7 +651,6 @@ body {
   position: absolute;
   left: 50%;
   top: 65vh;
-  top: calc(var(--vh, 1vh) * 65);
   font-family: Montserrat Alternates;
   font-size: 3.2em;
   font-style: normal;
@@ -670,7 +667,6 @@ body {
   }
   .welcome__text {
     top: 55vh;
-    top: calc(var(--vh, 1vh) * 55);
   }
 }
 @media (max-width: 400px) {
@@ -680,7 +676,6 @@ body {
   }
   .welcome__text {
     top: 50vh;
-    top: calc(var(--vh, 1vh) * 50);
   }
 }
 .home__greeting {
@@ -1079,7 +1074,6 @@ body {
   top: 0;
   width: 100vw;
   height: 100vh;
-  height: calc(var(--vh, 1vh) * 100);
   overflow: hidden;
   background-color: rgba(173, 173, 173, 0.4);
 }

@@ -5,7 +5,7 @@
   /* overflow: scroll; */
   /* width: 86vw; */
   height: 100vh; /* Fallback for browsers that do not support Custom Properties */
-  height: calc(var(--vh, 1vh) * 100);
+  /* height: calc(var(--vh, 1vh) * 100); */
   text-align: center;
   /* overflow: hidden; */
   /* padding: 20px; */

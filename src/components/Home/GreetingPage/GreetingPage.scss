@@ -5,7 +5,7 @@
   border: 1px dashed $yellow-dark;
   width: 50vw;
   height: 75vh;
-  height: calc(var(--vh, 1vh) * 75);
+  // height: calc(var(--vh, 1vh) * 75);
   margin: 0 auto;
   padding: 24px;
 }
@@ -94,7 +94,7 @@
   .greetings-border {
     width: 60vw;
     height: 73vh;
-    height: calc(var(--vh, 1vh) * 73);
+    // height: calc(var(--vh, 1vh) * 73);
   }
 }
 @media (max-height: 699px) {
@@ -104,7 +104,7 @@
     &-border {
       width: 70vw;
       height: 72vh;
-      height: calc(var(--vh, 1vh) * 72);
+      // height: calc(var(--vh, 1vh) * 72);
       padding: 12px;
     }
   }
