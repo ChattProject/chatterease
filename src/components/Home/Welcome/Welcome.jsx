@@ -5,7 +5,7 @@ export const Welcome = () => {
   return (
     <>
       <div className="welcome">
-        <img className='welcome__bg' src={BgWelcome} alt='Welcome!'/>
+        <img className='welcome__bg' src={BgWelcome} alt='people'/>
         <div className="welcome__text">
           Ласкаво просимо!
         </div>

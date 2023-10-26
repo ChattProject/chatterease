@@ -45,6 +45,7 @@
 }
 
 .mobile {
+  gap: 5vw;
   &__burger {
     border: 0;
     padding: 0;
@@ -154,7 +155,7 @@
       padding: 16px 5vw;
     }
     &__mobile {
-      display: block;
+      display: flex;
     }
     &__additional {
       display: none;

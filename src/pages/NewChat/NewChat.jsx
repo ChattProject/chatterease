@@ -70,7 +70,7 @@ export const NewChat = ({
               className="newchat__button newchat__return button-default"
               onClick={() => navigate(`/chats`)}
             >
-              Повернутися до списку чатів
+              Повернутися до списку тем
             </button>
           </div>
         </form>

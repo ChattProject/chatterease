@@ -1,17 +1,31 @@
 .endpage {
-  max-width: 1440px;
   height: 100%;
-  margin: 0 auto;
-  padding-top: 65vh;
-  padding-top: calc(var(--vh, 1vh) * 65);
-  background: url("../../images/welcome/bgAll.jpg");
-  background-size: cover;
+  background: url("../../images/welcome/background_plot.svg"), url("../../images/welcome/background.svg");
   background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   position: relative;
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
-.endpage .welcome__bg {
-  width: 100%;
+.endpage__bg {
+  height: auto;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
+  margin: 0 20vw 7vh 27vw;
+  margin: 0 20vw calc(var(--vh, 1vh) * 7) 27vw;
+  text-align: center;
+  max-width: 100%;
 }
 .endpage__title {
   font-family: Montserrat Alternates;
@@ -22,6 +36,30 @@
   margin-bottom: calc(var(--vh, 1vh) * 2);
 }
 .endpage__button {
-  margin-top: 2vh;
-  margin-top: calc(var(--vh, 1vh) * 2);
+  margin: 2vh auto;
+  margin: calc(var(--vh, 1vh) * 2) auto;
+  width: 30vw;
+}
+
+@media (max-width: 852px) {
+  .endpage__bg {
+    margin: 0 15vw 7vh 21vw;
+    margin: 0 15vw calc(var(--vh, 1vh) * 7) 21vw;
+  }
+  .endpage__button {
+    width: 50vw;
+  }
+}
+@media (max-width: 400px) {
+  .endpage__bg {
+    height: auto;
+    margin: 0 10vw 5vh 13vw;
+    margin: 0 10vw calc(var(--vh, 1vh) * 5) 13vw;
+  }
+  .endpage__title, .endpage__text {
+    font-size: 2.4em;
+  }
+  .endpage__button {
+    width: 72vw;
+  }
 }/*# sourceMappingURL=EndPage.css.map */

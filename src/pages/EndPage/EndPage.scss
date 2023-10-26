@@ -1,21 +1,33 @@
 // @import '../../style/variables.scss';
 
- .endpage {
-    max-width: 1440px;
+.endpage {
+    // max-width: 1440px;
     height: 100%;
-    margin: 0 auto;
-    padding-top: 65vh;
-    padding-top: calc(var(--vh, 1vh) * 65);
-    background: url("../../images/welcome/bgAll.jpg");
-    background-size: cover;
+    // margin: 0 auto;
+    // padding-top: 65vh;
+    // padding-top: calc(var(--vh, 1vh) * 65);
+    background: url("../../images/welcome/background_plot.svg"), url("../../images/welcome/background.svg");
     background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     position: relative;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-    .welcome__bg {
-        width: 100%;
+    &__bg {
+        // position: absolute;
+        // top: 7vh;
+        // left: 25%;
+        height: auto;
+        width: fill-available;
+        margin: 0 20vw 7vh 27vw;
+        margin: 0 20vw calc(var(--vh, 1vh) * 7) 27vw;
+        text-align: center;
+        // overflow: hidden;
+        max-width: 100%;
     }
-
     &__title {
         font-family: Montserrat Alternates;
         font-size: 3.2em;
@@ -23,12 +35,40 @@
         font-weight: 600;
         margin-bottom: 2vh;
         margin-bottom: calc(var(--vh, 1vh) * 2);
-        
     }
     &__button {
-        margin-top: 2vh;
-        margin-top: calc(var(--vh, 1vh) * 2);
-        // width: 40vw;
+        margin: 2vh auto;
+        margin: calc(var(--vh, 1vh) * 2) auto;
+        width: 30vw;
     }
 }
 
+@media (max-width: 852px) {
+    .endpage {
+        &__bg {
+            margin: 0 15vw 7vh 21vw;
+            margin: 0 15vw calc(var(--vh, 1vh) * 7) 21vw;
+        }
+        &__button {
+            width: 50vw;
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .endpage {
+        &__bg {
+            height: auto;
+            margin: 0 10vw 5vh 13vw;
+            margin: 0 10vw calc(var(--vh, 1vh) * 5) 13vw;
+        }
+        &__title,
+        &__text {
+            font-size: 2.4em;
+        }
+        &__button {
+
+            width: 72vw;
+        }
+    }
+}
