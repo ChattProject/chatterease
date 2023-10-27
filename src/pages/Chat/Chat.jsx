@@ -20,7 +20,7 @@ export const Chat = ({
 
   const handleChatClose = () => {
     setIsClosingChat(true);
-    setChatMenu(false)
+    setChatMenu(false);
   };
 
   return (
@@ -142,28 +142,27 @@ export const Chat = ({
             message={message}
             userName={userName}
           />
-
-          <div className="chat__input">
-            {userName === "" ? (
-              <div className="chat__login">
-                <div className="chat__login_text paragraph">
-                  Щоб писати повідомлення - введи свій унікальний логін
-                </div>
-                <button className="chat__button_input button-green">
-                  <Link to={"/login"} className="chat__input-link">
-                    Ввести логін
-                  </Link>
-                </button>
+          {userName === "" ? (
+            <div className="chat__login">
+              <div className="chat__login_text paragraph">
+                Щоб писати повідомлення - введи свій унікальний логін
               </div>
-            ) : (
+              <button className="chat__button_input button-green">
+                <Link to={"/login"} className="chat__input-link">
+                  Ввести логін
+                </Link>
+              </button>
+            </div>
+          ) : (
+            <div className="chat__input">
               <InputMessage
                 userName={userName}
                 addMessageToChat={addMessageToChat}
                 setMessage={setMessage}
                 message={message}
               />
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
       {isClosingChat && <CloseSession setIsClosingChat={setIsClosingChat} />}
