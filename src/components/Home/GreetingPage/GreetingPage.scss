@@ -179,6 +179,7 @@
 
     &__image {
       width: 23vh;
+      width: calc(var(--vh, 1vh) * 23);;
       height: auto;
       margin: 5px auto;
     }

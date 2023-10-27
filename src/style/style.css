@@ -240,6 +240,9 @@ body {
   display: none;
 }
 
+.mobile {
+  gap: 5vw;
+}
 .mobile__burger {
   border: 0;
   padding: 0;
@@ -337,7 +340,9 @@ body {
     padding: 16px 5vw;
   }
   .header__mobile {
-    display: block;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
   .header__additional {
     display: none;
@@ -591,6 +596,7 @@ body {
   }
   .greetings__image {
     width: 23vh;
+    width: calc(var(--vh, 1vh) * 23);
     height: auto;
     margin: 5px auto;
   }
@@ -975,6 +981,8 @@ body {
   font-size: 1.2em;
   line-height: 1.3em;
   font-weight: 400;
+  word-break: break-all;
+  word-wrap: break-word;
 }
 .message__date {
   font-size: 1.2em;
@@ -1015,6 +1023,14 @@ body {
 .input-message__form {
   position: relative;
   background-color: #fff;
+  min-height: 70px;
+  padding: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .input-message__emoji {
   position: absolute;
@@ -1050,11 +1066,15 @@ body {
 }
 .input-message__input {
   position: relative;
+  resize: vertical;
   width: 100%;
-  padding: 30px 0 30px 44px;
+  max-width: 100%;
+  height: calc(100% - 10px);
+  padding: 0 75px 0 44px;
   border: 1px solid #adadad;
-  border-left: none;
-  border-right: none;
+  border: none;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 .input-message__input:focus-visible {
   outline: none;
@@ -1574,19 +1594,33 @@ body {
   }
 }
 .endpage {
-  max-width: 1440px;
   height: 100%;
-  margin: 0 auto;
-  padding-top: 65vh;
-  padding-top: calc(var(--vh, 1vh) * 65);
-  background: url("../../images/welcome/bgAll.jpg");
-  background-size: cover;
+  background: url("../../images/welcome/background_plot.svg"), url("../../images/welcome/background.svg");
   background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   position: relative;
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
-.endpage .welcome__bg {
-  width: 100%;
+.endpage__bg {
+  height: auto;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
+  margin: 0 20vw 7vh 27vw;
+  margin: 0 20vw calc(var(--vh, 1vh) * 7) 27vw;
+  text-align: center;
+  max-width: 100%;
 }
 .endpage__title {
   font-family: Montserrat Alternates;
@@ -1597,10 +1631,33 @@ body {
   margin-bottom: calc(var(--vh, 1vh) * 2);
 }
 .endpage__button {
-  margin-top: 2vh;
-  margin-top: calc(var(--vh, 1vh) * 2);
+  margin: 2vh auto;
+  margin: calc(var(--vh, 1vh) * 2) auto;
+  width: 30vw;
 }
 
+@media (max-width: 852px) {
+  .endpage__bg {
+    margin: 0 15vw 7vh 21vw;
+    margin: 0 15vw calc(var(--vh, 1vh) * 7) 21vw;
+  }
+  .endpage__button {
+    width: 50vw;
+  }
+}
+@media (max-width: 400px) {
+  .endpage__bg {
+    height: auto;
+    margin: 0 10vw 5vh 13vw;
+    margin: 0 10vw calc(var(--vh, 1vh) * 5) 13vw;
+  }
+  .endpage__title, .endpage__text {
+    font-size: 2.4em;
+  }
+  .endpage__button {
+    width: 72vw;
+  }
+}
 .rules {
   overflow-y: auto;
 }
