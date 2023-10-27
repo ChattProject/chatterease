@@ -14,6 +14,7 @@ export const InputMessage = ({
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
     if (userName && message.trim() !== "") {
       const messageData = {
         id: Date.now() + Math.random(),
@@ -24,7 +25,32 @@ export const InputMessage = ({
       addMessageToChat(messageData);
 
       setMessage("");
-      event.target.reset();
+      document.querySelector(".input-message__input").rows = 1;
+    }
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      if (event.shiftKey) {
+        // Prevent the default action of Shift + Enter
+        event.preventDefault();
+
+        // Insert a single line break at the current cursor position
+        const textArea = event.target;
+        const value = textArea.value;
+        const start = textArea.selectionStart;
+        const end = textArea.selectionEnd;
+
+        textArea.value =
+          value.substring(0, start) + "\n" + value.substring(end, value.length);
+
+        textArea.selectionStart = textArea.selectionEnd = start + 1;
+        textArea.rows = textArea.rows + 1;
+      } else {
+        // Enter without Shift, prevent form submission
+        event.preventDefault();
+        handleSubmit(event);
+      }
     }
   };
 
@@ -48,23 +74,22 @@ export const InputMessage = ({
         </svg>
         <span className="input-message__emoji_text">Maybe later :)</span>
         <textarea
-          // type={"text"}
-          className={"input-message__input paragraph"}
-          id={"text-message"}
+          className="input-message__input paragraph"
+          id="text-message"
           onChange={handleSetMessage}
           value={message}
-          placeholder={"Повідомлення..."}
+          placeholder="Повідомлення..."
           required
-          rows={1} // Важливо встановити один рядок за замовчуванням
+          rows={1}
           onInput={(e) => {
             e.target.rows = 1;
             const lineHeight = parseInt(getComputedStyle(e.target).lineHeight);
             const rows = Math.floor(e.target.scrollHeight / lineHeight);
             e.target.rows = rows;
           }}
-        >
-          Повідомлення...
-        </textarea>
+          onKeyDown={handleKeyDown}
+        ></textarea>
+        {/* <button type="submit" className="input-message__button"> */}
         <button type="submit" className={"input-message__button"}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
