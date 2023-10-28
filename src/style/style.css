@@ -1024,21 +1024,19 @@ body {
   position: relative;
   background-color: #fff;
   min-height: 70px;
-  padding: 10px 0;
+  padding: 10px 20px 10px 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 .input-message__emoji {
-  position: absolute;
   width: 24px;
   height: 24px;
-  top: 26px;
-  left: 8px;
-  z-index: 1;
 }
 .input-message__emoji:hover {
   cursor: pointer;
@@ -1066,11 +1064,13 @@ body {
 }
 .input-message__input {
   position: relative;
-  resize: vertical;
+  resize: none;
+  overflow-y: hidden;
   width: 100%;
   max-width: 100%;
   height: calc(100% - 10px);
-  padding: 0 75px 0 44px;
+  min-height: 18px;
+  padding: 0 20px;
   border: 1px solid #adadad;
   border: none;
   word-wrap: break-word;
@@ -1080,10 +1080,7 @@ body {
   outline: none;
 }
 .input-message__button {
-  position: absolute;
   background-color: inherit;
-  right: 26px;
-  top: 26px;
 }
 .input-message__icon {
   width: 24px;
@@ -1386,7 +1383,7 @@ body {
 }
 @media (max-width: 400px) {
   .chat {
-    height: calc(100% - 72px);
+    height: calc(100% - 75px);
   }
   .chat__header {
     padding: 8px 5vw;
