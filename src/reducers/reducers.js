@@ -1,7 +1,7 @@
 import { ADD_CHAT, ADD_MESSAGE } from "../actions/actionsType.js";
 import chatsList from "../json/chatList.json";
 
-const initialState = chatsList;
+const initialState = JSON.parse(localStorage.getItem('allChats')) || chatsList;
 
 const chatReducer = (state = initialState, action) => {
   switch (action.type) {

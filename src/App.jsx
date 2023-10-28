@@ -47,13 +47,36 @@ function App() {
   }, [allChats, selectedChatId]);
   
 
+  // const addNewChat = (newChat) => {
+  //   dispatch(addChat(newChat));
+  // };
+
+  // const addMessageToChat = (message) => {
+  //   dispatch(addMessage(selectedChatIndex, message));
+  // };
+useEffect(() => {
+  localStorage.setItem('allChats', JSON.stringify(allChats));
+}, [allChats])
   const addNewChat = (newChat) => {
     dispatch(addChat(newChat));
+  
+    // Get the updated state after adding a chat
+    // const updatedAllChats = useSelector((state) => state);
+  
+    // Save the updated state to localStorage
+    // localStorage.setItem('allChats', JSON.stringify(allChats));
   };
-
+  
   const addMessageToChat = (message) => {
     dispatch(addMessage(selectedChatIndex, message));
+  
+    // Get the updated state after adding a message
+    // const updatedAllChats = useSelector((state) => state);
+  
+    // Save the updated state to localStorage
+    // localStorage.setItem('allChats', JSON.stringify(allChats));
   };
+  
 
   const removeBurgerMenu = (event) => {
     event.stopPropagation();
