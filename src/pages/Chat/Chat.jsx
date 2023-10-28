@@ -40,23 +40,18 @@ export const Chat = ({
         });
       } else {
         // Fallback for browsers that don't support smooth scrolling
-  
-        // Calculate the target scroll position
-        const targetScrollPosition = container.scrollHeight - container.clientHeight;
-  
-        // Adjust for the keyboard height if it's open
         const keyboardHeight = window.innerHeight - document.documentElement.clientHeight;
+        const targetScrollPosition = container.getBoundingClientRect().bottom - keyboardHeight;
   
-        // Set the new scroll position
-        container.scrollTop = targetScrollPosition - keyboardHeight;
-  
-        // Optionally, add a check to make sure the new scrollTop doesn't go negative
-        if (container.scrollTop < 0) {
-          container.scrollTop = 0;
-        }
+        // Use window.scrollTo to scroll the entire page
+        window.scrollTo({
+          top: targetScrollPosition,
+          behavior: "smooth",
+        });
       }
     }
   };
+  
   
 
 
