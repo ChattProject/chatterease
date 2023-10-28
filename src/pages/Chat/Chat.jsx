@@ -40,31 +40,26 @@ export const Chat = ({
         });
       } else {
         // Fallback for browsers that don't support smooth scrolling
-        const scrollDistance = container.scrollHeight - container.scrollTop;
-        const scrollDuration = 500; // Adjust the duration as needed
-        const startTime = performance.now();
   
-        function scrollStep(timestamp) {
-          const currentTime = timestamp - startTime;
-          const progress = Math.min(currentTime / scrollDuration, 1);
+        // Get the current scroll position
+        const currentScrollPosition = container.scrollTop;
+        
+        // Calculate the target scroll position
+        const targetScrollPosition = container.scrollHeight - container.clientHeight;
   
-          // Set scrollTop to the targetPosition, not the original scrollDistance
-          container.scrollTop = container.scrollHeight - targetPosition * progress;
-  
-          if (progress < 1) {
-            requestAnimationFrame(scrollStep);
-          }
-        }
-  
-        // Adjust the target position to account for the keyboard
+        // Adjust for the keyboard height if it's open
         const keyboardHeight = window.innerHeight - document.documentElement.clientHeight;
-        const targetPosition = container.scrollHeight - keyboardHeight;
   
-        requestAnimationFrame(scrollStep);
+        // Set the new scroll position
+        container.scrollTop = targetScrollPosition - keyboardHeight;
+  
+        // Optionally, add a check to make sure the new scrollTop doesn't go negative
+        if (container.scrollTop < 0) {
+          container.scrollTop = 0;
+        }
       }
     }
   };
-  
   
 
 
