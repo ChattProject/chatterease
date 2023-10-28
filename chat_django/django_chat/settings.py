@@ -14,6 +14,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 from pathlib import Path
 import os
+import dj-database-url
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -112,12 +113,19 @@ REST_FRAMEWORK = {
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+	"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 ## User model
 AUTH_USER_MODEL = 'members.Members'
