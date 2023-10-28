@@ -19,12 +19,44 @@ export const Chat = ({
   const [isClosingChat, setIsClosingChat] = useState(false);
 
   const containerRef = useRef(null);
+
+  // const scrollToBottom = () => {
+  //   containerRef.current.scrollIntoView({
+  //     behavior: "smooth",
+  //     block: "end",
+  //     inline: "nearest",
+  //   });
+  // };
   const scrollToBottom = () => {
-    containerRef.current.scrollIntoView({
-      behavior: "smooth",
-      block: "end",
-      inline: "nearest",
-    });
+    const container = containerRef.current;
+  
+    if (container) {
+      if ('scrollIntoView' in container) {
+        // Check if smooth scrolling is supported
+        container.scrollIntoView({
+          behavior: "smooth",
+          block: "end",
+          inline: "nearest",
+        });
+      } else {
+        // Fallback for browsers that don't support smooth scrolling
+        const scrollDistance = container.scrollHeight - container.scrollTop;
+        const scrollDuration = 500; // Adjust the duration as needed
+        const startTime = performance.now();
+  
+        function scrollStep(timestamp) {
+          const currentTime = timestamp - startTime;
+          const progress = Math.min(currentTime / scrollDuration, 1);
+          container.scrollTop = container.scrollTop + scrollDistance * progress;
+  
+          if (progress < 1) {
+            requestAnimationFrame(scrollStep);
+          }
+        }
+  
+        requestAnimationFrame(scrollStep);
+      }
+    }
   };
   
 
