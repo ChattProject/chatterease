@@ -81,7 +81,6 @@ export const InputMessage = ({
         </svg>
         <span className="input-message__emoji_text">Maybe later :)</span>
         <textarea
-          autoFocus
           className="input-message__input paragraph"
           id="text-message"
           onChange={handleSetMessage}
