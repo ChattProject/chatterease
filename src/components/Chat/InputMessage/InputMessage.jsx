@@ -7,21 +7,16 @@ export const InputMessage = ({
   userName,
   setMessage,
   message,
-  containerRef
+  containerRef,
+  scrollToBottom
 }) => {
   const handleSetMessage = (event) => {
     setMessage(event.target.value);
   };
 
-  const scrollToBottom = () => {
-    if (containerRef.current) {
-      containerRef.current.scrollTop = containerRef.current.scrollHeight;
-    }
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
-
+  
     if (userName && message.trim() !== "") {
       const messageData = {
         id: Date.now() + Math.random(),
@@ -30,13 +25,15 @@ export const InputMessage = ({
         text: message,
       };
       addMessageToChat(messageData);
-
+  
       setMessage("");
       document.querySelector(".input-message__input").rows = 1;
-
-      scrollToBottom();
+  
+      // Call scrollToBottom here to scroll to the bottom after adding a new message
+      // scrollToBottom();
     }
   };
+  
 
   const handleKeyDown = (event) => {
     if (event.key === "Shift") {

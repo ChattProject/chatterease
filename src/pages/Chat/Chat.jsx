@@ -19,7 +19,14 @@ export const Chat = ({
   const [isClosingChat, setIsClosingChat] = useState(false);
 
   const containerRef = useRef(null);
-
+  const scrollToBottom = () => {
+    containerRef.current.scrollIntoView({
+      behavior: "smooth",
+      block: "end",
+      inline: "nearest",
+    });
+  };
+  
 
   const handleChatClose = () => {
     setIsClosingChat(true);
@@ -145,6 +152,7 @@ export const Chat = ({
             message={message}
             userName={userName}
             containerRef={containerRef}
+            scrollToBottom={scrollToBottom}
           />
           {userName === "" ? (
             <div className="chat__login">
@@ -165,6 +173,7 @@ export const Chat = ({
                 setMessage={setMessage}
                 message={message}
                 containerRef={containerRef}
+                scrollToBottom={scrollToBottom}
               />
             </div>
           )}

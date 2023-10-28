@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import up from "../../../images/chat/up.svg";
 
-export const ShowMessages = ({ messages, message, userName, containerRef }) => {
+export const ShowMessages = ({ messages, message, userName, containerRef, scrollToBottom }) => {
   // const containerRef = useRef(null);
   const messagesRef = useRef(null);
   const [showButtonUp, setShowButtonUp] = useState(false);
@@ -26,15 +26,12 @@ export const ShowMessages = ({ messages, message, userName, containerRef }) => {
   };
 
   useEffect(() => {
-    if (containerRef.current && autoScroll) {
-      containerRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "end",
-        inline: "nearest",
-      });
+    if (containerRef.current) {
       setShowButtonUp(true);
     }
-  }, [messages, autoScroll]);
+    scrollToBottom(); // Move scrollToBottom here
+  }, [messages]); // Watch for changes in the 'messages' prop
+  
 
   function getDate(posted) {
     const date = new Date(posted);
