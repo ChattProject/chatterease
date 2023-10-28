@@ -2,7 +2,7 @@
 ---
  ## Task:
 
- **1.** [ ] Користувачі можуть приєднатися, використовуючи лише ім'я користувача (авторизація не потрібна).
+ **1.** [X] Користувачі можуть приєднатися, використовуючи лише ім'я користувача (авторизація не потрібна).
  
  **2.** [X] Одночасно можуть спілкуватися в чаті більше 2 користувачів (навіть з однаковими псевдонімами).
  
@@ -16,9 +16,9 @@
 
  **7.**  [ ] користувачі мають бачити, коли хтось набирає текст; 
 
- **8.** [ ] відображати дату й час біля кожного повідомлення; 
+ **8.** [X] відображати дату й час біля кожного повідомлення; 
  
- **9.** [ ] ім'я користувача залишається після вкладки, що закривається. 
+ **9.** [X] ім'я користувача залишається після вкладки, що закривається. 
 
 ---
 **Start project**:
@@ -29,14 +29,8 @@
  - `env\Scripts\activate`
  - `pip install -r requirements.txt`
  - Open backend directory via `--> cd backend` 
- - `python manage.py migrate `
  - `python manage.py makemigrations `
+ - `python manage.py migrate `
  - `python manage.py runserver`
  - For create admin --> `python manage.py createsuperuser`
 ---
-**2.** In the second console:
- - Open frontend directory via `--> cd frontend` 
- - `npm install` 
- - `npm start` 
-
- **3.** Open the app  --> `http://localhost:3000`

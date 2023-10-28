@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'members.apps.MembersConfig',
     'chat.apps.ChatConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -91,6 +92,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'django_chat.wsgi.application'
 
+#REST configuration
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ],
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases

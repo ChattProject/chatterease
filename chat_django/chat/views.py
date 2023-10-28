@@ -2,7 +2,12 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseForbidden
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+
+from .serializers import GroupSerializer
 from .models import Group
+
+from rest_framework import generics
+
 
 
 def home(request):
@@ -57,3 +62,19 @@ def remove_group(request, uuid):
 	u = request.user
 	Group.objects.get(uuid=uuid).delete()
 	return redirect('home')
+
+
+class GroupAPIList(generics.ListAPIView):
+	queryset = Group.objects.all()
+	serializer_class = GroupSerializer
+	
+
+class GroupCreateAPIView(generics.ListCreateAPIView):
+	queryset = Group.objects.all()
+	serializer_class = GroupSerializer
+
+
+class GroupAPIDetailVeiw(generics.RetrieveUpdateDestroyAPIView):
+	queryset = Group.objects.all()
+	serializer_class = GroupSerializer
+
