@@ -41,9 +41,6 @@ export const Chat = ({
       } else {
         // Fallback for browsers that don't support smooth scrolling
   
-        // Get the current scroll position
-        const currentScrollPosition = container.scrollTop;
-        
         // Calculate the target scroll position
         const targetScrollPosition = container.scrollHeight - container.clientHeight;
   
