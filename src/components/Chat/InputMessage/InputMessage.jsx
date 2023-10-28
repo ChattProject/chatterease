@@ -7,9 +7,16 @@ export const InputMessage = ({
   userName,
   setMessage,
   message,
+  containerRef
 }) => {
   const handleSetMessage = (event) => {
     setMessage(event.target.value);
+  };
+
+  const scrollToBottom = () => {
+    if (containerRef.current) {
+      containerRef.current.scrollTop = containerRef.current.scrollHeight;
+    }
   };
 
   const handleSubmit = (event) => {
@@ -26,16 +33,23 @@ export const InputMessage = ({
 
       setMessage("");
       document.querySelector(".input-message__input").rows = 1;
+
+      scrollToBottom();
     }
   };
 
   const handleKeyDown = (event) => {
-    if (event.key === "Enter") {
+    if (event.key === "Shift") {
+      // When Shift key is pressed, handle Enter key to send the message
+      event.preventDefault(); // Prevent Enter key from creating a new line
+    } else if (event.key === "Enter") {
       if (event.shiftKey) {
-        // Prevent the default action of Shift + Enter
+        // Shift+Enter should send the message
+        handleSubmit(event);
+      } else {
+        // Enter without Shift should create a new line
+        // Prevent form submission and add a new line character
         event.preventDefault();
-
-        // Insert a single line break at the current cursor position
         const textArea = event.target;
         const value = textArea.value;
         const start = textArea.selectionStart;
@@ -46,10 +60,6 @@ export const InputMessage = ({
 
         textArea.selectionStart = textArea.selectionEnd = start + 1;
         textArea.rows = textArea.rows + 1;
-      } else {
-        // Enter without Shift, prevent form submission
-        event.preventDefault();
-        handleSubmit(event);
       }
     }
   };
@@ -74,6 +84,7 @@ export const InputMessage = ({
         </svg>
         <span className="input-message__emoji_text">Maybe later :)</span>
         <textarea
+          autoFocus
           className="input-message__input paragraph"
           id="text-message"
           onChange={handleSetMessage}
@@ -90,7 +101,11 @@ export const InputMessage = ({
           onKeyDown={handleKeyDown}
         ></textarea>
         {/* <button type="submit" className="input-message__button"> */}
-        <button type="submit" className={"input-message__button"}>
+        <button
+          type="submit"
+          className={"input-message__button"}
+          onClick={handleSubmit}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

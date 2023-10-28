@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 // import "./Chat.css";
 import { Link } from "react-router-dom";
 import { InputMessage } from "../../components/Chat/InputMessage/InputMessage";
@@ -17,6 +17,9 @@ export const Chat = ({
 }) => {
   const [message, setMessage] = useState("");
   const [isClosingChat, setIsClosingChat] = useState(false);
+
+  const containerRef = useRef(null);
+
 
   const handleChatClose = () => {
     setIsClosingChat(true);
@@ -141,6 +144,7 @@ export const Chat = ({
             messages={chat.messages}
             message={message}
             userName={userName}
+            containerRef={containerRef}
           />
           {userName === "" ? (
             <div className="chat__login">
@@ -160,6 +164,7 @@ export const Chat = ({
                 addMessageToChat={addMessageToChat}
                 setMessage={setMessage}
                 message={message}
+                containerRef={containerRef}
               />
             </div>
           )}
