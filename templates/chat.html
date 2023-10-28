@@ -28,7 +28,7 @@
 
 <script>
 
-base_url =  'ws://' + window.location.hostname + ':' + window.location.port + '/wss/open_chat/' + "{{ uuid }}" + '/';
+base_url =  'wss://' + window.location.hostname + ':' + window.location.port + '/wss/open_chat/' + "{{ uuid }}" + '/';
 
 chatSocket = new WebSocket(base_url);
 
