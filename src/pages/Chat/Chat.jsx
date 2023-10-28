@@ -47,18 +47,26 @@ export const Chat = ({
         function scrollStep(timestamp) {
           const currentTime = timestamp - startTime;
           const progress = Math.min(currentTime / scrollDuration, 1);
-          container.scrollTop = container.scrollTop + scrollDistance * progress;
+  
+          // Set scrollTop to the targetPosition, not the original scrollDistance
+          container.scrollTop = container.scrollHeight - targetPosition * progress;
   
           if (progress < 1) {
             requestAnimationFrame(scrollStep);
           }
         }
   
+        // Adjust the target position to account for the keyboard
+        const keyboardHeight = window.innerHeight - document.documentElement.clientHeight;
+        const targetPosition = container.scrollHeight - keyboardHeight;
+  
         requestAnimationFrame(scrollStep);
       }
     }
   };
   
+  
+
 
   const handleChatClose = () => {
     setIsClosingChat(true);
