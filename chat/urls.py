@@ -1,4 +1,6 @@
 from django.urls import path
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 from . import views
 
 urlpatterns = [
@@ -13,3 +15,5 @@ urlpatterns = [
 	path('api/chats/', views.GroupCreateAPIView.as_view(), name='create_chat'),
 	path('api/chats/<int:pk>/', views.GroupAPIDetailVeiw.as_view(), name='update_chat'),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
