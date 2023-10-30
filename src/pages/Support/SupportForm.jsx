@@ -119,14 +119,14 @@ class SupportForm extends Component {
               </button>
             </>
           )}
-          <div>
+          {/* <div>
             {this.state.formData && (
               <div>
                 <h2>Дані збережено:</h2>
                 <pre>{JSON.stringify(this.state.formData, null, 2)}</pre>
               </div>
             )}
-          </div>
+          </div> */}
         </div>
       </div>
     );
