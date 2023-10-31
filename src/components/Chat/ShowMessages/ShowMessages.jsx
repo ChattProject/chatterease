@@ -30,7 +30,7 @@ export const ShowMessages = ({ messages, message, userName, containerRef, scroll
       setShowButtonUp(true);
     }
     scrollToBottom(); // Move scrollToBottom here
-  }, [messages]); // Watch for changes in the 'messages' prop
+  }, [messages, userName]); // Watch for changes in the 'messages' prop
   
 
   function getDate(posted) {

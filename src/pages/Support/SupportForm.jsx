@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
-import './SupportForm.scss';
+import React, { Component } from "react";
+import "./SupportForm.scss";
 import IconSuccessfull from "../../images/iconSuccessfull.png";
+
 
 class SupportForm extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      name: '',
-      email: '',
-      message: '',
+      name: "",
+      email: "",
+      message: "",
       formData: null,
       isWindowContentVisible: true,
     };
@@ -31,40 +32,45 @@ class SupportForm extends Component {
 
     this.setState({ formData });
     this.setState({
-      name: '',
-      email: '',
-      message: '',
+      name: "",
+      email: "",
+      message: "",
       isWindowContentVisible: false,
     });
 
-    localStorage.setItem('formData', JSON.stringify(formData));
+    localStorage.setItem("formData", JSON.stringify(formData));
   };
 
   handleGoBack = () => {
     this.setState({ isWindowContentVisible: true });
     window.history.back();
-  }
+  };
+
+  handleGoForm = () => {
+    this.setState({ isWindowContentVisible: true });
+    window.history.back(); // "/support"
+  };
 
   render() {
     return (
-      <div className='supportForm'>
+      <div className="supportForm">
         <div className="supportForm__window window">
+          <button
+            type="button"
+            className="btn-close supportForm__btn-close"
+            aria-label="Close"
+            onClick={this.handleGoBack}
+          ></button>
           {this.state.isWindowContentVisible ? (
             <>
-              <button
-                type="button"
-                className="btn-close supportForm__btn-close"
-                aria-label="Close"
-                onClick={this.handleGoBack}
-              ></button>
-              <h1 className='supportForm__title'>
-                Ми на зв’язку
-              </h1>
-              <form className='supportForm__form' onSubmit={this.handleSubmit}>
-                <div className='supportForm__name'>
-                  <label className='supportForm__text paragraph'>Вкажіть ваше ім’я</label>
+              <h1 className="supportForm__title">Ми на зв’язку</h1>
+              <form className="supportForm__form" onSubmit={this.handleSubmit}>
+                <div className="supportForm__name">
+                  <label className="supportForm__text paragraph">
+                    Вкажіть ваше ім’я
+                  </label>
                   <input
-                    className='supportForm__input'
+                    className="supportForm__input"
                     type="text"
                     name="name"
                     placeholder="Ім'я"
@@ -72,10 +78,12 @@ class SupportForm extends Component {
                     onChange={this.handleChange}
                   />
                 </div>
-                <div className='supportForm__name'>
-                  <label className='supportForm__text paragraph'>Вкажіть вашу електронну пошту</label>
+                <div className="supportForm__name">
+                  <label className="supportForm__text paragraph">
+                    Вкажіть вашу електронну пошту
+                  </label>
                   <input
-                    className='supportForm__input'
+                    className="supportForm__input"
                     type="email"
                     name="email"
                     placeholder="Електронна пошта"
@@ -83,25 +91,29 @@ class SupportForm extends Component {
                     onChange={this.handleChange}
                   />
                 </div>
-                <div className='supportForm__name'>
-                  <label className='supportForm__text paragraph'>Опишіть проблему</label>
+                <div className="supportForm__name">
+                  <label className="supportForm__text paragraph">
+                    Опишіть проблему
+                  </label>
                   <textarea
-                    className='supportForm__input'
+                    className="supportForm__input"
                     name="message"
                     placeholder="Не можу відправити повідомлення"
                     value={this.state.message}
                     onChange={this.handleChange}
                   />
                 </div>
-                 <button
-                   className={`login__button ${
-                    this.state.name !== "" && this.state.email !== "" && this.state.message !== ""
-                    ? "button-green"
-                    : "button-green button-green_disabled"
-                    }`}
-                  >
-                    Надіслати
-                  </button>
+                <button
+                  className={`login__button ${
+                    this.state.name !== "" &&
+                    this.state.email !== "" &&
+                    this.state.message !== ""
+                      ? "button-green"
+                      : "button-green button-green_disabled"
+                  }`}
+                >
+                  Надіслати
+                </button>
                 {/* <button className='login__button button-green'>
                   Надіслати
                 </button> */}
@@ -109,12 +121,22 @@ class SupportForm extends Component {
             </>
           ) : (
             <>
-              <img className='supportForm__icon' src={IconSuccessfull} alt="IconSuccessfull" />
-              <h2 className='supportForm__title'>Ваше повідомлення надіслано!</h2>
-              <p className='supportForm__text paragraph' >
-                Дякуємо за звернення! Наша служба підтримки найближчим часом вам відповість
+              <img
+                className="supportForm__icon"
+                src={IconSuccessfull}
+                alt="IconSuccessfull"
+              />
+              <h2 className="supportForm__title">
+                Ваше повідомлення надіслано!
+              </h2>
+              <p className="supportForm__text paragraph">
+                Дякуємо за звернення! Наша служба підтримки найближчим часом вам
+                відповість
               </p>
-              <button className='supportForm__button button-green' onClick={this.handleGoBack}>
+              <button
+                className="supportForm__button button-green"
+                onClick={this.handleGoBack}
+              >
                 Повернутися назад
               </button>
             </>
@@ -133,4 +155,4 @@ class SupportForm extends Component {
   }
 }
 
-export  { SupportForm };
+export { SupportForm };

@@ -33,7 +33,6 @@ export const InputMessage = ({
       // scrollToBottom();
     }
   };
-  
 
   const handleKeyDown = (event) => {
     if (event.key === "Shift") {

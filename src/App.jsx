@@ -18,15 +18,13 @@ import { SupportForm } from "./pages/Support/SupportForm";
 import { Rules } from "./pages/Rules/Rules";
 import { PersonalMessage } from "./pages/PersonalMessage/PersonalMessage";
 
-
 let vh = window.innerHeight * 0.01;
-document.documentElement.style.setProperty('--vh', `${vh}px`);
+document.documentElement.style.setProperty("--vh", `${vh}px`);
 
-window.addEventListener('resize', () => {
+window.addEventListener("resize", () => {
   let vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
 });
-
 
 function App() {
   const allChats = useSelector((state) => state);
@@ -37,6 +35,7 @@ function App() {
   const [selectedChatId, setSelectedChatId] = useState(-1);
   const [headerMenu, setHeaderMenu] = useState(false);
   const [chatMenu, setChatMenu] = useState(false);
+  const [activeLink, setActiveLink] = useState("");
 
   useEffect(() => {
     allChats.forEach((chat, index) => {
@@ -45,7 +44,6 @@ function App() {
       }
     });
   }, [allChats, selectedChatId]);
-  
 
   // const addNewChat = (newChat) => {
   //   dispatch(addChat(newChat));
@@ -54,40 +52,48 @@ function App() {
   // const addMessageToChat = (message) => {
   //   dispatch(addMessage(selectedChatIndex, message));
   // };
-useEffect(() => {
-  localStorage.setItem('allChats', JSON.stringify(allChats));
-}, [allChats])
+  useEffect(() => {
+    localStorage.setItem("allChats", JSON.stringify(allChats));
+  }, [allChats]);
   const addNewChat = (newChat) => {
     dispatch(addChat(newChat));
-  
+
     // Get the updated state after adding a chat
     // const updatedAllChats = useSelector((state) => state);
-  
+
     // Save the updated state to localStorage
     // localStorage.setItem('allChats', JSON.stringify(allChats));
   };
-  
+
   const addMessageToChat = (message) => {
     dispatch(addMessage(selectedChatIndex, message));
-  
+
     // Get the updated state after adding a message
     // const updatedAllChats = useSelector((state) => state);
-  
+
     // Save the updated state to localStorage
     // localStorage.setItem('allChats', JSON.stringify(allChats));
   };
-  
 
   const removeBurgerMenu = (event) => {
     event.stopPropagation();
     setHeaderMenu(false);
     setChatMenu(false);
-  }
+  };
 
   return (
-    <div className="App" onClick={(event) => {removeBurgerMenu(event)}}>
-      <Header setHeaderMenu={setHeaderMenu} headerMenu={headerMenu} userName={userName}/>
-      <div className="app__chat" >
+    <div
+      className="App"
+      onClick={(event) => {
+        removeBurgerMenu(event);
+      }}
+    >
+      <Header
+        setHeaderMenu={setHeaderMenu}
+        headerMenu={headerMenu}
+        userName={userName}
+      />
+      <div className="app__chat">
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/home" element={<Navigate to="/" replace />} />
@@ -101,6 +107,7 @@ useEffect(() => {
                 userName={userName}
                 selectedChatId={selectedChatId}
                 setSelectedChatId={setSelectedChatId}
+                setActiveLink={setActiveLink}
               />
             }
           />
@@ -124,7 +131,16 @@ useEffect(() => {
           <Route exact path="/rules" element={<Rules />} />
           {/* <Route exact path="/support" element={<SupportForm />} /> */}
           <Route exact path="/support" element={<SupportForm />} />
-          <Route exact path="/direct" element={<PersonalMessage />} />
+          <Route
+            exact
+            path="/direct"
+            element={
+              <PersonalMessage
+                activeLink={activeLink}
+                setActiveLink={setActiveLink}
+              />
+            }
+          />
           <Route
             exact
             path="/chat/:chatId"
@@ -137,6 +153,8 @@ useEffect(() => {
                 addMessageToChat={addMessageToChat}
                 setChatMenu={setChatMenu}
                 chatMenu={chatMenu}
+                activeLink={activeLink}
+                setActiveLink={setActiveLink}
               />
             }
           />

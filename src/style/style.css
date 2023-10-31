@@ -432,7 +432,8 @@ body {
 }
 .greetings-border {
   border-radius: 3px;
-  border: 1px dashed #feb706;
+  border: 0.1em dashed #feb706;
+  border-width: 0.1em 0.1em;
   width: 50vw;
   height: 75vh;
   height: calc(var(--vh, 1vh) * 75);
@@ -526,6 +527,7 @@ body {
     width: 60vw;
     height: 73vh;
     height: calc(var(--vh, 1vh) * 73);
+    border-width: 0.1em 0.1em;
   }
 }
 @media (max-height: 699px) {
@@ -1655,11 +1657,8 @@ body {
     width: 72vw;
   }
 }
-.rules {
-  overflow-y: auto;
-}
 .rules__title {
-  padding: 40px 0;
+  padding: 4vw 0;
   font-family: Montserrat Alternates;
   font-size: 32px;
   font-style: normal;
@@ -1667,11 +1666,56 @@ body {
   line-height: 40px;
   text-align: center;
 }
+.rules__nb {
+  background-color: #FBCA5C;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 49vw;
+  padding: 1.6vw;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 16px;
+  border-radius: 3px;
+  margin: 4vw;
+  margin: 0 auto;
+}
+.rules__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1em;
+  padding: 1.6em 0;
+}
+.rules__icon {
+  width: 24px;
+  height: 24px;
+}
+.rules__subtitle {
+  font-family: Montserrat;
+  font-size: 2.4em;
+  font-style: normal;
+  font-weight: 500;
+}
+.rules__subtitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
 .rules__list {
   width: 100%;
   margin-bottom: 1vh;
   margin-bottom: calc(var(--vh, 1vh) * 1);
   padding: 0 5vw;
+  padding-top: 4vw;
 }
 .rules__item {
   display: -webkit-box;

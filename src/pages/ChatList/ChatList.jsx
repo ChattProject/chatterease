@@ -9,11 +9,13 @@ export const ChatList = ({
   userName,
   selectedChatId = -1,
   setSelectedChatId,
+  setActiveLink
 }) => {
   const [searchChat, setSearchChat] = useState("");
 
   const handleGoButtonClick = (index) => {
     setSelectedChatIndex(index);
+    setActiveLink('chats');
   };
 
   useEffect(() => {

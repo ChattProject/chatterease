@@ -14,6 +14,8 @@ export const Chat = ({
   addMessageToChat,
   setChatMenu,
   chatMenu,
+  activeLink,
+  setActiveLink
 }) => {
   const [message, setMessage] = useState("");
   const [isClosingChat, setIsClosingChat] = useState(false);
@@ -51,9 +53,6 @@ export const Chat = ({
       }
     }
   };
-  
-  
-
 
   const handleChatClose = () => {
     setIsClosingChat(true);
@@ -63,7 +62,7 @@ export const Chat = ({
   return (
     <>
       <div className="chatpage">
-        <ChatLinks />
+        <ChatLinks activeLink={activeLink} setActiveLink={setActiveLink}/>
 
         <div className="chatpage__chat chat">
           <div className="chat__header">
