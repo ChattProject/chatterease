@@ -17,7 +17,7 @@ export const Home = () => {
         navigate("/chats");
         setWelcome(false);
         setGreeting(true);
-      }, 3000);
+      }, 1500);
 
       return () => {
         clearTimeout(timer);
