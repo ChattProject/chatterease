@@ -1,10 +1,12 @@
 // import './Header.scss'
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import Logo from "../../images/Logo.svg";
 
 export const Header = ({ setHeaderMenu, headerMenu, userName }) => {
+  const [activeHeaderLink, setActiveHeaderLink] = useState("");
+
   return (
     <>
       <div className="header">
@@ -20,7 +22,7 @@ export const Header = ({ setHeaderMenu, headerMenu, userName }) => {
             <div className="header__name">chatter ease</div> */}
           </Link>
           <div className="header__mobile mobile">
-            <Link to={'/chats'} className="mobile__chats">
+            <Link to={"/chats"} className="mobile__chats">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -72,6 +74,7 @@ export const Header = ({ setHeaderMenu, headerMenu, userName }) => {
                   <Link
                     to={"/rules"}
                     className="mobile__link mobile__rules paragraph"
+                    // onClick={() => setActiveHeaderLink("rules")}
                   >
                     Правила користування
                   </Link>
@@ -102,6 +105,7 @@ export const Header = ({ setHeaderMenu, headerMenu, userName }) => {
                   <Link
                     to={"/support"}
                     className="mobile__link mobile__help paragraph"
+                    // onClick={() => setActiveHeaderLink("help")}
                   >
                     Технічна підтримка
                   </Link>
@@ -111,20 +115,29 @@ export const Header = ({ setHeaderMenu, headerMenu, userName }) => {
           </div>
           <div className="header__additional">
             <div className="header__info header__info_rules">
-              <Link
+              <NavLink
                 to={"/rules"}
-                className="header__link header__rules paragraph"
+                activeClassName="header__link_active"
+                className={({ isActive }) =>
+                  isActive
+                    ? "header__link header__help paragraph header__link_active"
+                    : "header__link header__help paragraph"
+                }
               >
                 Правила користування
-              </Link>
+              </NavLink>
             </div>
             <div className="header__info header__info_help">
-              <Link
+              <NavLink
                 to={"/support"}
-                className="header__link header__help paragraph"
+                className={({ isActive }) =>
+                  isActive
+                    ? "header__link header__help paragraph header__link_active"
+                    : "header__link header__help paragraph"
+                }
               >
                 Технічна підтримка
-              </Link>
+              </NavLink>
             </div>
           </div>
         </div>

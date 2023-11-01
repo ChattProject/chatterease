@@ -236,6 +236,9 @@ body {
 .header__link:hover {
   text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3), 0px -4px 10px rgba(255, 255, 255, 0.3);
 }
+.header__link:active {
+  font-weight: 500;
+}
 .header__mobile {
   display: none;
 }
@@ -1658,7 +1661,7 @@ body {
   }
 }
 .rules__title {
-  padding: 4vw 0;
+  padding: 4vh 0;
   font-family: Montserrat Alternates;
   font-size: 32px;
   font-style: normal;
@@ -1693,7 +1696,6 @@ body {
       -ms-flex-align: center;
           align-items: center;
   gap: 1em;
-  padding: 1.6em 0;
 }
 .rules__icon {
   width: 24px;
