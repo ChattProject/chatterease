@@ -35,9 +35,9 @@ function App() {
   const [selectedChatId, setSelectedChatId] = useState(-1);
   const [headerMenu, setHeaderMenu] = useState(false);
   const [chatMenu, setChatMenu] = useState(false);
+  const [mobileChatsMenu, setMobileChatsMenu] = useState(false);
 
-
-console.log(selectedChatId, 'id', selectedChatIndex, 'index')
+  console.log(selectedChatId, "id", selectedChatIndex, "index");
 
   useEffect(() => {
     allChats.forEach((chat, index) => {
@@ -93,11 +93,15 @@ console.log(selectedChatId, 'id', selectedChatIndex, 'index')
       <Header
         setHeaderMenu={setHeaderMenu}
         headerMenu={headerMenu}
-        userName={userName}
+        mobileChatsMenu={mobileChatsMenu}
       />
       <div className="app__chat">
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route
+            exact
+            path="/"
+            element={<Home setMobileChatsMenu={setMobileChatsMenu} />}
+          />
           <Route path="/home" element={<Navigate to="/" replace />} />
           <Route
             exact
@@ -109,6 +113,7 @@ console.log(selectedChatId, 'id', selectedChatIndex, 'index')
                 userName={userName}
                 selectedChatId={selectedChatId}
                 setSelectedChatId={setSelectedChatId}
+                setMobileChatsMenu={setMobileChatsMenu}
               />
             }
           />
@@ -129,10 +134,32 @@ console.log(selectedChatId, 'id', selectedChatIndex, 'index')
             }
           />
           <Route exact path="/endchats" element={<EndPage />} />
-          <Route exact path="/rules" element={<Rules />} />
+          <Route
+            exact
+            path="/rules"
+            element={
+              <Rules
+                setMobileChatsMenu={setMobileChatsMenu}
+                selectedChatId={selectedChatId}
+              />
+            }
+          />
           {/* <Route exact path="/support" element={<SupportForm />} /> */}
-          <Route exact path="/support" element={<SupportForm />} />
-          <Route exact path="/direct" element={<PersonalMessage selectedChatId={selectedChatId} />} />
+          <Route
+            exact
+            path="/support"
+            element={
+              <SupportForm
+                setMobileChatsMenu={setMobileChatsMenu}
+                selectedChatId={selectedChatId}
+              />
+            }
+          />
+          <Route
+            exact
+            path="/direct"
+            element={<PersonalMessage selectedChatId={selectedChatId} />}
+          />
           <Route
             exact
             path="/chat/:chatId"

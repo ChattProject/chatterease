@@ -5,11 +5,15 @@ import { Greeting } from "../../components/Home/Greeting/Greeting";
 import { useEffect } from "react";
 import {useNavigate} from "react-router-dom";
 
-export const Home = () => {
+export const Home = ({setMobileChatsMenu}) => {
   const [welcome, setWelcome] = useState(false);
   const [greeting, setGreeting] = useState(true);
 
   const navigate = useNavigate();
+
+useEffect(() => {
+  setMobileChatsMenu(false);
+}, []);
 
   useEffect(() => {
     if (welcome) {

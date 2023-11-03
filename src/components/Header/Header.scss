@@ -37,7 +37,6 @@
         2px 7px 5px rgba(0, 0, 0, 0.3),
         0px -4px 10px rgba(255, 255, 255, 0.3);
       font-weight: 500;
-
     }
     &_active {
       font-weight: 500;
@@ -46,19 +45,21 @@
 
   &__mobile {
     display: none;
-  }
+  }  
 }
 
 .mobile {
   gap: 5vw;
   &__burger {
     border: 0;
-    padding: 0;
+    // padding: 0;
+    padding: 12px;
+
     background-color: transparent;
     position: relative;
     display: inline-block;
-    width: 25px;
-    height: 25px;
+    width: 48px;
+    height: 48px;
     border-radius: 30px;
     cursor: pointer;
     // display: inline-block;
@@ -69,47 +70,6 @@
       }
     }
 
-    span {
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background-color: #000;
-      transition: all 0.3s ease;
-      opacity: 1;
-
-      &:nth-of-type(1) {
-        top: 6px;
-      }
-      &:nth-of-type(2) {
-        top: 12px;
-      }
-      &:nth-of-type(3) {
-        top: 18px;
-      }
-    }
-
-    &:hover {
-      // & ~ .mobile__additional {
-      //   display: block;
-      // }
-      span {
-        &:nth-of-type(1),
-        &:nth-of-type(3) {
-          top: 12px;
-          // background-color: red;
-        }
-        &:nth-of-type(1) {
-          transform: rotate(45deg);
-        }
-        &:nth-of-type(2) {
-          opacity: 0;
-        }
-        &:nth-of-type(3) {
-          transform: rotate(-45deg);
-        }
-      }
-    }
 
     &:focus {
       // outline: 0;
@@ -121,10 +81,10 @@
   &__additional {
     display: flex;
     position: absolute;
-    width: 60vw;
+    width: 75vw;
     padding: 8px 4vw;
-    top: 24px;
-    right: 16px;
+    top: 60px;
+    left: 15px;
     flex-direction: column;
     gap: 8px;
     border-radius: 3px;
@@ -136,6 +96,12 @@
     // padding: 10px;
     align-items: center;
     gap: 4px;
+
+    &_active {
+      & path {
+        fill: $green;
+      }
+    }
   }
   &__icon {
     // display: block;
@@ -149,9 +115,37 @@
   &__link {
     word-wrap: break-word;
     text-align: left;
-    font-size: 1.4em;
+    font-size: 0.9em;
+  }
+
+  
+  &_chats {
+    display: none;
+    margin-left: auto;
+    height: 48px;
+    width: 48px;
+    border-radius: 3px;
+    border: 2px solid var(--green, $green);
+    background: $white;
+    order: 3;
+
+    &_active {
+      background-color: $green;
+      & svg {
+        background-color: inherit;
+        // fill: $white;
+      }
+      & path {
+        fill: $white;
+      }
+    }
+
+    &__icon {
+      padding: 12px;
+    }
   }
 }
+
 
 @media (max-width: 480px) {
   .header {
@@ -159,7 +153,6 @@
       width: 100vw;
       padding: 16px 5vw;
       justify-content: start;
-      gap: 2vw;
     }
     &__title {
       order: 2;
@@ -167,6 +160,9 @@
     &__mobile {
       display: flex;
       order: 1;
+      &_chats {
+        display: block;
+      }
     }
     &__additional {
       display: none;

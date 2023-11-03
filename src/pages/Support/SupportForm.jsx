@@ -1,13 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./SupportForm.scss";
 import IconSuccessfull from "../../images/iconSuccessfull.png";
+import { useNavigate } from "react-router-dom";
 
-function SupportForm() {
+export const SupportForm = ({ setMobileChatsMenu, selectedChatId }) => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
+
+  useEffect(() => {
+    setMobileChatsMenu(true);
+  }, []);
 
   const [isWindowContentVisible, setIsWindowContentVisible] = useState(true);
 
@@ -27,7 +34,11 @@ function SupportForm() {
 
   const handleGoBack = () => {
     setIsWindowContentVisible(true);
-    window.history.back();
+    if (selectedChatId > -1) {
+      navigate(`/chat/${selectedChatId}`);
+    } else {
+      navigate("/chats");
+    }
   };
 
   return (
@@ -108,13 +119,11 @@ function SupportForm() {
               className="supportForm__button button-green"
               onClick={handleGoBack}
             >
-              Повернутися назад
+              Повернутися в чат
             </button>
           </>
         )}
       </div>
     </div>
   );
-}
-
-export { SupportForm };
+};

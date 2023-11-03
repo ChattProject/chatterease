@@ -3,9 +3,22 @@ import { useNavigate } from "react-router-dom";
 
 // import './Rules.scss';
 import NB from "../../images/nb.png"
+import { useEffect } from "react";
 
-export const Rules = ({}) => {
+export const Rules = ({setMobileChatsMenu, selectedChatId}) => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setMobileChatsMenu(true);
+  }, []);
+
+  const handleGoBack = () => {
+    if (selectedChatId > -1) {
+      navigate(`/chat/${selectedChatId}`);
+    } else {
+      navigate("/chats");
+    }
+  };
 
   return (
     <>
@@ -31,9 +44,9 @@ export const Rules = ({}) => {
         </ul>
         <button
           className="rules__button button-green"
-          onClick={() => navigate(-1)}
+          onClick={handleGoBack}
         >
-          Повернутися назад
+          Повернутися в чат
         </button>
       </div>
     </>

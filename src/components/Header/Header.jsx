@@ -4,9 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 
 import Logo from "../../images/Logo.svg";
 
-export const Header = ({ setHeaderMenu, headerMenu, userName }) => {
-  const [activeHeaderLink, setActiveHeaderLink] = useState("");
-
+export const Header = ({ setHeaderMenu, headerMenu, mobileChatsMenu }) => {
   return (
     <>
       <div className="header">
@@ -31,14 +29,48 @@ export const Header = ({ setHeaderMenu, headerMenu, userName }) => {
                 setHeaderMenu(true);
               }}
             >
-              <span></span>
-              <span></span>
-              <span></span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M4 12H20"
+                  stroke="black"
+                  stroke-opacity="0.95"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M4 6H20"
+                  stroke="black"
+                  stroke-opacity="0.95"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M4 18H20"
+                  stroke="black"
+                  stroke-opacity="0.95"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
             </button>
             {headerMenu && (
               <div className="mobile__additional">
-                <div
-                  className="mobile__info mobile__info_rules"
+                <NavLink
+                  to={"/rules"}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "mobile__rules mobile__info paragraph header__link_active  mobile__info_active"
+                      : "mobile__rules mobile__info paragraph"
+                  }
                   onClick={() => setHeaderMenu(false)}
                 >
                   <svg
@@ -54,21 +86,15 @@ export const Header = ({ setHeaderMenu, headerMenu, userName }) => {
                       fill="#292929"
                     />
                   </svg>
-                  <NavLink
-                    to={"/rules"}
-                    // className="mobile__link mobile__rules paragraph"
-                    className={({ isActive }) =>
-                      isActive
-                        ? "mobile__link mobile__rules paragraph header__link_active"
-                        : "mobile__link mobile__rules paragraph"
-                    }
-                    // onClick={() => setActiveHeaderLink("rules")}
-                  >
-                    Правила користування
-                  </NavLink>
-                </div>
-                <div
-                  className="mobile__info mobile__info_help"
+                  <p className="mobile__link">Правила користування</p>
+                </NavLink>
+                <NavLink
+                  to={"/support"}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "mobile__help mobile__info paragraph header__link_active  mobile__info_active"
+                      : "mobile__help mobile__info paragraph"
+                  }
                   onClick={() => setHeaderMenu(false)}
                 >
                   <svg
@@ -90,37 +116,36 @@ export const Header = ({ setHeaderMenu, headerMenu, userName }) => {
                       fill="#292929"
                     />
                   </svg>
-                  <NavLink
-                    to={"/support"}
-                    className={({ isActive }) =>
-                      isActive
-                        ? "mobile__link mobile__help paragraph header__link_active"
-                        : "mobile__link mobile__help paragraph"
-                    }
-                    // onClick={() => setActiveHeaderLink("help")}
-                  >
-                    Технічна підтримка
-                  </NavLink>
-                </div>
+                  <p className="mobile__link">Технічна підтримка</p>
+                </NavLink>
               </div>
             )}
           </div>
-          {/* <Link to={"/chats"} className="header__mobile_chats">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
+          {mobileChatsMenu && (
+            <NavLink
+              to={"/chats"}
+              className={({ isActive }) =>
+                isActive
+                  ? "header__mobile_chats mobile_chats mobile_chats_active"
+                  : "header__mobile_chats mobile_chats"
+              }
             >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM11.046 11.046V7.95803C11.046 7.83275 11.0707 7.70869 11.1186 7.59295C11.1666 7.4772 11.2368 7.37204 11.3254 7.28345C11.414 7.19486 11.5192 7.12459 11.6349 7.07665C11.7507 7.0287 11.8747 7.00403 12 7.00403C12.1253 7.00403 12.2493 7.0287 12.3651 7.07665C12.4808 7.12459 12.586 7.19486 12.6746 7.28345C12.7632 7.37204 12.8334 7.4772 12.8814 7.59295C12.9293 7.70869 12.954 7.83275 12.954 7.95803V11.046H16.042C16.1673 11.046 16.2913 11.0707 16.4071 11.1186C16.5228 11.1666 16.628 11.2369 16.7166 11.3254C16.8052 11.414 16.8754 11.5192 16.9234 11.6349C16.9713 11.7507 16.996 11.8747 16.996 12C16.996 12.1253 16.9713 12.2494 16.9234 12.3651C16.8754 12.4809 16.8052 12.586 16.7166 12.6746C16.628 12.7632 16.5228 12.8335 16.4071 12.8814C16.2913 12.9294 16.1673 12.954 16.042 12.954H12.954V16.042C12.954 16.1673 12.9293 16.2914 12.8814 16.4071C12.8334 16.5229 12.7632 16.628 12.6746 16.7166C12.586 16.8052 12.4808 16.8755 12.3651 16.9234C12.2493 16.9714 12.1253 16.996 12 16.996C11.8747 16.996 11.7507 16.9714 11.6349 16.9234C11.5192 16.8755 11.414 16.8052 11.3254 16.7166C11.2368 16.628 11.1666 16.5229 11.1186 16.4071C11.0707 16.2914 11.046 16.1673 11.046 16.042V12.954H7.958C7.83272 12.954 7.70866 12.9294 7.59292 12.8814C7.47717 12.8335 7.372 12.7632 7.28342 12.6746C7.19483 12.586 7.12456 12.4809 7.07662 12.3651C7.02867 12.2494 7.004 12.1253 7.004 12C7.004 11.8747 7.02867 11.7507 7.07662 11.6349C7.12456 11.5192 7.19483 11.414 7.28342 11.3254C7.372 11.2369 7.47717 11.1666 7.59292 11.1186C7.70866 11.0707 7.83272 11.046 7.958 11.046H11.046Z"
-                fill="#449F93"
-              />
-            </svg>
-          </Link> */}
+              <div className="mobile_chats__icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M15.5 4.99924C14.5717 4.99924 13.6815 5.36799 13.0251 6.02437C12.3687 6.68075 12 7.57099 12 8.49924C12 9.4275 12.3687 10.3177 13.0251 10.9741C13.6815 11.6305 14.5717 11.9992 15.5 11.9992C16.4283 11.9992 17.3185 11.6305 17.9749 10.9741C18.6313 10.3177 19 9.4275 19 8.49924C19 7.57099 18.6313 6.68075 17.9749 6.02437C17.3185 5.36799 16.4283 4.99924 15.5 4.99924ZM10 8.49924C10.0001 7.63735 10.2028 6.78755 10.5917 6.01838C10.9806 5.2492 11.5448 4.58219 12.2388 4.07114C12.9329 3.56009 13.7373 3.21931 14.5872 3.07627C15.4372 2.93323 16.3088 2.99195 17.1319 3.24768C17.955 3.50342 18.7065 3.94902 19.3257 4.54853C19.9449 5.14805 20.4146 5.8847 20.6968 6.69908C20.979 7.51346 21.0659 8.38277 20.9504 9.23689C20.8349 10.091 20.5203 10.906 20.032 11.6162L22.707 14.2922L21.293 15.7062L18.618 13.0312C17.7922 13.5996 16.8267 13.9314 15.826 13.9908C14.8253 14.0502 13.8273 13.835 12.9401 13.3684C12.0528 12.9018 11.3099 12.2016 10.7917 11.3434C10.2736 10.4852 9.99978 9.50173 10 8.49924ZM3 3.99924H8V5.99924H3V3.99924ZM3 10.9992H8V12.9992H3V10.9992ZM21 17.9992V19.9992H3V17.9992H21Z"
+                    fill="#292929"
+                  />
+                </svg>
+              </div>
+            </NavLink>
+          )}
           <div className="header__additional">
             <div className="header__info header__info_rules">
               <NavLink
