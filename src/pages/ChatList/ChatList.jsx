@@ -9,13 +9,12 @@ export const ChatList = ({
   userName,
   selectedChatId = -1,
   setSelectedChatId,
-  setActiveLink
 }) => {
   const [searchChat, setSearchChat] = useState("");
 
-  const handleGoButtonClick = (index) => {
+  const handleGoButtonClick = (index, id) => {
     setSelectedChatIndex(index);
-    setActiveLink('chats');
+    setSelectedChatId(id)
   };
 
   useEffect(() => {
@@ -69,7 +68,7 @@ export const ChatList = ({
                   <li key={chat.id} className="chatlist__item">
                     <Link
                       to={`/chat/${chat.id}`}
-                      onClick={() => handleGoButtonClick(index)}
+                      onClick={() => handleGoButtonClick(index, chat.id)}
                       className="chatlist__link paragraph"
                     >
                       {chat.title}

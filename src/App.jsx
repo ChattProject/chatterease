@@ -35,7 +35,9 @@ function App() {
   const [selectedChatId, setSelectedChatId] = useState(-1);
   const [headerMenu, setHeaderMenu] = useState(false);
   const [chatMenu, setChatMenu] = useState(false);
-  const [activeLink, setActiveLink] = useState("");
+
+
+console.log(selectedChatId, 'id', selectedChatIndex, 'index')
 
   useEffect(() => {
     allChats.forEach((chat, index) => {
@@ -107,7 +109,6 @@ function App() {
                 userName={userName}
                 selectedChatId={selectedChatId}
                 setSelectedChatId={setSelectedChatId}
-                setActiveLink={setActiveLink}
               />
             }
           />
@@ -131,16 +132,7 @@ function App() {
           <Route exact path="/rules" element={<Rules />} />
           {/* <Route exact path="/support" element={<SupportForm />} /> */}
           <Route exact path="/support" element={<SupportForm />} />
-          <Route
-            exact
-            path="/direct"
-            element={
-              <PersonalMessage
-                activeLink={activeLink}
-                setActiveLink={setActiveLink}
-              />
-            }
-          />
+          <Route exact path="/direct" element={<PersonalMessage selectedChatId={selectedChatId} />} />
           <Route
             exact
             path="/chat/:chatId"
@@ -153,8 +145,7 @@ function App() {
                 addMessageToChat={addMessageToChat}
                 setChatMenu={setChatMenu}
                 chatMenu={chatMenu}
-                activeLink={activeLink}
-                setActiveLink={setActiveLink}
+                selectedChatId={selectedChatId}
               />
             }
           />

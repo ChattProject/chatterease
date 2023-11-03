@@ -1,37 +1,32 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
-export const ChatLinks = ({ activeLink, setActiveLink }) => {
-  console.log(activeLink);
-
-  const handleActivePersonal = () => {
-    setActiveLink("personal");
-  };
+export const ChatLinks = ({chatId}) => {
 
   return (
     <div className="chatlinks">
-      <div
-        className={`chatlinks__chats chatlinks__subtitle paragraph ${
-          activeLink === "chats" ? "chatlinks__subtitle_selected" : ""
-        }`}
+      <NavLink
+        to={`/chat/${chatId}`}
+        className={({ isActive }) =>
+          isActive
+            ? "chatlinks__chats chatlinks__subtitle paragraph chatlinks__subtitle_selected"
+            : "chatlinks__chats chatlinks__subtitle paragraph"
+        }
       >
-        <Link className="chatlinks__link" to={"/chats"}>
-          Чати
-        </Link>
-      </div>
-      <div
-        className={`chatlinks__chats chatlinks__subtitle paragraph ${
-          activeLink === "personal" ? "chatlinks__subtitle_selected" : ""
-        }`}
+        <div className="chatlinks__link">Чати</div>
+      </NavLink>
+      <NavLink
+        to={"/direct"}
+        className={({ isActive }) =>
+          isActive
+            ? "chatlinks__chats chatlinks__subtitle paragraph chatlinks__subtitle_selected"
+            : "chatlinks__chats chatlinks__subtitle paragraph"
+        }
       >
-        <Link
-          to={"/direct"}
-          className="chatlinks__link"
-          onClick={handleActivePersonal}
-        >
+        <div className="chatlinks__link">
           <span className="chatlinks__personal_all">Особисті повідомлення</span>
           <span className="chatlinks__personal_hidden">Особисті</span>
-        </Link>
-      </div>
+        </div>
+      </NavLink>
     </div>
   );
 };

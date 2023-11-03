@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 
 import "./PersonalMessage.scss";
 import { ChatLinks } from "../../components/ChatLinks/ChatLinks";
-export const PersonalMessage = ({activeLink, setActiveLink}) => {
+export const PersonalMessage = ({selectedChatId}) => {
   return (
     <>
       <div className="direct">
-        <ChatLinks activeLink={activeLink} setActiveLink={setActiveLink}/>
+        <ChatLinks chatId={selectedChatId}/>
 
         <div className="personal chat">
           <div className="personal__window window">

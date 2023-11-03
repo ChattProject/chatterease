@@ -158,9 +158,15 @@
     &__container {
       width: 100vw;
       padding: 16px 5vw;
+      justify-content: start;
+      gap: 2vw;
+    }
+    &__title {
+      order: 2;
     }
     &__mobile {
       display: flex;
+      order: 1;
     }
     &__additional {
       display: none;
