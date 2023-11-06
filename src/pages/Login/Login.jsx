@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-export const Login = ({ setUserName, userName }) => {
+export const Login = ({ setUserName, userName, selectedChatId }) => {
   const [inputValue, setInputValue] = useState("");
   const [errorLength, setErrorLength] = useState(false);
   const [errorSymbols, setErrorSymbols] = useState(false);
@@ -40,6 +40,7 @@ export const Login = ({ setUserName, userName }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
     if (inputValue.length > 2 && inputValue.length < 11) {
       setErrorLength(false);
 
@@ -47,7 +48,7 @@ export const Login = ({ setUserName, userName }) => {
         setErrorSymbols(true);
       } else {
         handleSetName();
-        navigate(-1);
+        navigate(`/chat/${selectedChatId}`);
         setErrorSymbols(false);
       }
     } else {

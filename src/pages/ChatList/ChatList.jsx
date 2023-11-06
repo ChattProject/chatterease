@@ -52,7 +52,7 @@ export const ChatList = ({
         <div className="chatlist__container">
           {previousChat > -1 && (
             <Link
-              to={`${previousChat}`}
+              to={`/chat/${previousChat}`}
               className="chatlist__previous button-default paragraph"
             >
               <svg

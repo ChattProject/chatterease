@@ -120,7 +120,13 @@ function App() {
           <Route
             exact
             path="/login"
-            element={<Login setUserName={setUserName} userName={userName} />}
+            element={
+              <Login
+                setUserName={setUserName}
+                userName={userName}
+                selectedChatId={selectedChatId}
+              />
+            }
           />
           <Route
             exact

@@ -29,8 +29,8 @@ export const ShowMessages = ({ messages, message, userName, containerRef, scroll
     if (containerRef.current) {
       setShowButtonUp(true);
     }
-    scrollToBottom(); // Move scrollToBottom here
-  }, [messages, userName]); // Watch for changes in the 'messages' prop
+    scrollToBottom();
+  }, [messages]);
   
 
   function getDate(posted) {
