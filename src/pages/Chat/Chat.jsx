@@ -18,6 +18,9 @@ export const Chat = ({
 }) => {
   const [message, setMessage] = useState("");
   const [isClosingChat, setIsClosingChat] = useState(false);
+  const [searchInput, setSearchInput] = useState(false);
+  const [searchInChat, setSearchInChat] = useState("");
+  const [searchNothingVisible, setSearchNothingVisible] = useState(false);
 
   const containerRef = useRef(null);
 
@@ -60,6 +63,14 @@ export const Chat = ({
     setChatMenu(false);
   };
 
+  const handleSearch = () => {
+    setSearchInput(!searchInput);
+  };
+
+  const handleSearchInChat = (e) => {
+    setSearchInChat(e.target.value);
+  };
+
   return (
     <>
       <div className="chatpage">
@@ -68,62 +79,111 @@ export const Chat = ({
         <div className="chatpage__chat chat">
           <div className="chat__header">
             <div className="chat__title">
-              <div className="chat__info">
-                <div className="chat__name">{chat.title}</div>
-                <div className="chat__count paragraph">
-                  {chat.messages.length === 0
-                    ? "немає повідомлень"
-                    : `${chat.messages.length} повідомлень`}
+              {!searchInput ? (
+                <div className="chat__info">
+                  <div className="chat__name">{chat.title}</div>
+                  <div className="chat__count paragraph">
+                    {chat.messages.length === 0
+                      ? "немає повідомлень"
+                      : `${chat.messages.length} повідомлень`}
+                  </div>
                 </div>
-              </div>
-              <div className="chat__buttons">
-              <button type="button" className="chat__search">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className="chat__search_icon"
-                >
-                  <path
-                    d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
-                    stroke="#292929"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M21 21.0004L16.65 16.6504"
-                    stroke="#292929"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </button>
-              <button
-                type="button"
-                className="chat__close"
-                aria-label="Close"
-                onClick={() => setIsClosingChat(true)}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className="chat__close_icon"
-                >
-                  <path
-                    d="M12 10.5866L6.70704 5.29357C6.51844 5.11141 6.26584 5.01062 6.00364 5.0129C5.74144 5.01517 5.49063 5.12034 5.30522 5.30575C5.11981 5.49116 5.01465 5.74197 5.01237 6.00417C5.01009 6.26636 5.11088 6.51897 5.29304 6.70757L10.586 12.0006L5.29304 17.2936C5.11088 17.4822 5.01009 17.7348 5.01237 17.997C5.01465 18.2592 5.11981 18.51 5.30522 18.6954C5.49063 18.8808 5.74144 18.986 6.00364 18.9882C6.26584 18.9905 6.51844 18.8897 6.70704 18.7076L12 13.4146L17.293 18.7076C17.4816 18.8897 17.7342 18.9905 17.9964 18.9882C18.2586 18.986 18.5095 18.8808 18.6949 18.6954C18.8803 18.51 18.9854 18.2592 18.9877 17.997C18.99 17.7348 18.8892 17.4822 18.707 17.2936L13.414 12.0006L18.707 6.70757C18.8026 6.61532 18.8787 6.50498 18.9311 6.38297C18.9836 6.26097 19.0111 6.12975 19.0123 5.99697C19.0134 5.86419 18.9881 5.73251 18.9379 5.60962C18.8876 5.48672 18.8133 5.37507 18.7194 5.28117C18.6255 5.18728 18.5139 5.11303 18.391 5.06275C18.2681 5.01247 18.1364 4.98717 18.0036 4.98832C17.8709 4.98947 17.7396 5.01706 17.6176 5.06947C17.4956 5.12188 17.3853 5.19806 17.293 5.29357L12 10.5866Z"
-                    fill="#292929"
-                  />
-                </svg>
-              </button>
-              </div>
+              ) : (
+                <div className="chat__search">
+                  <button
+                    className="chat__search_back"
+                    onClick={() => {
+                      handleSearch();
+                      setSearchInChat("");
+                    }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M12.207 5.79329C12.2999 5.88607 12.3737 5.99628 12.424 6.11759C12.4743 6.23891 12.5002 6.36895 12.5002 6.50029C12.5002 6.63162 12.4743 6.76166 12.424 6.88298C12.3737 7.00429 12.2999 7.1145 12.207 7.20729L8.414 11.0003H18C18.2652 11.0003 18.5196 11.1056 18.7071 11.2932C18.8946 11.4807 19 11.7351 19 12.0003C19 12.2655 18.8946 12.5199 18.7071 12.7074C18.5196 12.8949 18.2652 13.0003 18 13.0003H8.414L12.207 16.7933C12.2999 16.8861 12.3737 16.9963 12.424 17.1176C12.4743 17.2389 12.5002 17.369 12.5002 17.5003C12.5002 17.6316 12.4743 17.7617 12.424 17.883C12.3737 18.0043 12.2999 18.1145 12.207 18.2073C11.817 18.5973 11.183 18.5973 10.792 18.2073L5.293 12.7073C5.1119 12.5269 5.00701 12.2838 5 12.0283V11.9713C5.00716 11.7161 5.11205 11.4734 5.293 11.2933L10.792 5.79329C10.8849 5.70031 10.9952 5.62655 11.1166 5.57623C11.238 5.5259 11.3681 5.5 11.4995 5.5C11.6309 5.5 11.761 5.5259 11.8824 5.57623C12.0038 5.62655 12.1141 5.70031 12.207 5.79329Z"
+                        fill="#292929"
+                      />
+                    </svg>
+                  </button>
 
+                  <fieldset className="chat__search_form">
+                    <input
+                      type="text"
+                      value={searchInChat}
+                      onChange={handleSearchInChat}
+                      placeholder="Пошук в чаті..."
+                      className="chat__search_input paragraph"
+                    />
+                    {searchNothingVisible && (
+                      <p className="chat__search_nothing paragraph">
+                        Нічого не знайшли :(
+                      </p>
+                    )}
+                  </fieldset>
+                </div>
+              )}
+
+              <div className="chat__buttons">
+                {!searchInput && (
+                  <button
+                    type="button"
+                    className="chat__button_search"
+                    onClick={handleSearch}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      className="chat__button_search_icon"
+                    >
+                      <path
+                        d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                        stroke="#292929"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M21 21.0004L16.65 16.6504"
+                        stroke="#292929"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                )}
+
+                <button
+                  type="button"
+                  className="chat__close"
+                  aria-label="Close"
+                  onClick={() => setIsClosingChat(true)}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className="chat__close_icon"
+                  >
+                    <path
+                      d="M12 10.5866L6.70704 5.29357C6.51844 5.11141 6.26584 5.01062 6.00364 5.0129C5.74144 5.01517 5.49063 5.12034 5.30522 5.30575C5.11981 5.49116 5.01465 5.74197 5.01237 6.00417C5.01009 6.26636 5.11088 6.51897 5.29304 6.70757L10.586 12.0006L5.29304 17.2936C5.11088 17.4822 5.01009 17.7348 5.01237 17.997C5.01465 18.2592 5.11981 18.51 5.30522 18.6954C5.49063 18.8808 5.74144 18.986 6.00364 18.9882C6.26584 18.9905 6.51844 18.8897 6.70704 18.7076L12 13.4146L17.293 18.7076C17.4816 18.8897 17.7342 18.9905 17.9964 18.9882C18.2586 18.986 18.5095 18.8808 18.6949 18.6954C18.8803 18.51 18.9854 18.2592 18.9877 17.997C18.99 17.7348 18.8892 17.4822 18.707 17.2936L13.414 12.0006L18.707 6.70757C18.8026 6.61532 18.8787 6.50498 18.9311 6.38297C18.9836 6.26097 19.0111 6.12975 19.0123 5.99697C19.0134 5.86419 18.9881 5.73251 18.9379 5.60962C18.8876 5.48672 18.8133 5.37507 18.7194 5.28117C18.6255 5.18728 18.5139 5.11303 18.391 5.06275C18.2681 5.01247 18.1364 4.98717 18.0036 4.98832C17.8709 4.98947 17.7396 5.01706 17.6176 5.06947C17.4956 5.12188 17.3853 5.19806 17.293 5.29357L12 10.5866Z"
+                      fill="#292929"
+                    />
+                  </svg>
+                </button>
+              </div>
             </div>
 
             <Link to={"/chats"} className="chat__back paragraph">
@@ -164,7 +224,13 @@ export const Chat = ({
                   className="flexiblemenu__links"
                   onClick={(event) => event.stopPropagation()}
                 >
-                  <div className="flexiblemenu__search flexiblemenu__item">
+                  <button
+                    className="flexiblemenu__search flexiblemenu__item"
+                    onClick={(e) => {
+                      handleSearch(e);
+                      setChatMenu(false);
+                    }}
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -189,7 +255,7 @@ export const Chat = ({
                       />
                     </svg>
                     <div className="flexiblemenu__title">Пошук</div>
-                  </div>
+                  </button>
                   <button
                     type="button"
                     aria-label="Close"
@@ -222,6 +288,8 @@ export const Chat = ({
             userName={userName}
             containerRef={containerRef}
             scrollToBottom={scrollToBottom}
+            searchInChat={searchInChat}
+            setSearchNothingVisible={setSearchNothingVisible}
           />
           {userName === "" ? (
             <div className="chat__login">

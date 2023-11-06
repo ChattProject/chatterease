@@ -1,11 +1,26 @@
 import { useEffect, useRef, useState } from "react";
 import up from "../../../images/chat/up.svg";
 
-export const ShowMessages = ({ messages, message, userName, containerRef, scrollToBottom }) => {
+export const ShowMessages = ({
+  messages,
+  message,
+  userName,
+  containerRef,
+  scrollToBottom,
+  searchInChat,
+  setSearchNothingVisible
+}) => {
   // const containerRef = useRef(null);
   const messagesRef = useRef(null);
   const [showButtonUp, setShowButtonUp] = useState(false);
   const [autoScroll, setAutoScroll] = useState(true);
+
+  useEffect(() => {
+    const hasSearchInChat = messages.some((message) =>
+      message.text.includes(searchInChat)
+    );
+    setSearchNothingVisible(!hasSearchInChat);
+  }, [messages, searchInChat]);
 
   const goToTop = () => {
     containerRef.current.scrollIntoView({
@@ -31,7 +46,6 @@ export const ShowMessages = ({ messages, message, userName, containerRef, scroll
     }
     scrollToBottom();
   }, [messages]);
-  
 
   function getDate(posted) {
     const date = new Date(posted);
@@ -55,22 +69,31 @@ export const ShowMessages = ({ messages, message, userName, containerRef, scroll
 
     return `${hours}:${minutes}:${seconds} ${day}/${`${month}`}/${year}`;
   }
+
+  // messages.every(message => {
+  //   if (searchInChat !== "" && !message.text.includes(searchInChat)) {
+  //     document.querySelector('.chat__search_nothing').style.display = 'block';
+  //   }
+  // })
+
   return (
     <>
       <div className={`show_message ${userName && "show_message_input"}`}>
-        <div className={"show_message__messages"} ref={containerRef}>
-          <button
-            className={`show_message__button ${
-              showButtonUp
-                ? "show_message__button_up"
-                : "show_message__button_down"
-            }
+        <button
+          className={`show_message__button ${
+            showButtonUp
+              ? "show_message__button_up"
+              : "show_message__button_down"
+          }
             ${userName ? "show_message__button_input" : ""}`}
-            onClick={showButtonUp ? goToTop : goToBottom}
-          >
-            <img src={up} alt="up" className="show_message__up_icon" />
-          </button>
+          onClick={showButtonUp ? goToTop : goToBottom}
+        >
+          <img src={up} alt="up" className="show_message__up_icon" />
+        </button>
+        <div className={"show_message__messages"} ref={containerRef}>
           {messages?.map((card) => {
+            const words = card.text.split(" ");
+
             return (
               <div
                 className={`show_message__message  message ${
@@ -79,7 +102,20 @@ export const ShowMessages = ({ messages, message, userName, containerRef, scroll
                 key={card.id}
               >
                 <div className="message__name">{card.user}</div>
-                <div className="message__text">{card.text}</div>
+                <div className="message__text">
+                  {words.map((word, index) => (
+                    <span
+                      key={index}
+                      className={
+                        searchInChat !== "" && word.includes(searchInChat)
+                          ? "message__text_bold"
+                          : ""
+                      }
+                    >
+                      {`${word} `}
+                    </span>
+                  ))}
+                </div>
                 <div className="message__date">{getDate(card.posted)}</div>
               </div>
             );
