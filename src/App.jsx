@@ -1,10 +1,13 @@
 import "./App.css";
 import "./style/style.scss";
+import axios from 'axios';
+import { connect } from 'react-redux';
+import { fetchChats } from './store/actions/actionsChats.js';
 import { useEffect, useState } from "react";
 import { ChatList } from "./pages/ChatList/ChatList";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { addChat, addMessage } from "./actions/actions";
+// import { addChat, addMessage } from "./actions/actions";
 import { Chat } from "./pages/Chat/Chat";
 // import { Header } from "./components/Header/Header";
 
@@ -17,6 +20,8 @@ import { EndPage } from "./pages/EndPage/EndPage";
 import { SupportForm } from "./pages/Support/SupportForm";
 import { Rules } from "./pages/Rules/Rules";
 import { PersonalMessage } from "./pages/PersonalMessage/PersonalMessage";
+import { addChat } from "./store/middleware/middlewareNewChat";
+import { addMessage } from "./store/middleware/middleNewMessage";
 
 let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty("--vh", `${vh}px`);
@@ -27,8 +32,33 @@ window.addEventListener("resize", () => {
 });
 
 function App() {
-  const allChats = useSelector((state) => state);
+  // useEffect(() => {
+  //   fetchChats();
+  // }, [fetchChats])
+  // const selectChats = (state) => state.chats;
+  // const allChats = useSelector(selectChats);
+
+const [allChats, setAllChats] = useState([])
+useEffect(() => {
+  fetch('https://chat-service-kzyq.onrender.com/api/chats/')
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error('Failed to fetch data');
+      }
+    })
+    .then(data => {
+      setAllChats(data);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}, []);
+
   const dispatch = useDispatch();
+
+  console.log(allChats, 'chatssssss')
 
   const [userName, setUserName] = useState("");
   const [selectedChatIndex, setSelectedChatIndex] = useState(-1);
@@ -36,8 +66,6 @@ function App() {
   const [headerMenu, setHeaderMenu] = useState(false);
   const [chatMenu, setChatMenu] = useState(false);
   const [mobileChatsMenu, setMobileChatsMenu] = useState(false);
-
-  console.log(selectedChatId, "id", selectedChatIndex, "index");
 
   useEffect(() => {
     allChats.forEach((chat, index) => {
@@ -54,9 +82,16 @@ function App() {
   // const addMessageToChat = (message) => {
   //   dispatch(addMessage(selectedChatIndex, message));
   // };
+  // useEffect(() => {
+  //   localStorage.setItem("allChats", JSON.stringify(allChats));
+  // }, [allChats]);
+
+
   useEffect(() => {
-    localStorage.setItem("allChats", JSON.stringify(allChats));
-  }, [allChats]);
+    // Викликати Redux action для завантаження чатів при завантаженні компоненту
+    dispatch(fetchChats());
+  }, []); // Порожній масив означає, що цей ефект буде викликано лише один раз при завантаженні компоненту
+
   const addNewChat = (newChat) => {
     dispatch(addChat(newChat));
 
