@@ -11,7 +11,7 @@ export const CloseSession = ({ setIsClosingChat }) => {
             <div className="close__title title-usual">Завершення сесії</div>
             <button
               type="button"
-              className="btn-close chat__close"
+              className="btn-close close__exit"
               aria-label="Close"
               onClick={() => setIsClosingChat(false)}
             ></button>

@@ -47,6 +47,20 @@
     gap: 24px;
   }
 
+  &__exit {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    background-color: inherit;
+
+    &_icon {
+      background-color: $yellow;
+    }
+  }
+
   &__button {
     min-width: fit-content;
 
