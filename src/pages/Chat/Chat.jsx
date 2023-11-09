@@ -20,6 +20,7 @@ export const Chat = ({
   setChatMenu,
   chatMenu,
   selectedChatId,
+  userId
 }) => {
   const selectChatMessages = (state) => state.messages.messages;
   const chatMessages = useSelector(selectChatMessages);
@@ -42,8 +43,6 @@ export const Chat = ({
     dispatch(updateMessages(updatedData));
   });
   
-
-  console.log(chatMessages, 'messss')
 
   // const scrollToBottom = () => {
   //   containerRef.current.scrollIntoView({
@@ -333,6 +332,7 @@ export const Chat = ({
                 message={message}
                 containerRef={containerRef}
                 scrollToBottom={scrollToBottom}
+                userId={userId}
               />
             </div>
           )}

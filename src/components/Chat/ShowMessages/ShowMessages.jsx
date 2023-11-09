@@ -12,7 +12,6 @@ export const ShowMessages = ({
 }) => {
   // const containerRef = useRef(null);
   const messagesRef = useRef(null);
-  console.log(messages, 'in show')
   const [showButtonUp, setShowButtonUp] = useState(false);
   const [autoScroll, setAutoScroll] = useState(true);
 

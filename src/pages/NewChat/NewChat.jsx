@@ -6,6 +6,8 @@ export const NewChat = ({
   addNewChat,
   setSelectedChatId,
   selectedChatIndex,
+  selectedChatId,
+  allChats
 }) => {
   const [newChatTitle, setNewChatTitle] = useState("");
 
@@ -24,12 +26,20 @@ export const NewChat = ({
       };
 
       addNewChat(newChat);
-
-      setSelectedChatId(newChat.id);
+      console.log(allChats, 'chatss')
+      if (allChats) {
+        const newChat = allChats.find((chat) => chat.chatname === newChatTitle);
+        if (newChat) {
+          setSelectedChatId(newChat.id);
+        } else {
+          setSelectedChatId(-1); 
+        }
+      }
+      // setSelectedChatId(allChats.length);
 
       setTimeout(() => {
-        navigate(`/chat/${selectedChatIndex}`);
-      }, 0);
+        navigate(`/chat/${selectedChatId}`);
+      }, 500);
 
       setNewChatTitle("");
     }

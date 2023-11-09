@@ -32,7 +32,6 @@ export const updateChats = (updatedData) => ({
   payload: updatedData,
 });
 
-
 export const addChatRequest = () => ({
   type: SEND_CHAT_REQUEST,
 });

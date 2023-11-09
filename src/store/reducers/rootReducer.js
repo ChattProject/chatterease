@@ -1,14 +1,14 @@
 import { combineReducers } from 'redux';
 import chatsReducer from './reducerChats';
 import messagesReducer from './messagesReducer';
-import newUserReducer from './newUserReducer';
+import usersReducer from './UsersReducer';
+
 
 
 const rootReducer = combineReducers({
   chats: chatsReducer,
   messages: messagesReducer,
-  user: newUserReducer,
-  // Other reducers for different parts of your application state
+  users: usersReducer
 });
 
 export default rootReducer;

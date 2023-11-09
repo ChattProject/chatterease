@@ -9,7 +9,8 @@ export const InputMessage = ({
   setMessage,
   message,
   containerRef,
-  scrollToBottom
+  scrollToBottom,
+  userId
 }) => {
   const handleSetMessage = (event) => {
     setMessage(event.target.value);
@@ -21,7 +22,7 @@ export const InputMessage = ({
     if (userName && message.trim() !== "") {
       const messageData = {
         timestamp: new Date(),
-        author_id: 9,
+        author_id: userId,
         author: userName,
         content: message,
         group: chatId,

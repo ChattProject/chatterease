@@ -24,6 +24,8 @@ import { addMessage } from "./store/middleware/middlewareMessages";
 
 import socket from './websocket'; 
 import { updateChats } from "./store/actions/actionsChats";
+import { fetchUsers } from "./store/middleware/middlewareUsers";
+import { updateUsers } from "./store/actions/actionsUsers";
 let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty("--vh", `${vh}px`);
 
@@ -34,23 +36,21 @@ window.addEventListener("resize", () => {
 
 function App() {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchChats()); 
   }, []);
 
-  socket.on('dataUpdated', (fetchChats) => {
+  socket.on('chatsUpdated', (fetchChats) => {
     dispatch(updateChats(fetchChats));
   });
-  
+
+  const users = useSelector((state) => state.users.users);
   const selectChats = (state) => state.chats.chats;
   const allChats = useSelector(selectChats);
 
-
-
-
-  console.log(allChats, "chatssssss");
-
   const [userName, setUserName] = useState("");
+  const [userId, setUserId] = useState(-1);
   const [selectedChatIndex, setSelectedChatIndex] = useState(-1);
   const [selectedChatTitle, setSelectedChatTitle] = useState("");
   const [selectedChatId, setSelectedChatId] = useState(-1);
@@ -66,6 +66,29 @@ function App() {
       }
     });
   }, [allChats, selectedChatId]);
+
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [userName]);
+
+  // socket.on('usersUpdated', (fetchUsers) => {
+  //   dispatch(updateUsers(fetchUsers));
+  // });
+  
+// console.log(users, 'users')
+// console.log(userId, 'idddddd')
+
+
+useEffect(() => {
+  if (users) {
+    const foundUser = users.find((user) => user.username === userName);
+    if (foundUser) {
+      setUserId(foundUser.user_id);
+    } else {
+      setUserId(-1); 
+    }
+  }
+}, [userName, users]);
 
   const addNewChat = (newChat) => {
     dispatch(addChat(newChat));
@@ -134,6 +157,8 @@ function App() {
                 addNewChat={addNewChat}
                 setSelectedChatId={setSelectedChatId}
                 selectedChatIndex={selectedChatIndex}
+                selectedChatId={selectedChatId}
+                allChats={allChats}
               />
             }
           />
@@ -177,6 +202,7 @@ function App() {
                 setChatMenu={setChatMenu}
                 chatMenu={chatMenu}
                 selectedChatId={selectedChatId}
+                userId={userId}
               />
             }
           />
