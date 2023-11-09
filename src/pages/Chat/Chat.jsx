@@ -7,8 +7,8 @@ import { ShowMessages } from "../../components/Chat/ShowMessages/ShowMessages";
 import { CloseSession } from "../../components/Chat/CloseSession/CloseSession";
 import { ChatLinks } from "../../components/ChatLinks/ChatLinks";
 import { useDispatch } from "react-redux";
-import { fetchChatMessages } from "../../store/middleware/middlewareMessages";
 import socket from "../../websocket";
+import { fetchChatMessages } from "../../store/middleware/middlewareMessages";
 import { updateMessages } from "../../store/actions/actionsMessages";
 
 export const Chat = ({
@@ -39,8 +39,8 @@ export const Chat = ({
     dispatch(fetchChatMessages(selectedChatId));
   }, [dispatch]);
 
-  socket.on('messagesUpdated', (updatedData) => {
-    dispatch(updateMessages(updatedData));
+  socket.on('messagesUpdated', (fetchChatMessages) => {
+    dispatch(updateMessages(fetchChatMessages));
   });
   
 
