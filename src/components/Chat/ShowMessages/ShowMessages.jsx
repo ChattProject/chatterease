@@ -12,12 +12,13 @@ export const ShowMessages = ({
 }) => {
   // const containerRef = useRef(null);
   const messagesRef = useRef(null);
+  console.log(messages, 'in show')
   const [showButtonUp, setShowButtonUp] = useState(false);
   const [autoScroll, setAutoScroll] = useState(true);
 
   useEffect(() => {
     const hasSearchInChat = messages.some((message) =>
-      message.text.includes(searchInChat)
+      message.content.includes(searchInChat)
     );
     setSearchNothingVisible(!hasSearchInChat);
   }, [messages, searchInChat]);
@@ -92,20 +93,20 @@ export const ShowMessages = ({
         </button>
         <div className={"show_message__messages"} ref={containerRef}>
           {messages?.map((card) => {
-            const words = card.text.split(" ");
+            const words = card.content.split(" ");
 
             return (
               <div
                 className={`show_message__message  message ${
-                  userName === card.user && "message_right"
+                  userName === card.author && "message_right"
                 } ${card.id === messages.length - 1 && "message__last"}`}
                 key={card.id}
               >
-                <div className="message__name">{card.user}</div>
+                <div className="message__name">{card.author}</div>
                 <div className="message__text">
                   {words.map((word, index) => (
                     <span
-                      key={index}
+                      key={index + word.length}
                       className={
                         searchInChat !== "" && word.includes(searchInChat)
                           ? "message__text_bold"
@@ -116,7 +117,7 @@ export const ShowMessages = ({
                     </span>
                   ))}
                 </div>
-                <div className="message__date">{getDate(card.posted)}</div>
+                <div className="message__date">{getDate(card.timestamp)}</div>
               </div>
             );
           })}

@@ -20,9 +20,7 @@ export const NewChat = ({
 
     if (newChatTitle.trim() !== "") {
       const newChat = {
-        id: Date.now(),
-        title: newChatTitle,
-        messages: [],
+        chatname: newChatTitle,
       };
 
       addNewChat(newChat);

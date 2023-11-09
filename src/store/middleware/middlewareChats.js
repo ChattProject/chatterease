@@ -1,13 +1,38 @@
+import axios from "axios";
 import {
   fetchChatsRequest,
   fetchChatsSuccess,
   fetchChatsFailure,
-} from '../actions/actionsChats';
+  addChatRequest,
+  addChatSuccess,
+  addChatFailure,
+} from "../actions/actionsChats";
 
-export const fetchChats = () => (dispatch) => {
-  dispatch(fetchChatsRequest());
-  fetch('https://chat-service-kzyq.onrender.com/api/chats/')
+export const fetchChats = () => {
+  return async (dispatch) => {
+    try {
+      dispatch(fetchChatsRequest());
+      const response = await axios.get(
+        "https://chat-service-kzyq.onrender.com/api/chats/"
+      );
+      dispatch(fetchChatsSuccess(response.data));
+    } catch (error) {
+      console.error("Error fetching chats:", error);
+      dispatch(fetchChatsFailure(error));
+    }
+  };
+};
+
+export const addChat = (newChat) => (dispatch) => {
+  dispatch(addChatRequest());
+  fetch("https://chat-service-kzyq.onrender.com/api/chats/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newChat),
+  })
     .then((response) => response.json())
-    .then((chats) => dispatch(fetchChatsSuccess(chats)))
-    .catch((error) => dispatch(fetchChatsFailure(error)));
+    .then((chat) => dispatch(addChatSuccess(chat)))
+    .catch((error) => dispatch(addChatFailure(error)));
 };

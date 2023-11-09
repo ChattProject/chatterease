@@ -20,8 +20,6 @@ export const ChatList = ({
     setMobileChatsMenu(true);
   }, []);
 
-  console.log(previousChat, "preev");
-
   const handleGoButtonClick = (index, id) => {
     setSelectedChatIndex(index);
     setSelectedChatId(id);
@@ -36,8 +34,8 @@ export const ChatList = ({
   }, []);
 
   const filteredChats = chatsList.filter((chat) => {
-    if (typeof chat.title === "string") {
-      return chat.title.toLowerCase().includes(searchChat.toLowerCase());
+    if (typeof chat.chatname=== "string") {
+      return chat.chatname.toLowerCase().includes(searchChat.toLowerCase());
     }
     return false;
   });
@@ -107,7 +105,7 @@ export const ChatList = ({
                       onClick={() => handleGoButtonClick(index, chat.id)}
                       className="chatlist__link paragraph"
                     >
-                      {chat.title}
+                      {chat.chatname}
                     </Link>
                   </li>
                 ))}

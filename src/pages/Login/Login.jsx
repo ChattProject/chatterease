@@ -40,21 +40,42 @@ export const Login = ({ setUserName, userName, selectedChatId }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
+  
     if (inputValue.length > 2 && inputValue.length < 11) {
       setErrorLength(false);
-
+  
       if (forbiddenSymbols.test(inputValue)) {
         setErrorSymbols(true);
       } else {
-        handleSetName();
-        navigate(`/chat/${selectedChatId}`);
-        setErrorSymbols(false);
+        // Create an object with the user data
+        const user = { username: inputValue };
+  
+        // Send the user data to the server
+        fetch('https://chat-service-kzyq.onrender.com/api/users/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(user),
+        })
+          .then((response) => response.json())
+          .then((userData) => {
+            // Handle the response from the server, e.g., you can navigate to the chat with the user's data
+            // Replace this logic with your actual application requirements
+            handleSetName();
+            navigate(`/chat/${selectedChatId}`);
+            setErrorSymbols(false);
+          })
+          .catch((error) => {
+            // Handle any errors that occur during the HTTP request
+            console.error('Error:', error);
+          });
       }
     } else {
       setErrorLength(true);
     }
   };
+  
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);

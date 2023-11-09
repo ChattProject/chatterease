@@ -1,8 +1,7 @@
 import "./App.css";
 import "./style/style.scss";
-import axios from 'axios';
-import { connect } from 'react-redux';
-import { fetchChats } from './store/actions/actionsChats.js';
+import axios from "axios";
+import { connect } from "react-redux";
 import { useEffect, useState } from "react";
 import { ChatList } from "./pages/ChatList/ChatList";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,9 +19,11 @@ import { EndPage } from "./pages/EndPage/EndPage";
 import { SupportForm } from "./pages/Support/SupportForm";
 import { Rules } from "./pages/Rules/Rules";
 import { PersonalMessage } from "./pages/PersonalMessage/PersonalMessage";
-import { addChat } from "./store/middleware/middlewareNewChat";
-import { addMessage } from "./store/middleware/middleNewMessage";
+import { addChat, fetchChats } from "./store/middleware/middlewareChats";
+import { addMessage } from "./store/middleware/middlewareMessages";
 
+import socket from './websocket'; 
+import { updateChats } from "./store/actions/actionsChats";
 let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty("--vh", `${vh}px`);
 
@@ -32,36 +33,26 @@ window.addEventListener("resize", () => {
 });
 
 function App() {
-  // useEffect(() => {
-  //   fetchChats();
-  // }, [fetchChats])
-  // const selectChats = (state) => state.chats;
-  // const allChats = useSelector(selectChats);
-
-const [allChats, setAllChats] = useState([])
-useEffect(() => {
-  fetch('https://chat-service-kzyq.onrender.com/api/chats/')
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error('Failed to fetch data');
-      }
-    })
-    .then(data => {
-      setAllChats(data);
-    })
-    .catch(error => {
-      console.log(error);
-    });
-}, []);
-
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchChats()); 
+  }, []);
 
-  console.log(allChats, 'chatssssss')
+  socket.on('dataUpdated', (fetchChats) => {
+    dispatch(updateChats(fetchChats));
+  });
+  
+  const selectChats = (state) => state.chats.chats;
+  const allChats = useSelector(selectChats);
+
+
+
+
+  console.log(allChats, "chatssssss");
 
   const [userName, setUserName] = useState("");
   const [selectedChatIndex, setSelectedChatIndex] = useState(-1);
+  const [selectedChatTitle, setSelectedChatTitle] = useState("");
   const [selectedChatId, setSelectedChatId] = useState(-1);
   const [headerMenu, setHeaderMenu] = useState(false);
   const [chatMenu, setChatMenu] = useState(false);
@@ -71,45 +62,17 @@ useEffect(() => {
     allChats.forEach((chat, index) => {
       if (chat.id === selectedChatId) {
         setSelectedChatIndex(index);
+        setSelectedChatTitle(chat.chatname);
       }
     });
   }, [allChats, selectedChatId]);
 
-  // const addNewChat = (newChat) => {
-  //   dispatch(addChat(newChat));
-  // };
-
-  // const addMessageToChat = (message) => {
-  //   dispatch(addMessage(selectedChatIndex, message));
-  // };
-  // useEffect(() => {
-  //   localStorage.setItem("allChats", JSON.stringify(allChats));
-  // }, [allChats]);
-
-
-  useEffect(() => {
-    // Викликати Redux action для завантаження чатів при завантаженні компоненту
-    dispatch(fetchChats());
-  }, []); // Порожній масив означає, що цей ефект буде викликано лише один раз при завантаженні компоненту
-
   const addNewChat = (newChat) => {
     dispatch(addChat(newChat));
-
-    // Get the updated state after adding a chat
-    // const updatedAllChats = useSelector((state) => state);
-
-    // Save the updated state to localStorage
-    // localStorage.setItem('allChats', JSON.stringify(allChats));
   };
 
   const addMessageToChat = (message) => {
-    dispatch(addMessage(selectedChatIndex, message));
-
-    // Get the updated state after adding a message
-    // const updatedAllChats = useSelector((state) => state);
-
-    // Save the updated state to localStorage
-    // localStorage.setItem('allChats', JSON.stringify(allChats));
+    dispatch(addMessage(selectedChatIndex, message)); 
   };
 
   const removeBurgerMenu = (event) => {
@@ -206,8 +169,8 @@ useEffect(() => {
             path="/chat/:chatId"
             element={
               <Chat
-                chat={allChats[selectedChatIndex]}
-                // chatTitle={allChats[selectedChatIndex].title}
+                // chat={allChats[selectedChatIndex]}
+                chatTitle={selectedChatTitle}
                 // messages={allChats[selectedChatIndex].messages}
                 userName={userName}
                 addMessageToChat={addMessageToChat}

@@ -1,14 +1,19 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useSelector } from 'react-redux';
 // import "./Chat.css";
 import { Link } from "react-router-dom";
 import { InputMessage } from "../../components/Chat/InputMessage/InputMessage";
 import { ShowMessages } from "../../components/Chat/ShowMessages/ShowMessages";
 import { CloseSession } from "../../components/Chat/CloseSession/CloseSession";
 import { ChatLinks } from "../../components/ChatLinks/ChatLinks";
+import { useDispatch } from "react-redux";
+import { fetchChatMessages } from "../../store/middleware/middlewareMessages";
+import socket from "../../websocket";
+import { updateMessages } from "../../store/actions/actionsMessages";
 
 export const Chat = ({
-  chat,
-  // chatTitle,
+  // chat,
+  chatTitle,
   // messages,
   userName,
   addMessageToChat,
@@ -16,6 +21,9 @@ export const Chat = ({
   chatMenu,
   selectedChatId,
 }) => {
+  const selectChatMessages = (state) => state.messages.messages;
+  const chatMessages = useSelector(selectChatMessages);
+
   const [message, setMessage] = useState("");
   const [isClosingChat, setIsClosingChat] = useState(false);
   const [searchInput, setSearchInput] = useState(false);
@@ -23,6 +31,19 @@ export const Chat = ({
   const [searchNothingVisible, setSearchNothingVisible] = useState(false);
 
   const containerRef = useRef(null);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchChatMessages(selectedChatId));
+  }, [dispatch]);
+
+  socket.on('messagesUpdated', (updatedData) => {
+    dispatch(updateMessages(updatedData));
+  });
+  
+
+  console.log(chatMessages, 'messss')
 
   // const scrollToBottom = () => {
   //   containerRef.current.scrollIntoView({
@@ -81,11 +102,11 @@ export const Chat = ({
             <div className="chat__title">
               {!searchInput ? (
                 <div className="chat__info">
-                  <div className="chat__name">{chat.title}</div>
+                  <div className="chat__name">{chatTitle}</div>
                   <div className="chat__count paragraph">
-                    {chat.messages.length === 0
+                    {chatMessages.length === 0
                       ? "немає повідомлень"
-                      : `${chat.messages.length} повідомлень`}
+                      : `${chatMessages.length} повідомлень`}
                   </div>
                 </div>
               ) : (
@@ -283,7 +304,7 @@ export const Chat = ({
           </div>
 
           <ShowMessages
-            messages={chat.messages}
+            messages={chatMessages}
             message={message}
             userName={userName}
             containerRef={containerRef}
@@ -306,6 +327,7 @@ export const Chat = ({
             <div className="chat__input">
               <InputMessage
                 userName={userName}
+                chatId={selectedChatId}
                 addMessageToChat={addMessageToChat}
                 setMessage={setMessage}
                 message={message}

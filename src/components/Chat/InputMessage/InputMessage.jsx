@@ -5,6 +5,7 @@ import "./InputMessage.css";
 export const InputMessage = ({
   addMessageToChat,
   userName,
+  chatId,
   setMessage,
   message,
   containerRef,
@@ -19,10 +20,11 @@ export const InputMessage = ({
   
     if (userName && message.trim() !== "") {
       const messageData = {
-        id: Date.now() + Math.random(),
-        posted: new Date(),
-        user: userName,
-        text: message,
+        timestamp: new Date(),
+        author_id: 9,
+        author: userName,
+        content: message,
+        group: chatId,
       };
       addMessageToChat(messageData);
   
