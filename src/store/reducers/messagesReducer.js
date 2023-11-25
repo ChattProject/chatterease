@@ -6,6 +6,7 @@ import {
   ADD_MESSAGE_SUCCESS,
   ADD_MESSAGE_FAILURE,
   UPDATE_MESSAGES,
+  CLEAN_CHAT_MESSAGES,
 } from "../actions/actionsMessages";
 
 const initialState = {
@@ -58,6 +59,11 @@ const messagesReducer = (state = initialState, action) => {
         loading: false,
         error: action.payload,
       };
+      case CLEAN_CHAT_MESSAGES: 
+      return {
+        ...state,
+        messages: action.payload,
+      }
     default:
       return state;
   }

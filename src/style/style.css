@@ -1181,6 +1181,18 @@ body {
   display: flex;
   gap: 24px;
 }
+.close__exit {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background-color: inherit;
+}
+.close__exit_icon {
+  background-color: #fbca5c;
+}
 .close__button {
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
@@ -1366,16 +1378,13 @@ body {
 .chat__search_back {
   background-color: inherit;
 }
-.chat__close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+.chat__exit {
   width: 24px;
   height: 24px;
   padding: 0;
   background-color: inherit;
 }
-.chat__close_icon {
+.chat__exit_icon {
   background-color: #fbca5c;
 }
 .chat__back {

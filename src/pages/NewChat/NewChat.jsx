@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./NewChat.css";
 import { useEffect, useState } from "react";
+import { Loader } from "../../components/Loader/Loader";
 
 export const NewChat = ({
   addNewChat,
@@ -10,6 +11,7 @@ export const NewChat = ({
   allChats
 }) => {
   const [newChatTitle, setNewChatTitle] = useState("");
+  const [showLoader, setShowLoader] = useState(false);
 
   const navigate = useNavigate();
 
@@ -26,20 +28,21 @@ export const NewChat = ({
       };
 
       addNewChat(newChat);
-      console.log(allChats, 'chatss')
-      if (allChats) {
-        const newChat = allChats.find((chat) => chat.chatname === newChatTitle);
-        if (newChat) {
-          setSelectedChatId(newChat.id);
-        } else {
-          setSelectedChatId(-1); 
-        }
-      }
-      // setSelectedChatId(allChats.length);
+      // console.log(allChats, 'chatss')
+      // // if (allChats) {
+      // //   const newChat = allChats.find((chat) => chat.chatname === newChatTitle);
+      // //   if (newChat) {
+      //     setSelectedChatId(allChats.lenght);
+      // //   } else {
+      // //     setSelectedChatId(-1); 
+      // //   }
+      // // }
+      setShowLoader(true);
 
       setTimeout(() => {
-        navigate(`/chat/${selectedChatId}`);
-      }, 500);
+        setShowLoader(false);
+        navigate(`/chats`);
+      }, 1000);
 
       setNewChatTitle("");
     }
@@ -83,6 +86,7 @@ export const NewChat = ({
           </div>
         </form>
       </div>
+      {showLoader && <Loader />}
     </div>
   );
 };

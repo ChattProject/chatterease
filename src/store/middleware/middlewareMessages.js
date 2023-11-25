@@ -5,7 +5,7 @@ export const fetchChatMessages = (chatId) => {
   return async (dispatch) => {
     dispatch(fetchChatMessagesRequest());
     try {
-      const response = await axios.get(`https://chat-service-kzyq.onrender.com/api/chats/${chatId}/messages`);
+      const response = await axios.get(`https://wechat-85y195m1.b4a.run/api/chats/${chatId}/messages`);
       dispatch(fetchChatMessagesSuccess(chatId, response.data));
     } catch (error) {
       dispatch(fetchChatMessagesFailure(error));
@@ -15,7 +15,7 @@ export const fetchChatMessages = (chatId) => {
 
 export const addMessage = (chatId, newMessage) => (dispatch) => {
   dispatch(addMessageRequest());
-  fetch(`https://chat-service-kzyq.onrender.com/api/messages/`, {
+  fetch(`https://wechat-85y195m1.b4a.run/api/messages/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

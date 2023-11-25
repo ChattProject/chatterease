@@ -13,7 +13,7 @@ export const fetchChats = () => {
     try {
       dispatch(fetchChatsRequest());
       const response = await axios.get(
-        "https://chat-service-kzyq.onrender.com/api/chats/"
+        "https://wechat-85y195m1.b4a.run/api/chats/"
       );
       dispatch(fetchChatsSuccess(response.data));
     } catch (error) {
@@ -25,7 +25,7 @@ export const fetchChats = () => {
 
 export const addChat = (newChat) => (dispatch) => {
   dispatch(addChatRequest());
-  fetch("https://chat-service-kzyq.onrender.com/api/chats/", {
+  fetch("https://wechat-85y195m1.b4a.run/api/chats/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -91,7 +91,7 @@ export const ShowMessages = ({
           <img src={up} alt="up" className="show_message__up_icon" />
         </button>
         <div className={"show_message__messages"} ref={containerRef}>
-          {messages?.map((card) => {
+          {messages?.map((card, index) => {
             const words = card.content.split(" ");
 
             return (
@@ -99,7 +99,7 @@ export const ShowMessages = ({
                 className={`show_message__message  message ${
                   userName === card.author && "message_right"
                 } ${card.id === messages.length - 1 && "message__last"}`}
-                key={card.id}
+                key={card.id + index}
               >
                 <div className="message__name">{card.author}</div>
                 <div className="message__text">

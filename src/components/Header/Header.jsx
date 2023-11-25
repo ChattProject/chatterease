@@ -21,7 +21,7 @@ export const Header = ({ setHeaderMenu, headerMenu, mobileChatsMenu }) => {
           </Link>
           <div className="header__mobile mobile">
             <button
-              class="mobile__burger"
+              className="mobile__burger"
               type="button"
               value="menu"
               onClick={(event) => {
@@ -39,26 +39,26 @@ export const Header = ({ setHeaderMenu, headerMenu, mobileChatsMenu }) => {
                 <path
                   d="M4 12H20"
                   stroke="black"
-                  stroke-opacity="0.95"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeOpacity="0.95"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
                 <path
                   d="M4 6H20"
                   stroke="black"
-                  stroke-opacity="0.95"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeOpacity="0.95"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
                 <path
                   d="M4 18H20"
                   stroke="black"
-                  stroke-opacity="0.95"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeOpacity="0.95"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </button>
@@ -110,8 +110,8 @@ export const Header = ({ setHeaderMenu, headerMenu, mobileChatsMenu }) => {
                       fill="#292929"
                     />
                     <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
                       d="M7 10H17V8H7V10ZM7 14H13V12H7V14Z"
                       fill="#292929"
                     />
@@ -150,7 +150,7 @@ export const Header = ({ setHeaderMenu, headerMenu, mobileChatsMenu }) => {
             <div className="header__info header__info_rules">
               <NavLink
                 to={"/rules"}
-                activeClassName="header__link_active"
+                // activeClassName="header__link_active"
                 className={({ isActive }) =>
                   isActive
                     ? "header__link header__help paragraph header__link_active"

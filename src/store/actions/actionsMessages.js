@@ -7,6 +7,8 @@ export const ADD_MESSAGE_REQUEST = 'ADD_MESSAGE_REQUEST';
 export const ADD_MESSAGE_SUCCESS = 'ADD_MESSAGE_SUCCESS';
 export const ADD_MESSAGE_FAILURE = 'ADD_MESSAGE_FAILURE';
 
+export const CLEAN_CHAT_MESSAGES = 'CLEAN_CHAT_MESSAGES';
+
 export const fetchChatMessagesRequest = () => ({
   type: FETCH_CHAT_MESSAGES_REQUEST,
 });
@@ -40,3 +42,7 @@ export const addMessageFailure = (error) => ({
   payload: error,
 });
 
+export const cleanChatMessages = (messages) => ({
+  type: CLEAN_CHAT_MESSAGES,
+  payload: messages,
+});

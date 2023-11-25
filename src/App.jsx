@@ -22,10 +22,11 @@ import { PersonalMessage } from "./pages/PersonalMessage/PersonalMessage";
 import { addChat, fetchChats } from "./store/middleware/middlewareChats";
 import { addMessage } from "./store/middleware/middlewareMessages";
 
-import socket from './websocket'; 
 import { updateChats } from "./store/actions/actionsChats";
 import { fetchUsers } from "./store/middleware/middlewareUsers";
 import { updateUsers } from "./store/actions/actionsUsers";
+import socket from "./websocket";
+// import socket from "./websocket";
 let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty("--vh", `${vh}px`);
 
@@ -37,13 +38,31 @@ window.addEventListener("resize", () => {
 function App() {
   const dispatch = useDispatch();
 
+  socket.addEventListener('open', (event) => {
+    console.log('Зєднання встановлено');
+  
+    socket.send(JSON.stringify({ action: 'fetchChatMessages' }));
+  });
+
+  useEffect(() => {
+    // Listen for updates from the server
+  socket.on('chatsUpdated', (fetchChats) => {
+    dispatch(updateChats(fetchChats));
+  });
+
+    // Clean up socket connection on component unmount
+    return () => {
+      socket.disconnect();
+    };
+  }, [socket]);
+
   useEffect(() => {
     dispatch(fetchChats()); 
   }, []);
 
-  socket.on('chatsUpdated', (fetchChats) => {
-    dispatch(updateChats(fetchChats));
-  });
+  // socket.on('chatsUpdated', (fetchChats) => {
+  //   dispatch(updateChats(fetchChats));
+  // });
 
   const users = useSelector((state) => state.users.users);
   const selectChats = (state) => state.chats.chats;
