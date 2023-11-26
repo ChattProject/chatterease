@@ -1,6 +1,6 @@
 // import "./ChatList.css";
-import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import create from "../../images/chatList/create.svg";
 import { useDispatch } from "react-redux";
 import { cleanChatMessages } from "../../store/actions/actionsMessages";
@@ -28,7 +28,10 @@ export const ChatList = ({
     setSelectedChatId(id);
     setPreviousChat(id);
     sessionStorage.setItem("previousChat", id.toString());
-    console.log(previousChat, "prevvvvvvvvv");
+  };
+
+  const handleSearchInputChange = (e) => {
+    setSearchChat(e.target.value);
   };
 
   const dispatch = useDispatch();
@@ -36,21 +39,19 @@ export const ChatList = ({
   useEffect(() => {
     setSelectedChatId(-1);
     setMobileChatsMenu(true);
-    if (selectedChatId === -1) {
-      dispatch(cleanChatMessages([]));
-    }
-  }, [setSelectedChatId, setMobileChatsMenu, selectedChatId]);
+  }, [setSelectedChatId, setMobileChatsMenu]);
 
-  const filteredChats = chatsList.filter((chat) => {
-    if (typeof chat.chatname === "string") {
-      return chat.chatname.toLowerCase().includes(searchChat.toLowerCase());
-    }
-    return false;
-  });
+  const filteredChats = chatsList
+    ? chatsList.filter((chat) =>
+        typeof chat.chatname === "string"
+          ? chat.chatname.toLowerCase().includes(searchChat.toLowerCase())
+          : false
+      )
+    : [];
 
-  const handleSearchInputChange = (e) => {
-    setSearchChat(e.target.value);
-  };
+  // const handleSearchInputChange = (e) => {
+  //   setSearchChat(e.target.value);
+  // };
 
   return (
     <>

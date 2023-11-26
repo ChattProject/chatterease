@@ -1,6 +1,6 @@
 import "./App.css";
 import "./style/style.scss";
-import axios from "axios";
+// import axios from "axios";
 import { connect } from "react-redux";
 import { useEffect, useState } from "react";
 import { ChatList } from "./pages/ChatList/ChatList";
@@ -78,21 +78,23 @@ function App() {
   const [mobileChatsMenu, setMobileChatsMenu] = useState(false);
 
   useEffect(() => {
+  if (allChats) {
     allChats.forEach((chat, index) => {
       if (chat.id === selectedChatId) {
         setSelectedChatIndex(index);
         setSelectedChatTitle(chat.chatname);
       }
     });
-  }, [allChats, selectedChatId]);
+  }
+}, [allChats, selectedChatId]);
 
   useEffect(() => {
     dispatch(fetchUsers());
   }, [userName]);
 
-  // socket.on('usersUpdated', (fetchUsers) => {
-  //   dispatch(updateUsers(fetchUsers));
-  // });
+//   socket.on('usersUpdated', (fetchUsers) => {
+//     dispatch(updateUsers(fetchUsers));
+//   });
   
 // console.log(users, 'users')
 // console.log(userId, 'idddddd')
