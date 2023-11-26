@@ -97,10 +97,11 @@ export const Chat = ({
     return (
       <>
         <div className="chatpage">
-          {showLoader && <Loader />}
+          
           <ChatLinks chatId={selectedChatId} />
 
           <div className="chatpage__chat chat">
+            {showLoader && <Loader />}
             <div className="chat__header">
               <div className="chat__title">
                 {!searchInput ? (

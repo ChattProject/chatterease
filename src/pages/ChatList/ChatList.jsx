@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import create from "../../images/chatList/create.svg";
 import { useDispatch } from "react-redux";
 import { cleanChatMessages } from "../../store/actions/actionsMessages";
+import { Loader } from "../../components/Loader/Loader.jsx";
 
 export const ChatList = ({
   chatsList,
@@ -18,6 +19,16 @@ export const ChatList = ({
   const [previousChat, setPreviousChat] = useState(
     parseInt(sessionStorage.getItem("previousChat")) || -1
   );
+
+    const [showLoader, setShowLoader] = useState(true);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setShowLoader(false);
+    }, 1000);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   useEffect(() => {
     setMobileChatsMenu(true);
@@ -56,6 +67,7 @@ export const ChatList = ({
   return (
     <>
       <div className="chatlist">
+        {showLoader && <Loader />}
         <div className="chatlist__container">
           {previousChat > -1 && (
             <Link
