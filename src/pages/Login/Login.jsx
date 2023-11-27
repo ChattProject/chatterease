@@ -49,29 +49,35 @@ export const Login = ({ setUserName, userName, selectedChatId }) => {
       } else {
         const user = { username: inputValue };
   
-        // Send the user data to the server
-        fetch('https://wechat-85y195m1.b4a.run/api/users/', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(user),
-        })
-          .then((response) => response.json())
-          .then((userData) => {
-            handleSetName();
-            navigate(`/chat/${selectedChatId}`);
-            setErrorSymbols(false);
+        
+        setTimeout(() => {
+          // Send the user data to the server
+          fetch('https://wechat-85y195m1.b4a.run/api/users/', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(user),
           })
-          .catch((error) => {
-            console.error('Error:', error);
-          });
+            .then((response) => response.json())
+            .then((userData) => {
+              handleSetName();
+              navigate(`/chat/${selectedChatId}`);
+              setErrorSymbols(false);
+            })
+            .catch((error) => {
+              console.error('Error:', error);
+            });
+          setUserName(inputValue);
+          sessionStorage.setItem('userName', inputValue);
+          navigate(`/chat/${selectedChatId}`);
+          setErrorSymbols(false);
+        }, 1000);
       }
     } else {
       setErrorLength(true);
     }
   };
-  
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
