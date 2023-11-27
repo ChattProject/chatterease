@@ -70,7 +70,6 @@ export const Login = ({ setUserName, userName, selectedChatId }) => {
       setErrorLength(true);
     }
   };
-  
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);

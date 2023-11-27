@@ -19,6 +19,8 @@ export const NewChat = ({
     setNewChatTitle(event.target.value);
   };
 
+  
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -50,6 +52,7 @@ export const NewChat = ({
 
   return (
     <div className="newchat">
+      {showLoader && <Loader />}
       <div className="newchat__window window">
         <Link to={"/chats"} className="btn-close newchat__close"></Link>
         <div className="newchat__header title-usual">
@@ -86,7 +89,7 @@ export const NewChat = ({
           </div>
         </form>
       </div>
-      {showLoader && <Loader />}
+      {/* {showLoader && <Loader />} */}
     </div>
   );
 };
