@@ -11,9 +11,7 @@ export const ShowMessages = ({
   setSearchNothingVisible
 }) => {
   // const containerRef = useRef(null);
-  const messagesRef = useRef(null);
   const [showButtonUp, setShowButtonUp] = useState(false);
-  const [autoScroll, setAutoScroll] = useState(true);
 
   useEffect(() => {
     const hasSearchInChat = messages.some((message) =>
@@ -45,7 +43,7 @@ export const ShowMessages = ({
       setShowButtonUp(true);
     }
     scrollToBottom();
-  }, [messages]);
+  }, [containerRef, scrollToBottom]);
 
   function getDate(posted) {
     const date = new Date(posted);
@@ -69,12 +67,6 @@ export const ShowMessages = ({
 
     return `${hours}:${minutes}:${seconds} ${day}/${`${month}`}/${year}`;
   }
-
-  // messages.every(message => {
-  //   if (searchInChat !== "" && !message.text.includes(searchInChat)) {
-  //     document.querySelector('.chat__search_nothing').style.display = 'block';
-  //   }
-  // })
 
   return (
     <>

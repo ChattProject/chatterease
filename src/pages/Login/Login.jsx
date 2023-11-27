@@ -49,7 +49,6 @@ export const Login = ({ setUserName, userName, selectedChatId }) => {
       } else {
         const user = { username: inputValue };
   
-        // Send the user data to the server
         fetch('https://wechat-85y195m1.b4a.run/api/users/', {
           method: 'POST',
           headers: {

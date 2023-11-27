@@ -1,6 +1,6 @@
 // import "./ChatList.css";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate  } from "react-router-dom";
 import create from "../../images/chatList/create.svg";
 import { useDispatch } from "react-redux";
 import { cleanChatMessages } from "../../store/actions/actionsMessages";
@@ -19,16 +19,15 @@ export const ChatList = ({
   const [previousChat, setPreviousChat] = useState(
     parseInt(sessionStorage.getItem("previousChat")) || -1
   );
+  const navigate = useNavigate();
 
-    const [showLoader, setShowLoader] = useState(true);
+  const [showLoader, setShowLoader] = useState(true);
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => {
+    if (chatsList.length !== 0) {
       setShowLoader(false);
-    }, 1000);
-
-    return () => clearTimeout(timeoutId);
-  }, []);
+    }
+  }, [chatsList]);
 
   useEffect(() => {
     setMobileChatsMenu(true);
@@ -38,6 +37,12 @@ export const ChatList = ({
     setSelectedChatIndex(index);
     setSelectedChatId(id);
     setPreviousChat(id);
+    sessionStorage.setItem("previousChat", id.toString());
+  };
+  const handleBackButtonClick = (id) => {
+    setSelectedChatId(id);
+    setPreviousChat(id);
+    navigate(`/chat/${previousChat}`);
     sessionStorage.setItem("previousChat", id.toString());
   };
 
@@ -50,7 +55,10 @@ export const ChatList = ({
   useEffect(() => {
     setSelectedChatId(-1);
     setMobileChatsMenu(true);
-  }, [setSelectedChatId, setMobileChatsMenu]);
+    if (selectedChatId === -1) {
+      dispatch(cleanChatMessages([]));
+    }
+  }, [setSelectedChatId, setMobileChatsMenu, selectedChatId]);
 
   const filteredChats = chatsList
     ? chatsList.filter((chat) =>
@@ -70,9 +78,9 @@ export const ChatList = ({
         {showLoader && <Loader />}
         <div className="chatlist__container">
           {previousChat > -1 && (
-            <Link
-              to={`/chat/${previousChat}`}
+            <button
               className="chatlist__previous button-default paragraph"
+              onClick={() => handleBackButtonClick(previousChat)}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +97,7 @@ export const ChatList = ({
                 />
               </svg>
               <p className="chatlist__back">Повернутися в чат</p>
-            </Link>
+            </button>
           )}
           <div className="chatlist__caption">
             <div className="chatlist__header">
