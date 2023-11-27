@@ -1,0 +1,105 @@
+.supportForm {
+  position: relative;
+  height: 100%;
+  background: url(../../images/bgSupportForm.svg);
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+.supportForm__window {
+  top: 15%;
+  padding: 5vw 6vw;
+}
+.supportForm__icon {
+  margin-bottom: 3.2em;
+}
+.supportForm__btn-close {
+  position: absolute;
+  top: 3vw;
+  right: 3vw;
+}
+.supportForm__button {
+  margin-top: 5vh;
+}
+.supportForm__title {
+  margin-bottom: 2.8vw;
+  font-size: 2.4em;
+  line-height: 1.33em;
+  font-weight: 400;
+}
+.supportForm__form {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 16px;
+}
+.supportForm__name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.supportForm__text {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 16px;
+}
+.supportForm__input {
+  padding: 10px 8px;
+}
+.supportForm__input::-webkit-input-placeholder {
+  color: #ADADAD;
+  font-size: 1.6em;
+  line-height: 1.1em;
+  font-weight: 400;
+}
+.supportForm__input::-moz-placeholder {
+  color: #ADADAD;
+  font-size: 1.6em;
+  line-height: 1.1em;
+  font-weight: 400;
+}
+.supportForm__input:-ms-input-placeholder {
+  color: #ADADAD;
+  font-size: 1.6em;
+  line-height: 1.1em;
+  font-weight: 400;
+}
+.supportForm__input::-ms-input-placeholder {
+  color: #ADADAD;
+  font-size: 1.6em;
+  line-height: 1.1em;
+  font-weight: 400;
+}
+.supportForm__input::placeholder {
+  color: #ADADAD;
+  font-size: 1.6em;
+  line-height: 1.1em;
+  font-weight: 400;
+}
+
+textarea {
+  height: 70px;
+}
+
+.window {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 400px) {
+  .supportForm__window {
+    height: auto;
+    padding: 40px 3vw;
+  }
+}/*# sourceMappingURL=SupportForm.css.map */

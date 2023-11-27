@@ -1,0 +1,204 @@
+// @import '../../../style/_variables.scss';
+
+.greetings-border {
+  border-radius: 3px;
+  border: 0.1em dashed $yellow-dark;
+  border-width: 0.1em 0.1em;
+  width: 50vw;
+  height: 75vh;
+  height: calc(var(--vh, 1vh) * 75);
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.greetings {
+  width: 100%;
+  height: 100%;
+  background-color: $yellow;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3vh 7vw;
+  padding: calc(var(--vh, 1vh) * 3) 7vw;
+
+  // &__image{
+  //     max-width: 29.4vw;
+  // }
+  &__text {
+    margin: 3vh 0;
+    margin: calc(var(--vh, 1vh) * 3) 0;
+  }
+  &__title {
+    margin-bottom: 2vh;
+    margin-bottom: calc(var(--vh, 1vh) * 2);
+    font-size: 2.4em;
+    font-weight: 600;
+    line-height: 1.33em;
+    text-align: center;
+  }
+
+  &__description {
+    font: $montserrat;
+    font-size: 1.6em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.25em;
+    // margin-bottom: 2.5em;
+  }
+  &__image {
+    // height: 16vh;
+    height: 45%;
+    // width: 13vh;
+    width: inherit;
+  }
+
+  &__buttons_two {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  &__button {
+    width: 20vw;
+    &-green {
+      &:hover {
+        background-color: $green-dark;
+      }
+    }
+  }
+
+  &__button_start {
+    width: 100%;
+    margin-bottom: 54px;
+    width: 20vw;
+  }
+}
+
+//   .button-green{
+//       width: 18.6vw;
+//       // height: 3.6vw;
+//   }
+
+.button-green:hover,
+.button-default:hover {
+  background-color: $green-dark;
+}
+
+.button-default:hover {
+  color: $white;
+}
+
+@media (max-height: 799px) {
+  .greetings-border {
+    width: 60vw;
+    height: 73vh;
+    height: calc(var(--vh, 1vh) * 73);
+    // border: 0.1em dashed $yellow-dark;
+    border-width: 0.1em 0.1em;
+  }
+}
+@media (max-height: 699px) {
+  .greetings {
+    padding: 3vh 7vw;
+    padding: calc(var(--vh, 1vh) * 3) 7vw;
+    &-border {
+      width: 70vw;
+      height: 72vh;
+      height: calc(var(--vh, 1vh) * 72);
+      padding: 12px;
+    }
+  }
+}
+@media (max-height: 599px) {
+  .greetings {
+    &-border {
+      width: 70vw;
+    }
+    &__buttons_two {
+      flex-direction: row;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .greetings-border {
+    width: 75vw;
+  }
+}
+
+@media (max-width: 836px) {
+  .greetings {
+    &-border {
+      // width: 70vw;
+      padding: 24px 16px;
+    }
+  }
+}
+
+@media (max-width: 852px) {
+  .greetings {
+    padding: 5.2vw 5.2vw;
+
+    &__title {
+      font-size: 2.4em;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 1.5em;
+      // margin: 1em auto;
+    }
+
+    &__button {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .greetings {
+    &-border {
+      width: 80vw;
+      padding: 12px;
+    }
+    &__button,
+    &__button_start {
+      width: 40vw;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .greetings-border {
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding: 0;
+  }
+
+  .greetings {
+    max-width: none;
+
+    &__image {
+      width: 23vh;
+      width: calc(var(--vh, 1vh) * 23);;
+      height: auto;
+      margin: 5px auto;
+    }
+
+    &__button,
+    &__buttons,
+    &__buttons_two,
+    &__button_start {
+      width: 100%;
+    }
+
+    &__description {
+      font-size: 1.7em;
+      line-height: 1.4em;
+      // margin-bottom: 2.5em;
+    }
+  }
+}
+

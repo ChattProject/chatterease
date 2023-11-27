@@ -1,0 +1,111 @@
+.input-message {
+  // position: fixed;
+  // bottom: 20px;
+  // // left: 6.5vw;
+  // width: 86vw; // ???
+
+  &__form {
+    position: relative;
+    background-color: $white;
+    min-height: 70px;
+    // max-height: 116px;
+    padding: 10px 20px 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    // border-left: none;
+    // border-right: none;
+  }
+  &__emoji {
+    // position: absolute;
+    width: 24px;
+    height: 24px;
+    // top: 26px;
+    // left: 8px;
+    // background-image: url("../../../images/chat/emoji.svg");
+    // z-index: 1;
+
+    &:hover {
+      cursor: pointer;
+      & > path {
+        fill: $green-dark;
+      }
+      & ~ .input-message__emoji_text {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    &_text {
+      position: absolute;
+      bottom: 58px;
+      left: 8px;
+      visibility: hidden;
+      // width: 160px;
+      color: $black;
+      text-align: center;
+      // border: solid 1px ;
+      text-shadow:
+        2px 7px 5px rgba(0, 0, 0, 0.3),
+        0px -4px 10px rgba(255, 255, 255, 0.3);
+      padding: 5px;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+  }
+  &__input {
+    position: relative;
+    resize: none;
+    overflow-y: hidden;
+    width: 100%;
+    max-width: 100%;
+    height: calc(100% - 10px);
+    min-height: 18px;
+    padding: 0 20px;
+    border: 1px solid $grey-default;
+    border: none;
+    word-wrap: break-word;
+    word-break: break-all;
+    // color: $black;
+
+    &:focus-visible {
+      outline: none;
+
+      // & ~ .path_input {
+      //   & path {
+      //     fill: $green-dark;
+      //   }
+      // }
+    }
+
+    // &::before {
+    //   content: "";
+    //   position: absolute;
+    //   width: 24px;
+    //   height: 24px;
+    //   top: 26px;
+    //   left: 8px;
+    //   background-image: url("../../../images/chat/emoji.svg");
+    //   z-index: 1;
+    // }
+  }
+
+  &__button {
+    // position: absolute;
+    background-color: inherit;
+    // right: 26px;
+    // top: 26px;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+
+    &_send {
+      & path {
+        fill: $green-dark;
+      }
+    }
+  }
+}

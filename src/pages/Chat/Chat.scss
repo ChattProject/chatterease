@@ -1,0 +1,302 @@
+@import "../../components/Chat/ShowMessages/ShowMessages.scss";
+@import "../../components/Chat/InputMessage/InputMessage.scss";
+@import "../../components/Chat/CloseSession/CloseSession.scss";
+
+.chatpage {
+  height: 100%;
+  position: relative;
+  background-color: $white-dark;
+
+  // &__links {
+  //   padding: 26px 0;
+  //   display: flex;
+  //   gap: 24px;
+  //   justify-content: space-between;
+  // }
+  // &__subtitle {
+  //   width: 50%;
+  //   padding: 2px;
+  //   font-weight: 500;
+  //   border-radius: 3px;
+  //   border: $yellow-dark 2px solid;
+  //   background-color: inherit;
+  //   display: flex;
+  //   justify-content: center;
+
+  //   &:hover {
+  //     & > .chatpage__link {
+  //       background-color: $yellow-dark;
+  //     }
+  //   }
+
+  //   &_selected {
+  //     & > .chatpage__link {
+  //       background-color: $yellow;
+  //     }
+  //   }
+
+  //   &_disabled {
+  //   border: $grey-default 2px solid;
+  //   color: $grey-default;
+  //   background-color: $grey;
+
+  //   }
+  // }
+
+  // &__link {
+  //   background-color: inherit;
+  //   width: 100%;
+  //   padding: 10px;
+  // }
+
+  &__chat {
+  }
+}
+
+.chat {
+  position: relative;
+  height: calc(100% - 95px);
+  width: 86vw;
+  margin: 0 auto;
+  background: url(../../images/chat/background_chat.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__header {
+    // min-height: 60px;
+    height: 92px;
+    display: flex;
+    align-items: center;
+    background-color: $yellow;
+
+    // flex-direction: column;
+  }
+
+  &__title {
+    padding: 16px 24px;
+    width: 80%;
+    height: 100%;
+    text-align: left;
+    display: flex;
+    // flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  &__name {
+    font-size: 2.4em;
+    // line-height: 3.2em;
+    font-weight: 600;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 40px;
+  }
+  &__button {
+    &_search {
+      &_icon {
+        background-color: $yellow;
+      }
+    }
+  }
+
+  &__search {
+    position: relative;
+    width: 100%;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    &_form {
+      width: 90%;
+
+      // &:focus-visible {
+      //   outline: none;
+      // }
+    }
+    &_input {
+      width: 100%;
+      background-color: inherit;
+      border: none;
+      font-weight: 500;
+      &:focus-visible {
+        outline: none;
+      }
+    }
+    &_nothing {
+      // display: none;
+      position: absolute;
+      top: 25px;
+      right: 5px;
+      text-shadow:
+        2px 7px 5px rgba(0, 0, 0, 0.3),
+        0px -4px 10px rgba(255, 255, 255, 0.3);
+    }
+    &_back {
+      background-color: inherit;
+    }
+  }
+
+
+
+  &__exit {
+    // osition: absolute;
+    // top: 10px;
+    // right: 10px;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    background-color: inherit;
+
+    &_icon {
+      background-color: $yellow;
+    }
+  }
+
+  &__back {
+    width: 22%;
+    height: 100%;
+    text-align: center;
+    background-color: $green;
+    color: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      background-color: $green-dark;
+    }
+  }
+
+  &__input {
+    position: absolute;
+    width: 100%;
+    bottom: 20px;
+  }
+  &__login {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 24px 0;
+    background-color: $white;
+
+    &_text {
+      padding: 0 7%;
+      margin-bottom: 24px;
+    }
+  }
+  &__button_input {
+    width: 268px;
+  }
+
+  &__flexiblemenu {
+    display: none;
+  }
+}
+
+.flexiblemenu {
+  position: relative;
+  display: none;
+  &__dots {
+    background-color: inherit;
+    // display: none;
+  }
+  &__links {
+    position: absolute;
+    top: 8px;
+    right: 0;
+    padding: 8px 5vw;
+    display: flex;
+    gap: 8px;
+    width: 50vw;
+    background-color: $white;
+    flex-direction: column;
+    z-index: 5;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.4em;
+    background-color: inherit;
+  }
+  &__icon {
+    // margin: 5px;
+  }
+}
+
+@media (max-width: 836px) {
+  .chat {
+    // height: calc(100% - 95px);
+
+    width: 100vw;
+
+    // margin-left: -7vw;
+
+    &__title {
+      width: 65%;
+      padding-left: 5vw;
+    }
+    &__back {
+      width: 35%;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .chat {
+    &__back {
+      padding: 23px 5vw;
+      word-wrap: break-word;
+    }
+    &__button_input {
+      width: 70%;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .chat {
+    height: calc(100% - 75px);
+
+    &__header {
+      padding: 8px 5vw;
+      background-color: $yellow;
+    }
+    &__title {
+      padding: 0;
+      width: 88vw;
+    }
+    &__buttons {
+      display: none;
+    }
+    &__back {
+      display: none;
+    }
+
+    &__login {
+      bottom: 25px;
+    }
+  }
+  .flexiblemenu {
+    display: block;
+    &__dots {
+      // display: block;
+
+      // &:hover,
+      // &:focus {
+      //   & ~ .flexiblemenu__links {
+      //     display: flex;
+      //   }
+      // }
+    }
+  }
+}

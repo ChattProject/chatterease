@@ -1,0 +1,1 @@
+{"version":3,"sources":["../pages/PersonalMessage/PersonalMessage.scss","PersonalMessage.css"],"names":[],"mappings":"AAEA;EACI,gBAAA;ACDJ;;ADGA;EAEI,WAAA;ACDJ;ADYI;EACI,mBAAA;EACA,gBAAA;EACA,gBAAA;EACA,kBAAA;ACVR;ADaI;EACI,gBAAA;EACA,cAAA;EACA,gBAAA;EACA,gBAAA;EACA,kBAAA;EACA,kBAAA;ACXR;;ADgBA;EAEI;IACI,YAAA;IACA,UAAA;IACA,QAAA;IACA,iBAAA;ECdN;AACF","file":"PersonalMessage.css"}

@@ -1,0 +1,157 @@
+.close {
+  position: fixed; 
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  overflow: hidden; 
+  background-color: rgba(173, 173, 173, 0.4);
+
+  &__content {
+    position: relative;
+    margin: 35vh auto;
+    margin: calc(var(--vh, 1vh) * 35) auto;
+    width: 575px;
+    // width: fit-content;
+    padding: 24px 35px 24px 60px;
+    background-color: $yellow-dark;
+    border: 1px solid #888;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 26px;
+    left: 16px;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+    text-align: left;
+  }
+
+  &__question {
+    margin-bottom: 16px;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 24px;
+  }
+
+  &__exit {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    background-color: inherit;
+
+    &_icon {
+      background-color: $yellow;
+    }
+  }
+
+  &__button {
+    min-width: fit-content;
+
+    &:hover {
+      background-color: $green;
+      color: $white;
+    }
+    &_yes {
+      background-color: $grey;
+    }
+
+    &_no {
+      background-color: $white-dark;
+    }
+  }
+}
+
+
+@media (max-width: 1000px) {
+  .close {
+    &__content {
+      width: 70vw;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .close {
+    &__buttons {
+      flex-direction: column;
+      & > * {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .close {
+    &__content {
+      width: 70vw;
+      padding: 15px 20px 15px 40px;
+    }
+    &__title {
+      margin-bottom: 20px;
+    }
+    &__buttons {
+      flex-direction: column;
+    }
+    &__icon {
+      left: 10px;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .close {
+    &__content {
+      left: 5vw;
+      width: 90vw;
+      margin: 35vh 0;
+      margin: calc(var(--vh, 1vh) * 35) 0;
+      padding: 15px 5vw;
+      align-items: center;
+      // & > * {
+      //   text-align: center;
+      // }
+    }
+    &__question {
+      font-weight: 400;
+    }
+    &__icon {
+      top: 15px;
+    }
+    &__header {
+      font-weight: 600;
+      justify-content: center;
+    }
+
+    &__buttons {
+      gap: 16px;
+    }
+
+    &__button {
+      &_no {
+        order: 1;
+      }
+      &_yes {
+        order: 2;
+      }
+    }
+
+  }
+}

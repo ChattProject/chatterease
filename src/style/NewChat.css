@@ -1,0 +1,65 @@
+.newchat {
+  background: url("../../images/newChat/background.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+.newchat__window {
+  position: relative;
+}
+.newchat__close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 24px;
+  height: 24px;
+}
+.newchat__header {
+  margin-bottom: 10%;
+}
+.newchat__form {
+  margin: auto;
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.newchat__title {
+  margin-bottom: 15px;
+}
+.newchat__input {
+  max-width: 368px;
+  margin-bottom: 34px;
+}
+.newchat__buttons {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 24px;
+}
+.newchat__button {
+  width: 100%;
+}
+
+@media (max-width: 400px) {
+  .newchat__form {
+    width: 100%;
+  }
+  .newchat__close {
+    top: 15px;
+    right: 15px;
+  }
+}/*# sourceMappingURL=NewChat.css.map */

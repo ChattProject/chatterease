@@ -1,0 +1,125 @@
+$white: #fff;
+$white-dark: #fffff3;
+$black: #292929;
+$green-dark: #387e74;
+$green: #449f93;
+$grey: #dfe0df;
+$grey-default: #adadad;
+$grey-dark: #555454;
+$yellow-dark: #feb706;
+$yellow: #fbca5c;
+
+$montserrat: "Montserrat", "Montserrat Alternates", "Roboto", "Open Sans", "Lato", sans-serif;
+$montserrat-alternates: "Montserrat Alternates", "Montserrat", "Roboto", "Open Sans", "Lato", sans-serif;
+$montserratAlternates: "Montserra t Alternates", "Montserrat", "Roboto", "Open Sans", "Lato", sans-serif;
+
+.paragraph {
+  font-family: $montserrat;
+  font-size: 1.6em;
+  // line-height: 1.25em;
+  font-weight: 400;
+  color: $black;
+}
+
+.title-usual {
+  font-size: 2.4em;
+  line-height: 1.25em;
+  font-weight: 400;
+}
+
+@mixin button {
+  padding: 16px 24px;
+  min-height: 52px;
+  // width: fill-available;
+  // min-width: 268px;
+  font-family: $montserrat;
+  font-size: 1.6em;
+  // line-height: 1.25em;
+  border: none;
+  border-radius: 3px;
+  color: $black;
+  text-align: center;
+}
+
+.button-default {
+  @include button;
+  // // width: 268px;
+  // // height: 52px;
+  background-color: inherit;
+}
+
+.button-green {
+  @include button;
+  // padding: 16px;
+  background-color: $green;
+  color: $white;
+  font-weight: 600;
+
+  &_disabled {
+    background-color: $grey;
+    color: $grey-default;
+  }
+
+  &:hover {
+    background-color: $green-dark;
+  }
+}
+
+.button-yellow {
+  @include button;
+  padding: 10px;
+  width: 612px;
+  height: 52px;
+  background-color: $yellow-dark;
+  font-weight: 500;
+}
+
+.window {
+  position: relative;
+  top: 24%;
+  left: 25%;
+  padding: 9vh 5vw;
+  padding: calc(var(--vh, 1vh) * 9) 5vw;
+  width: 52%;
+  background-color: $white-dark;
+  border-radius: 3px;
+  box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.25);
+}
+
+.input {
+  width: 100%;
+  padding: 10px 8px;
+  color: $black;
+  border-radius: 3px;
+  border: 1px $grey-default solid;
+}
+
+
+@media (max-width: 1000px) {
+  .window {
+    left: 15%;
+    width: 70%;
+  }
+}
+
+@media (max-width: 836px) {
+  .window {
+    padding: 5vh 7vw;
+    padding: calc(var(--vh, 1vh) * 5) 7vw;
+  }
+}
+
+@media (max-width: 767px) {
+  .window {
+    padding: 50px 40px;
+  }
+}
+
+@media (max-width: 400px) {
+  .window {
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    padding: 40px 5vw 0;
+  }
+}

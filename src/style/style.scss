@@ -1,0 +1,64 @@
+// @import '~bootstrap/scss/bootstrap';
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500;600&family=Montserrat:ital,wght@0,400;0,500;0,600;1,300&display=swap");
+@import "./_reset.scss";
+@import "./_variables.scss";
+
+body {
+  font-family: $montserrat;
+  font-size: 10px;
+  color: $black;
+  // background: url("../images/chatList/background.svg");
+}
+
+.app__chat {
+  position: absolute;
+  top: 72px;
+  width: 86vw;
+  height: calc(100vh - 74px);
+  height: calc((calc(var(--vh, 1vh) * 100)) - 74px);
+  // overflow: auto;
+  margin: 0 7vw;
+  // background-color: $white-dark;
+
+  & > * {
+    height: 100%;
+  }
+}
+
+@font-face {
+  font-family: "PhosphateInline";
+  src:
+    local("PhosphateInline"),
+    url(../fonts/Phosphate_Inline/PhosphateInline.ttf) format("truetype");
+}
+
+@import "../components/Header/Header.scss";
+@import "../pages/Home/Home.scss";
+@import "../pages/ChatList/ChatList.scss";
+@import "../pages/Chat/Chat.scss";
+@import "../pages/Login/Login.scss";
+@import "../pages/NewChat/NewChat.scss";
+@import "../pages/EndPage/EndPage.scss";
+@import "../pages/Rules/Rules.scss";
+@import "../pages/Support/Support.scss";
+@import "../components/ChatLinks/ChatLinks.scss";
+// @import "../components/CloseSession/CloseSession.scss";
+
+@media (max-width: 836px) {
+  .app__chat {
+    width: 100vw;
+    margin: 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .app__chat {
+    height: calc(100vh - 75px);
+    height: calc((calc(var(--vh, 1vh) * 100)) - 75px);
+  }
+}
+// @media (max-width: 480px) {
+//   .app__chat {
+//     font-size: 8px;
+//   }
+// }

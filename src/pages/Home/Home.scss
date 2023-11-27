@@ -1,0 +1,16 @@
+@import '../../components/Home/Greeting/Greeting.scss';
+@import '../../components/Home/GreetingPage/GreetingPage.scss';
+@import '../../components/Home/GreetingDots/GreetingDots.scss';
+@import '../../components/Home/Welcome/Welcome.scss';
+
+.home {
+  // background-color: $white;
+
+  &__greeting {
+    height: 100%;
+  }
+
+  &__welcome {
+    height: 100%;
+  }
+}
