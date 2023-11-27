@@ -32,9 +32,8 @@ export const InputMessage = ({
       setMessage("");
       document.querySelector(".input-message__input").rows = 1;
   
-      // Call scrollToBottom here to scroll to the bottom after adding a new message
-      // scrollToBottom();
     }
+    scrollToBottom();
   };
 
   const handleKeyDown = (event) => {

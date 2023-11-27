@@ -1,11 +1,14 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { Loader } from "../../components/Loader/Loader";
 
 export const Login = ({ setUserName, userName, selectedChatId }) => {
   const [inputValue, setInputValue] = useState("");
   const [errorLength, setErrorLength] = useState(false);
   const [errorSymbols, setErrorSymbols] = useState(false);
+  const [showLoader, setShowLoader] = useState(false);
+
   const navigate = useNavigate();
   const forbiddenSymbols = /[,<>/?"':-=+!@#$%^&*()]/;
 
@@ -35,36 +38,40 @@ export const Login = ({ setUserName, userName, selectedChatId }) => {
 
   const handleSetName = () => {
     setUserName(inputValue);
-    sessionStorage.setItem("userName", inputValue);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  
+
     if (inputValue.length > 2 && inputValue.length < 11) {
       setErrorLength(false);
-  
+
       if (forbiddenSymbols.test(inputValue)) {
         setErrorSymbols(true);
       } else {
         const user = { username: inputValue };
-  
-        fetch('https://wechat-85y195m1.b4a.run/api/users/', {
-          method: 'POST',
+        setShowLoader(true);
+
+        fetch("https://wechat-85y195m1.b4a.run/api/users/", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify(user),
         })
           .then((response) => response.json())
           .then((userData) => {
             handleSetName();
-            navigate(`/chat/${selectedChatId}`);
             setErrorSymbols(false);
           })
           .catch((error) => {
-            console.error('Error:', error);
+            console.error("Error:", error);
           });
+
+        setTimeout(() => {
+          setShowLoader(false);
+          navigate(`/chat/${selectedChatId}`);
+        }, 1000);
       }
     } else {
       setErrorLength(true);
@@ -78,6 +85,7 @@ export const Login = ({ setUserName, userName, selectedChatId }) => {
   return (
     <>
       <div className="login">
+      {showLoader && <Loader />}
         <div className="login__background">
           <svg
             xmlns="http://www.w3.org/2000/svg"

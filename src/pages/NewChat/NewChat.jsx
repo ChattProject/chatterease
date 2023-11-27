@@ -30,15 +30,6 @@ export const NewChat = ({
       };
 
       addNewChat(newChat);
-      // console.log(allChats, 'chatss')
-      // // if (allChats) {
-      // //   const newChat = allChats.find((chat) => chat.chatname === newChatTitle);
-      // //   if (newChat) {
-      //     setSelectedChatId(allChats.lenght);
-      // //   } else {
-      // //     setSelectedChatId(-1); 
-      // //   }
-      // // }
       setShowLoader(true);
 
       setTimeout(() => {

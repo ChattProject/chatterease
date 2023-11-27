@@ -21,11 +21,12 @@ export const Chat = ({
   setChatMenu,
   chatMenu,
   selectedChatId,
-  userId,
+  // userId = -1,
+  users,
 }) => {
   const selectChatMessages = (state) => state.messages.messages;
   const chatMessages = useSelector(selectChatMessages);
-
+  const [userId, setUserId] = useState(-1);
   const [message, setMessage] = useState("");
   const [isClosingChat, setIsClosingChat] = useState(false);
   const [searchInput, setSearchInput] = useState(false);
@@ -45,24 +46,36 @@ export const Chat = ({
     }
   }, [chatMessages]);
 
+  useEffect(() => {
+    if (userName !== "") {
+      const newUser = users.find((user) => user.username === userName);
+
+      const timeoutId = setTimeout(() => {
+        setUserId(newUser.user_id);
+      }, 1000);
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [userName, users]);
+
   const containerRef = useRef(null);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchChatMessages(selectedChatId));
-  }, []);
-console.log(selectedChatId);
-  // socket.on('messagesUpdated', (fetchChatMessages) => {
-  //   dispatch(updateMessages(fetchChatMessages));
-  // });
+    const intervalId = setInterval(() => {
+      dispatch(fetchChatMessages(selectedChatId));
+    }, 3000);
+
+    return () => clearInterval(intervalId);
+  }, [dispatch, selectedChatId]);
 
   const scrollToBottom = () => {
     const container = containerRef.current;
 
     if (container) {
       if ("scrollIntoView" in container) {
-        // Check if smooth scrolling is supported
         container.scrollIntoView({
           behavior: "smooth",
           block: "end",
@@ -81,6 +94,10 @@ console.log(selectedChatId);
       }
     }
   };
+
+  useEffect(() => {
+    scrollToBottom();
+}, []);
 
   const handleChatClose = () => {
     setIsClosingChat(true);

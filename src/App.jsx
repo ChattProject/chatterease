@@ -2,7 +2,7 @@ import "./App.css";
 import "./style/style.scss";
 // import axios from "axios";
 import { connect } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ChatList } from "./pages/ChatList/ChatList";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
@@ -25,8 +25,6 @@ import { addMessage } from "./store/middleware/middlewareMessages";
 import { updateChats } from "./store/actions/actionsChats";
 import { fetchUsers } from "./store/middleware/middlewareUsers";
 import { updateUsers } from "./store/actions/actionsUsers";
-import socket from "./websocket";
-// import socket from "./websocket";
 let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty("--vh", `${vh}px`);
 
@@ -38,38 +36,16 @@ window.addEventListener("resize", () => {
 function App() {
   const dispatch = useDispatch();
 
-  socket.addEventListener('open', (event) => {
-    console.log('Зєднання встановлено');
-  
-    socket.send(JSON.stringify({ action: 'fetchChatMessages' }));
-  });
-
   useEffect(() => {
-    // Listen for updates from the server
-  socket.on('chatsUpdated', (fetchChats) => {
-    dispatch(updateChats(fetchChats));
-  });
-
-    // Clean up socket connection on component unmount
-    return () => {
-      socket.disconnect();
-    };
-  }, [socket]);
-
-  useEffect(() => {
-    dispatch(fetchChats()); 
-  }, []);
-
-  // socket.on('chatsUpdated', (fetchChats) => {
-  //   dispatch(updateChats(fetchChats));
-  // });
+    dispatch(fetchChats());
+  }, [dispatch]);
 
   const users = useSelector((state) => state.users.users);
   const selectChats = (state) => state.chats.chats;
   const allChats = useSelector(selectChats);
 
   const [userName, setUserName] = useState("");
-  const [userId, setUserId] = useState(-1);
+  // const [userId, setUserId] = useState(-1);
   const [selectedChatIndex, setSelectedChatIndex] = useState(-1);
   const [selectedChatTitle, setSelectedChatTitle] = useState("");
   const [selectedChatId, setSelectedChatId] = useState(-1);
@@ -78,45 +54,26 @@ function App() {
   const [mobileChatsMenu, setMobileChatsMenu] = useState(false);
 
   useEffect(() => {
-  if (allChats) {
-    allChats.forEach((chat, index) => {
-      if (chat.id === selectedChatId) {
-        setSelectedChatIndex(index);
-        setSelectedChatTitle(chat.chatname);
-      }
-    });
-  }
-}, [allChats, selectedChatId]);
+    if (allChats) {
+      allChats.forEach((chat, index) => {
+        if (chat.id === selectedChatId) {
+          setSelectedChatIndex(index);
+          setSelectedChatTitle(chat.chatname);
+        }
+      });
+    }
+  }, [allChats, selectedChatId]);
 
   useEffect(() => {
     dispatch(fetchUsers());
   }, [userName]);
-
-//   socket.on('usersUpdated', (fetchUsers) => {
-//     dispatch(updateUsers(fetchUsers));
-//   });
-  
-// console.log(users, 'users')
-// console.log(userId, 'idddddd')
-
-
-useEffect(() => {
-  if (users) {
-    const foundUser = users.find((user) => user.username === userName);
-    if (foundUser) {
-      setUserId(foundUser.user_id);
-    } else {
-      setUserId(-1); 
-    }
-  }
-}, [userName, users]);
 
   const addNewChat = (newChat) => {
     dispatch(addChat(newChat));
   };
 
   const addMessageToChat = (message) => {
-    dispatch(addMessage(selectedChatIndex, message)); 
+    dispatch(addMessage(selectedChatIndex, message));
   };
 
   const removeBurgerMenu = (event) => {
@@ -223,7 +180,8 @@ useEffect(() => {
                 setChatMenu={setChatMenu}
                 chatMenu={chatMenu}
                 selectedChatId={selectedChatId}
-                userId={userId}
+                // userId={userId}
+                users={users}
               />
             }
           />

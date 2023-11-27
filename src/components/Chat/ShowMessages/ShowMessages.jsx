@@ -38,13 +38,6 @@ export const ShowMessages = ({
     setShowButtonUp(true);
   };
 
-  useEffect(() => {
-    if (containerRef.current) {
-      setShowButtonUp(true);
-    }
-    scrollToBottom();
-  }, [containerRef, scrollToBottom]);
-
   function getDate(posted) {
     const date = new Date(posted);
 

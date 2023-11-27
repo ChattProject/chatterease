@@ -68,10 +68,6 @@ export const ChatList = ({
       )
     : [];
 
-  // const handleSearchInputChange = (e) => {
-  //   setSearchChat(e.target.value);
-  // };
-
   return (
     <>
       <div className="chatlist">
@@ -138,11 +134,11 @@ export const ChatList = ({
                     </Link>
                   </li>
                 ))}
-                <button className="chatlist__item chatlist__more">
+                {/* <button className="chatlist__item chatlist__more">
                   <Link className="chatlist__link chatlist__more_link paragraph">
                     + більше тем для спілкування
                   </Link>
-                </button>
+                </button> */}
               </>
             ) : (
               <div className="chatlist__nochats paragraph">Немає чатів</div>
