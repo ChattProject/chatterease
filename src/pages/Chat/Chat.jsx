@@ -7,7 +7,6 @@ import { ShowMessages } from "../../components/Chat/ShowMessages/ShowMessages";
 import { CloseSession } from "../../components/Chat/CloseSession/CloseSession";
 import { ChatLinks } from "../../components/ChatLinks/ChatLinks";
 import { useDispatch } from "react-redux";
-// import socket from "../../websocket";
 import { fetchChatMessages } from "../../store/middleware/middlewareMessages";
 import { updateMessages } from "../../store/actions/actionsMessages";
 import { Loader } from "../../components/Loader/Loader";
@@ -48,10 +47,6 @@ export const Chat = ({
   useEffect(() => {
     dispatch(fetchChatMessages(selectedChatId));
 }, []);
-
-    // socket.on('messagesUpdated', (fetchChatMessages) => {
-    //   dispatch(updateMessages(fetchChatMessages));
-    // });
   
 
     const scrollToBottom = () => {
