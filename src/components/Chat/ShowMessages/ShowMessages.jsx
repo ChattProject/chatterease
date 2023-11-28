@@ -18,6 +18,7 @@ export const ShowMessages = ({
       message.content.includes(searchInChat)
     );
     setSearchNothingVisible(!hasSearchInChat);
+    scrollToBottom();
   }, [messages, searchInChat]);
 
   const goToTop = () => {
