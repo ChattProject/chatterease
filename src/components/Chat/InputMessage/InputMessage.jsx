@@ -10,15 +10,22 @@ export const InputMessage = ({
   message,
   containerRef,
   scrollToBottom,
-  userId
+  userId,
 }) => {
+
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter' || event.keyCode == 13) {
+      event.preventDefault();
+    }
+  };
   const handleSetMessage = (event) => {
     setMessage(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  
+    scrollToBottom();
+
     if (userName && message.trim() !== "") {
       const messageData = {
         timestamp: new Date(),
@@ -28,12 +35,10 @@ export const InputMessage = ({
         group: chatId,
       };
       addMessageToChat(messageData);
-  
+
       setMessage("");
       document.querySelector(".input-message__input").rows = 1;
-  
     }
-    scrollToBottom();
   };
 
   const handleKeyDown = (event) => {
@@ -84,6 +89,7 @@ export const InputMessage = ({
         <textarea
           className="input-message__input paragraph"
           id="text-message"
+          onKeyPress={handleKeyPress}
           onChange={handleSetMessage}
           value={message}
           placeholder="Повідомлення..."
@@ -97,6 +103,13 @@ export const InputMessage = ({
           }}
           onKeyDown={handleKeyDown}
         ></textarea>
+        <div className="input-message__input_info paragraph">
+          <p className="input-message__input_text">Enter - новий рядок</p>
+          <p className="input-message__input_text">
+            Enter + Shift - відправити
+          </p>
+        </div>
+
         {/* <button type="submit" className="input-message__button"> */}
         <button
           type="submit"

@@ -65,6 +65,7 @@ export const SupportForm = ({ setMobileChatsMenu, selectedChatId }) => {
                   placeholder="Ім'я"
                   value={formData.name}
                   onChange={handleChange}
+                  required
                 />
               </div>
               <div className="supportForm__name">
@@ -78,6 +79,7 @@ export const SupportForm = ({ setMobileChatsMenu, selectedChatId }) => {
                   placeholder="Електронна пошта"
                   value={formData.email}
                   onChange={handleChange}
+                  required
                 />
               </div>
               <div className="supportForm__name">
@@ -85,6 +87,7 @@ export const SupportForm = ({ setMobileChatsMenu, selectedChatId }) => {
                   Опишіть проблему
                 </label>
                 <textarea
+                  required
                   className="supportForm__input"
                   name="message"
                   placeholder="Не можу відправити повідомлення"

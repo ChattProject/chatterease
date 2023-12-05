@@ -144,8 +144,6 @@
     }
   }
 
-
-
   &__exit {
     // osition: absolute;
     // top: 10px;
@@ -253,24 +251,11 @@
 
 @media (max-width: 480px) {
   .chat {
-    &__back {
-      padding: 23px 5vw;
-      word-wrap: break-word;
-    }
-    &__button_input {
-      width: 70%;
-    }
-  }
-}
-
-@media (max-width: 400px) {
-  .chat {
-    height: calc(100% - 75px);
-
     &__header {
       padding: 8px 5vw;
       background-color: $yellow;
     }
+
     &__title {
       padding: 0;
       width: 88vw;
@@ -278,25 +263,36 @@
     &__buttons {
       display: none;
     }
-    &__back {
-      display: none;
-    }
 
     &__login {
       bottom: 25px;
     }
-  }
-  .flexiblemenu {
-    display: block;
-    &__dots {
-      // display: block;
-
-      // &:hover,
-      // &:focus {
-      //   & ~ .flexiblemenu__links {
-      //     display: flex;
-      //   }
-      // }
+    &__back {
+      // padding: 23px 5vw;
+      // word-wrap: break-word;
+      display: none;
     }
+    &__button_input {
+      width: 70%;
+    }
+    .flexiblemenu {
+      display: block;
+      &__dots {
+        // display: block;
+
+        // &:hover,
+        // &:focus {
+        //   & ~ .flexiblemenu__links {
+        //     display: flex;
+        //   }
+        // }
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .chat {
+    height: calc(100% - 75px);
   }
 }

@@ -1,6 +1,6 @@
 .login {
   position: relative;
-  height: 90%;
+  height: 100%;
   overflow: hidden;
 }
 .login__background {
@@ -10,7 +10,7 @@
   height: 380px;
   width: 100%;
   background: url(../../images/login/people.svg), url(../../images/login/background_yellow.svg);
-  background-position: center 35%, top center;
+  background-position: center 12vh, top center;
   background-repeat: no-repeat;
   background-size: auto, auto;
 }
@@ -29,7 +29,7 @@
   bottom: -4%;
 }
 .login__title {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   font-size: 2.4em;
   line-height: 1.33em;
   font-weight: 400;
@@ -61,11 +61,11 @@
   border-color: #bd0b00;
 }
 .login__button {
-  margin-top: 10px;
+  margin-top: 20px;
   width: 100%;
 }
 .login__error {
-  visibility: hidden;
+  display: none;
   margin-top: 6px;
   font-size: 1.4em;
   line-height: 1.29em;
@@ -73,6 +73,7 @@
 }
 .login__error_display {
   visibility: visible;
+  display: block;
 }
 
 @media (max-width: 1000px) {
@@ -85,9 +86,6 @@
   }
 }
 @media (max-width: 836px) {
-  .login__background {
-    background-size: 70% 50%, auto;
-  }
   .login__background_flower_left {
     width: 11vw;
     left: 2%;
@@ -98,7 +96,8 @@
 }
 @media (max-width: 499px) {
   .login__background {
-    background-size: 68% 75%, auto;
+    background-position: center 15vh, top center;
+    background-size: 68% 35%, auto;
   }
 }
 @media (max-width: 400px) {

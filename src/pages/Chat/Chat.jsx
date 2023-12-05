@@ -40,7 +40,7 @@ export const Chat = ({
     } else {
       const timeoutId = setTimeout(() => {
         setShowLoader(false);
-      }, 2000);
+      }, 3000);
 
       return () => clearTimeout(timeoutId);
     }
@@ -97,7 +97,10 @@ export const Chat = ({
 
   useEffect(() => {
     scrollToBottom();
-}, []);
+    return () => {
+      
+    }
+  }, []);
 
   const handleChatClose = () => {
     setIsClosingChat(true);

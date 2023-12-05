@@ -1,6 +1,6 @@
 .login {
   position: relative;
-  height: 90%;
+  height: 100%;
   overflow: hidden;
 
   &__background {
@@ -12,7 +12,7 @@
     width: 100%;
     background: url(../../images/login/people.svg), url(../../images/login/background_yellow.svg);
     background-position:
-      center 35%,
+      center 12vh,
       // 8% 96%,
       // right bottom,
       top center;
@@ -41,7 +41,7 @@
     }
   }
   &__title {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     font-size: 2.4em;
     line-height: 1.33em;
     font-weight: 400;
@@ -72,12 +72,13 @@
   }
 
   &__button {
-    margin-top: 10px;
+    margin-top: 20px;
     width: 100%;
   }
 
   &__error {
-    visibility: hidden;
+    // visibility: hidden;
+    display: none;
     margin-top: 6px;
     font-size: 1.4em;
     line-height: 1.29em;
@@ -85,6 +86,7 @@
 
     &_display {
       visibility: visible;
+      display: block;
     }
   }
 }
@@ -110,9 +112,9 @@
 @media (max-width: 836px) {
   .login {
     &__background {
-      background-size:
-        70% 50%,
-        auto;
+      // background-size:
+      //   70% 50%,
+      //   auto;
       &_flower {
         &_left {
           width: 11vw;
@@ -130,8 +132,9 @@
 @media (max-width: 499px) {
   .login {
     &__background {
+      background-position: center 15vh, top center;
       background-size:
-        68% 75%,
+        68% 35%,
         auto;
     }
   }

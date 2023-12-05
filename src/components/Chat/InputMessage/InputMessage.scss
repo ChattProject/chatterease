@@ -38,7 +38,7 @@
 
     &_text {
       position: absolute;
-      bottom: 58px;
+      bottom: 50px;
       left: 8px;
       visibility: hidden;
       // width: 160px;
@@ -69,9 +69,19 @@
     word-break: break-all;
     // color: $black;
 
+    &_info {
+      display: none;
+      position: absolute;
+      bottom: 5px;
+      right: 15px;
+      text-align: left;
+      font-size: 1.1em;
+    }
     &:focus-visible {
       outline: none;
-
+      & ~ .input-message__input_info {
+        display: block;
+      }
       // & ~ .path_input {
       //   & path {
       //     fill: $green-dark;

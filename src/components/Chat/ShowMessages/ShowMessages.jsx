@@ -8,7 +8,7 @@ export const ShowMessages = ({
   containerRef,
   scrollToBottom,
   searchInChat,
-  setSearchNothingVisible
+  setSearchNothingVisible,
 }) => {
   // const containerRef = useRef(null);
   const [showButtonUp, setShowButtonUp] = useState(false);
@@ -18,7 +18,7 @@ export const ShowMessages = ({
       message.content.includes(searchInChat)
     );
     setSearchNothingVisible(!hasSearchInChat);
-    scrollToBottom();
+    // scrollToBottom();
   }, [messages, searchInChat]);
 
   const goToTop = () => {
@@ -77,28 +77,31 @@ export const ShowMessages = ({
           <img src={up} alt="up" className="show_message__up_icon" />
         </button>
         <div className={"show_message__messages"} ref={containerRef}>
-          {messages?.map((card, index) => {
-            const words = card.content.split(" ");
+          {messages?.map((card) => {
+            const textArray = card.content
+              .split(/(\n)/)
+              .filter((text) => text !== "\n");
 
             return (
               <div
                 className={`show_message__message  message ${
                   userName === card.author && "message_right"
                 } ${card.id === messages.length - 1 && "message__last"}`}
-                key={card.id + index}
+                key={card.id}
               >
                 <div className="message__name">{card.author}</div>
                 <div className="message__text">
-                  {words.map((word, index) => (
+                  {textArray.map((text, index) => (
                     <span
-                      key={index + word.length}
+                      key={index}
                       className={
-                        searchInChat !== "" && word.includes(searchInChat)
+                        searchInChat !== "" && text.includes(searchInChat)
                           ? "message__text_bold"
                           : ""
                       }
                     >
-                      {`${word} `}
+                      {`${text} `}
+                      <br />
                     </span>
                   ))}
                 </div>
