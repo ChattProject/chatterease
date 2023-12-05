@@ -59,6 +59,7 @@ export const Chat = ({
   }, [userName, users]);
 
   const containerRef = useRef(null);
+  const container = containerRef.current;
 
   const dispatch = useDispatch();
 
@@ -72,7 +73,6 @@ export const Chat = ({
   }, [dispatch, selectedChatId]);
 
   const scrollToBottom = () => {
-    const container = containerRef.current;
 
     if (container) {
       if ("scrollIntoView" in container) {
@@ -98,7 +98,7 @@ export const Chat = ({
   useEffect(() => {
     scrollToBottom();
     return () => {
-      
+
     }
   }, []);
 
@@ -358,6 +358,7 @@ export const Chat = ({
                 containerRef={containerRef}
                 scrollToBottom={scrollToBottom}
                 userId={userId}
+                container={container}
               />
             </div>
           )}

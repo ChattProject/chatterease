@@ -11,6 +11,7 @@ export const InputMessage = ({
   containerRef,
   scrollToBottom,
   userId,
+  container
 }) => {
 
   const handleKeyPress = (event) => {
