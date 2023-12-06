@@ -129,11 +129,16 @@
       //   text-align: center;
       // }
     }
+
+    &__title {
+      margin-top: 20px;
+    }
     &__question {
       font-weight: 400;
     }
     &__icon {
-      top: 15px;
+      top: 10px;
+      left: 5px;
     }
     &__header {
       font-weight: 600;

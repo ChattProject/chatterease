@@ -1,6 +1,6 @@
 // import "./ChatList.css";
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate  } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import create from "../../images/chatList/create.svg";
 import { useDispatch } from "react-redux";
 import { cleanChatMessages } from "../../store/actions/actionsMessages";
@@ -13,12 +13,11 @@ export const ChatList = ({
   selectedChatId = -1,
   setSelectedChatId,
   setMobileChatsMenu,
+  previousChat,
+  setPreviousChat,
 }) => {
   const selectChatMessages = (state) => state.messages.messages;
   const [searchChat, setSearchChat] = useState("");
-  const [previousChat, setPreviousChat] = useState(
-    parseInt(sessionStorage.getItem("previousChat")) || -1
-  );
   const navigate = useNavigate();
 
   const [showLoader, setShowLoader] = useState(true);
@@ -37,13 +36,13 @@ export const ChatList = ({
     setSelectedChatIndex(index);
     setSelectedChatId(id);
     setPreviousChat(id);
-    sessionStorage.setItem("previousChat", id.toString());
+    // sessionStorage.setItem("previousChat", id.toString());
   };
   const handleBackButtonClick = (id) => {
     setSelectedChatId(id);
-    setPreviousChat(id);
+    // setPreviousChat(id);
     navigate(`/chat/${previousChat}`);
-    sessionStorage.setItem("previousChat", id.toString());
+    // sessionStorage.setItem("previousChat", id.toString());
   };
 
   const handleSearchInputChange = (e) => {

@@ -21,6 +21,10 @@ export const ShowMessages = ({
     // scrollToBottom();
   }, [messages, searchInChat]);
 
+  // useEffect(() => {
+  //   scrollToBottom();
+  // }, []);
+
   const goToTop = () => {
     containerRef.current.scrollIntoView({
       behavior: "smooth",

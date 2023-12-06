@@ -70,7 +70,11 @@ export const Login = ({ setUserName, userName, selectedChatId }) => {
 
         setTimeout(() => {
           setShowLoader(false);
-          navigate(`/chat/${selectedChatId}`);
+          if (selectedChatId !== -1) {
+            navigate(`/chat/${selectedChatId}`);
+          } else {
+            navigate(`/chats}`);
+          }
         }, 1000);
       }
     } else {
@@ -85,7 +89,7 @@ export const Login = ({ setUserName, userName, selectedChatId }) => {
   return (
     <>
       <div className="login">
-      {showLoader && <Loader />}
+        {showLoader && <Loader />}
         <div className="login__background">
           <svg
             xmlns="http://www.w3.org/2000/svg"

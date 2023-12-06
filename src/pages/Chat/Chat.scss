@@ -295,4 +295,17 @@
   .chat {
     height: calc(100% - 75px);
   }
+  .flexiblemenu__links {
+    // padding: 5px 3vw;
+    width: 60vw;
+  }
+}
+@media (max-width: 300px) {
+  .chat {
+    height: calc(100% - 75px);
+  }
+  .flexiblemenu__links {
+    padding: 5px 3vw;
+    width: 70vw;
+  }
 }

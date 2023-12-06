@@ -49,6 +49,7 @@ function App() {
   const [selectedChatIndex, setSelectedChatIndex] = useState(-1);
   const [selectedChatTitle, setSelectedChatTitle] = useState("");
   const [selectedChatId, setSelectedChatId] = useState(-1);
+  const [previousChat, setPreviousChat] = useState(-1);
   const [headerMenu, setHeaderMenu] = useState(false);
   const [chatMenu, setChatMenu] = useState(false);
   const [mobileChatsMenu, setMobileChatsMenu] = useState(false);
@@ -113,6 +114,8 @@ function App() {
                 selectedChatId={selectedChatId}
                 setSelectedChatId={setSelectedChatId}
                 setMobileChatsMenu={setMobileChatsMenu}
+                setPreviousChat={setPreviousChat}
+                previousChat={previousChat}
               />
             }
           />

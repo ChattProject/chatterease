@@ -160,6 +160,11 @@ a {
     padding: 50px 40px;
   }
 }
+@media (max-width: 500px) {
+  .window {
+    top: 20%;
+  }
+}
 @media (max-width: 400px) {
   .window {
     left: 0;
@@ -1265,11 +1270,15 @@ body {
         -ms-flex-align: center;
             align-items: center;
   }
+  .close__title {
+    margin-top: 20px;
+  }
   .close__question {
     font-weight: 400;
   }
   .close__icon {
-    top: 15px;
+    top: 10px;
+    left: 5px;
   }
   .close__header {
     font-weight: 600;
@@ -1489,18 +1498,6 @@ body {
   }
 }
 @media (max-width: 480px) {
-  .chat__back {
-    padding: 23px 5vw;
-    word-wrap: break-word;
-  }
-  .chat__button_input {
-    width: 70%;
-  }
-}
-@media (max-width: 400px) {
-  .chat {
-    height: calc(100% - 75px);
-  }
   .chat__header {
     padding: 8px 5vw;
     background-color: #fbca5c;
@@ -1512,19 +1509,39 @@ body {
   .chat__buttons {
     display: none;
   }
-  .chat__back {
-    display: none;
-  }
   .chat__login {
     bottom: 25px;
   }
-  .flexiblemenu {
+  .chat__back {
+    display: none;
+  }
+  .chat__button_input {
+    width: 70%;
+  }
+  .chat .flexiblemenu {
     display: block;
+  }
+}
+@media (max-width: 400px) {
+  .chat {
+    height: calc(100% - 75px);
+  }
+  .flexiblemenu__links {
+    width: 60vw;
+  }
+}
+@media (max-width: 300px) {
+  .chat {
+    height: calc(100% - 75px);
+  }
+  .flexiblemenu__links {
+    padding: 5px 3vw;
+    width: 70vw;
   }
 }
 .login {
   position: relative;
-  height: 90%;
+  height: 100%;
   overflow: hidden;
 }
 .login__background {
@@ -1534,7 +1551,7 @@ body {
   height: 380px;
   width: 100%;
   background: url(../../images/login/people.svg), url(../../images/login/background_yellow.svg);
-  background-position: center 20%, top center;
+  background-position: center 12vh, top center;
   background-repeat: no-repeat;
   background-size: auto, auto;
 }
@@ -1610,9 +1627,6 @@ body {
   }
 }
 @media (max-width: 836px) {
-  .login__background {
-    background-size: 70% 50%, auto;
-  }
   .login__background_flower_left {
     width: 11vw;
     left: 2%;
@@ -1623,6 +1637,7 @@ body {
 }
 @media (max-width: 499px) {
   .login__background {
+    background-position: center 15vh, top center;
     background-size: 68% 35%, auto;
   }
 }

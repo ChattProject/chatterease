@@ -94,7 +94,6 @@ $montserratAlternates: "Montserra t Alternates", "Montserrat", "Roboto", "Open S
   border: 1px $grey-default solid;
 }
 
-
 @media (max-width: 1000px) {
   .window {
     left: 15%;
@@ -114,7 +113,11 @@ $montserratAlternates: "Montserra t Alternates", "Montserrat", "Roboto", "Open S
     padding: 50px 40px;
   }
 }
-
+@media (max-width: 500px) {
+  .window {
+    top: 20%;
+  }
+}
 @media (max-width: 400px) {
   .window {
     left: 0;

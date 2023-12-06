@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { fetchChatMessages } from "../../store/middleware/middlewareMessages";
 import { updateMessages } from "../../store/actions/actionsMessages";
 import { Loader } from "../../components/Loader/Loader";
+import { useAutoScroll } from "../../hooks/AutoScroll";
 
 export const Chat = ({
   // chat,
@@ -33,6 +34,8 @@ export const Chat = ({
   const [searchInChat, setSearchInChat] = useState("");
   const [searchNothingVisible, setSearchNothingVisible] = useState(false);
   const [showLoader, setShowLoader] = useState(true);
+
+  const containerRef = useAutoScroll(chatMessages.length);
 
   useEffect(() => {
     if (chatMessages.length !== 0) {
@@ -58,7 +61,6 @@ export const Chat = ({
     }
   }, [userName, users]);
 
-  const containerRef = useRef(null);
   const container = containerRef.current;
 
   const dispatch = useDispatch();
@@ -73,7 +75,6 @@ export const Chat = ({
   }, [dispatch, selectedChatId]);
 
   const scrollToBottom = () => {
-
     if (container) {
       if ("scrollIntoView" in container) {
         container.scrollIntoView({
@@ -96,9 +97,8 @@ export const Chat = ({
   };
 
   useEffect(() => {
-    scrollToBottom();
-    return () => {
-
+    if (containerRef.current) {
+      containerRef.current.scrollTop = containerRef.current.scrollHeight;
     }
   }, []);
 
