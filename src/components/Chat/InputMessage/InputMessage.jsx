@@ -1,4 +1,5 @@
 import React from "react";
+import TextareaAutosize from 'react-textarea-autosize';
 import send from "../../../images/chat/send.svg";
 import "./InputMessage.css";
 
@@ -62,6 +63,21 @@ export const InputMessage = ({
     }
   };
 
+// const handleKeyDown = (event) => {
+//   if (event.key === 'Enter' && !event.shiftKey) {
+//     event.preventDefault();
+//     const textArea = event.target;
+//     const value = textArea.value;
+//     const start = textArea.selectionStart;
+//     const end = textArea.selectionEnd;
+
+//     textArea.value = value.substring(0, start) + '\n' + value.substring(end, value.length);
+//     textArea.selectionStart = textArea.selectionEnd = start + 1;
+//   } else if (event.key === 'Enter' && event.shiftKey) {
+//     handleSubmit(event);
+//   }
+// };
+
   return (
     <div className={"input-message"}>
       <form className={"input-message__form"} onSubmit={handleSubmit}>
@@ -97,6 +113,16 @@ export const InputMessage = ({
           }}
           onKeyDown={handleKeyDown}
         ></textarea>
+        {/* <TextareaAutosize
+          className="input-message__input paragraph"
+          id="text-message"
+          onChange={handleSetMessage}
+          value={message}
+          placeholder="Повідомлення..."
+          required
+          minRows={1}
+          onKeyDown={handleKeyDown}
+        /> */}
         {/* <button type="submit" className="input-message__button"> */}
         <button
           type="submit"

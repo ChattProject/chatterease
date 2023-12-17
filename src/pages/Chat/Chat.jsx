@@ -360,6 +360,7 @@ export const Chat = ({
           )}
           {/* {showLoader && <Loader />} */}
         </div>
+        <p className="chatpage__enter">Enter+shift</p>
       </div>
       {isClosingChat && <CloseSession setIsClosingChat={setIsClosingChat} />}
     </>
