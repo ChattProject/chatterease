@@ -499,7 +499,7 @@ body {
   line-height: 1.25em;
 }
 .greetings__image {
-  height: 45%;
+  height: 38%;
   width: inherit;
 }
 .greetings__buttons_two {
@@ -600,7 +600,7 @@ body {
     padding: 12px;
   }
   .greetings__button, .greetings__button_start {
-    width: 40vw;
+    width: 32vw;
   }
 }
 @media (max-width: 400px) {
@@ -954,7 +954,7 @@ body {
 .show_message__button {
   position: fixed;
   bottom: 150px;
-  right: calc(7vw + 25px);
+  right: calc(7vw + 20px);
   background-color: inherit;
 }
 .show_message__button_input {
@@ -1305,6 +1305,13 @@ body {
   position: relative;
   background-color: #fffff3;
 }
+.chatpage__enter {
+  color: #fff;
+  position: absolute;
+  right: 0.5em;
+  bottom: 0.5em;
+}
+
 .chat {
   position: relative;
   height: calc(100% - 95px);
@@ -1634,6 +1641,16 @@ body {
   .login__background_flower_right {
     width: 13vw;
   }
+  .login__window {
+    padding: 2.3em 2.3em;
+  }
+}
+@media (max-width: 519px) {
+  .login__title {
+    margin-bottom: 0.8em;
+    font-size: 2.1em;
+    line-height: 1.33em;
+  }
 }
 @media (max-width: 499px) {
   .login__background {
@@ -1654,7 +1671,9 @@ body {
     max-width: 236px;
   }
   .login__title {
-    padding: 0 5px;
+    margin-bottom: 1em;
+    font-size: 2.1em;
+    line-height: 1.33em;
   }
 }
 .newchat {
@@ -1885,10 +1904,16 @@ body {
     width: 20px;
     height: 20px;
   }
+  .rules__nb {
+    width: auto;
+  }
 }
 @media (max-width: 400px) {
   .rules__title {
     font-size: 2.8em;
+  }
+  .rules__nb {
+    width: auto;
   }
   .rules__dot {
     width: 16px;

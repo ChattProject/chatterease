@@ -93,6 +93,16 @@
   .login__background_flower_right {
     width: 13vw;
   }
+  .login__window {
+    padding: 2.3em 2.3em;
+  }
+}
+@media (max-width: 519px) {
+  .login__title {
+    margin-bottom: 0.8em;
+    font-size: 2.1em;
+    line-height: 1.33em;
+  }
 }
 @media (max-width: 499px) {
   .login__background {
@@ -113,6 +123,8 @@
     max-width: 236px;
   }
   .login__title {
-    padding: 0 5px;
+    margin-bottom: 1em;
+    font-size: 2.1em;
+    line-height: 1.33em;
   }
 }/*# sourceMappingURL=Login.css.map */

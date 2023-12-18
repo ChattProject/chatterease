@@ -1,6 +1,6 @@
 import React from "react";
-import TextareaAutosize from 'react-textarea-autosize';
-import send from "../../../images/chat/send.svg";
+import Input from '@mui/material/Input';
+// import InputAdornment from "@material-ui/core/InputAdornment";
 import "./InputMessage.css";
 
 export const InputMessage = ({
@@ -12,11 +12,10 @@ export const InputMessage = ({
   containerRef,
   scrollToBottom,
   userId,
-  container
+  container,
 }) => {
-
   const handleKeyPress = (event) => {
-    if (event.key === 'Enter' || event.keyCode == 13) {
+    if (event.key === "Enter" || event.keyCode == 13) {
       event.preventDefault();
     }
   };
@@ -69,20 +68,20 @@ export const InputMessage = ({
     }
   };
 
-// const handleKeyDown = (event) => {
-//   if (event.key === 'Enter' && !event.shiftKey) {
-//     event.preventDefault();
-//     const textArea = event.target;
-//     const value = textArea.value;
-//     const start = textArea.selectionStart;
-//     const end = textArea.selectionEnd;
+  // const handleKeyDown = (event) => {
+  //   if (event.key === 'Enter' && !event.shiftKey) {
+  //     event.preventDefault();
+  //     const textArea = event.target;
+  //     const value = textArea.value;
+  //     const start = textArea.selectionStart;
+  //     const end = textArea.selectionEnd;
 
-//     textArea.value = value.substring(0, start) + '\n' + value.substring(end, value.length);
-//     textArea.selectionStart = textArea.selectionEnd = start + 1;
-//   } else if (event.key === 'Enter' && event.shiftKey) {
-//     handleSubmit(event);
-//   }
-// };
+  //     textArea.value = value.substring(0, start) + '\n' + value.substring(end, value.length);
+  //     textArea.selectionStart = textArea.selectionEnd = start + 1;
+  //   } else if (event.key === 'Enter' && event.shiftKey) {
+  //     handleSubmit(event);
+  //   }
+  // };
 
   return (
     <div className={"input-message"}>
@@ -103,23 +102,38 @@ export const InputMessage = ({
           />
         </svg>
         <span className="input-message__emoji_text">Maybe later :)</span>
-        <textarea
-          className="input-message__input paragraph"
-          id="text-message"
-          onKeyPress={handleKeyPress}
-          onChange={handleSetMessage}
+        <Input
+          className={`input-message__input paragraph`}
+          sx={{
+            margin: "0 10px",
+            padding: "5px",
+            border: "none",
+            outline: "none",
+            "& :focus-visible": {
+              outline: "none",
+            },
+          }}
+          multiline={true}
+          // rows={1}
           value={message}
-          placeholder="Повідомлення..."
-          required
-          rows={1}
+          onChange={handleSetMessage}
+          onKeyPress={handleKeyPress}
+          onKeyDown={handleKeyDown}
+          // endAdornment={
+          //   <InputAdornment position="end">Повідомлення...</InputAdornment>
+          // }
+          labelWidth={0}
+          inputProps={{
+            "aria-label": "message input",
+          }}
           onInput={(e) => {
             e.target.rows = 1;
             const lineHeight = parseInt(getComputedStyle(e.target).lineHeight);
             const rows = Math.floor(e.target.scrollHeight / lineHeight);
             e.target.rows = rows;
+            document.querySelector('.input-message__input_info').style.display = 'block';
           }}
-          onKeyDown={handleKeyDown}
-        ></textarea>
+        />
         <div className="input-message__input_info paragraph">
           <p className="input-message__input_text">Enter - новий рядок</p>
           <p className="input-message__input_text">
