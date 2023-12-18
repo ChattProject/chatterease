@@ -32,7 +32,7 @@ export const Chat = ({
   const [isClosingChat, setIsClosingChat] = useState(false);
   const [searchInput, setSearchInput] = useState(false);
   const [searchInChat, setSearchInChat] = useState("");
-  const [searchNothingVisible, setSearchNothingVisible] = useState(false);
+  const [searchNothingVisible, setSearchNothingVisible] = useState(-1);
   const [showLoader, setShowLoader] = useState(true);
 
   const containerRef = useAutoScroll(chatMessages.length);
@@ -166,7 +166,9 @@ export const Chat = ({
                       placeholder="Пошук в чаті..."
                       className="chat__search_input paragraph"
                     />
-                    {searchNothingVisible && (
+                    {searchNothingVisible > 0 ? (
+                      <p className="chat__search_nothing paragraph">Знайшли {searchNothingVisible} співпадіння</p>
+                    ) : searchNothingVisible === 0 && (
                       <p className="chat__search_nothing paragraph">
                         Нічого не знайшли :(
                       </p>

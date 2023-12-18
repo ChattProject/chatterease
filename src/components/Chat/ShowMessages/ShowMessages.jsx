@@ -9,6 +9,7 @@ export const ShowMessages = ({
   setSearchNothingVisible,
 }) => {
   const [showButtonUp, setShowButtonUp] = useState(false);
+
   const lastMessageRef = useRef(null);
 
   const scrollToLastMessage = () => {
@@ -21,13 +22,25 @@ export const ShowMessages = ({
     }
   };
 
+  // useEffect(() => {
+  //   const hasSearchInChat = messages.some((message) =>
+  //     message.content.includes(searchInChat)
+  //   );
+  //   setSearchNothingVisible(!hasSearchInChat);
+  // }, [searchInChat, setSearchNothingVisible]);
+
   useEffect(() => {
-    const hasSearchInChat = messages.some((message) =>
-      message.content.includes(searchInChat)
-    );
-    setSearchNothingVisible(!hasSearchInChat);
+    if (searchInChat && searchInChat.length > 0) {
+      const filteredMessages = messages.filter((message) =>
+        message.content.includes(searchInChat)
+      );
+      setSearchNothingVisible(filteredMessages.length);
+    }
+  }, [searchInChat, setSearchNothingVisible]);
+
+  useEffect(() => {
     scrollToLastMessage();
-  }, [messages, searchInChat, setSearchNothingVisible]);
+  }, []);
 
   const goToTop = () => {
     containerRef.current.scrollIntoView({
@@ -94,7 +107,6 @@ export const ShowMessages = ({
                     {lines.map((line, lineIndex) => (
                       <React.Fragment key={lineIndex}>
                         {lineIndex > 0 && <br />}{" "}
-                        {/* Add <br /> after the first line */}
                         <span
                           className={
                             searchInChat !== "" && line.includes(searchInChat)
