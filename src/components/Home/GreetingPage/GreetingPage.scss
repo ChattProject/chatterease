@@ -49,7 +49,7 @@
   }
   &__image {
     // height: 16vh;
-    height: 45%;
+    height: 38%;
     // width: 13vh;
     width: inherit;
   }
@@ -119,6 +119,7 @@
     }
     &__buttons_two {
       flex-direction: row;
+
     }
   }
 }
@@ -164,7 +165,7 @@
     }
     &__button,
     &__button_start {
-      width: 40vw;
+      width: 32vw;
     }
   }
 }
