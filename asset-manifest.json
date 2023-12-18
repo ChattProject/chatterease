@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/chatterease/static/css/main.5aab1d4a.css",
-    "main.js": "/chatterease/static/js/main.fac62ed9.js",
+    "main.css": "/chatterease/static/css/main.e350b7f2.css",
+    "main.js": "/chatterease/static/js/main.0e6db16f.js",
     "static/js/787.8defb542.chunk.js": "/chatterease/static/js/787.8defb542.chunk.js",
     "static/media/bgSupport.jpg": "/chatterease/static/media/bgSupport.6c2096f19cd6dbdb8698.jpg",
     "static/media/background_chat.svg": "/chatterease/static/media/background_chat.69d7a011296f4f02d718.svg",
@@ -17,16 +17,15 @@
     "static/media/warning.svg": "/chatterease/static/media/warning.e89907aedc656345bace7b94d9771b22.svg",
     "index.html": "/chatterease/index.html",
     "static/media/up.svg": "/chatterease/static/media/up.6a073a76e7eec3b42ad16b350aeab3ca.svg",
-    "static/media/send.svg": "/chatterease/static/media/send.62c3376d7f5a2b537c2b36430a9659a3.svg",
     "static/media/background_plot.svg": "/chatterease/static/media/background_plot.7a1dcc860726ad476ca5.svg",
     "static/media/search.svg": "/chatterease/static/media/search.e23a57ad6c7f5f7ba16a.svg",
     "static/media/background_yellow.svg": "/chatterease/static/media/background_yellow.546d537633d210812352.svg",
-    "main.5aab1d4a.css.map": "/chatterease/static/css/main.5aab1d4a.css.map",
-    "main.fac62ed9.js.map": "/chatterease/static/js/main.fac62ed9.js.map",
+    "main.e350b7f2.css.map": "/chatterease/static/css/main.e350b7f2.css.map",
+    "main.0e6db16f.js.map": "/chatterease/static/js/main.0e6db16f.js.map",
     "787.8defb542.chunk.js.map": "/chatterease/static/js/787.8defb542.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5aab1d4a.css",
-    "static/js/main.fac62ed9.js"
+    "static/css/main.e350b7f2.css",
+    "static/js/main.0e6db16f.js"
   ]
 }
