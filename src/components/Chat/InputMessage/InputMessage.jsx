@@ -44,15 +44,12 @@ export const InputMessage = ({
 
   const handleKeyDown = (event) => {
     if (event.key === "Shift") {
-      // When Shift key is pressed, handle Enter key to send the message
-      event.preventDefault(); // Prevent Enter key from creating a new line
+      event.preventDefault(); 
     } else if (event.key === "Enter") {
       if (event.shiftKey) {
-        // Shift+Enter should send the message
         handleSubmit(event);
       } else {
-        // Enter without Shift should create a new line
-        // Prevent form submission and add a new line character
+
         event.preventDefault();
         const textArea = event.target;
         const value = textArea.value;
@@ -67,21 +64,6 @@ export const InputMessage = ({
       }
     }
   };
-
-  // const handleKeyDown = (event) => {
-  //   if (event.key === 'Enter' && !event.shiftKey) {
-  //     event.preventDefault();
-  //     const textArea = event.target;
-  //     const value = textArea.value;
-  //     const start = textArea.selectionStart;
-  //     const end = textArea.selectionEnd;
-
-  //     textArea.value = value.substring(0, start) + '\n' + value.substring(end, value.length);
-  //     textArea.selectionStart = textArea.selectionEnd = start + 1;
-  //   } else if (event.key === 'Enter' && event.shiftKey) {
-  //     handleSubmit(event);
-  //   }
-  // };
 
   return (
     <div className={"input-message"}>

@@ -7,9 +7,9 @@ export const SupportForm = ({ setMobileChatsMenu, selectedChatId }) => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
+    author_name: "",
+    author_email: "",
+    content: "",
   });
 
   useEffect(() => {
@@ -17,6 +17,7 @@ export const SupportForm = ({ setMobileChatsMenu, selectedChatId }) => {
   }, []);
 
   const [isWindowContentVisible, setIsWindowContentVisible] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,10 +27,30 @@ export const SupportForm = ({ setMobileChatsMenu, selectedChatId }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    localStorage.setItem("formData", JSON.stringify(formData));
-    setIsWindowContentVisible(false);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://wechat-85y195m1.b4a.run/api/support/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        localStorage.setItem("formData", JSON.stringify(formData));
+        setIsWindowContentVisible(false);
+      } else {
+        console.error("Failed to submit the form");
+      }
+    } catch (error) {
+      console.error("Error submitting the form:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleGoBack = () => {
@@ -61,9 +82,9 @@ export const SupportForm = ({ setMobileChatsMenu, selectedChatId }) => {
                 <input
                   className="supportForm__input"
                   type="text"
-                  name="name"
+                  name="author_name"
                   placeholder="Ім'я"
-                  value={formData.name}
+                  value={formData.author_name}
                   onChange={handleChange}
                   required
                 />
@@ -75,9 +96,9 @@ export const SupportForm = ({ setMobileChatsMenu, selectedChatId }) => {
                 <input
                   className="supportForm__input"
                   type="email"
-                  name="email"
+                  name="author_email"
                   placeholder="Електронна пошта"
-                  value={formData.email}
+                  value={formData.author_email}
                   onChange={handleChange}
                   required
                 />
@@ -89,20 +110,24 @@ export const SupportForm = ({ setMobileChatsMenu, selectedChatId }) => {
                 <textarea
                   required
                   className="supportForm__input"
-                  name="message"
+                  name="content"
                   placeholder="Не можу відправити повідомлення"
-                  value={formData.message}
+                  value={formData.content}
                   onChange={handleChange}
                 />
               </div>
               <button
+                type="submit"
                 className={`login__button ${
-                  formData.name && formData.email && formData.message
+                  formData.author_name &&
+                  formData.author_email &&
+                  formData.content
                     ? "button-green"
                     : "button-green button-green_disabled"
                 }`}
+                disabled={isSubmitting}
               >
-                Надіслати
+                {isSubmitting ? "Надсилання..." : "Надіслати"}
               </button>
             </form>
           </>
