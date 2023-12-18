@@ -10,15 +10,17 @@ export const ShowMessages = ({
 }) => {
   const [showButtonUp, setShowButtonUp] = useState(false);
   const lastMessageRef = useRef(null);
-const scrollToLastMessage = () => {
-  if (lastMessageRef.current) {
-    lastMessageRef.current.scrollIntoView({
-      behavior: "smooth",
-      block: "end",
-      inline: "nearest",
-    });
-  }
-};
+
+  const scrollToLastMessage = () => {
+    if (lastMessageRef.current) {
+      lastMessageRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+        inline: "nearest",
+      });
+    }
+  };
+
   useEffect(() => {
     const hasSearchInChat = messages.some((message) =>
       message.content.includes(searchInChat)
@@ -26,6 +28,7 @@ const scrollToLastMessage = () => {
     setSearchNothingVisible(!hasSearchInChat);
     scrollToLastMessage();
   }, [messages, searchInChat, setSearchNothingVisible]);
+
   const goToTop = () => {
     containerRef.current.scrollIntoView({
       behavior: "smooth",
@@ -34,10 +37,12 @@ const scrollToLastMessage = () => {
     });
     setShowButtonUp(false);
   };
+
   const goToBottom = () => {
     scrollToLastMessage();
     setShowButtonUp(true);
   };
+
   function getDate(posted) {
     const date = new Date(posted);
     const year = date.getFullYear();
@@ -72,8 +77,10 @@ const scrollToLastMessage = () => {
         <div className={"show_message__messages"} ref={containerRef}>
           {messages?.map((card, index) => {
             if (card && card.content) {
-              const words = card.content.split(" ");
+              const lines = card.content.split("\n");
+
               const isLastMessage = index === messages.length - 1;
+
               return (
                 <div
                   className={`show_message__message  message ${
@@ -84,23 +91,27 @@ const scrollToLastMessage = () => {
                 >
                   <div className="message__name">{card.author}</div>
                   <div className="message__text">
-                    {words.map((word, index) => (
-                      <span
-                        key={index + word.length}
-                        className={
-                          searchInChat !== "" && word.includes(searchInChat)
-                            ? "message__text_bold"
-                            : ""
-                        }
-                      >
-                        {`${word} `}
-                      </span>
+                    {lines.map((line, lineIndex) => (
+                      <React.Fragment key={lineIndex}>
+                        {lineIndex > 0 && <br />}{" "}
+                        {/* Add <br /> after the first line */}
+                        <span
+                          className={
+                            searchInChat !== "" && line.includes(searchInChat)
+                              ? "message__text_bold"
+                              : ""
+                          }
+                        >
+                          {line}
+                        </span>
+                      </React.Fragment>
                     ))}
                   </div>
                   <div className="message__date">{getDate(card.timestamp)}</div>
                 </div>
               );
             }
+
             return null;
           })}
         </div>
