@@ -10,7 +10,7 @@ export const ShowMessages = ({
   setSearchNothingVisible,
 }) => {
   const [showButtonUp, setShowButtonUp] = useState(false);
-  const [messagesLength, setMessagesLength] = useState(messages.length);
+  const [messagesLength, setMessagesLength] = useState(0);
 
   const lastMessageRef = useRef(null);
 
@@ -46,9 +46,12 @@ export const ShowMessages = ({
       setSearchNothingVisible(filteredMessages.length);
     }
   }, [searchInChat, setSearchNothingVisible, messages]);
-  useEffect(() => {
-    scrollToLastMessage();
-  }, [messages]);
+
+  // useEffect(() => {
+    
+  //   scrollToLastMessage();
+  // }, [messages]);
+
   useEffect(() => {
     if (messages.length > messagesLength) {
       scrollToLastMessage();

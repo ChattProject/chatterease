@@ -98,7 +98,7 @@ export const Chat = ({
 
   useEffect(() => {
     scrollToBottom();
-  }, []);
+  }, [message]);
 
   const handleChatClose = () => {
     setIsClosingChat(true);
