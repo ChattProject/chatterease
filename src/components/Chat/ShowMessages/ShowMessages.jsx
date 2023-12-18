@@ -5,10 +5,12 @@ export const ShowMessages = ({
   message,
   userName,
   containerRef,
+  scrollToBottom,
   searchInChat,
   setSearchNothingVisible,
 }) => {
   const [showButtonUp, setShowButtonUp] = useState(false);
+  const [messagesLength, setMessagesLength] = useState(messages.length);
 
   const lastMessageRef = useRef(null);
 
@@ -22,25 +24,10 @@ export const ShowMessages = ({
     }
   };
 
-  // useEffect(() => {
-  //   const hasSearchInChat = messages.some((message) =>
-  //     message.content.includes(searchInChat)
-  //   );
-  //   setSearchNothingVisible(!hasSearchInChat);
-  // }, [searchInChat, setSearchNothingVisible]);
-
-  useEffect(() => {
-    if (searchInChat && searchInChat.length > 0) {
-      const filteredMessages = messages.filter((message) =>
-        message.content.includes(searchInChat)
-      );
-      setSearchNothingVisible(filteredMessages.length);
-    }
-  }, [searchInChat, setSearchNothingVisible]);
-
-  useEffect(() => {
+  const goToBottom = () => {
     scrollToLastMessage();
-  }, []);
+    setShowButtonUp(true);
+  };
 
   const goToTop = () => {
     containerRef.current.scrollIntoView({
@@ -51,10 +38,24 @@ export const ShowMessages = ({
     setShowButtonUp(false);
   };
 
-  const goToBottom = () => {
+  useEffect(() => {
+    if (searchInChat && searchInChat.length > 0) {
+      const filteredMessages = messages.filter((message) =>
+        message.content.includes(searchInChat)
+      );
+      setSearchNothingVisible(filteredMessages.length);
+    }
+  }, [searchInChat, setSearchNothingVisible, messages]);
+  useEffect(() => {
     scrollToLastMessage();
-    setShowButtonUp(true);
-  };
+  }, [messages]);
+  useEffect(() => {
+    if (messages.length > messagesLength) {
+      scrollToLastMessage();
+    }
+
+    setMessagesLength(messages.length);
+  }, [messagesLength, messages]);
 
   function getDate(posted) {
     const date = new Date(posted);

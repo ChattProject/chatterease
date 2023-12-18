@@ -97,9 +97,7 @@ export const Chat = ({
   };
 
   useEffect(() => {
-    if (containerRef.current) {
-      containerRef.current.scrollTop = containerRef.current.scrollHeight;
-    }
+    scrollToBottom();
   }, []);
 
   const handleChatClose = () => {
