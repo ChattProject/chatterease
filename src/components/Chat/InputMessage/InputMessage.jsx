@@ -1,5 +1,5 @@
 import React from "react";
-import Input from '@mui/material/Input';
+import Input from "@mui/material/Input";
 // import InputAdornment from "@material-ui/core/InputAdornment";
 import "./InputMessage.css";
 
@@ -44,12 +44,11 @@ export const InputMessage = ({
 
   const handleKeyDown = (event) => {
     if (event.key === "Shift") {
-      event.preventDefault(); 
+      event.preventDefault();
     } else if (event.key === "Enter") {
       if (event.shiftKey) {
         handleSubmit(event);
       } else {
-
         event.preventDefault();
         const textArea = event.target;
         const value = textArea.value;
@@ -96,14 +95,10 @@ export const InputMessage = ({
             },
           }}
           multiline={true}
-          // rows={1}
           value={message}
           onChange={handleSetMessage}
           onKeyPress={handleKeyPress}
           onKeyDown={handleKeyDown}
-          // endAdornment={
-          //   <InputAdornment position="end">Повідомлення...</InputAdornment>
-          // }
           labelWidth={0}
           inputProps={{
             "aria-label": "message input",
@@ -113,7 +108,8 @@ export const InputMessage = ({
             const lineHeight = parseInt(getComputedStyle(e.target).lineHeight);
             const rows = Math.floor(e.target.scrollHeight / lineHeight);
             e.target.rows = rows;
-            document.querySelector('.input-message__input_info').style.display = 'block';
+            document.querySelector(".input-message__input_info").style.display =
+              "block";
           }}
         />
         <div className="input-message__input_info paragraph">

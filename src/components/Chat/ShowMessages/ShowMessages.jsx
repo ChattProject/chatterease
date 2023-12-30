@@ -109,7 +109,7 @@ export const ShowMessages = ({
                   <div className="message__name">{card.author}</div>
                   <div className="message__text">
                     {lines.map((line, lineIndex) => (
-                      <React.Fragment key={lineIndex}>
+                      <React.Fragment key={lineIndex + line.length}>
                         {lineIndex > 0 && <br />}{" "}
                         <span
                           className={

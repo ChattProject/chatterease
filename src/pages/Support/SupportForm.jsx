@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./SupportForm.scss";
 import IconSuccessfull from "../../images/iconSuccessfull.png";
 import { useNavigate } from "react-router-dom";
+import emailjs from "emailjs-com";
 
 export const SupportForm = ({ setMobileChatsMenu, selectedChatId }) => {
   const navigate = useNavigate();
@@ -32,16 +33,32 @@ export const SupportForm = ({ setMobileChatsMenu, selectedChatId }) => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://wechat-85y195m1.b4a.run/api/support/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "https://wechat-85y195m1.b4a.run/api/support/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      await emailjs.send(
+        "service_opsec6a", // ваш ID сервісу Email.js
+        "template_xausy1l", // ваш ID шаблону Email.js
+        {
+          from_name: formData.author_name,
+          to_name: "annykuziy@gmail.com",
+          message: `From: ${formData.author_name};
+          E-mail: ${formData.author_email};
+          Message: ${formData.content}`,
+          reply_to: formData.author_email,
         },
-        body: JSON.stringify(formData),
-      });
+        "1RksochJaUxxsgMhm" // ваш ID користувача Email.js
+      );
 
       if (response.ok) {
-        localStorage.setItem("formData", JSON.stringify(formData));
         setIsWindowContentVisible(false);
       } else {
         console.error("Failed to submit the form");
