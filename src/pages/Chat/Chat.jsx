@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { InputMessage } from "../../components/Chat/InputMessage/InputMessage";
 import { ShowMessages } from "../../components/Chat/ShowMessages/ShowMessages";
@@ -35,6 +35,7 @@ export const Chat = ({
   const [isChatDataLoaded, setIsChatDataLoaded] = useState(false);
 
   const { chatId } = useParams();
+  const navigate = useNavigate();
 
   const containerRef = useAutoScroll(chatMessages.length);
 
@@ -82,8 +83,9 @@ export const Chat = ({
         const chat = response.data;
 
         setChatTitle(chat.chatname);
-        setIsChatDataLoaded(true); // Встановлення прапорця, що дані завантажені
+        setIsChatDataLoaded(true);
       } catch (error) {
+        navigate('/chats')
         console.error("Error fetching chat data:", error);
       }
     };
