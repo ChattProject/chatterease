@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import Input from "@mui/material/Input";
-// import InputAdornment from "@material-ui/core/InputAdornment";
 import "./InputMessage.css";
+import { fetchChatMessages } from "../../../store/middleware/middlewareMessages";
 
 export const InputMessage = ({
   addMessageToChat,
   userName,
-  chatId,
   setMessage,
   message,
   containerRef,
@@ -14,6 +15,9 @@ export const InputMessage = ({
   userId,
   container,
 }) => {
+  const { chatId } = useParams();
+  const [enterMessage, setEnterMessage] = useState(false);
+
   const handleKeyPress = (event) => {
     if (event.key === "Enter" || event.keyCode == 13) {
       event.preventDefault();
@@ -21,11 +25,12 @@ export const InputMessage = ({
   };
   const handleSetMessage = (event) => {
     setMessage(event.target.value);
+    setEnterMessage(false)
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    scrollToBottom();
+// scrollToBottom();
 
     if (userName && message.trim() !== "") {
       const messageData = {
@@ -38,9 +43,17 @@ export const InputMessage = ({
       addMessageToChat(messageData);
 
       setMessage("");
+      setEnterMessage(true)
       document.querySelector(".input-message__input").rows = 1;
     }
   };
+
+  useEffect(() => {
+    if (enterMessage === true) {
+      scrollToBottom();
+    }
+  }, [enterMessage])
+
 
   const handleKeyDown = (event) => {
     if (event.key === "Shift") {

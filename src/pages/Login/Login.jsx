@@ -120,7 +120,7 @@ export const Login = ({ setUserName, userName, selectedChatId }) => {
             fill="none"
             className="login__background_flower_right login__background_flower"
           >
-            <g clip-path="url(#clip0_626_14219)">
+            <g clipPath="url(#clip0_626_14219)">
               <path
                 fillRule="evenodd"
                 clipRule="evenodd"

@@ -33,6 +33,8 @@ export const Chat = ({
   const [searchNothingVisible, setSearchNothingVisible] = useState(-1);
   const [showLoader, setShowLoader] = useState(true);
   const [isChatDataLoaded, setIsChatDataLoaded] = useState(false);
+  const [chatLength, setChatLength] = useState(chatMessages.length);
+  const [deltaChatLength, setDeltaChatLength] = useState(0);
 
   const { chatId } = useParams();
   const navigate = useNavigate();
@@ -63,20 +65,29 @@ export const Chat = ({
     }
   }, [userName, users]);
 
-  let container;
-
-  useEffect(() => {
-    if (isChatDataLoaded) {
-      container = containerRef.current;
-    }
-  }, [isChatDataLoaded]);
+  const container = containerRef.current;
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchChatAndSetTitle = async () => {
+    const fetchChatMessagesAndUpdate = async () => {
       try {
         await dispatch(fetchChatMessages(chatId));
+      } catch (error) {
+        console.error("Error fetching chat messages:", error);
+      }
+    };
+
+    const intervalId = setInterval(fetchChatMessagesAndUpdate, 2000);
+    setDeltaChatLength(chatMessages.length - chatLength);
+    setChatLength(chatMessages.length);
+
+    return () => clearInterval(intervalId);
+  }, [chatId, dispatch]);
+
+  useEffect(() => {
+    const fetchChatTitle = async () => {
+      try {
         const response = await axios.get(
           `https://wechat-85y195m1.b4a.run/api/chats/${chatId}`
         );
@@ -85,17 +96,15 @@ export const Chat = ({
         setChatTitle(chat.chatname);
         setIsChatDataLoaded(true);
       } catch (error) {
-        navigate('/chats')
-        console.error("Error fetching chat data:", error);
+        navigate("/chats");
+        console.error("Error fetching chat title:", error);
       }
     };
 
-    fetchChatAndSetTitle();
+    fetchChatTitle();
 
-    const intervalId = setInterval(fetchChatAndSetTitle, 2000);
-
-    return () => clearInterval(intervalId);
-  }, [chatId, dispatch]);
+    return () => {};
+  }, [chatId]);
 
   const scrollToBottom = () => {
     if (container) {
@@ -120,8 +129,10 @@ export const Chat = ({
   };
 
   useEffect(() => {
-    isChatDataLoaded && scrollToBottom();
-  }, [message, isChatDataLoaded]);
+    if (deltaChatLength > 0) {
+      scrollToBottom();
+    }
+  }, [chatMessages]);
 
   const handleChatClose = () => {
     setIsClosingChat(true);
