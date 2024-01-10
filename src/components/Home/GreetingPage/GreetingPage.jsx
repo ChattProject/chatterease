@@ -23,18 +23,6 @@ export const GreetingPage = ({
             <div className="greetings__title">{page.header}</div>
             <div className="greetings__description">{page.text}</div>
           </div>
-
-          {/* <ul className="greeting__dots">
-            {[0, 1, 2].map((item) => (
-              <li key={item}>
-                <button
-                  className={`greeting__dot ${item === choosedPageIndex ? 'active' : ''}`}
-                  onClick={() => handlePageClick(item)}
-                ></button>
-              </li>
-            ))}
-          </ul> */}
-
           <GreetingDots
             choosedPage={choosedPageIndex}
             handlePageClick={handlePageClick}

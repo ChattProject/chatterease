@@ -123,7 +123,6 @@ export const Chat = ({
   };
 
   useEffect(() => {
-    console.log(deltaChatLength, chatLength);
     setDeltaChatLength(chatMessages.length - chatLength);
     setChatLength(chatMessages.length);
     if (deltaChatLength > 0) {

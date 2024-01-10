@@ -1,12 +1,9 @@
 import "./App.css";
 import "./style/style.scss";
-// import axios from "axios";
-import { connect } from "react-redux";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { ChatList } from "./pages/ChatList/ChatList";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
-// import { addChat, addMessage } from "./actions/actions";
 import { Chat } from "./pages/Chat/Chat";
 import { Home } from "./pages/Home/Home";
 import { Header } from "./components/Header/Header";

@@ -6,15 +6,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import App from "./App";
-import { HashRouter} from "react-router-dom";
+import { BrowserRouter, HashRouter } from "react-router-dom";
+import { createBrowserHistory } from 'history';
+
+const history = createBrowserHistory();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <HashRouter>
+      <BrowserRouter history={history} basename="/chatterease">
         <App />
-      </HashRouter>
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>
 );
