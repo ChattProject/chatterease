@@ -31,7 +31,7 @@ export const Chat = ({
   const [searchInput, setSearchInput] = useState(false);
   const [searchInChat, setSearchInChat] = useState("");
   const [searchNothingVisible, setSearchNothingVisible] = useState(-1);
-  const [showLoader, setShowLoader] = useState(true);
+  const [showLoader, setShowLoader] = useState(false);
   const [isChatDataLoaded, setIsChatDataLoaded] = useState(false);
   const [chatLength, setChatLength] = useState(chatMessages.length);
   const [deltaChatLength, setDeltaChatLength] = useState(0);
@@ -42,16 +42,12 @@ export const Chat = ({
   const containerRef = useAutoScroll(chatMessages.length);
 
   useEffect(() => {
-    if (chatMessages.length !== 0) {
-      setShowLoader(false);
-    } else {
-      const timeoutId = setTimeout(() => {
-        setShowLoader(false);
-      }, 3000);
+    const timeoutId = setTimeout(() => {
+      setShowLoader(true);
+    }, 3000);
 
-      return () => clearTimeout(timeoutId);
-    }
-  }, [chatMessages]);
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   useEffect(() => {
     if (userName !== "") {
@@ -77,7 +73,7 @@ export const Chat = ({
         console.error("Error fetching chat messages:", error);
       }
     };
-
+    console.log(chatMessages);
     const intervalId = setInterval(fetchChatMessagesAndUpdate, 2000);
     setDeltaChatLength(chatMessages.length - chatLength);
     setChatLength(chatMessages.length);

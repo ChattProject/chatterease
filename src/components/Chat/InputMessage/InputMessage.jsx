@@ -112,7 +112,7 @@ export const InputMessage = ({
           onChange={handleSetMessage}
           onKeyPress={handleKeyPress}
           onKeyDown={handleKeyDown}
-          labelWidth={0}
+          labelwidth={0}
           inputProps={{
             "aria-label": "message input",
           }}

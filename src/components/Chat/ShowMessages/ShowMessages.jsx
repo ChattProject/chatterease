@@ -103,7 +103,7 @@ export const ShowMessages = ({
                   className={`show_message__message  message ${
                     userName === card.author && "message_right"
                   } ${isLastMessage && "message__last"}`}
-                  key={card.id + index}
+                  key={card.id + index + card.length}
                   ref={isLastMessage ? lastMessageRef : null}
                 >
                   <div className="message__name">{card.author}</div>
