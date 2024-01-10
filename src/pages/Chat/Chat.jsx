@@ -73,11 +73,9 @@ export const Chat = ({
         console.error("Error fetching chat messages:", error);
       }
     };
-    console.log(chatMessages);
     const intervalId = setInterval(fetchChatMessagesAndUpdate, 2000);
     setDeltaChatLength(chatMessages.length - chatLength);
     setChatLength(chatMessages.length);
-
     return () => clearInterval(intervalId);
   }, [chatId, dispatch]);
 
@@ -125,10 +123,13 @@ export const Chat = ({
   };
 
   useEffect(() => {
+    console.log(deltaChatLength, chatLength);
+    setDeltaChatLength(chatMessages.length - chatLength);
+    setChatLength(chatMessages.length);
     if (deltaChatLength > 0) {
       scrollToBottom();
     }
-  }, [chatMessages]);
+  }, [chatMessages, deltaChatLength, chatLength]);
 
   const handleChatClose = () => {
     setIsClosingChat(true);

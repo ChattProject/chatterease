@@ -6,15 +6,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import App from "./App";
-import { HashRouter as Router } from "react-router-dom";
+import { HashRouter} from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Router basename="/chatterease">
+      <HashRouter>
         <App />
-      </Router>
+      </HashRouter>
     </Provider>
   </React.StrictMode>
 );
