@@ -31,7 +31,7 @@ export const Chat = ({
   const [searchInput, setSearchInput] = useState(false);
   const [searchInChat, setSearchInChat] = useState("");
   const [searchNothingVisible, setSearchNothingVisible] = useState(-1);
-  const [showLoader, setShowLoader] = useState(false);
+  const [showLoader, setShowLoader] = useState(true);
   const [isChatDataLoaded, setIsChatDataLoaded] = useState(false);
   const [chatLength, setChatLength] = useState(chatMessages.length);
   const [deltaChatLength, setDeltaChatLength] = useState(0);
@@ -43,7 +43,7 @@ export const Chat = ({
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      setShowLoader(true);
+      setShowLoader(false);
     }, 3000);
 
     return () => clearTimeout(timeoutId);
